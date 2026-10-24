@@ -365,6 +365,63 @@ func (_c *Client_CompleteActivityByActivityID_Call) RunAndReturn(run func(ctx co
 	return _c
 }
 
+// CompleteActivityByActivityIDWithOptions provides a mock function for the type Client
+func (_mock *Client) CompleteActivityByActivityIDWithOptions(ctx context.Context, opts client.CompleteActivityByActivityIDOptions) error {
+	ret := _mock.Called(ctx, opts)
+
+	if len(ret) == 0 {
+		panic("no return value specified for CompleteActivityByActivityIDWithOptions")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CompleteActivityByActivityIDOptions) error); ok {
+		r0 = returnFunc(ctx, opts)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// Client_CompleteActivityByActivityIDWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CompleteActivityByActivityIDWithOptions'
+type Client_CompleteActivityByActivityIDWithOptions_Call struct {
+	*mock.Call
+}
+
+// CompleteActivityByActivityIDWithOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - opts client.CompleteActivityByActivityIDOptions
+func (_e *Client_Expecter) CompleteActivityByActivityIDWithOptions(ctx any, opts any) *Client_CompleteActivityByActivityIDWithOptions_Call {
+	return &Client_CompleteActivityByActivityIDWithOptions_Call{Call: _e.mock.On("CompleteActivityByActivityIDWithOptions", ctx, opts)}
+}
+
+func (_c *Client_CompleteActivityByActivityIDWithOptions_Call) Run(run func(ctx context.Context, opts client.CompleteActivityByActivityIDOptions)) *Client_CompleteActivityByActivityIDWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.CompleteActivityByActivityIDOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.CompleteActivityByActivityIDOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_CompleteActivityByActivityIDWithOptions_Call) Return(err error) *Client_CompleteActivityByActivityIDWithOptions_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *Client_CompleteActivityByActivityIDWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.CompleteActivityByActivityIDOptions) error) *Client_CompleteActivityByActivityIDWithOptions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CompleteActivityByID provides a mock function for the type Client
 func (_mock *Client) CompleteActivityByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error) error {
 	ret := _mock.Called(ctx, namespace, workflowID, runID, activityID, result, err)
@@ -448,6 +505,120 @@ func (_c *Client_CompleteActivityByID_Call) Return(err1 error) *Client_CompleteA
 }
 
 func (_c *Client_CompleteActivityByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error) error) *Client_CompleteActivityByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CompleteActivityByIDWithOptions provides a mock function for the type Client
+func (_mock *Client) CompleteActivityByIDWithOptions(ctx context.Context, opts client.CompleteActivityByIDOptions) error {
+	ret := _mock.Called(ctx, opts)
+
+	if len(ret) == 0 {
+		panic("no return value specified for CompleteActivityByIDWithOptions")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CompleteActivityByIDOptions) error); ok {
+		r0 = returnFunc(ctx, opts)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// Client_CompleteActivityByIDWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CompleteActivityByIDWithOptions'
+type Client_CompleteActivityByIDWithOptions_Call struct {
+	*mock.Call
+}
+
+// CompleteActivityByIDWithOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - opts client.CompleteActivityByIDOptions
+func (_e *Client_Expecter) CompleteActivityByIDWithOptions(ctx any, opts any) *Client_CompleteActivityByIDWithOptions_Call {
+	return &Client_CompleteActivityByIDWithOptions_Call{Call: _e.mock.On("CompleteActivityByIDWithOptions", ctx, opts)}
+}
+
+func (_c *Client_CompleteActivityByIDWithOptions_Call) Run(run func(ctx context.Context, opts client.CompleteActivityByIDOptions)) *Client_CompleteActivityByIDWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.CompleteActivityByIDOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.CompleteActivityByIDOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_CompleteActivityByIDWithOptions_Call) Return(err error) *Client_CompleteActivityByIDWithOptions_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *Client_CompleteActivityByIDWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.CompleteActivityByIDOptions) error) *Client_CompleteActivityByIDWithOptions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// CompleteActivityWithOptions provides a mock function for the type Client
+func (_mock *Client) CompleteActivityWithOptions(ctx context.Context, opts client.CompleteActivityOptions) error {
+	ret := _mock.Called(ctx, opts)
+
+	if len(ret) == 0 {
+		panic("no return value specified for CompleteActivityWithOptions")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CompleteActivityOptions) error); ok {
+		r0 = returnFunc(ctx, opts)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// Client_CompleteActivityWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CompleteActivityWithOptions'
+type Client_CompleteActivityWithOptions_Call struct {
+	*mock.Call
+}
+
+// CompleteActivityWithOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - opts client.CompleteActivityOptions
+func (_e *Client_Expecter) CompleteActivityWithOptions(ctx any, opts any) *Client_CompleteActivityWithOptions_Call {
+	return &Client_CompleteActivityWithOptions_Call{Call: _e.mock.On("CompleteActivityWithOptions", ctx, opts)}
+}
+
+func (_c *Client_CompleteActivityWithOptions_Call) Run(run func(ctx context.Context, opts client.CompleteActivityOptions)) *Client_CompleteActivityWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.CompleteActivityOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.CompleteActivityOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_CompleteActivityWithOptions_Call) Return(err error) *Client_CompleteActivityWithOptions_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *Client_CompleteActivityWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.CompleteActivityOptions) error) *Client_CompleteActivityWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2393,6 +2564,120 @@ func (_c *Client_RecordActivityHeartbeatByID_Call) Return(err error) *Client_Rec
 }
 
 func (_c *Client_RecordActivityHeartbeatByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...interface{}) error) *Client_RecordActivityHeartbeatByID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// RecordActivityHeartbeatByIDWithOptions provides a mock function for the type Client
+func (_mock *Client) RecordActivityHeartbeatByIDWithOptions(ctx context.Context, opts client.RecordActivityHeartbeatByIDOptions) error {
+	ret := _mock.Called(ctx, opts)
+
+	if len(ret) == 0 {
+		panic("no return value specified for RecordActivityHeartbeatByIDWithOptions")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.RecordActivityHeartbeatByIDOptions) error); ok {
+		r0 = returnFunc(ctx, opts)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// Client_RecordActivityHeartbeatByIDWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RecordActivityHeartbeatByIDWithOptions'
+type Client_RecordActivityHeartbeatByIDWithOptions_Call struct {
+	*mock.Call
+}
+
+// RecordActivityHeartbeatByIDWithOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - opts client.RecordActivityHeartbeatByIDOptions
+func (_e *Client_Expecter) RecordActivityHeartbeatByIDWithOptions(ctx any, opts any) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
+	return &Client_RecordActivityHeartbeatByIDWithOptions_Call{Call: _e.mock.On("RecordActivityHeartbeatByIDWithOptions", ctx, opts)}
+}
+
+func (_c *Client_RecordActivityHeartbeatByIDWithOptions_Call) Run(run func(ctx context.Context, opts client.RecordActivityHeartbeatByIDOptions)) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.RecordActivityHeartbeatByIDOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.RecordActivityHeartbeatByIDOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_RecordActivityHeartbeatByIDWithOptions_Call) Return(err error) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *Client_RecordActivityHeartbeatByIDWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.RecordActivityHeartbeatByIDOptions) error) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// RecordActivityHeartbeatWithOptions provides a mock function for the type Client
+func (_mock *Client) RecordActivityHeartbeatWithOptions(ctx context.Context, opts client.RecordActivityHeartbeatOptions) error {
+	ret := _mock.Called(ctx, opts)
+
+	if len(ret) == 0 {
+		panic("no return value specified for RecordActivityHeartbeatWithOptions")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.RecordActivityHeartbeatOptions) error); ok {
+		r0 = returnFunc(ctx, opts)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// Client_RecordActivityHeartbeatWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RecordActivityHeartbeatWithOptions'
+type Client_RecordActivityHeartbeatWithOptions_Call struct {
+	*mock.Call
+}
+
+// RecordActivityHeartbeatWithOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - opts client.RecordActivityHeartbeatOptions
+func (_e *Client_Expecter) RecordActivityHeartbeatWithOptions(ctx any, opts any) *Client_RecordActivityHeartbeatWithOptions_Call {
+	return &Client_RecordActivityHeartbeatWithOptions_Call{Call: _e.mock.On("RecordActivityHeartbeatWithOptions", ctx, opts)}
+}
+
+func (_c *Client_RecordActivityHeartbeatWithOptions_Call) Run(run func(ctx context.Context, opts client.RecordActivityHeartbeatOptions)) *Client_RecordActivityHeartbeatWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.RecordActivityHeartbeatOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.RecordActivityHeartbeatOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_RecordActivityHeartbeatWithOptions_Call) Return(err error) *Client_RecordActivityHeartbeatWithOptions_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *Client_RecordActivityHeartbeatWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.RecordActivityHeartbeatOptions) error) *Client_RecordActivityHeartbeatWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
