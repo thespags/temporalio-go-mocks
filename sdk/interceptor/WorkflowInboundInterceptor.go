@@ -47,23 +47,23 @@ func (_m *WorkflowInboundInterceptor) EXPECT() *WorkflowInboundInterceptor_Expec
 }
 
 // ExecuteUpdate provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) ExecuteUpdate(ctx workflow.Context, in *interceptor.UpdateInput) (interface{}, error) {
+func (_mock *WorkflowInboundInterceptor) ExecuteUpdate(ctx workflow.Context, in *interceptor.UpdateInput) (any, error) {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ExecuteUpdate")
 	}
 
-	var r0 interface{}
+	var r0 any
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.UpdateInput) (interface{}, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.UpdateInput) (any, error)); ok {
 		return returnFunc(ctx, in)
 	}
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.UpdateInput) interface{}); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.UpdateInput) any); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(interface{})
+			r0 = ret.Get(0).(any)
 		}
 	}
 	if returnFunc, ok := ret.Get(1).(func(workflow.Context, *interceptor.UpdateInput) error); ok {
@@ -104,34 +104,34 @@ func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Run(run func(ctx workfl
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Return(ifaceVal interface{}, err error) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
-	_c.Call.Return(ifaceVal, err)
+func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Return(anyMoqParam any, err error) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
+	_c.Call.Return(anyMoqParam, err)
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.UpdateInput) (interface{}, error)) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
+func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.UpdateInput) (any, error)) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ExecuteWorkflow provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) ExecuteWorkflow(ctx workflow.Context, in *interceptor.ExecuteWorkflowInput) (interface{}, error) {
+func (_mock *WorkflowInboundInterceptor) ExecuteWorkflow(ctx workflow.Context, in *interceptor.ExecuteWorkflowInput) (any, error) {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ExecuteWorkflow")
 	}
 
-	var r0 interface{}
+	var r0 any
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) (interface{}, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) (any, error)); ok {
 		return returnFunc(ctx, in)
 	}
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) interface{}); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) any); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(interface{})
+			r0 = ret.Get(0).(any)
 		}
 	}
 	if returnFunc, ok := ret.Get(1).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) error); ok {
@@ -172,34 +172,34 @@ func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Run(run func(ctx work
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Return(ifaceVal interface{}, err error) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
-	_c.Call.Return(ifaceVal, err)
+func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Return(anyMoqParam any, err error) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
+	_c.Call.Return(anyMoqParam, err)
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.ExecuteWorkflowInput) (interface{}, error)) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
+func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.ExecuteWorkflowInput) (any, error)) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // HandleQuery provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) HandleQuery(ctx workflow.Context, in *interceptor.HandleQueryInput) (interface{}, error) {
+func (_mock *WorkflowInboundInterceptor) HandleQuery(ctx workflow.Context, in *interceptor.HandleQueryInput) (any, error) {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
 		panic("no return value specified for HandleQuery")
 	}
 
-	var r0 interface{}
+	var r0 any
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.HandleQueryInput) (interface{}, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.HandleQueryInput) (any, error)); ok {
 		return returnFunc(ctx, in)
 	}
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.HandleQueryInput) interface{}); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.HandleQueryInput) any); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(interface{})
+			r0 = ret.Get(0).(any)
 		}
 	}
 	if returnFunc, ok := ret.Get(1).(func(workflow.Context, *interceptor.HandleQueryInput) error); ok {
@@ -240,12 +240,12 @@ func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Run(run func(ctx workflow
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Return(ifaceVal interface{}, err error) *WorkflowInboundInterceptor_HandleQuery_Call {
-	_c.Call.Return(ifaceVal, err)
+func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Return(anyMoqParam any, err error) *WorkflowInboundInterceptor_HandleQuery_Call {
+	_c.Call.Return(anyMoqParam, err)
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_HandleQuery_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.HandleQueryInput) (interface{}, error)) *WorkflowInboundInterceptor_HandleQuery_Call {
+func (_c *WorkflowInboundInterceptor_HandleQuery_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.HandleQueryInput) (any, error)) *WorkflowInboundInterceptor_HandleQuery_Call {
 	_c.Call.Return(run)
 	return _c
 }

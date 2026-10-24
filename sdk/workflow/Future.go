@@ -46,7 +46,7 @@ func (_m *Future) EXPECT() *Future_Expecter {
 }
 
 // Get provides a mock function for the type Future
-func (_mock *Future) Get(ctx workflow.Context, valuePtr interface{}) error {
+func (_mock *Future) Get(ctx workflow.Context, valuePtr any) error {
 	ret := _mock.Called(ctx, valuePtr)
 
 	if len(ret) == 0 {
@@ -54,7 +54,7 @@ func (_mock *Future) Get(ctx workflow.Context, valuePtr interface{}) error {
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, any) error); ok {
 		r0 = returnFunc(ctx, valuePtr)
 	} else {
 		r0 = ret.Error(0)
@@ -69,20 +69,20 @@ type Future_Get_Call struct {
 
 // Get is a helper method to define mock.On call
 //   - ctx workflow.Context
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *Future_Expecter) Get(ctx any, valuePtr any) *Future_Get_Call {
 	return &Future_Get_Call{Call: _e.mock.On("Get", ctx, valuePtr)}
 }
 
-func (_c *Future_Get_Call) Run(run func(ctx workflow.Context, valuePtr interface{})) *Future_Get_Call {
+func (_c *Future_Get_Call) Run(run func(ctx workflow.Context, valuePtr any)) *Future_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 workflow.Context
 		if args[0] != nil {
 			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
 		run(
 			arg0,
@@ -97,7 +97,7 @@ func (_c *Future_Get_Call) Return(err error) *Future_Get_Call {
 	return _c
 }
 
-func (_c *Future_Get_Call) RunAndReturn(run func(ctx workflow.Context, valuePtr interface{}) error) *Future_Get_Call {
+func (_c *Future_Get_Call) RunAndReturn(run func(ctx workflow.Context, valuePtr any) error) *Future_Get_Call {
 	_c.Call.Return(run)
 	return _c
 }

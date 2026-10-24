@@ -86,7 +86,7 @@ func (_c *Settable_Chain_Call) RunAndReturn(run func(future workflow.Future)) *S
 }
 
 // Set provides a mock function for the type Settable
-func (_mock *Settable) Set(value interface{}, err error) {
+func (_mock *Settable) Set(value any, err error) {
 	_mock.Called(value, err)
 	return
 }
@@ -97,17 +97,17 @@ type Settable_Set_Call struct {
 }
 
 // Set is a helper method to define mock.On call
-//   - value interface{}
+//   - value any
 //   - err error
 func (_e *Settable_Expecter) Set(value any, err any) *Settable_Set_Call {
 	return &Settable_Set_Call{Call: _e.mock.On("Set", value, err)}
 }
 
-func (_c *Settable_Set_Call) Run(run func(value interface{}, err error)) *Settable_Set_Call {
+func (_c *Settable_Set_Call) Run(run func(value any, err error)) *Settable_Set_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 error
 		if args[1] != nil {
@@ -126,7 +126,7 @@ func (_c *Settable_Set_Call) Return() *Settable_Set_Call {
 	return _c
 }
 
-func (_c *Settable_Set_Call) RunAndReturn(run func(value interface{}, err error)) *Settable_Set_Call {
+func (_c *Settable_Set_Call) RunAndReturn(run func(value any, err error)) *Settable_Set_Call {
 	_c.Run(run)
 	return _c
 }
@@ -172,7 +172,7 @@ func (_c *Settable_SetError_Call) RunAndReturn(run func(err error)) *Settable_Se
 }
 
 // SetValue provides a mock function for the type Settable
-func (_mock *Settable) SetValue(value interface{}) {
+func (_mock *Settable) SetValue(value any) {
 	_mock.Called(value)
 	return
 }
@@ -183,16 +183,16 @@ type Settable_SetValue_Call struct {
 }
 
 // SetValue is a helper method to define mock.On call
-//   - value interface{}
+//   - value any
 func (_e *Settable_Expecter) SetValue(value any) *Settable_SetValue_Call {
 	return &Settable_SetValue_Call{Call: _e.mock.On("SetValue", value)}
 }
 
-func (_c *Settable_SetValue_Call) Run(run func(value interface{})) *Settable_SetValue_Call {
+func (_c *Settable_SetValue_Call) Run(run func(value any)) *Settable_SetValue_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -206,7 +206,7 @@ func (_c *Settable_SetValue_Call) Return() *Settable_SetValue_Call {
 	return _c
 }
 
-func (_c *Settable_SetValue_Call) RunAndReturn(run func(value interface{})) *Settable_SetValue_Call {
+func (_c *Settable_SetValue_Call) RunAndReturn(run func(value any)) *Settable_SetValue_Call {
 	_c.Run(run)
 	return _c
 }

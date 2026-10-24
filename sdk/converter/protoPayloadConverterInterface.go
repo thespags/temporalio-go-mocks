@@ -134,7 +134,7 @@ func (_c *protoPayloadConverterInterface_ExcludeProtobufMessageTypes_Call) RunAn
 }
 
 // FromPayload provides a mock function for the type protoPayloadConverterInterface
-func (_mock *protoPayloadConverterInterface) FromPayload(payload *common.Payload, valuePtr interface{}) error {
+func (_mock *protoPayloadConverterInterface) FromPayload(payload *common.Payload, valuePtr any) error {
 	ret := _mock.Called(payload, valuePtr)
 
 	if len(ret) == 0 {
@@ -142,7 +142,7 @@ func (_mock *protoPayloadConverterInterface) FromPayload(payload *common.Payload
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(*common.Payload, interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(*common.Payload, any) error); ok {
 		r0 = returnFunc(payload, valuePtr)
 	} else {
 		r0 = ret.Error(0)
@@ -157,20 +157,20 @@ type protoPayloadConverterInterface_FromPayload_Call struct {
 
 // FromPayload is a helper method to define mock.On call
 //   - payload *common.Payload
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *protoPayloadConverterInterface_Expecter) FromPayload(payload any, valuePtr any) *protoPayloadConverterInterface_FromPayload_Call {
 	return &protoPayloadConverterInterface_FromPayload_Call{Call: _e.mock.On("FromPayload", payload, valuePtr)}
 }
 
-func (_c *protoPayloadConverterInterface_FromPayload_Call) Run(run func(payload *common.Payload, valuePtr interface{})) *protoPayloadConverterInterface_FromPayload_Call {
+func (_c *protoPayloadConverterInterface_FromPayload_Call) Run(run func(payload *common.Payload, valuePtr any)) *protoPayloadConverterInterface_FromPayload_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 *common.Payload
 		if args[0] != nil {
 			arg0 = args[0].(*common.Payload)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
 		run(
 			arg0,
@@ -185,13 +185,13 @@ func (_c *protoPayloadConverterInterface_FromPayload_Call) Return(err error) *pr
 	return _c
 }
 
-func (_c *protoPayloadConverterInterface_FromPayload_Call) RunAndReturn(run func(payload *common.Payload, valuePtr interface{}) error) *protoPayloadConverterInterface_FromPayload_Call {
+func (_c *protoPayloadConverterInterface_FromPayload_Call) RunAndReturn(run func(payload *common.Payload, valuePtr any) error) *protoPayloadConverterInterface_FromPayload_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ToPayload provides a mock function for the type protoPayloadConverterInterface
-func (_mock *protoPayloadConverterInterface) ToPayload(value interface{}) (*common.Payload, error) {
+func (_mock *protoPayloadConverterInterface) ToPayload(value any) (*common.Payload, error) {
 	ret := _mock.Called(value)
 
 	if len(ret) == 0 {
@@ -200,17 +200,17 @@ func (_mock *protoPayloadConverterInterface) ToPayload(value interface{}) (*comm
 
 	var r0 *common.Payload
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(interface{}) (*common.Payload, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) (*common.Payload, error)); ok {
 		return returnFunc(value)
 	}
-	if returnFunc, ok := ret.Get(0).(func(interface{}) *common.Payload); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) *common.Payload); ok {
 		r0 = returnFunc(value)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*common.Payload)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(interface{}) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(any) error); ok {
 		r1 = returnFunc(value)
 	} else {
 		r1 = ret.Error(1)
@@ -224,16 +224,16 @@ type protoPayloadConverterInterface_ToPayload_Call struct {
 }
 
 // ToPayload is a helper method to define mock.On call
-//   - value interface{}
+//   - value any
 func (_e *protoPayloadConverterInterface_Expecter) ToPayload(value any) *protoPayloadConverterInterface_ToPayload_Call {
 	return &protoPayloadConverterInterface_ToPayload_Call{Call: _e.mock.On("ToPayload", value)}
 }
 
-func (_c *protoPayloadConverterInterface_ToPayload_Call) Run(run func(value interface{})) *protoPayloadConverterInterface_ToPayload_Call {
+func (_c *protoPayloadConverterInterface_ToPayload_Call) Run(run func(value any)) *protoPayloadConverterInterface_ToPayload_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -247,7 +247,7 @@ func (_c *protoPayloadConverterInterface_ToPayload_Call) Return(payload *common.
 	return _c
 }
 
-func (_c *protoPayloadConverterInterface_ToPayload_Call) RunAndReturn(run func(value interface{}) (*common.Payload, error)) *protoPayloadConverterInterface_ToPayload_Call {
+func (_c *protoPayloadConverterInterface_ToPayload_Call) RunAndReturn(run func(value any) (*common.Payload, error)) *protoPayloadConverterInterface_ToPayload_Call {
 	_c.Call.Return(run)
 	return _c
 }

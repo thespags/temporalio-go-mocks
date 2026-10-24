@@ -47,7 +47,7 @@ func (_m *WorkflowUpdateHandle) EXPECT() *WorkflowUpdateHandle_Expecter {
 }
 
 // Get provides a mock function for the type WorkflowUpdateHandle
-func (_mock *WorkflowUpdateHandle) Get(ctx context.Context, valuePtr interface{}) error {
+func (_mock *WorkflowUpdateHandle) Get(ctx context.Context, valuePtr any) error {
 	ret := _mock.Called(ctx, valuePtr)
 
 	if len(ret) == 0 {
@@ -55,7 +55,7 @@ func (_mock *WorkflowUpdateHandle) Get(ctx context.Context, valuePtr interface{}
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, any) error); ok {
 		r0 = returnFunc(ctx, valuePtr)
 	} else {
 		r0 = ret.Error(0)
@@ -70,20 +70,20 @@ type WorkflowUpdateHandle_Get_Call struct {
 
 // Get is a helper method to define mock.On call
 //   - ctx context.Context
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *WorkflowUpdateHandle_Expecter) Get(ctx any, valuePtr any) *WorkflowUpdateHandle_Get_Call {
 	return &WorkflowUpdateHandle_Get_Call{Call: _e.mock.On("Get", ctx, valuePtr)}
 }
 
-func (_c *WorkflowUpdateHandle_Get_Call) Run(run func(ctx context.Context, valuePtr interface{})) *WorkflowUpdateHandle_Get_Call {
+func (_c *WorkflowUpdateHandle_Get_Call) Run(run func(ctx context.Context, valuePtr any)) *WorkflowUpdateHandle_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
 			arg0 = args[0].(context.Context)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
 		run(
 			arg0,
@@ -98,7 +98,7 @@ func (_c *WorkflowUpdateHandle_Get_Call) Return(err error) *WorkflowUpdateHandle
 	return _c
 }
 
-func (_c *WorkflowUpdateHandle_Get_Call) RunAndReturn(run func(ctx context.Context, valuePtr interface{}) error) *WorkflowUpdateHandle_Get_Call {
+func (_c *WorkflowUpdateHandle_Get_Call) RunAndReturn(run func(ctx context.Context, valuePtr any) error) *WorkflowUpdateHandle_Get_Call {
 	_c.Call.Return(run)
 	return _c
 }

@@ -273,7 +273,7 @@ func (_c *Client_Close_Call) RunAndReturn(run func()) *Client_Close_Call {
 }
 
 // CompleteActivity provides a mock function for the type Client
-func (_mock *Client) CompleteActivity(ctx context.Context, taskToken []byte, result interface{}, err error) error {
+func (_mock *Client) CompleteActivity(ctx context.Context, taskToken []byte, result any, err error) error {
 	ret := _mock.Called(ctx, taskToken, result, err)
 
 	if len(ret) == 0 {
@@ -281,7 +281,7 @@ func (_mock *Client) CompleteActivity(ctx context.Context, taskToken []byte, res
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, interface{}, error) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, any, error) error); ok {
 		r0 = returnFunc(ctx, taskToken, result, err)
 	} else {
 		r0 = ret.Error(0)
@@ -297,13 +297,13 @@ type Client_CompleteActivity_Call struct {
 // CompleteActivity is a helper method to define mock.On call
 //   - ctx context.Context
 //   - taskToken []byte
-//   - result interface{}
+//   - result any
 //   - err error
 func (_e *Client_Expecter) CompleteActivity(ctx any, taskToken any, result any, err any) *Client_CompleteActivity_Call {
 	return &Client_CompleteActivity_Call{Call: _e.mock.On("CompleteActivity", ctx, taskToken, result, err)}
 }
 
-func (_c *Client_CompleteActivity_Call) Run(run func(ctx context.Context, taskToken []byte, result interface{}, err error)) *Client_CompleteActivity_Call {
+func (_c *Client_CompleteActivity_Call) Run(run func(ctx context.Context, taskToken []byte, result any, err error)) *Client_CompleteActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -313,9 +313,9 @@ func (_c *Client_CompleteActivity_Call) Run(run func(ctx context.Context, taskTo
 		if args[1] != nil {
 			arg1 = args[1].([]byte)
 		}
-		var arg2 interface{}
+		var arg2 any
 		if args[2] != nil {
-			arg2 = args[2].(interface{})
+			arg2 = args[2].(any)
 		}
 		var arg3 error
 		if args[3] != nil {
@@ -336,13 +336,13 @@ func (_c *Client_CompleteActivity_Call) Return(err1 error) *Client_CompleteActiv
 	return _c
 }
 
-func (_c *Client_CompleteActivity_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, result interface{}, err error) error) *Client_CompleteActivity_Call {
+func (_c *Client_CompleteActivity_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, result any, err error) error) *Client_CompleteActivity_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // CompleteActivityByActivityID provides a mock function for the type Client
-func (_mock *Client) CompleteActivityByActivityID(ctx context.Context, namespace string, activityID string, activityRunID string, result interface{}, err error) error {
+func (_mock *Client) CompleteActivityByActivityID(ctx context.Context, namespace string, activityID string, activityRunID string, result any, err error) error {
 	ret := _mock.Called(ctx, namespace, activityID, activityRunID, result, err)
 
 	if len(ret) == 0 {
@@ -350,7 +350,7 @@ func (_mock *Client) CompleteActivityByActivityID(ctx context.Context, namespace
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, interface{}, error) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, any, error) error); ok {
 		r0 = returnFunc(ctx, namespace, activityID, activityRunID, result, err)
 	} else {
 		r0 = ret.Error(0)
@@ -368,13 +368,13 @@ type Client_CompleteActivityByActivityID_Call struct {
 //   - namespace string
 //   - activityID string
 //   - activityRunID string
-//   - result interface{}
+//   - result any
 //   - err error
 func (_e *Client_Expecter) CompleteActivityByActivityID(ctx any, namespace any, activityID any, activityRunID any, result any, err any) *Client_CompleteActivityByActivityID_Call {
 	return &Client_CompleteActivityByActivityID_Call{Call: _e.mock.On("CompleteActivityByActivityID", ctx, namespace, activityID, activityRunID, result, err)}
 }
 
-func (_c *Client_CompleteActivityByActivityID_Call) Run(run func(ctx context.Context, namespace string, activityID string, activityRunID string, result interface{}, err error)) *Client_CompleteActivityByActivityID_Call {
+func (_c *Client_CompleteActivityByActivityID_Call) Run(run func(ctx context.Context, namespace string, activityID string, activityRunID string, result any, err error)) *Client_CompleteActivityByActivityID_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -392,9 +392,9 @@ func (_c *Client_CompleteActivityByActivityID_Call) Run(run func(ctx context.Con
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 interface{}
+		var arg4 any
 		if args[4] != nil {
-			arg4 = args[4].(interface{})
+			arg4 = args[4].(any)
 		}
 		var arg5 error
 		if args[5] != nil {
@@ -417,7 +417,7 @@ func (_c *Client_CompleteActivityByActivityID_Call) Return(err1 error) *Client_C
 	return _c
 }
 
-func (_c *Client_CompleteActivityByActivityID_Call) RunAndReturn(run func(ctx context.Context, namespace string, activityID string, activityRunID string, result interface{}, err error) error) *Client_CompleteActivityByActivityID_Call {
+func (_c *Client_CompleteActivityByActivityID_Call) RunAndReturn(run func(ctx context.Context, namespace string, activityID string, activityRunID string, result any, err error) error) *Client_CompleteActivityByActivityID_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -480,7 +480,7 @@ func (_c *Client_CompleteActivityByActivityIDWithOptions_Call) RunAndReturn(run 
 }
 
 // CompleteActivityByID provides a mock function for the type Client
-func (_mock *Client) CompleteActivityByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error) error {
+func (_mock *Client) CompleteActivityByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result any, err error) error {
 	ret := _mock.Called(ctx, namespace, workflowID, runID, activityID, result, err)
 
 	if len(ret) == 0 {
@@ -488,7 +488,7 @@ func (_mock *Client) CompleteActivityByID(ctx context.Context, namespace string,
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, interface{}, error) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, any, error) error); ok {
 		r0 = returnFunc(ctx, namespace, workflowID, runID, activityID, result, err)
 	} else {
 		r0 = ret.Error(0)
@@ -507,13 +507,13 @@ type Client_CompleteActivityByID_Call struct {
 //   - workflowID string
 //   - runID string
 //   - activityID string
-//   - result interface{}
+//   - result any
 //   - err error
 func (_e *Client_Expecter) CompleteActivityByID(ctx any, namespace any, workflowID any, runID any, activityID any, result any, err any) *Client_CompleteActivityByID_Call {
 	return &Client_CompleteActivityByID_Call{Call: _e.mock.On("CompleteActivityByID", ctx, namespace, workflowID, runID, activityID, result, err)}
 }
 
-func (_c *Client_CompleteActivityByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error)) *Client_CompleteActivityByID_Call {
+func (_c *Client_CompleteActivityByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result any, err error)) *Client_CompleteActivityByID_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -535,9 +535,9 @@ func (_c *Client_CompleteActivityByID_Call) Run(run func(ctx context.Context, na
 		if args[4] != nil {
 			arg4 = args[4].(string)
 		}
-		var arg5 interface{}
+		var arg5 any
 		if args[5] != nil {
-			arg5 = args[5].(interface{})
+			arg5 = args[5].(any)
 		}
 		var arg6 error
 		if args[6] != nil {
@@ -561,7 +561,7 @@ func (_c *Client_CompleteActivityByID_Call) Return(err1 error) *Client_CompleteA
 	return _c
 }
 
-func (_c *Client_CompleteActivityByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error) error) *Client_CompleteActivityByID_Call {
+func (_c *Client_CompleteActivityByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result any, err error) error) *Client_CompleteActivityByID_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -1308,7 +1308,7 @@ func (_c *Client_ExecuteActivity_Call) RunAndReturn(run func(ctx context.Context
 }
 
 // ExecuteWorkflow provides a mock function for the type Client
-func (_mock *Client) ExecuteWorkflow(ctx context.Context, options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) (client.WorkflowRun, error) {
+func (_mock *Client) ExecuteWorkflow(ctx context.Context, options client.StartWorkflowOptions, workflow any, args ...any) (client.WorkflowRun, error) {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, options, workflow, args)
@@ -1323,17 +1323,17 @@ func (_mock *Client) ExecuteWorkflow(ctx context.Context, options client.StartWo
 
 	var r0 client.WorkflowRun
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, interface{}, ...interface{}) (client.WorkflowRun, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, any, ...any) (client.WorkflowRun, error)); ok {
 		return returnFunc(ctx, options, workflow, args...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, interface{}, ...interface{}) client.WorkflowRun); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, any, ...any) client.WorkflowRun); ok {
 		r0 = returnFunc(ctx, options, workflow, args...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(client.WorkflowRun)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, client.StartWorkflowOptions, interface{}, ...interface{}) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(context.Context, client.StartWorkflowOptions, any, ...any) error); ok {
 		r1 = returnFunc(ctx, options, workflow, args...)
 	} else {
 		r1 = ret.Error(1)
@@ -1349,14 +1349,14 @@ type Client_ExecuteWorkflow_Call struct {
 // ExecuteWorkflow is a helper method to define mock.On call
 //   - ctx context.Context
 //   - options client.StartWorkflowOptions
-//   - workflow interface{}
-//   - args ...interface{}
+//   - workflow any
+//   - args ...any
 func (_e *Client_Expecter) ExecuteWorkflow(ctx any, options any, workflow any, args ...any) *Client_ExecuteWorkflow_Call {
 	return &Client_ExecuteWorkflow_Call{Call: _e.mock.On("ExecuteWorkflow",
 		append([]any{ctx, options, workflow}, args...)...)}
 }
 
-func (_c *Client_ExecuteWorkflow_Call) Run(run func(ctx context.Context, options client.StartWorkflowOptions, workflow interface{}, args ...interface{})) *Client_ExecuteWorkflow_Call {
+func (_c *Client_ExecuteWorkflow_Call) Run(run func(ctx context.Context, options client.StartWorkflowOptions, workflow any, args ...any)) *Client_ExecuteWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -1366,14 +1366,14 @@ func (_c *Client_ExecuteWorkflow_Call) Run(run func(ctx context.Context, options
 		if args[1] != nil {
 			arg1 = args[1].(client.StartWorkflowOptions)
 		}
-		var arg2 interface{}
+		var arg2 any
 		if args[2] != nil {
-			arg2 = args[2].(interface{})
+			arg2 = args[2].(any)
 		}
-		var arg3 []interface{}
-		var variadicArgs []interface{}
+		var arg3 []any
+		var variadicArgs []any
 		if len(args) > 3 {
-			variadicArgs = args[3].([]interface{})
+			variadicArgs = args[3].([]any)
 		}
 		arg3 = variadicArgs
 		run(
@@ -1391,7 +1391,7 @@ func (_c *Client_ExecuteWorkflow_Call) Return(workflowRun client.WorkflowRun, er
 	return _c
 }
 
-func (_c *Client_ExecuteWorkflow_Call) RunAndReturn(run func(ctx context.Context, options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) (client.WorkflowRun, error)) *Client_ExecuteWorkflow_Call {
+func (_c *Client_ExecuteWorkflow_Call) RunAndReturn(run func(ctx context.Context, options client.StartWorkflowOptions, workflow any, args ...any) (client.WorkflowRun, error)) *Client_ExecuteWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2430,7 +2430,7 @@ func (_c *Client_NewNexusClient_Call) RunAndReturn(run func(options client.Nexus
 }
 
 // NewWithStartWorkflowOperation provides a mock function for the type Client
-func (_mock *Client) NewWithStartWorkflowOperation(options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) client.WithStartWorkflowOperation {
+func (_mock *Client) NewWithStartWorkflowOperation(options client.StartWorkflowOptions, workflow any, args ...any) client.WithStartWorkflowOperation {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(options, workflow, args)
@@ -2444,7 +2444,7 @@ func (_mock *Client) NewWithStartWorkflowOperation(options client.StartWorkflowO
 	}
 
 	var r0 client.WithStartWorkflowOperation
-	if returnFunc, ok := ret.Get(0).(func(client.StartWorkflowOptions, interface{}, ...interface{}) client.WithStartWorkflowOperation); ok {
+	if returnFunc, ok := ret.Get(0).(func(client.StartWorkflowOptions, any, ...any) client.WithStartWorkflowOperation); ok {
 		r0 = returnFunc(options, workflow, args...)
 	} else {
 		if ret.Get(0) != nil {
@@ -2461,27 +2461,27 @@ type Client_NewWithStartWorkflowOperation_Call struct {
 
 // NewWithStartWorkflowOperation is a helper method to define mock.On call
 //   - options client.StartWorkflowOptions
-//   - workflow interface{}
-//   - args ...interface{}
+//   - workflow any
+//   - args ...any
 func (_e *Client_Expecter) NewWithStartWorkflowOperation(options any, workflow any, args ...any) *Client_NewWithStartWorkflowOperation_Call {
 	return &Client_NewWithStartWorkflowOperation_Call{Call: _e.mock.On("NewWithStartWorkflowOperation",
 		append([]any{options, workflow}, args...)...)}
 }
 
-func (_c *Client_NewWithStartWorkflowOperation_Call) Run(run func(options client.StartWorkflowOptions, workflow interface{}, args ...interface{})) *Client_NewWithStartWorkflowOperation_Call {
+func (_c *Client_NewWithStartWorkflowOperation_Call) Run(run func(options client.StartWorkflowOptions, workflow any, args ...any)) *Client_NewWithStartWorkflowOperation_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 client.StartWorkflowOptions
 		if args[0] != nil {
 			arg0 = args[0].(client.StartWorkflowOptions)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
-		var arg2 []interface{}
-		var variadicArgs []interface{}
+		var arg2 []any
+		var variadicArgs []any
 		if len(args) > 2 {
-			variadicArgs = args[2].([]interface{})
+			variadicArgs = args[2].([]any)
 		}
 		arg2 = variadicArgs
 		run(
@@ -2498,7 +2498,7 @@ func (_c *Client_NewWithStartWorkflowOperation_Call) Return(withStartWorkflowOpe
 	return _c
 }
 
-func (_c *Client_NewWithStartWorkflowOperation_Call) RunAndReturn(run func(options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) client.WithStartWorkflowOperation) *Client_NewWithStartWorkflowOperation_Call {
+func (_c *Client_NewWithStartWorkflowOperation_Call) RunAndReturn(run func(options client.StartWorkflowOptions, workflow any, args ...any) client.WithStartWorkflowOperation) *Client_NewWithStartWorkflowOperation_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2550,7 +2550,7 @@ func (_c *Client_OperatorService_Call) RunAndReturn(run func() operatorservice.O
 }
 
 // QueryWorkflow provides a mock function for the type Client
-func (_mock *Client) QueryWorkflow(ctx context.Context, workflowID string, runID string, queryType string, args ...interface{}) (converter.EncodedValue, error) {
+func (_mock *Client) QueryWorkflow(ctx context.Context, workflowID string, runID string, queryType string, args ...any) (converter.EncodedValue, error) {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, workflowID, runID, queryType, args)
@@ -2565,17 +2565,17 @@ func (_mock *Client) QueryWorkflow(ctx context.Context, workflowID string, runID
 
 	var r0 converter.EncodedValue
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...interface{}) (converter.EncodedValue, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...any) (converter.EncodedValue, error)); ok {
 		return returnFunc(ctx, workflowID, runID, queryType, args...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...interface{}) converter.EncodedValue); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...any) converter.EncodedValue); ok {
 		r0 = returnFunc(ctx, workflowID, runID, queryType, args...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(converter.EncodedValue)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, string, ...interface{}) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, string, ...any) error); ok {
 		r1 = returnFunc(ctx, workflowID, runID, queryType, args...)
 	} else {
 		r1 = ret.Error(1)
@@ -2593,13 +2593,13 @@ type Client_QueryWorkflow_Call struct {
 //   - workflowID string
 //   - runID string
 //   - queryType string
-//   - args ...interface{}
+//   - args ...any
 func (_e *Client_Expecter) QueryWorkflow(ctx any, workflowID any, runID any, queryType any, args ...any) *Client_QueryWorkflow_Call {
 	return &Client_QueryWorkflow_Call{Call: _e.mock.On("QueryWorkflow",
 		append([]any{ctx, workflowID, runID, queryType}, args...)...)}
 }
 
-func (_c *Client_QueryWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...interface{})) *Client_QueryWorkflow_Call {
+func (_c *Client_QueryWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...any)) *Client_QueryWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -2617,10 +2617,10 @@ func (_c *Client_QueryWorkflow_Call) Run(run func(ctx context.Context, workflowI
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 []interface{}
-		var variadicArgs []interface{}
+		var arg4 []any
+		var variadicArgs []any
 		if len(args) > 4 {
-			variadicArgs = args[4].([]interface{})
+			variadicArgs = args[4].([]any)
 		}
 		arg4 = variadicArgs
 		run(
@@ -2639,7 +2639,7 @@ func (_c *Client_QueryWorkflow_Call) Return(encodedValue converter.EncodedValue,
 	return _c
 }
 
-func (_c *Client_QueryWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...interface{}) (converter.EncodedValue, error)) *Client_QueryWorkflow_Call {
+func (_c *Client_QueryWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...any) (converter.EncodedValue, error)) *Client_QueryWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2713,7 +2713,7 @@ func (_c *Client_QueryWorkflowWithOptions_Call) RunAndReturn(run func(ctx contex
 }
 
 // RecordActivityHeartbeat provides a mock function for the type Client
-func (_mock *Client) RecordActivityHeartbeat(ctx context.Context, taskToken []byte, details ...interface{}) error {
+func (_mock *Client) RecordActivityHeartbeat(ctx context.Context, taskToken []byte, details ...any) error {
 	var tmpRet mock.Arguments
 	if len(details) > 0 {
 		tmpRet = _mock.Called(ctx, taskToken, details)
@@ -2727,7 +2727,7 @@ func (_mock *Client) RecordActivityHeartbeat(ctx context.Context, taskToken []by
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, ...interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, ...any) error); ok {
 		r0 = returnFunc(ctx, taskToken, details...)
 	} else {
 		r0 = ret.Error(0)
@@ -2743,13 +2743,13 @@ type Client_RecordActivityHeartbeat_Call struct {
 // RecordActivityHeartbeat is a helper method to define mock.On call
 //   - ctx context.Context
 //   - taskToken []byte
-//   - details ...interface{}
+//   - details ...any
 func (_e *Client_Expecter) RecordActivityHeartbeat(ctx any, taskToken any, details ...any) *Client_RecordActivityHeartbeat_Call {
 	return &Client_RecordActivityHeartbeat_Call{Call: _e.mock.On("RecordActivityHeartbeat",
 		append([]any{ctx, taskToken}, details...)...)}
 }
 
-func (_c *Client_RecordActivityHeartbeat_Call) Run(run func(ctx context.Context, taskToken []byte, details ...interface{})) *Client_RecordActivityHeartbeat_Call {
+func (_c *Client_RecordActivityHeartbeat_Call) Run(run func(ctx context.Context, taskToken []byte, details ...any)) *Client_RecordActivityHeartbeat_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -2759,10 +2759,10 @@ func (_c *Client_RecordActivityHeartbeat_Call) Run(run func(ctx context.Context,
 		if args[1] != nil {
 			arg1 = args[1].([]byte)
 		}
-		var arg2 []interface{}
-		var variadicArgs []interface{}
+		var arg2 []any
+		var variadicArgs []any
 		if len(args) > 2 {
-			variadicArgs = args[2].([]interface{})
+			variadicArgs = args[2].([]any)
 		}
 		arg2 = variadicArgs
 		run(
@@ -2779,13 +2779,13 @@ func (_c *Client_RecordActivityHeartbeat_Call) Return(err error) *Client_RecordA
 	return _c
 }
 
-func (_c *Client_RecordActivityHeartbeat_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, details ...interface{}) error) *Client_RecordActivityHeartbeat_Call {
+func (_c *Client_RecordActivityHeartbeat_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, details ...any) error) *Client_RecordActivityHeartbeat_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // RecordActivityHeartbeatByID provides a mock function for the type Client
-func (_mock *Client) RecordActivityHeartbeatByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...interface{}) error {
+func (_mock *Client) RecordActivityHeartbeatByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...any) error {
 	var tmpRet mock.Arguments
 	if len(details) > 0 {
 		tmpRet = _mock.Called(ctx, namespace, workflowID, runID, activityID, details)
@@ -2799,7 +2799,7 @@ func (_mock *Client) RecordActivityHeartbeatByID(ctx context.Context, namespace 
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, ...interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, ...any) error); ok {
 		r0 = returnFunc(ctx, namespace, workflowID, runID, activityID, details...)
 	} else {
 		r0 = ret.Error(0)
@@ -2818,13 +2818,13 @@ type Client_RecordActivityHeartbeatByID_Call struct {
 //   - workflowID string
 //   - runID string
 //   - activityID string
-//   - details ...interface{}
+//   - details ...any
 func (_e *Client_Expecter) RecordActivityHeartbeatByID(ctx any, namespace any, workflowID any, runID any, activityID any, details ...any) *Client_RecordActivityHeartbeatByID_Call {
 	return &Client_RecordActivityHeartbeatByID_Call{Call: _e.mock.On("RecordActivityHeartbeatByID",
 		append([]any{ctx, namespace, workflowID, runID, activityID}, details...)...)}
 }
 
-func (_c *Client_RecordActivityHeartbeatByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...interface{})) *Client_RecordActivityHeartbeatByID_Call {
+func (_c *Client_RecordActivityHeartbeatByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...any)) *Client_RecordActivityHeartbeatByID_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -2846,10 +2846,10 @@ func (_c *Client_RecordActivityHeartbeatByID_Call) Run(run func(ctx context.Cont
 		if args[4] != nil {
 			arg4 = args[4].(string)
 		}
-		var arg5 []interface{}
-		var variadicArgs []interface{}
+		var arg5 []any
+		var variadicArgs []any
 		if len(args) > 5 {
-			variadicArgs = args[5].([]interface{})
+			variadicArgs = args[5].([]any)
 		}
 		arg5 = variadicArgs
 		run(
@@ -2869,7 +2869,7 @@ func (_c *Client_RecordActivityHeartbeatByID_Call) Return(err error) *Client_Rec
 	return _c
 }
 
-func (_c *Client_RecordActivityHeartbeatByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...interface{}) error) *Client_RecordActivityHeartbeatByID_Call {
+func (_c *Client_RecordActivityHeartbeatByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...any) error) *Client_RecordActivityHeartbeatByID_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -3171,7 +3171,7 @@ func (_c *Client_ScheduleClient_Call) RunAndReturn(run func() client.ScheduleCli
 }
 
 // SignalWithStartWorkflow provides a mock function for the type Client
-func (_mock *Client) SignalWithStartWorkflow(ctx context.Context, workflowID string, signalName string, signalArg interface{}, options client.StartWorkflowOptions, workflow interface{}, workflowArgs ...interface{}) (client.WorkflowRun, error) {
+func (_mock *Client) SignalWithStartWorkflow(ctx context.Context, workflowID string, signalName string, signalArg any, options client.StartWorkflowOptions, workflow any, workflowArgs ...any) (client.WorkflowRun, error) {
 	var tmpRet mock.Arguments
 	if len(workflowArgs) > 0 {
 		tmpRet = _mock.Called(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs)
@@ -3186,17 +3186,17 @@ func (_mock *Client) SignalWithStartWorkflow(ctx context.Context, workflowID str
 
 	var r0 client.WorkflowRun
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, interface{}, client.StartWorkflowOptions, interface{}, ...interface{}) (client.WorkflowRun, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, any, client.StartWorkflowOptions, any, ...any) (client.WorkflowRun, error)); ok {
 		return returnFunc(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, interface{}, client.StartWorkflowOptions, interface{}, ...interface{}) client.WorkflowRun); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, any, client.StartWorkflowOptions, any, ...any) client.WorkflowRun); ok {
 		r0 = returnFunc(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(client.WorkflowRun)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, interface{}, client.StartWorkflowOptions, interface{}, ...interface{}) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, any, client.StartWorkflowOptions, any, ...any) error); ok {
 		r1 = returnFunc(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs...)
 	} else {
 		r1 = ret.Error(1)
@@ -3213,16 +3213,16 @@ type Client_SignalWithStartWorkflow_Call struct {
 //   - ctx context.Context
 //   - workflowID string
 //   - signalName string
-//   - signalArg interface{}
+//   - signalArg any
 //   - options client.StartWorkflowOptions
-//   - workflow interface{}
-//   - workflowArgs ...interface{}
+//   - workflow any
+//   - workflowArgs ...any
 func (_e *Client_Expecter) SignalWithStartWorkflow(ctx any, workflowID any, signalName any, signalArg any, options any, workflow any, workflowArgs ...any) *Client_SignalWithStartWorkflow_Call {
 	return &Client_SignalWithStartWorkflow_Call{Call: _e.mock.On("SignalWithStartWorkflow",
 		append([]any{ctx, workflowID, signalName, signalArg, options, workflow}, workflowArgs...)...)}
 }
 
-func (_c *Client_SignalWithStartWorkflow_Call) Run(run func(ctx context.Context, workflowID string, signalName string, signalArg interface{}, options client.StartWorkflowOptions, workflow interface{}, workflowArgs ...interface{})) *Client_SignalWithStartWorkflow_Call {
+func (_c *Client_SignalWithStartWorkflow_Call) Run(run func(ctx context.Context, workflowID string, signalName string, signalArg any, options client.StartWorkflowOptions, workflow any, workflowArgs ...any)) *Client_SignalWithStartWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -3236,22 +3236,22 @@ func (_c *Client_SignalWithStartWorkflow_Call) Run(run func(ctx context.Context,
 		if args[2] != nil {
 			arg2 = args[2].(string)
 		}
-		var arg3 interface{}
+		var arg3 any
 		if args[3] != nil {
-			arg3 = args[3].(interface{})
+			arg3 = args[3].(any)
 		}
 		var arg4 client.StartWorkflowOptions
 		if args[4] != nil {
 			arg4 = args[4].(client.StartWorkflowOptions)
 		}
-		var arg5 interface{}
+		var arg5 any
 		if args[5] != nil {
-			arg5 = args[5].(interface{})
+			arg5 = args[5].(any)
 		}
-		var arg6 []interface{}
-		var variadicArgs []interface{}
+		var arg6 []any
+		var variadicArgs []any
 		if len(args) > 6 {
-			variadicArgs = args[6].([]interface{})
+			variadicArgs = args[6].([]any)
 		}
 		arg6 = variadicArgs
 		run(
@@ -3272,13 +3272,13 @@ func (_c *Client_SignalWithStartWorkflow_Call) Return(workflowRun client.Workflo
 	return _c
 }
 
-func (_c *Client_SignalWithStartWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, signalName string, signalArg interface{}, options client.StartWorkflowOptions, workflow interface{}, workflowArgs ...interface{}) (client.WorkflowRun, error)) *Client_SignalWithStartWorkflow_Call {
+func (_c *Client_SignalWithStartWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, signalName string, signalArg any, options client.StartWorkflowOptions, workflow any, workflowArgs ...any) (client.WorkflowRun, error)) *Client_SignalWithStartWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // SignalWorkflow provides a mock function for the type Client
-func (_mock *Client) SignalWorkflow(ctx context.Context, workflowID string, runID string, signalName string, arg interface{}) error {
+func (_mock *Client) SignalWorkflow(ctx context.Context, workflowID string, runID string, signalName string, arg any) error {
 	ret := _mock.Called(ctx, workflowID, runID, signalName, arg)
 
 	if len(ret) == 0 {
@@ -3286,7 +3286,7 @@ func (_mock *Client) SignalWorkflow(ctx context.Context, workflowID string, runI
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, any) error); ok {
 		r0 = returnFunc(ctx, workflowID, runID, signalName, arg)
 	} else {
 		r0 = ret.Error(0)
@@ -3304,12 +3304,12 @@ type Client_SignalWorkflow_Call struct {
 //   - workflowID string
 //   - runID string
 //   - signalName string
-//   - arg interface{}
+//   - arg any
 func (_e *Client_Expecter) SignalWorkflow(ctx any, workflowID any, runID any, signalName any, arg any) *Client_SignalWorkflow_Call {
 	return &Client_SignalWorkflow_Call{Call: _e.mock.On("SignalWorkflow", ctx, workflowID, runID, signalName, arg)}
 }
 
-func (_c *Client_SignalWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, signalName string, arg interface{})) *Client_SignalWorkflow_Call {
+func (_c *Client_SignalWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, signalName string, arg any)) *Client_SignalWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -3327,9 +3327,9 @@ func (_c *Client_SignalWorkflow_Call) Run(run func(ctx context.Context, workflow
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 interface{}
+		var arg4 any
 		if args[4] != nil {
-			arg4 = args[4].(interface{})
+			arg4 = args[4].(any)
 		}
 		run(
 			arg0,
@@ -3347,13 +3347,13 @@ func (_c *Client_SignalWorkflow_Call) Return(err error) *Client_SignalWorkflow_C
 	return _c
 }
 
-func (_c *Client_SignalWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, signalName string, arg interface{}) error) *Client_SignalWorkflow_Call {
+func (_c *Client_SignalWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, signalName string, arg any) error) *Client_SignalWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // TerminateWorkflow provides a mock function for the type Client
-func (_mock *Client) TerminateWorkflow(ctx context.Context, workflowID string, runID string, reason string, details ...interface{}) error {
+func (_mock *Client) TerminateWorkflow(ctx context.Context, workflowID string, runID string, reason string, details ...any) error {
 	var tmpRet mock.Arguments
 	if len(details) > 0 {
 		tmpRet = _mock.Called(ctx, workflowID, runID, reason, details)
@@ -3367,7 +3367,7 @@ func (_mock *Client) TerminateWorkflow(ctx context.Context, workflowID string, r
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...any) error); ok {
 		r0 = returnFunc(ctx, workflowID, runID, reason, details...)
 	} else {
 		r0 = ret.Error(0)
@@ -3385,13 +3385,13 @@ type Client_TerminateWorkflow_Call struct {
 //   - workflowID string
 //   - runID string
 //   - reason string
-//   - details ...interface{}
+//   - details ...any
 func (_e *Client_Expecter) TerminateWorkflow(ctx any, workflowID any, runID any, reason any, details ...any) *Client_TerminateWorkflow_Call {
 	return &Client_TerminateWorkflow_Call{Call: _e.mock.On("TerminateWorkflow",
 		append([]any{ctx, workflowID, runID, reason}, details...)...)}
 }
 
-func (_c *Client_TerminateWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, reason string, details ...interface{})) *Client_TerminateWorkflow_Call {
+func (_c *Client_TerminateWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, reason string, details ...any)) *Client_TerminateWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -3409,10 +3409,10 @@ func (_c *Client_TerminateWorkflow_Call) Run(run func(ctx context.Context, workf
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 []interface{}
-		var variadicArgs []interface{}
+		var arg4 []any
+		var variadicArgs []any
 		if len(args) > 4 {
-			variadicArgs = args[4].([]interface{})
+			variadicArgs = args[4].([]any)
 		}
 		arg4 = variadicArgs
 		run(
@@ -3431,7 +3431,7 @@ func (_c *Client_TerminateWorkflow_Call) Return(err error) *Client_TerminateWork
 	return _c
 }
 
-func (_c *Client_TerminateWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, reason string, details ...interface{}) error) *Client_TerminateWorkflow_Call {
+func (_c *Client_TerminateWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, reason string, details ...any) error) *Client_TerminateWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }

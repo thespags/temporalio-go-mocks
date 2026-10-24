@@ -169,7 +169,7 @@ func (_c *Channel_Name_Call) RunAndReturn(run func() string) *Channel_Name_Call 
 }
 
 // Receive provides a mock function for the type Channel
-func (_mock *Channel) Receive(ctx workflow.Context, valuePtr interface{}) bool {
+func (_mock *Channel) Receive(ctx workflow.Context, valuePtr any) bool {
 	ret := _mock.Called(ctx, valuePtr)
 
 	if len(ret) == 0 {
@@ -177,7 +177,7 @@ func (_mock *Channel) Receive(ctx workflow.Context, valuePtr interface{}) bool {
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, interface{}) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, any) bool); ok {
 		r0 = returnFunc(ctx, valuePtr)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -192,20 +192,20 @@ type Channel_Receive_Call struct {
 
 // Receive is a helper method to define mock.On call
 //   - ctx workflow.Context
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *Channel_Expecter) Receive(ctx any, valuePtr any) *Channel_Receive_Call {
 	return &Channel_Receive_Call{Call: _e.mock.On("Receive", ctx, valuePtr)}
 }
 
-func (_c *Channel_Receive_Call) Run(run func(ctx workflow.Context, valuePtr interface{})) *Channel_Receive_Call {
+func (_c *Channel_Receive_Call) Run(run func(ctx workflow.Context, valuePtr any)) *Channel_Receive_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 workflow.Context
 		if args[0] != nil {
 			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
 		run(
 			arg0,
@@ -220,13 +220,13 @@ func (_c *Channel_Receive_Call) Return(more bool) *Channel_Receive_Call {
 	return _c
 }
 
-func (_c *Channel_Receive_Call) RunAndReturn(run func(ctx workflow.Context, valuePtr interface{}) bool) *Channel_Receive_Call {
+func (_c *Channel_Receive_Call) RunAndReturn(run func(ctx workflow.Context, valuePtr any) bool) *Channel_Receive_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ReceiveAsync provides a mock function for the type Channel
-func (_mock *Channel) ReceiveAsync(valuePtr interface{}) bool {
+func (_mock *Channel) ReceiveAsync(valuePtr any) bool {
 	ret := _mock.Called(valuePtr)
 
 	if len(ret) == 0 {
@@ -234,7 +234,7 @@ func (_mock *Channel) ReceiveAsync(valuePtr interface{}) bool {
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(interface{}) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) bool); ok {
 		r0 = returnFunc(valuePtr)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -248,16 +248,16 @@ type Channel_ReceiveAsync_Call struct {
 }
 
 // ReceiveAsync is a helper method to define mock.On call
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *Channel_Expecter) ReceiveAsync(valuePtr any) *Channel_ReceiveAsync_Call {
 	return &Channel_ReceiveAsync_Call{Call: _e.mock.On("ReceiveAsync", valuePtr)}
 }
 
-func (_c *Channel_ReceiveAsync_Call) Run(run func(valuePtr interface{})) *Channel_ReceiveAsync_Call {
+func (_c *Channel_ReceiveAsync_Call) Run(run func(valuePtr any)) *Channel_ReceiveAsync_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -271,13 +271,13 @@ func (_c *Channel_ReceiveAsync_Call) Return(ok bool) *Channel_ReceiveAsync_Call 
 	return _c
 }
 
-func (_c *Channel_ReceiveAsync_Call) RunAndReturn(run func(valuePtr interface{}) bool) *Channel_ReceiveAsync_Call {
+func (_c *Channel_ReceiveAsync_Call) RunAndReturn(run func(valuePtr any) bool) *Channel_ReceiveAsync_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ReceiveAsyncWithMoreFlag provides a mock function for the type Channel
-func (_mock *Channel) ReceiveAsyncWithMoreFlag(valuePtr interface{}) (bool, bool) {
+func (_mock *Channel) ReceiveAsyncWithMoreFlag(valuePtr any) (bool, bool) {
 	ret := _mock.Called(valuePtr)
 
 	if len(ret) == 0 {
@@ -286,15 +286,15 @@ func (_mock *Channel) ReceiveAsyncWithMoreFlag(valuePtr interface{}) (bool, bool
 
 	var r0 bool
 	var r1 bool
-	if returnFunc, ok := ret.Get(0).(func(interface{}) (bool, bool)); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) (bool, bool)); ok {
 		return returnFunc(valuePtr)
 	}
-	if returnFunc, ok := ret.Get(0).(func(interface{}) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) bool); ok {
 		r0 = returnFunc(valuePtr)
 	} else {
 		r0 = ret.Get(0).(bool)
 	}
-	if returnFunc, ok := ret.Get(1).(func(interface{}) bool); ok {
+	if returnFunc, ok := ret.Get(1).(func(any) bool); ok {
 		r1 = returnFunc(valuePtr)
 	} else {
 		r1 = ret.Get(1).(bool)
@@ -308,16 +308,16 @@ type Channel_ReceiveAsyncWithMoreFlag_Call struct {
 }
 
 // ReceiveAsyncWithMoreFlag is a helper method to define mock.On call
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *Channel_Expecter) ReceiveAsyncWithMoreFlag(valuePtr any) *Channel_ReceiveAsyncWithMoreFlag_Call {
 	return &Channel_ReceiveAsyncWithMoreFlag_Call{Call: _e.mock.On("ReceiveAsyncWithMoreFlag", valuePtr)}
 }
 
-func (_c *Channel_ReceiveAsyncWithMoreFlag_Call) Run(run func(valuePtr interface{})) *Channel_ReceiveAsyncWithMoreFlag_Call {
+func (_c *Channel_ReceiveAsyncWithMoreFlag_Call) Run(run func(valuePtr any)) *Channel_ReceiveAsyncWithMoreFlag_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -331,13 +331,13 @@ func (_c *Channel_ReceiveAsyncWithMoreFlag_Call) Return(ok bool, more bool) *Cha
 	return _c
 }
 
-func (_c *Channel_ReceiveAsyncWithMoreFlag_Call) RunAndReturn(run func(valuePtr interface{}) (bool, bool)) *Channel_ReceiveAsyncWithMoreFlag_Call {
+func (_c *Channel_ReceiveAsyncWithMoreFlag_Call) RunAndReturn(run func(valuePtr any) (bool, bool)) *Channel_ReceiveAsyncWithMoreFlag_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ReceiveWithTimeout provides a mock function for the type Channel
-func (_mock *Channel) ReceiveWithTimeout(ctx workflow.Context, timeout time.Duration, valuePtr interface{}) (bool, bool) {
+func (_mock *Channel) ReceiveWithTimeout(ctx workflow.Context, timeout time.Duration, valuePtr any) (bool, bool) {
 	ret := _mock.Called(ctx, timeout, valuePtr)
 
 	if len(ret) == 0 {
@@ -346,15 +346,15 @@ func (_mock *Channel) ReceiveWithTimeout(ctx workflow.Context, timeout time.Dura
 
 	var r0 bool
 	var r1 bool
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, interface{}) (bool, bool)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, any) (bool, bool)); ok {
 		return returnFunc(ctx, timeout, valuePtr)
 	}
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, interface{}) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, any) bool); ok {
 		r0 = returnFunc(ctx, timeout, valuePtr)
 	} else {
 		r0 = ret.Get(0).(bool)
 	}
-	if returnFunc, ok := ret.Get(1).(func(workflow.Context, time.Duration, interface{}) bool); ok {
+	if returnFunc, ok := ret.Get(1).(func(workflow.Context, time.Duration, any) bool); ok {
 		r1 = returnFunc(ctx, timeout, valuePtr)
 	} else {
 		r1 = ret.Get(1).(bool)
@@ -370,12 +370,12 @@ type Channel_ReceiveWithTimeout_Call struct {
 // ReceiveWithTimeout is a helper method to define mock.On call
 //   - ctx workflow.Context
 //   - timeout time.Duration
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *Channel_Expecter) ReceiveWithTimeout(ctx any, timeout any, valuePtr any) *Channel_ReceiveWithTimeout_Call {
 	return &Channel_ReceiveWithTimeout_Call{Call: _e.mock.On("ReceiveWithTimeout", ctx, timeout, valuePtr)}
 }
 
-func (_c *Channel_ReceiveWithTimeout_Call) Run(run func(ctx workflow.Context, timeout time.Duration, valuePtr interface{})) *Channel_ReceiveWithTimeout_Call {
+func (_c *Channel_ReceiveWithTimeout_Call) Run(run func(ctx workflow.Context, timeout time.Duration, valuePtr any)) *Channel_ReceiveWithTimeout_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 workflow.Context
 		if args[0] != nil {
@@ -385,9 +385,9 @@ func (_c *Channel_ReceiveWithTimeout_Call) Run(run func(ctx workflow.Context, ti
 		if args[1] != nil {
 			arg1 = args[1].(time.Duration)
 		}
-		var arg2 interface{}
+		var arg2 any
 		if args[2] != nil {
-			arg2 = args[2].(interface{})
+			arg2 = args[2].(any)
 		}
 		run(
 			arg0,
@@ -403,13 +403,13 @@ func (_c *Channel_ReceiveWithTimeout_Call) Return(ok bool, more bool) *Channel_R
 	return _c
 }
 
-func (_c *Channel_ReceiveWithTimeout_Call) RunAndReturn(run func(ctx workflow.Context, timeout time.Duration, valuePtr interface{}) (bool, bool)) *Channel_ReceiveWithTimeout_Call {
+func (_c *Channel_ReceiveWithTimeout_Call) RunAndReturn(run func(ctx workflow.Context, timeout time.Duration, valuePtr any) (bool, bool)) *Channel_ReceiveWithTimeout_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // Send provides a mock function for the type Channel
-func (_mock *Channel) Send(ctx workflow.Context, v interface{}) {
+func (_mock *Channel) Send(ctx workflow.Context, v any) {
 	_mock.Called(ctx, v)
 	return
 }
@@ -421,20 +421,20 @@ type Channel_Send_Call struct {
 
 // Send is a helper method to define mock.On call
 //   - ctx workflow.Context
-//   - v interface{}
+//   - v any
 func (_e *Channel_Expecter) Send(ctx any, v any) *Channel_Send_Call {
 	return &Channel_Send_Call{Call: _e.mock.On("Send", ctx, v)}
 }
 
-func (_c *Channel_Send_Call) Run(run func(ctx workflow.Context, v interface{})) *Channel_Send_Call {
+func (_c *Channel_Send_Call) Run(run func(ctx workflow.Context, v any)) *Channel_Send_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 workflow.Context
 		if args[0] != nil {
 			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
 		run(
 			arg0,
@@ -449,13 +449,13 @@ func (_c *Channel_Send_Call) Return() *Channel_Send_Call {
 	return _c
 }
 
-func (_c *Channel_Send_Call) RunAndReturn(run func(ctx workflow.Context, v interface{})) *Channel_Send_Call {
+func (_c *Channel_Send_Call) RunAndReturn(run func(ctx workflow.Context, v any)) *Channel_Send_Call {
 	_c.Run(run)
 	return _c
 }
 
 // SendAsync provides a mock function for the type Channel
-func (_mock *Channel) SendAsync(v interface{}) bool {
+func (_mock *Channel) SendAsync(v any) bool {
 	ret := _mock.Called(v)
 
 	if len(ret) == 0 {
@@ -463,7 +463,7 @@ func (_mock *Channel) SendAsync(v interface{}) bool {
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(interface{}) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) bool); ok {
 		r0 = returnFunc(v)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -477,16 +477,16 @@ type Channel_SendAsync_Call struct {
 }
 
 // SendAsync is a helper method to define mock.On call
-//   - v interface{}
+//   - v any
 func (_e *Channel_Expecter) SendAsync(v any) *Channel_SendAsync_Call {
 	return &Channel_SendAsync_Call{Call: _e.mock.On("SendAsync", v)}
 }
 
-func (_c *Channel_SendAsync_Call) Run(run func(v interface{})) *Channel_SendAsync_Call {
+func (_c *Channel_SendAsync_Call) Run(run func(v any)) *Channel_SendAsync_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -500,7 +500,7 @@ func (_c *Channel_SendAsync_Call) Return(ok bool) *Channel_SendAsync_Call {
 	return _c
 }
 
-func (_c *Channel_SendAsync_Call) RunAndReturn(run func(v interface{}) bool) *Channel_SendAsync_Call {
+func (_c *Channel_SendAsync_Call) RunAndReturn(run func(v any) bool) *Channel_SendAsync_Call {
 	_c.Call.Return(run)
 	return _c
 }

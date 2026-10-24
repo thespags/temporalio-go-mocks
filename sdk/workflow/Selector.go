@@ -204,7 +204,7 @@ func (_c *Selector_AddReceive_Call) RunAndReturn(run func(c workflow.ReceiveChan
 }
 
 // AddSend provides a mock function for the type Selector
-func (_mock *Selector) AddSend(c workflow.SendChannel, v interface{}, f func()) workflow.Selector {
+func (_mock *Selector) AddSend(c workflow.SendChannel, v any, f func()) workflow.Selector {
 	ret := _mock.Called(c, v, f)
 
 	if len(ret) == 0 {
@@ -212,7 +212,7 @@ func (_mock *Selector) AddSend(c workflow.SendChannel, v interface{}, f func()) 
 	}
 
 	var r0 workflow.Selector
-	if returnFunc, ok := ret.Get(0).(func(workflow.SendChannel, interface{}, func()) workflow.Selector); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.SendChannel, any, func()) workflow.Selector); ok {
 		r0 = returnFunc(c, v, f)
 	} else {
 		if ret.Get(0) != nil {
@@ -229,21 +229,21 @@ type Selector_AddSend_Call struct {
 
 // AddSend is a helper method to define mock.On call
 //   - c workflow.SendChannel
-//   - v interface{}
+//   - v any
 //   - f func()
 func (_e *Selector_Expecter) AddSend(c any, v any, f any) *Selector_AddSend_Call {
 	return &Selector_AddSend_Call{Call: _e.mock.On("AddSend", c, v, f)}
 }
 
-func (_c *Selector_AddSend_Call) Run(run func(c workflow.SendChannel, v interface{}, f func())) *Selector_AddSend_Call {
+func (_c *Selector_AddSend_Call) Run(run func(c workflow.SendChannel, v any, f func())) *Selector_AddSend_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 workflow.SendChannel
 		if args[0] != nil {
 			arg0 = args[0].(workflow.SendChannel)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
 		var arg2 func()
 		if args[2] != nil {
@@ -263,7 +263,7 @@ func (_c *Selector_AddSend_Call) Return(selector workflow.Selector) *Selector_Ad
 	return _c
 }
 
-func (_c *Selector_AddSend_Call) RunAndReturn(run func(c workflow.SendChannel, v interface{}, f func()) workflow.Selector) *Selector_AddSend_Call {
+func (_c *Selector_AddSend_Call) RunAndReturn(run func(c workflow.SendChannel, v any, f func()) workflow.Selector) *Selector_AddSend_Call {
 	_c.Call.Return(run)
 	return _c
 }

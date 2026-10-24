@@ -48,7 +48,7 @@ func (_m *Worker) EXPECT() *Worker_Expecter {
 }
 
 // RegisterActivity provides a mock function for the type Worker
-func (_mock *Worker) RegisterActivity(a interface{}) {
+func (_mock *Worker) RegisterActivity(a any) {
 	_mock.Called(a)
 	return
 }
@@ -59,16 +59,16 @@ type Worker_RegisterActivity_Call struct {
 }
 
 // RegisterActivity is a helper method to define mock.On call
-//   - a interface{}
+//   - a any
 func (_e *Worker_Expecter) RegisterActivity(a any) *Worker_RegisterActivity_Call {
 	return &Worker_RegisterActivity_Call{Call: _e.mock.On("RegisterActivity", a)}
 }
 
-func (_c *Worker_RegisterActivity_Call) Run(run func(a interface{})) *Worker_RegisterActivity_Call {
+func (_c *Worker_RegisterActivity_Call) Run(run func(a any)) *Worker_RegisterActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -82,13 +82,13 @@ func (_c *Worker_RegisterActivity_Call) Return() *Worker_RegisterActivity_Call {
 	return _c
 }
 
-func (_c *Worker_RegisterActivity_Call) RunAndReturn(run func(a interface{})) *Worker_RegisterActivity_Call {
+func (_c *Worker_RegisterActivity_Call) RunAndReturn(run func(a any)) *Worker_RegisterActivity_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterActivityWithOptions provides a mock function for the type Worker
-func (_mock *Worker) RegisterActivityWithOptions(a interface{}, options activity.RegisterOptions) {
+func (_mock *Worker) RegisterActivityWithOptions(a any, options activity.RegisterOptions) {
 	_mock.Called(a, options)
 	return
 }
@@ -99,17 +99,17 @@ type Worker_RegisterActivityWithOptions_Call struct {
 }
 
 // RegisterActivityWithOptions is a helper method to define mock.On call
-//   - a interface{}
+//   - a any
 //   - options activity.RegisterOptions
 func (_e *Worker_Expecter) RegisterActivityWithOptions(a any, options any) *Worker_RegisterActivityWithOptions_Call {
 	return &Worker_RegisterActivityWithOptions_Call{Call: _e.mock.On("RegisterActivityWithOptions", a, options)}
 }
 
-func (_c *Worker_RegisterActivityWithOptions_Call) Run(run func(a interface{}, options activity.RegisterOptions)) *Worker_RegisterActivityWithOptions_Call {
+func (_c *Worker_RegisterActivityWithOptions_Call) Run(run func(a any, options activity.RegisterOptions)) *Worker_RegisterActivityWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 activity.RegisterOptions
 		if args[1] != nil {
@@ -128,13 +128,13 @@ func (_c *Worker_RegisterActivityWithOptions_Call) Return() *Worker_RegisterActi
 	return _c
 }
 
-func (_c *Worker_RegisterActivityWithOptions_Call) RunAndReturn(run func(a interface{}, options activity.RegisterOptions)) *Worker_RegisterActivityWithOptions_Call {
+func (_c *Worker_RegisterActivityWithOptions_Call) RunAndReturn(run func(a any, options activity.RegisterOptions)) *Worker_RegisterActivityWithOptions_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterDynamicActivity provides a mock function for the type Worker
-func (_mock *Worker) RegisterDynamicActivity(a interface{}, options activity.DynamicRegisterOptions) {
+func (_mock *Worker) RegisterDynamicActivity(a any, options activity.DynamicRegisterOptions) {
 	_mock.Called(a, options)
 	return
 }
@@ -145,17 +145,17 @@ type Worker_RegisterDynamicActivity_Call struct {
 }
 
 // RegisterDynamicActivity is a helper method to define mock.On call
-//   - a interface{}
+//   - a any
 //   - options activity.DynamicRegisterOptions
 func (_e *Worker_Expecter) RegisterDynamicActivity(a any, options any) *Worker_RegisterDynamicActivity_Call {
 	return &Worker_RegisterDynamicActivity_Call{Call: _e.mock.On("RegisterDynamicActivity", a, options)}
 }
 
-func (_c *Worker_RegisterDynamicActivity_Call) Run(run func(a interface{}, options activity.DynamicRegisterOptions)) *Worker_RegisterDynamicActivity_Call {
+func (_c *Worker_RegisterDynamicActivity_Call) Run(run func(a any, options activity.DynamicRegisterOptions)) *Worker_RegisterDynamicActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 activity.DynamicRegisterOptions
 		if args[1] != nil {
@@ -174,13 +174,13 @@ func (_c *Worker_RegisterDynamicActivity_Call) Return() *Worker_RegisterDynamicA
 	return _c
 }
 
-func (_c *Worker_RegisterDynamicActivity_Call) RunAndReturn(run func(a interface{}, options activity.DynamicRegisterOptions)) *Worker_RegisterDynamicActivity_Call {
+func (_c *Worker_RegisterDynamicActivity_Call) RunAndReturn(run func(a any, options activity.DynamicRegisterOptions)) *Worker_RegisterDynamicActivity_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterDynamicWorkflow provides a mock function for the type Worker
-func (_mock *Worker) RegisterDynamicWorkflow(w interface{}, options workflow.DynamicRegisterOptions) {
+func (_mock *Worker) RegisterDynamicWorkflow(w any, options workflow.DynamicRegisterOptions) {
 	_mock.Called(w, options)
 	return
 }
@@ -191,17 +191,17 @@ type Worker_RegisterDynamicWorkflow_Call struct {
 }
 
 // RegisterDynamicWorkflow is a helper method to define mock.On call
-//   - w interface{}
+//   - w any
 //   - options workflow.DynamicRegisterOptions
 func (_e *Worker_Expecter) RegisterDynamicWorkflow(w any, options any) *Worker_RegisterDynamicWorkflow_Call {
 	return &Worker_RegisterDynamicWorkflow_Call{Call: _e.mock.On("RegisterDynamicWorkflow", w, options)}
 }
 
-func (_c *Worker_RegisterDynamicWorkflow_Call) Run(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Worker_RegisterDynamicWorkflow_Call {
+func (_c *Worker_RegisterDynamicWorkflow_Call) Run(run func(w any, options workflow.DynamicRegisterOptions)) *Worker_RegisterDynamicWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 workflow.DynamicRegisterOptions
 		if args[1] != nil {
@@ -220,7 +220,7 @@ func (_c *Worker_RegisterDynamicWorkflow_Call) Return() *Worker_RegisterDynamicW
 	return _c
 }
 
-func (_c *Worker_RegisterDynamicWorkflow_Call) RunAndReturn(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Worker_RegisterDynamicWorkflow_Call {
+func (_c *Worker_RegisterDynamicWorkflow_Call) RunAndReturn(run func(w any, options workflow.DynamicRegisterOptions)) *Worker_RegisterDynamicWorkflow_Call {
 	_c.Run(run)
 	return _c
 }
@@ -266,7 +266,7 @@ func (_c *Worker_RegisterNexusService_Call) RunAndReturn(run func(service *nexus
 }
 
 // RegisterWorkflow provides a mock function for the type Worker
-func (_mock *Worker) RegisterWorkflow(w interface{}) {
+func (_mock *Worker) RegisterWorkflow(w any) {
 	_mock.Called(w)
 	return
 }
@@ -277,16 +277,16 @@ type Worker_RegisterWorkflow_Call struct {
 }
 
 // RegisterWorkflow is a helper method to define mock.On call
-//   - w interface{}
+//   - w any
 func (_e *Worker_Expecter) RegisterWorkflow(w any) *Worker_RegisterWorkflow_Call {
 	return &Worker_RegisterWorkflow_Call{Call: _e.mock.On("RegisterWorkflow", w)}
 }
 
-func (_c *Worker_RegisterWorkflow_Call) Run(run func(w interface{})) *Worker_RegisterWorkflow_Call {
+func (_c *Worker_RegisterWorkflow_Call) Run(run func(w any)) *Worker_RegisterWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -300,13 +300,13 @@ func (_c *Worker_RegisterWorkflow_Call) Return() *Worker_RegisterWorkflow_Call {
 	return _c
 }
 
-func (_c *Worker_RegisterWorkflow_Call) RunAndReturn(run func(w interface{})) *Worker_RegisterWorkflow_Call {
+func (_c *Worker_RegisterWorkflow_Call) RunAndReturn(run func(w any)) *Worker_RegisterWorkflow_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterWorkflowWithOptions provides a mock function for the type Worker
-func (_mock *Worker) RegisterWorkflowWithOptions(w interface{}, options workflow.RegisterOptions) {
+func (_mock *Worker) RegisterWorkflowWithOptions(w any, options workflow.RegisterOptions) {
 	_mock.Called(w, options)
 	return
 }
@@ -317,17 +317,17 @@ type Worker_RegisterWorkflowWithOptions_Call struct {
 }
 
 // RegisterWorkflowWithOptions is a helper method to define mock.On call
-//   - w interface{}
+//   - w any
 //   - options workflow.RegisterOptions
 func (_e *Worker_Expecter) RegisterWorkflowWithOptions(w any, options any) *Worker_RegisterWorkflowWithOptions_Call {
 	return &Worker_RegisterWorkflowWithOptions_Call{Call: _e.mock.On("RegisterWorkflowWithOptions", w, options)}
 }
 
-func (_c *Worker_RegisterWorkflowWithOptions_Call) Run(run func(w interface{}, options workflow.RegisterOptions)) *Worker_RegisterWorkflowWithOptions_Call {
+func (_c *Worker_RegisterWorkflowWithOptions_Call) Run(run func(w any, options workflow.RegisterOptions)) *Worker_RegisterWorkflowWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 workflow.RegisterOptions
 		if args[1] != nil {
@@ -346,13 +346,13 @@ func (_c *Worker_RegisterWorkflowWithOptions_Call) Return() *Worker_RegisterWork
 	return _c
 }
 
-func (_c *Worker_RegisterWorkflowWithOptions_Call) RunAndReturn(run func(w interface{}, options workflow.RegisterOptions)) *Worker_RegisterWorkflowWithOptions_Call {
+func (_c *Worker_RegisterWorkflowWithOptions_Call) RunAndReturn(run func(w any, options workflow.RegisterOptions)) *Worker_RegisterWorkflowWithOptions_Call {
 	_c.Run(run)
 	return _c
 }
 
 // Run provides a mock function for the type Worker
-func (_mock *Worker) Run(interruptCh <-chan interface{}) error {
+func (_mock *Worker) Run(interruptCh <-chan any) error {
 	ret := _mock.Called(interruptCh)
 
 	if len(ret) == 0 {
@@ -360,7 +360,7 @@ func (_mock *Worker) Run(interruptCh <-chan interface{}) error {
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(<-chan interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(<-chan any) error); ok {
 		r0 = returnFunc(interruptCh)
 	} else {
 		r0 = ret.Error(0)
@@ -374,16 +374,16 @@ type Worker_Run_Call struct {
 }
 
 // Run is a helper method to define mock.On call
-//   - interruptCh <-chan interface{}
+//   - interruptCh <-chan any
 func (_e *Worker_Expecter) Run(interruptCh any) *Worker_Run_Call {
 	return &Worker_Run_Call{Call: _e.mock.On("Run", interruptCh)}
 }
 
-func (_c *Worker_Run_Call) Run(run func(interruptCh <-chan interface{})) *Worker_Run_Call {
+func (_c *Worker_Run_Call) Run(run func(interruptCh <-chan any)) *Worker_Run_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 <-chan interface{}
+		var arg0 <-chan any
 		if args[0] != nil {
-			arg0 = args[0].(<-chan interface{})
+			arg0 = args[0].(<-chan any)
 		}
 		run(
 			arg0,
@@ -397,7 +397,7 @@ func (_c *Worker_Run_Call) Return(err error) *Worker_Run_Call {
 	return _c
 }
 
-func (_c *Worker_Run_Call) RunAndReturn(run func(interruptCh <-chan interface{}) error) *Worker_Run_Call {
+func (_c *Worker_Run_Call) RunAndReturn(run func(interruptCh <-chan any) error) *Worker_Run_Call {
 	_c.Call.Return(run)
 	return _c
 }

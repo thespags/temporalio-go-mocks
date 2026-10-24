@@ -48,7 +48,7 @@ func (_m *Registry) EXPECT() *Registry_Expecter {
 }
 
 // RegisterActivity provides a mock function for the type Registry
-func (_mock *Registry) RegisterActivity(a interface{}) {
+func (_mock *Registry) RegisterActivity(a any) {
 	_mock.Called(a)
 	return
 }
@@ -59,16 +59,16 @@ type Registry_RegisterActivity_Call struct {
 }
 
 // RegisterActivity is a helper method to define mock.On call
-//   - a interface{}
+//   - a any
 func (_e *Registry_Expecter) RegisterActivity(a any) *Registry_RegisterActivity_Call {
 	return &Registry_RegisterActivity_Call{Call: _e.mock.On("RegisterActivity", a)}
 }
 
-func (_c *Registry_RegisterActivity_Call) Run(run func(a interface{})) *Registry_RegisterActivity_Call {
+func (_c *Registry_RegisterActivity_Call) Run(run func(a any)) *Registry_RegisterActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -82,13 +82,13 @@ func (_c *Registry_RegisterActivity_Call) Return() *Registry_RegisterActivity_Ca
 	return _c
 }
 
-func (_c *Registry_RegisterActivity_Call) RunAndReturn(run func(a interface{})) *Registry_RegisterActivity_Call {
+func (_c *Registry_RegisterActivity_Call) RunAndReturn(run func(a any)) *Registry_RegisterActivity_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterActivityWithOptions provides a mock function for the type Registry
-func (_mock *Registry) RegisterActivityWithOptions(a interface{}, options activity.RegisterOptions) {
+func (_mock *Registry) RegisterActivityWithOptions(a any, options activity.RegisterOptions) {
 	_mock.Called(a, options)
 	return
 }
@@ -99,17 +99,17 @@ type Registry_RegisterActivityWithOptions_Call struct {
 }
 
 // RegisterActivityWithOptions is a helper method to define mock.On call
-//   - a interface{}
+//   - a any
 //   - options activity.RegisterOptions
 func (_e *Registry_Expecter) RegisterActivityWithOptions(a any, options any) *Registry_RegisterActivityWithOptions_Call {
 	return &Registry_RegisterActivityWithOptions_Call{Call: _e.mock.On("RegisterActivityWithOptions", a, options)}
 }
 
-func (_c *Registry_RegisterActivityWithOptions_Call) Run(run func(a interface{}, options activity.RegisterOptions)) *Registry_RegisterActivityWithOptions_Call {
+func (_c *Registry_RegisterActivityWithOptions_Call) Run(run func(a any, options activity.RegisterOptions)) *Registry_RegisterActivityWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 activity.RegisterOptions
 		if args[1] != nil {
@@ -128,13 +128,13 @@ func (_c *Registry_RegisterActivityWithOptions_Call) Return() *Registry_Register
 	return _c
 }
 
-func (_c *Registry_RegisterActivityWithOptions_Call) RunAndReturn(run func(a interface{}, options activity.RegisterOptions)) *Registry_RegisterActivityWithOptions_Call {
+func (_c *Registry_RegisterActivityWithOptions_Call) RunAndReturn(run func(a any, options activity.RegisterOptions)) *Registry_RegisterActivityWithOptions_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterDynamicActivity provides a mock function for the type Registry
-func (_mock *Registry) RegisterDynamicActivity(a interface{}, options activity.DynamicRegisterOptions) {
+func (_mock *Registry) RegisterDynamicActivity(a any, options activity.DynamicRegisterOptions) {
 	_mock.Called(a, options)
 	return
 }
@@ -145,17 +145,17 @@ type Registry_RegisterDynamicActivity_Call struct {
 }
 
 // RegisterDynamicActivity is a helper method to define mock.On call
-//   - a interface{}
+//   - a any
 //   - options activity.DynamicRegisterOptions
 func (_e *Registry_Expecter) RegisterDynamicActivity(a any, options any) *Registry_RegisterDynamicActivity_Call {
 	return &Registry_RegisterDynamicActivity_Call{Call: _e.mock.On("RegisterDynamicActivity", a, options)}
 }
 
-func (_c *Registry_RegisterDynamicActivity_Call) Run(run func(a interface{}, options activity.DynamicRegisterOptions)) *Registry_RegisterDynamicActivity_Call {
+func (_c *Registry_RegisterDynamicActivity_Call) Run(run func(a any, options activity.DynamicRegisterOptions)) *Registry_RegisterDynamicActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 activity.DynamicRegisterOptions
 		if args[1] != nil {
@@ -174,13 +174,13 @@ func (_c *Registry_RegisterDynamicActivity_Call) Return() *Registry_RegisterDyna
 	return _c
 }
 
-func (_c *Registry_RegisterDynamicActivity_Call) RunAndReturn(run func(a interface{}, options activity.DynamicRegisterOptions)) *Registry_RegisterDynamicActivity_Call {
+func (_c *Registry_RegisterDynamicActivity_Call) RunAndReturn(run func(a any, options activity.DynamicRegisterOptions)) *Registry_RegisterDynamicActivity_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterDynamicWorkflow provides a mock function for the type Registry
-func (_mock *Registry) RegisterDynamicWorkflow(w interface{}, options workflow.DynamicRegisterOptions) {
+func (_mock *Registry) RegisterDynamicWorkflow(w any, options workflow.DynamicRegisterOptions) {
 	_mock.Called(w, options)
 	return
 }
@@ -191,17 +191,17 @@ type Registry_RegisterDynamicWorkflow_Call struct {
 }
 
 // RegisterDynamicWorkflow is a helper method to define mock.On call
-//   - w interface{}
+//   - w any
 //   - options workflow.DynamicRegisterOptions
 func (_e *Registry_Expecter) RegisterDynamicWorkflow(w any, options any) *Registry_RegisterDynamicWorkflow_Call {
 	return &Registry_RegisterDynamicWorkflow_Call{Call: _e.mock.On("RegisterDynamicWorkflow", w, options)}
 }
 
-func (_c *Registry_RegisterDynamicWorkflow_Call) Run(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Registry_RegisterDynamicWorkflow_Call {
+func (_c *Registry_RegisterDynamicWorkflow_Call) Run(run func(w any, options workflow.DynamicRegisterOptions)) *Registry_RegisterDynamicWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 workflow.DynamicRegisterOptions
 		if args[1] != nil {
@@ -220,7 +220,7 @@ func (_c *Registry_RegisterDynamicWorkflow_Call) Return() *Registry_RegisterDyna
 	return _c
 }
 
-func (_c *Registry_RegisterDynamicWorkflow_Call) RunAndReturn(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Registry_RegisterDynamicWorkflow_Call {
+func (_c *Registry_RegisterDynamicWorkflow_Call) RunAndReturn(run func(w any, options workflow.DynamicRegisterOptions)) *Registry_RegisterDynamicWorkflow_Call {
 	_c.Run(run)
 	return _c
 }
@@ -266,7 +266,7 @@ func (_c *Registry_RegisterNexusService_Call) RunAndReturn(run func(service *nex
 }
 
 // RegisterWorkflow provides a mock function for the type Registry
-func (_mock *Registry) RegisterWorkflow(w interface{}) {
+func (_mock *Registry) RegisterWorkflow(w any) {
 	_mock.Called(w)
 	return
 }
@@ -277,16 +277,16 @@ type Registry_RegisterWorkflow_Call struct {
 }
 
 // RegisterWorkflow is a helper method to define mock.On call
-//   - w interface{}
+//   - w any
 func (_e *Registry_Expecter) RegisterWorkflow(w any) *Registry_RegisterWorkflow_Call {
 	return &Registry_RegisterWorkflow_Call{Call: _e.mock.On("RegisterWorkflow", w)}
 }
 
-func (_c *Registry_RegisterWorkflow_Call) Run(run func(w interface{})) *Registry_RegisterWorkflow_Call {
+func (_c *Registry_RegisterWorkflow_Call) Run(run func(w any)) *Registry_RegisterWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -300,13 +300,13 @@ func (_c *Registry_RegisterWorkflow_Call) Return() *Registry_RegisterWorkflow_Ca
 	return _c
 }
 
-func (_c *Registry_RegisterWorkflow_Call) RunAndReturn(run func(w interface{})) *Registry_RegisterWorkflow_Call {
+func (_c *Registry_RegisterWorkflow_Call) RunAndReturn(run func(w any)) *Registry_RegisterWorkflow_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterWorkflowWithOptions provides a mock function for the type Registry
-func (_mock *Registry) RegisterWorkflowWithOptions(w interface{}, options workflow.RegisterOptions) {
+func (_mock *Registry) RegisterWorkflowWithOptions(w any, options workflow.RegisterOptions) {
 	_mock.Called(w, options)
 	return
 }
@@ -317,17 +317,17 @@ type Registry_RegisterWorkflowWithOptions_Call struct {
 }
 
 // RegisterWorkflowWithOptions is a helper method to define mock.On call
-//   - w interface{}
+//   - w any
 //   - options workflow.RegisterOptions
 func (_e *Registry_Expecter) RegisterWorkflowWithOptions(w any, options any) *Registry_RegisterWorkflowWithOptions_Call {
 	return &Registry_RegisterWorkflowWithOptions_Call{Call: _e.mock.On("RegisterWorkflowWithOptions", w, options)}
 }
 
-func (_c *Registry_RegisterWorkflowWithOptions_Call) Run(run func(w interface{}, options workflow.RegisterOptions)) *Registry_RegisterWorkflowWithOptions_Call {
+func (_c *Registry_RegisterWorkflowWithOptions_Call) Run(run func(w any, options workflow.RegisterOptions)) *Registry_RegisterWorkflowWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		var arg1 workflow.RegisterOptions
 		if args[1] != nil {
@@ -346,7 +346,7 @@ func (_c *Registry_RegisterWorkflowWithOptions_Call) Return() *Registry_Register
 	return _c
 }
 
-func (_c *Registry_RegisterWorkflowWithOptions_Call) RunAndReturn(run func(w interface{}, options workflow.RegisterOptions)) *Registry_RegisterWorkflowWithOptions_Call {
+func (_c *Registry_RegisterWorkflowWithOptions_Call) RunAndReturn(run func(w any, options workflow.RegisterOptions)) *Registry_RegisterWorkflowWithOptions_Call {
 	_c.Run(run)
 	return _c
 }

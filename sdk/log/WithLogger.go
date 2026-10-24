@@ -46,7 +46,7 @@ func (_m *WithLogger) EXPECT() *WithLogger_Expecter {
 }
 
 // With provides a mock function for the type WithLogger
-func (_mock *WithLogger) With(keyvals ...interface{}) log.Logger {
+func (_mock *WithLogger) With(keyvals ...any) log.Logger {
 	var tmpRet mock.Arguments
 	if len(keyvals) > 0 {
 		tmpRet = _mock.Called(keyvals)
@@ -60,7 +60,7 @@ func (_mock *WithLogger) With(keyvals ...interface{}) log.Logger {
 	}
 
 	var r0 log.Logger
-	if returnFunc, ok := ret.Get(0).(func(...interface{}) log.Logger); ok {
+	if returnFunc, ok := ret.Get(0).(func(...any) log.Logger); ok {
 		r0 = returnFunc(keyvals...)
 	} else {
 		if ret.Get(0) != nil {
@@ -76,18 +76,18 @@ type WithLogger_With_Call struct {
 }
 
 // With is a helper method to define mock.On call
-//   - keyvals ...interface{}
+//   - keyvals ...any
 func (_e *WithLogger_Expecter) With(keyvals ...any) *WithLogger_With_Call {
 	return &WithLogger_With_Call{Call: _e.mock.On("With",
 		append([]any{}, keyvals...)...)}
 }
 
-func (_c *WithLogger_With_Call) Run(run func(keyvals ...interface{})) *WithLogger_With_Call {
+func (_c *WithLogger_With_Call) Run(run func(keyvals ...any)) *WithLogger_With_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 []interface{}
-		var variadicArgs []interface{}
+		var arg0 []any
+		var variadicArgs []any
 		if len(args) > 0 {
-			variadicArgs = args[0].([]interface{})
+			variadicArgs = args[0].([]any)
 		}
 		arg0 = variadicArgs
 		run(
@@ -102,7 +102,7 @@ func (_c *WithLogger_With_Call) Return(logger log.Logger) *WithLogger_With_Call 
 	return _c
 }
 
-func (_c *WithLogger_With_Call) RunAndReturn(run func(keyvals ...interface{}) log.Logger) *WithLogger_With_Call {
+func (_c *WithLogger_With_Call) RunAndReturn(run func(keyvals ...any) log.Logger) *WithLogger_With_Call {
 	_c.Call.Return(run)
 	return _c
 }

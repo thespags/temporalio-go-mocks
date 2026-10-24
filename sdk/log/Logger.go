@@ -45,7 +45,7 @@ func (_m *Logger) EXPECT() *Logger_Expecter {
 }
 
 // Debug provides a mock function for the type Logger
-func (_mock *Logger) Debug(msg string, keyvals ...interface{}) {
+func (_mock *Logger) Debug(msg string, keyvals ...any) {
 	if len(keyvals) > 0 {
 		_mock.Called(msg, keyvals)
 	} else {
@@ -62,22 +62,22 @@ type Logger_Debug_Call struct {
 
 // Debug is a helper method to define mock.On call
 //   - msg string
-//   - keyvals ...interface{}
+//   - keyvals ...any
 func (_e *Logger_Expecter) Debug(msg any, keyvals ...any) *Logger_Debug_Call {
 	return &Logger_Debug_Call{Call: _e.mock.On("Debug",
 		append([]any{msg}, keyvals...)...)}
 }
 
-func (_c *Logger_Debug_Call) Run(run func(msg string, keyvals ...interface{})) *Logger_Debug_Call {
+func (_c *Logger_Debug_Call) Run(run func(msg string, keyvals ...any)) *Logger_Debug_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 string
 		if args[0] != nil {
 			arg0 = args[0].(string)
 		}
-		var arg1 []interface{}
-		var variadicArgs []interface{}
+		var arg1 []any
+		var variadicArgs []any
 		if len(args) > 1 {
-			variadicArgs = args[1].([]interface{})
+			variadicArgs = args[1].([]any)
 		}
 		arg1 = variadicArgs
 		run(
@@ -93,13 +93,13 @@ func (_c *Logger_Debug_Call) Return() *Logger_Debug_Call {
 	return _c
 }
 
-func (_c *Logger_Debug_Call) RunAndReturn(run func(msg string, keyvals ...interface{})) *Logger_Debug_Call {
+func (_c *Logger_Debug_Call) RunAndReturn(run func(msg string, keyvals ...any)) *Logger_Debug_Call {
 	_c.Run(run)
 	return _c
 }
 
 // Error provides a mock function for the type Logger
-func (_mock *Logger) Error(msg string, keyvals ...interface{}) {
+func (_mock *Logger) Error(msg string, keyvals ...any) {
 	if len(keyvals) > 0 {
 		_mock.Called(msg, keyvals)
 	} else {
@@ -116,22 +116,22 @@ type Logger_Error_Call struct {
 
 // Error is a helper method to define mock.On call
 //   - msg string
-//   - keyvals ...interface{}
+//   - keyvals ...any
 func (_e *Logger_Expecter) Error(msg any, keyvals ...any) *Logger_Error_Call {
 	return &Logger_Error_Call{Call: _e.mock.On("Error",
 		append([]any{msg}, keyvals...)...)}
 }
 
-func (_c *Logger_Error_Call) Run(run func(msg string, keyvals ...interface{})) *Logger_Error_Call {
+func (_c *Logger_Error_Call) Run(run func(msg string, keyvals ...any)) *Logger_Error_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 string
 		if args[0] != nil {
 			arg0 = args[0].(string)
 		}
-		var arg1 []interface{}
-		var variadicArgs []interface{}
+		var arg1 []any
+		var variadicArgs []any
 		if len(args) > 1 {
-			variadicArgs = args[1].([]interface{})
+			variadicArgs = args[1].([]any)
 		}
 		arg1 = variadicArgs
 		run(
@@ -147,13 +147,13 @@ func (_c *Logger_Error_Call) Return() *Logger_Error_Call {
 	return _c
 }
 
-func (_c *Logger_Error_Call) RunAndReturn(run func(msg string, keyvals ...interface{})) *Logger_Error_Call {
+func (_c *Logger_Error_Call) RunAndReturn(run func(msg string, keyvals ...any)) *Logger_Error_Call {
 	_c.Run(run)
 	return _c
 }
 
 // Info provides a mock function for the type Logger
-func (_mock *Logger) Info(msg string, keyvals ...interface{}) {
+func (_mock *Logger) Info(msg string, keyvals ...any) {
 	if len(keyvals) > 0 {
 		_mock.Called(msg, keyvals)
 	} else {
@@ -170,22 +170,22 @@ type Logger_Info_Call struct {
 
 // Info is a helper method to define mock.On call
 //   - msg string
-//   - keyvals ...interface{}
+//   - keyvals ...any
 func (_e *Logger_Expecter) Info(msg any, keyvals ...any) *Logger_Info_Call {
 	return &Logger_Info_Call{Call: _e.mock.On("Info",
 		append([]any{msg}, keyvals...)...)}
 }
 
-func (_c *Logger_Info_Call) Run(run func(msg string, keyvals ...interface{})) *Logger_Info_Call {
+func (_c *Logger_Info_Call) Run(run func(msg string, keyvals ...any)) *Logger_Info_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 string
 		if args[0] != nil {
 			arg0 = args[0].(string)
 		}
-		var arg1 []interface{}
-		var variadicArgs []interface{}
+		var arg1 []any
+		var variadicArgs []any
 		if len(args) > 1 {
-			variadicArgs = args[1].([]interface{})
+			variadicArgs = args[1].([]any)
 		}
 		arg1 = variadicArgs
 		run(
@@ -201,13 +201,13 @@ func (_c *Logger_Info_Call) Return() *Logger_Info_Call {
 	return _c
 }
 
-func (_c *Logger_Info_Call) RunAndReturn(run func(msg string, keyvals ...interface{})) *Logger_Info_Call {
+func (_c *Logger_Info_Call) RunAndReturn(run func(msg string, keyvals ...any)) *Logger_Info_Call {
 	_c.Run(run)
 	return _c
 }
 
 // Warn provides a mock function for the type Logger
-func (_mock *Logger) Warn(msg string, keyvals ...interface{}) {
+func (_mock *Logger) Warn(msg string, keyvals ...any) {
 	if len(keyvals) > 0 {
 		_mock.Called(msg, keyvals)
 	} else {
@@ -224,22 +224,22 @@ type Logger_Warn_Call struct {
 
 // Warn is a helper method to define mock.On call
 //   - msg string
-//   - keyvals ...interface{}
+//   - keyvals ...any
 func (_e *Logger_Expecter) Warn(msg any, keyvals ...any) *Logger_Warn_Call {
 	return &Logger_Warn_Call{Call: _e.mock.On("Warn",
 		append([]any{msg}, keyvals...)...)}
 }
 
-func (_c *Logger_Warn_Call) Run(run func(msg string, keyvals ...interface{})) *Logger_Warn_Call {
+func (_c *Logger_Warn_Call) Run(run func(msg string, keyvals ...any)) *Logger_Warn_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 string
 		if args[0] != nil {
 			arg0 = args[0].(string)
 		}
-		var arg1 []interface{}
-		var variadicArgs []interface{}
+		var arg1 []any
+		var variadicArgs []any
 		if len(args) > 1 {
-			variadicArgs = args[1].([]interface{})
+			variadicArgs = args[1].([]any)
 		}
 		arg1 = variadicArgs
 		run(
@@ -255,7 +255,7 @@ func (_c *Logger_Warn_Call) Return() *Logger_Warn_Call {
 	return _c
 }
 
-func (_c *Logger_Warn_Call) RunAndReturn(run func(msg string, keyvals ...interface{})) *Logger_Warn_Call {
+func (_c *Logger_Warn_Call) RunAndReturn(run func(msg string, keyvals ...any)) *Logger_Warn_Call {
 	_c.Run(run)
 	return _c
 }
