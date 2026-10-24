@@ -3866,6 +3866,89 @@ func (_c *WorkflowServiceClient_PauseActivity_Call) RunAndReturn(run func(ctx co
 	return _c
 }
 
+// PauseWorkflowExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) PauseWorkflowExecution(ctx context.Context, in *workflowservice.PauseWorkflowExecutionRequest, opts ...grpc.CallOption) (*workflowservice.PauseWorkflowExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for PauseWorkflowExecution")
+	}
+
+	var r0 *workflowservice.PauseWorkflowExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.PauseWorkflowExecutionRequest, ...grpc.CallOption) (*workflowservice.PauseWorkflowExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.PauseWorkflowExecutionRequest, ...grpc.CallOption) *workflowservice.PauseWorkflowExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.PauseWorkflowExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.PauseWorkflowExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_PauseWorkflowExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'PauseWorkflowExecution'
+type WorkflowServiceClient_PauseWorkflowExecution_Call struct {
+	*mock.Call
+}
+
+// PauseWorkflowExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.PauseWorkflowExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) PauseWorkflowExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_PauseWorkflowExecution_Call {
+	return &WorkflowServiceClient_PauseWorkflowExecution_Call{Call: _e.mock.On("PauseWorkflowExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_PauseWorkflowExecution_Call) Run(run func(ctx context.Context, in *workflowservice.PauseWorkflowExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_PauseWorkflowExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.PauseWorkflowExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.PauseWorkflowExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_PauseWorkflowExecution_Call) Return(pauseWorkflowExecutionResponse *workflowservice.PauseWorkflowExecutionResponse, err error) *WorkflowServiceClient_PauseWorkflowExecution_Call {
+	_c.Call.Return(pauseWorkflowExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_PauseWorkflowExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.PauseWorkflowExecutionRequest, opts ...grpc.CallOption) (*workflowservice.PauseWorkflowExecutionResponse, error)) *WorkflowServiceClient_PauseWorkflowExecution_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // PollActivityTaskQueue provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) PollActivityTaskQueue(ctx context.Context, in *workflowservice.PollActivityTaskQueueRequest, opts ...grpc.CallOption) (*workflowservice.PollActivityTaskQueueResponse, error) {
 	var tmpRet mock.Arguments
@@ -7016,6 +7099,89 @@ func (_c *WorkflowServiceClient_UnpauseActivity_Call) Return(unpauseActivityResp
 }
 
 func (_c *WorkflowServiceClient_UnpauseActivity_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.UnpauseActivityRequest, opts ...grpc.CallOption) (*workflowservice.UnpauseActivityResponse, error)) *WorkflowServiceClient_UnpauseActivity_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UnpauseWorkflowExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) UnpauseWorkflowExecution(ctx context.Context, in *workflowservice.UnpauseWorkflowExecutionRequest, opts ...grpc.CallOption) (*workflowservice.UnpauseWorkflowExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UnpauseWorkflowExecution")
+	}
+
+	var r0 *workflowservice.UnpauseWorkflowExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.UnpauseWorkflowExecutionRequest, ...grpc.CallOption) (*workflowservice.UnpauseWorkflowExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.UnpauseWorkflowExecutionRequest, ...grpc.CallOption) *workflowservice.UnpauseWorkflowExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.UnpauseWorkflowExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.UnpauseWorkflowExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_UnpauseWorkflowExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UnpauseWorkflowExecution'
+type WorkflowServiceClient_UnpauseWorkflowExecution_Call struct {
+	*mock.Call
+}
+
+// UnpauseWorkflowExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.UnpauseWorkflowExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) UnpauseWorkflowExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_UnpauseWorkflowExecution_Call {
+	return &WorkflowServiceClient_UnpauseWorkflowExecution_Call{Call: _e.mock.On("UnpauseWorkflowExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_UnpauseWorkflowExecution_Call) Run(run func(ctx context.Context, in *workflowservice.UnpauseWorkflowExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_UnpauseWorkflowExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.UnpauseWorkflowExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.UnpauseWorkflowExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_UnpauseWorkflowExecution_Call) Return(unpauseWorkflowExecutionResponse *workflowservice.UnpauseWorkflowExecutionResponse, err error) *WorkflowServiceClient_UnpauseWorkflowExecution_Call {
+	_c.Call.Return(unpauseWorkflowExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_UnpauseWorkflowExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.UnpauseWorkflowExecutionRequest, opts ...grpc.CallOption) (*workflowservice.UnpauseWorkflowExecutionResponse, error)) *WorkflowServiceClient_UnpauseWorkflowExecution_Call {
 	_c.Call.Return(run)
 	return _c
 }
