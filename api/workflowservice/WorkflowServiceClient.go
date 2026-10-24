@@ -3285,6 +3285,89 @@ func (_c *WorkflowServiceClient_ListWorkerDeployments_Call) RunAndReturn(run fun
 	return _c
 }
 
+// ListWorkers provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) ListWorkers(ctx context.Context, in *workflowservice.ListWorkersRequest, opts ...grpc.CallOption) (*workflowservice.ListWorkersResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for ListWorkers")
+	}
+
+	var r0 *workflowservice.ListWorkersResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.ListWorkersRequest, ...grpc.CallOption) (*workflowservice.ListWorkersResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.ListWorkersRequest, ...grpc.CallOption) *workflowservice.ListWorkersResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.ListWorkersResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.ListWorkersRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_ListWorkers_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'ListWorkers'
+type WorkflowServiceClient_ListWorkers_Call struct {
+	*mock.Call
+}
+
+// ListWorkers is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.ListWorkersRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) ListWorkers(ctx any, in any, opts ...any) *WorkflowServiceClient_ListWorkers_Call {
+	return &WorkflowServiceClient_ListWorkers_Call{Call: _e.mock.On("ListWorkers",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_ListWorkers_Call) Run(run func(ctx context.Context, in *workflowservice.ListWorkersRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_ListWorkers_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.ListWorkersRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.ListWorkersRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_ListWorkers_Call) Return(listWorkersResponse *workflowservice.ListWorkersResponse, err error) *WorkflowServiceClient_ListWorkers_Call {
+	_c.Call.Return(listWorkersResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_ListWorkers_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.ListWorkersRequest, opts ...grpc.CallOption) (*workflowservice.ListWorkersResponse, error)) *WorkflowServiceClient_ListWorkers_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // ListWorkflowExecutions provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) ListWorkflowExecutions(ctx context.Context, in *workflowservice.ListWorkflowExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.ListWorkflowExecutionsResponse, error) {
 	var tmpRet mock.Arguments
@@ -4194,6 +4277,89 @@ func (_c *WorkflowServiceClient_RecordActivityTaskHeartbeatById_Call) Return(rec
 }
 
 func (_c *WorkflowServiceClient_RecordActivityTaskHeartbeatById_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.RecordActivityTaskHeartbeatByIdRequest, opts ...grpc.CallOption) (*workflowservice.RecordActivityTaskHeartbeatByIdResponse, error)) *WorkflowServiceClient_RecordActivityTaskHeartbeatById_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// RecordWorkerHeartbeat provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) RecordWorkerHeartbeat(ctx context.Context, in *workflowservice.RecordWorkerHeartbeatRequest, opts ...grpc.CallOption) (*workflowservice.RecordWorkerHeartbeatResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for RecordWorkerHeartbeat")
+	}
+
+	var r0 *workflowservice.RecordWorkerHeartbeatResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.RecordWorkerHeartbeatRequest, ...grpc.CallOption) (*workflowservice.RecordWorkerHeartbeatResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.RecordWorkerHeartbeatRequest, ...grpc.CallOption) *workflowservice.RecordWorkerHeartbeatResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.RecordWorkerHeartbeatResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.RecordWorkerHeartbeatRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_RecordWorkerHeartbeat_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RecordWorkerHeartbeat'
+type WorkflowServiceClient_RecordWorkerHeartbeat_Call struct {
+	*mock.Call
+}
+
+// RecordWorkerHeartbeat is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.RecordWorkerHeartbeatRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) RecordWorkerHeartbeat(ctx any, in any, opts ...any) *WorkflowServiceClient_RecordWorkerHeartbeat_Call {
+	return &WorkflowServiceClient_RecordWorkerHeartbeat_Call{Call: _e.mock.On("RecordWorkerHeartbeat",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_RecordWorkerHeartbeat_Call) Run(run func(ctx context.Context, in *workflowservice.RecordWorkerHeartbeatRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_RecordWorkerHeartbeat_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.RecordWorkerHeartbeatRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.RecordWorkerHeartbeatRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_RecordWorkerHeartbeat_Call) Return(recordWorkerHeartbeatResponse *workflowservice.RecordWorkerHeartbeatResponse, err error) *WorkflowServiceClient_RecordWorkerHeartbeat_Call {
+	_c.Call.Return(recordWorkerHeartbeatResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_RecordWorkerHeartbeat_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.RecordWorkerHeartbeatRequest, opts ...grpc.CallOption) (*workflowservice.RecordWorkerHeartbeatResponse, error)) *WorkflowServiceClient_RecordWorkerHeartbeat_Call {
 	_c.Call.Return(run)
 	return _c
 }
