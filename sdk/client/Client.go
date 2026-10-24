@@ -691,6 +691,74 @@ func (_c *Client_CountActivities_Call) RunAndReturn(run func(ctx context.Context
 	return _c
 }
 
+// CountNexusOperations provides a mock function for the type Client
+func (_mock *Client) CountNexusOperations(ctx context.Context, options client.CountNexusOperationsOptions) (*client.CountNexusOperationsResult, error) {
+	ret := _mock.Called(ctx, options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for CountNexusOperations")
+	}
+
+	var r0 *client.CountNexusOperationsResult
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CountNexusOperationsOptions) (*client.CountNexusOperationsResult, error)); ok {
+		return returnFunc(ctx, options)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CountNexusOperationsOptions) *client.CountNexusOperationsResult); ok {
+		r0 = returnFunc(ctx, options)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*client.CountNexusOperationsResult)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, client.CountNexusOperationsOptions) error); ok {
+		r1 = returnFunc(ctx, options)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// Client_CountNexusOperations_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CountNexusOperations'
+type Client_CountNexusOperations_Call struct {
+	*mock.Call
+}
+
+// CountNexusOperations is a helper method to define mock.On call
+//   - ctx context.Context
+//   - options client.CountNexusOperationsOptions
+func (_e *Client_Expecter) CountNexusOperations(ctx any, options any) *Client_CountNexusOperations_Call {
+	return &Client_CountNexusOperations_Call{Call: _e.mock.On("CountNexusOperations", ctx, options)}
+}
+
+func (_c *Client_CountNexusOperations_Call) Run(run func(ctx context.Context, options client.CountNexusOperationsOptions)) *Client_CountNexusOperations_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.CountNexusOperationsOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.CountNexusOperationsOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_CountNexusOperations_Call) Return(countNexusOperationsResult *client.CountNexusOperationsResult, err error) *Client_CountNexusOperations_Call {
+	_c.Call.Return(countNexusOperationsResult, err)
+	return _c
+}
+
+func (_c *Client_CountNexusOperations_Call) RunAndReturn(run func(ctx context.Context, options client.CountNexusOperationsOptions) (*client.CountNexusOperationsResult, error)) *Client_CountNexusOperations_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CountWorkflow provides a mock function for the type Client
 func (_mock *Client) CountWorkflow(ctx context.Context, request *workflowservice.CountWorkflowExecutionsRequest) (*workflowservice.CountWorkflowExecutionsResponse, error) {
 	ret := _mock.Called(ctx, request)
@@ -1320,6 +1388,59 @@ func (_c *Client_GetActivityHandle_Call) Return(activityHandle client.ActivityHa
 }
 
 func (_c *Client_GetActivityHandle_Call) RunAndReturn(run func(options client.GetActivityHandleOptions) client.ActivityHandle) *Client_GetActivityHandle_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// GetNexusOperationHandle provides a mock function for the type Client
+func (_mock *Client) GetNexusOperationHandle(options client.GetNexusOperationHandleOptions) client.NexusOperationHandle {
+	ret := _mock.Called(options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetNexusOperationHandle")
+	}
+
+	var r0 client.NexusOperationHandle
+	if returnFunc, ok := ret.Get(0).(func(client.GetNexusOperationHandleOptions) client.NexusOperationHandle); ok {
+		r0 = returnFunc(options)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(client.NexusOperationHandle)
+		}
+	}
+	return r0
+}
+
+// Client_GetNexusOperationHandle_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetNexusOperationHandle'
+type Client_GetNexusOperationHandle_Call struct {
+	*mock.Call
+}
+
+// GetNexusOperationHandle is a helper method to define mock.On call
+//   - options client.GetNexusOperationHandleOptions
+func (_e *Client_Expecter) GetNexusOperationHandle(options any) *Client_GetNexusOperationHandle_Call {
+	return &Client_GetNexusOperationHandle_Call{Call: _e.mock.On("GetNexusOperationHandle", options)}
+}
+
+func (_c *Client_GetNexusOperationHandle_Call) Run(run func(options client.GetNexusOperationHandleOptions)) *Client_GetNexusOperationHandle_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 client.GetNexusOperationHandleOptions
+		if args[0] != nil {
+			arg0 = args[0].(client.GetNexusOperationHandleOptions)
+		}
+		run(
+			arg0,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_GetNexusOperationHandle_Call) Return(nexusOperationHandle client.NexusOperationHandle) *Client_GetNexusOperationHandle_Call {
+	_c.Call.Return(nexusOperationHandle)
+	return _c
+}
+
+func (_c *Client_GetNexusOperationHandle_Call) RunAndReturn(run func(options client.GetNexusOperationHandleOptions) client.NexusOperationHandle) *Client_GetNexusOperationHandle_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -1987,6 +2108,72 @@ func (_c *Client_ListClosedWorkflow_Call) RunAndReturn(run func(ctx context.Cont
 	return _c
 }
 
+// ListNexusOperations provides a mock function for the type Client
+func (_mock *Client) ListNexusOperations(ctx context.Context, options client.ListNexusOperationsOptions) (client.ListNexusOperationsResult, error) {
+	ret := _mock.Called(ctx, options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for ListNexusOperations")
+	}
+
+	var r0 client.ListNexusOperationsResult
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ListNexusOperationsOptions) (client.ListNexusOperationsResult, error)); ok {
+		return returnFunc(ctx, options)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ListNexusOperationsOptions) client.ListNexusOperationsResult); ok {
+		r0 = returnFunc(ctx, options)
+	} else {
+		r0 = ret.Get(0).(client.ListNexusOperationsResult)
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, client.ListNexusOperationsOptions) error); ok {
+		r1 = returnFunc(ctx, options)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// Client_ListNexusOperations_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'ListNexusOperations'
+type Client_ListNexusOperations_Call struct {
+	*mock.Call
+}
+
+// ListNexusOperations is a helper method to define mock.On call
+//   - ctx context.Context
+//   - options client.ListNexusOperationsOptions
+func (_e *Client_Expecter) ListNexusOperations(ctx any, options any) *Client_ListNexusOperations_Call {
+	return &Client_ListNexusOperations_Call{Call: _e.mock.On("ListNexusOperations", ctx, options)}
+}
+
+func (_c *Client_ListNexusOperations_Call) Run(run func(ctx context.Context, options client.ListNexusOperationsOptions)) *Client_ListNexusOperations_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.ListNexusOperationsOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.ListNexusOperationsOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_ListNexusOperations_Call) Return(listNexusOperationsResult client.ListNexusOperationsResult, err error) *Client_ListNexusOperations_Call {
+	_c.Call.Return(listNexusOperationsResult, err)
+	return _c
+}
+
+func (_c *Client_ListNexusOperations_Call) RunAndReturn(run func(ctx context.Context, options client.ListNexusOperationsOptions) (client.ListNexusOperationsResult, error)) *Client_ListNexusOperations_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // ListOpenWorkflow provides a mock function for the type Client
 func (_mock *Client) ListOpenWorkflow(ctx context.Context, request *workflowservice.ListOpenWorkflowExecutionsRequest) (*workflowservice.ListOpenWorkflowExecutionsResponse, error) {
 	ret := _mock.Called(ctx, request)
@@ -2119,6 +2306,68 @@ func (_c *Client_ListWorkflow_Call) Return(listWorkflowExecutionsResponse *workf
 }
 
 func (_c *Client_ListWorkflow_Call) RunAndReturn(run func(ctx context.Context, request *workflowservice.ListWorkflowExecutionsRequest) (*workflowservice.ListWorkflowExecutionsResponse, error)) *Client_ListWorkflow_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// NewNexusClient provides a mock function for the type Client
+func (_mock *Client) NewNexusClient(options client.NexusClientOptions) (client.NexusClient, error) {
+	ret := _mock.Called(options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for NewNexusClient")
+	}
+
+	var r0 client.NexusClient
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(client.NexusClientOptions) (client.NexusClient, error)); ok {
+		return returnFunc(options)
+	}
+	if returnFunc, ok := ret.Get(0).(func(client.NexusClientOptions) client.NexusClient); ok {
+		r0 = returnFunc(options)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(client.NexusClient)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(client.NexusClientOptions) error); ok {
+		r1 = returnFunc(options)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// Client_NewNexusClient_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'NewNexusClient'
+type Client_NewNexusClient_Call struct {
+	*mock.Call
+}
+
+// NewNexusClient is a helper method to define mock.On call
+//   - options client.NexusClientOptions
+func (_e *Client_Expecter) NewNexusClient(options any) *Client_NewNexusClient_Call {
+	return &Client_NewNexusClient_Call{Call: _e.mock.On("NewNexusClient", options)}
+}
+
+func (_c *Client_NewNexusClient_Call) Run(run func(options client.NexusClientOptions)) *Client_NewNexusClient_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 client.NexusClientOptions
+		if args[0] != nil {
+			arg0 = args[0].(client.NexusClientOptions)
+		}
+		run(
+			arg0,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_NewNexusClient_Call) Return(nexusClient client.NexusClient, err error) *Client_NewNexusClient_Call {
+	_c.Call.Return(nexusClient, err)
+	return _c
+}
+
+func (_c *Client_NewNexusClient_Call) RunAndReturn(run func(options client.NexusClientOptions) (client.NexusClient, error)) *Client_NewNexusClient_Call {
 	_c.Call.Return(run)
 	return _c
 }
