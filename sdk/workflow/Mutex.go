@@ -6,7 +6,7 @@ package workflow
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/workflow"
+	"go.temporal.io/sdk/converter"
 )
 
 // NewMutex creates a new instance of Mutex. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -90,7 +90,7 @@ func (_c *Mutex_IsLocked_Call) RunAndReturn(run func() bool) *Mutex_IsLocked_Cal
 }
 
 // Lock provides a mock function for the type Mutex
-func (_mock *Mutex) Lock(ctx workflow.Context) error {
+func (_mock *Mutex) Lock(ctx converter.WorkflowContext) error {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -98,7 +98,7 @@ func (_mock *Mutex) Lock(ctx workflow.Context) error {
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) error); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		r0 = ret.Error(0)
@@ -112,16 +112,16 @@ type Mutex_Lock_Call struct {
 }
 
 // Lock is a helper method to define mock.On call
-//   - ctx workflow.Context
+//   - ctx converter.WorkflowContext
 func (_e *Mutex_Expecter) Lock(ctx any) *Mutex_Lock_Call {
 	return &Mutex_Lock_Call{Call: _e.mock.On("Lock", ctx)}
 }
 
-func (_c *Mutex_Lock_Call) Run(run func(ctx workflow.Context)) *Mutex_Lock_Call {
+func (_c *Mutex_Lock_Call) Run(run func(ctx converter.WorkflowContext)) *Mutex_Lock_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 workflow.Context
+		var arg0 converter.WorkflowContext
 		if args[0] != nil {
-			arg0 = args[0].(workflow.Context)
+			arg0 = args[0].(converter.WorkflowContext)
 		}
 		run(
 			arg0,
@@ -135,13 +135,13 @@ func (_c *Mutex_Lock_Call) Return(err error) *Mutex_Lock_Call {
 	return _c
 }
 
-func (_c *Mutex_Lock_Call) RunAndReturn(run func(ctx workflow.Context) error) *Mutex_Lock_Call {
+func (_c *Mutex_Lock_Call) RunAndReturn(run func(ctx converter.WorkflowContext) error) *Mutex_Lock_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // TryLock provides a mock function for the type Mutex
-func (_mock *Mutex) TryLock(ctx workflow.Context) bool {
+func (_mock *Mutex) TryLock(ctx converter.WorkflowContext) bool {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -149,7 +149,7 @@ func (_mock *Mutex) TryLock(ctx workflow.Context) bool {
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) bool); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -163,16 +163,16 @@ type Mutex_TryLock_Call struct {
 }
 
 // TryLock is a helper method to define mock.On call
-//   - ctx workflow.Context
+//   - ctx converter.WorkflowContext
 func (_e *Mutex_Expecter) TryLock(ctx any) *Mutex_TryLock_Call {
 	return &Mutex_TryLock_Call{Call: _e.mock.On("TryLock", ctx)}
 }
 
-func (_c *Mutex_TryLock_Call) Run(run func(ctx workflow.Context)) *Mutex_TryLock_Call {
+func (_c *Mutex_TryLock_Call) Run(run func(ctx converter.WorkflowContext)) *Mutex_TryLock_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 workflow.Context
+		var arg0 converter.WorkflowContext
 		if args[0] != nil {
-			arg0 = args[0].(workflow.Context)
+			arg0 = args[0].(converter.WorkflowContext)
 		}
 		run(
 			arg0,
@@ -186,7 +186,7 @@ func (_c *Mutex_TryLock_Call) Return(b bool) *Mutex_TryLock_Call {
 	return _c
 }
 
-func (_c *Mutex_TryLock_Call) RunAndReturn(run func(ctx workflow.Context) bool) *Mutex_TryLock_Call {
+func (_c *Mutex_TryLock_Call) RunAndReturn(run func(ctx converter.WorkflowContext) bool) *Mutex_TryLock_Call {
 	_c.Call.Return(run)
 	return _c
 }

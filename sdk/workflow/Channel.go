@@ -8,7 +8,7 @@ import (
 	"time"
 
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/workflow"
+	"go.temporal.io/sdk/converter"
 )
 
 // NewChannel creates a new instance of Channel. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -169,7 +169,7 @@ func (_c *Channel_Name_Call) RunAndReturn(run func() string) *Channel_Name_Call 
 }
 
 // Receive provides a mock function for the type Channel
-func (_mock *Channel) Receive(ctx workflow.Context, valuePtr any) bool {
+func (_mock *Channel) Receive(ctx converter.WorkflowContext, valuePtr any) bool {
 	ret := _mock.Called(ctx, valuePtr)
 
 	if len(ret) == 0 {
@@ -177,7 +177,7 @@ func (_mock *Channel) Receive(ctx workflow.Context, valuePtr any) bool {
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, any) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, any) bool); ok {
 		r0 = returnFunc(ctx, valuePtr)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -191,17 +191,17 @@ type Channel_Receive_Call struct {
 }
 
 // Receive is a helper method to define mock.On call
-//   - ctx workflow.Context
+//   - ctx converter.WorkflowContext
 //   - valuePtr any
 func (_e *Channel_Expecter) Receive(ctx any, valuePtr any) *Channel_Receive_Call {
 	return &Channel_Receive_Call{Call: _e.mock.On("Receive", ctx, valuePtr)}
 }
 
-func (_c *Channel_Receive_Call) Run(run func(ctx workflow.Context, valuePtr any)) *Channel_Receive_Call {
+func (_c *Channel_Receive_Call) Run(run func(ctx converter.WorkflowContext, valuePtr any)) *Channel_Receive_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 workflow.Context
+		var arg0 converter.WorkflowContext
 		if args[0] != nil {
-			arg0 = args[0].(workflow.Context)
+			arg0 = args[0].(converter.WorkflowContext)
 		}
 		var arg1 any
 		if args[1] != nil {
@@ -220,7 +220,7 @@ func (_c *Channel_Receive_Call) Return(more bool) *Channel_Receive_Call {
 	return _c
 }
 
-func (_c *Channel_Receive_Call) RunAndReturn(run func(ctx workflow.Context, valuePtr any) bool) *Channel_Receive_Call {
+func (_c *Channel_Receive_Call) RunAndReturn(run func(ctx converter.WorkflowContext, valuePtr any) bool) *Channel_Receive_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -337,7 +337,7 @@ func (_c *Channel_ReceiveAsyncWithMoreFlag_Call) RunAndReturn(run func(valuePtr 
 }
 
 // ReceiveWithTimeout provides a mock function for the type Channel
-func (_mock *Channel) ReceiveWithTimeout(ctx workflow.Context, timeout time.Duration, valuePtr any) (bool, bool) {
+func (_mock *Channel) ReceiveWithTimeout(ctx converter.WorkflowContext, timeout time.Duration, valuePtr any) (bool, bool) {
 	ret := _mock.Called(ctx, timeout, valuePtr)
 
 	if len(ret) == 0 {
@@ -346,15 +346,15 @@ func (_mock *Channel) ReceiveWithTimeout(ctx workflow.Context, timeout time.Dura
 
 	var r0 bool
 	var r1 bool
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, any) (bool, bool)); ok {
+	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, time.Duration, any) (bool, bool)); ok {
 		return returnFunc(ctx, timeout, valuePtr)
 	}
-	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, any) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, time.Duration, any) bool); ok {
 		r0 = returnFunc(ctx, timeout, valuePtr)
 	} else {
 		r0 = ret.Get(0).(bool)
 	}
-	if returnFunc, ok := ret.Get(1).(func(workflow.Context, time.Duration, any) bool); ok {
+	if returnFunc, ok := ret.Get(1).(func(converter.WorkflowContext, time.Duration, any) bool); ok {
 		r1 = returnFunc(ctx, timeout, valuePtr)
 	} else {
 		r1 = ret.Get(1).(bool)
@@ -368,18 +368,18 @@ type Channel_ReceiveWithTimeout_Call struct {
 }
 
 // ReceiveWithTimeout is a helper method to define mock.On call
-//   - ctx workflow.Context
+//   - ctx converter.WorkflowContext
 //   - timeout time.Duration
 //   - valuePtr any
 func (_e *Channel_Expecter) ReceiveWithTimeout(ctx any, timeout any, valuePtr any) *Channel_ReceiveWithTimeout_Call {
 	return &Channel_ReceiveWithTimeout_Call{Call: _e.mock.On("ReceiveWithTimeout", ctx, timeout, valuePtr)}
 }
 
-func (_c *Channel_ReceiveWithTimeout_Call) Run(run func(ctx workflow.Context, timeout time.Duration, valuePtr any)) *Channel_ReceiveWithTimeout_Call {
+func (_c *Channel_ReceiveWithTimeout_Call) Run(run func(ctx converter.WorkflowContext, timeout time.Duration, valuePtr any)) *Channel_ReceiveWithTimeout_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 workflow.Context
+		var arg0 converter.WorkflowContext
 		if args[0] != nil {
-			arg0 = args[0].(workflow.Context)
+			arg0 = args[0].(converter.WorkflowContext)
 		}
 		var arg1 time.Duration
 		if args[1] != nil {
@@ -403,13 +403,13 @@ func (_c *Channel_ReceiveWithTimeout_Call) Return(ok bool, more bool) *Channel_R
 	return _c
 }
 
-func (_c *Channel_ReceiveWithTimeout_Call) RunAndReturn(run func(ctx workflow.Context, timeout time.Duration, valuePtr any) (bool, bool)) *Channel_ReceiveWithTimeout_Call {
+func (_c *Channel_ReceiveWithTimeout_Call) RunAndReturn(run func(ctx converter.WorkflowContext, timeout time.Duration, valuePtr any) (bool, bool)) *Channel_ReceiveWithTimeout_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // Send provides a mock function for the type Channel
-func (_mock *Channel) Send(ctx workflow.Context, v any) {
+func (_mock *Channel) Send(ctx converter.WorkflowContext, v any) {
 	_mock.Called(ctx, v)
 	return
 }
@@ -420,17 +420,17 @@ type Channel_Send_Call struct {
 }
 
 // Send is a helper method to define mock.On call
-//   - ctx workflow.Context
+//   - ctx converter.WorkflowContext
 //   - v any
 func (_e *Channel_Expecter) Send(ctx any, v any) *Channel_Send_Call {
 	return &Channel_Send_Call{Call: _e.mock.On("Send", ctx, v)}
 }
 
-func (_c *Channel_Send_Call) Run(run func(ctx workflow.Context, v any)) *Channel_Send_Call {
+func (_c *Channel_Send_Call) Run(run func(ctx converter.WorkflowContext, v any)) *Channel_Send_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 workflow.Context
+		var arg0 converter.WorkflowContext
 		if args[0] != nil {
-			arg0 = args[0].(workflow.Context)
+			arg0 = args[0].(converter.WorkflowContext)
 		}
 		var arg1 any
 		if args[1] != nil {
@@ -449,7 +449,7 @@ func (_c *Channel_Send_Call) Return() *Channel_Send_Call {
 	return _c
 }
 
-func (_c *Channel_Send_Call) RunAndReturn(run func(ctx workflow.Context, v any)) *Channel_Send_Call {
+func (_c *Channel_Send_Call) RunAndReturn(run func(ctx converter.WorkflowContext, v any)) *Channel_Send_Call {
 	_c.Run(run)
 	return _c
 }

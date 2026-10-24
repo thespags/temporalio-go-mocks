@@ -49,7 +49,7 @@ require (
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
 	go.temporal.io/api v1.63.5
-	go.temporal.io/sdk v1.49.0
+	go.temporal.io/sdk v1.50.0
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/exp v0.0.0-20260212183809-81e46e3db34a // indirect
 	golang.org/x/mod v0.41.0 // indirect
@@ -65,4 +65,27 @@ require (
 	google.golang.org/grpc v1.83.2
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+)
+
+// The original tags were published with a go.mod that required a mockery version that does not
+// exist, which breaks `go list -m all` for consumers, and were generated from a minor's first
+// patch instead of its latest. Each is superseded by the same minor's .1 tag.
+retract (
+	v1.50.0 // superseded by v1.50.1
+	v1.49.0 // superseded by v1.49.1
+	v1.48.0 // superseded by v1.48.1
+	v1.47.0 // superseded by v1.47.1
+	v1.46.0 // superseded by v1.46.1
+	v1.45.0 // superseded by v1.45.1
+	v1.44.0 // superseded by v1.44.1
+	v1.43.0 // superseded by v1.43.1
+	v1.42.0 // superseded by v1.42.1
+	v1.41.0 // superseded by v1.41.1
+	v1.40.0 // superseded by v1.40.1
+	v1.39.0 // superseded by v1.39.1
+	v1.38.0 // superseded by v1.38.1
+	v1.37.0 // superseded by v1.37.1
+	v1.36.0 // superseded by v1.36.1
+	v1.35.0 // superseded by v1.35.1
+	v1.34.0 // superseded by v1.34.1
 )
