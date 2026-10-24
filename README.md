@@ -72,19 +72,23 @@ c.EXPECT().WorkflowService().Return(ws)
 ### Versions
 
 The major and minor version of a tag match the upstream module: `sdk/v1.45.x` is for `go.temporal.io/sdk`
-`v1.45.x`, and `api/v1.62.x` is for `go.temporal.io/api` `v1.62.x`. The patch number is ours. It counts fixes to the
-mocks and is unrelated to upstream's patch releases, which normally don't change public interfaces and so aren't
-tracked. Each tag's `go.mod` pins the upstream version it was generated against, normally the `.0` release so that
-consumers on a later upstream patch aren't forced to move. If an upstream patch does add something we want to
-mock, we cover it in our own next patch, generated against and pinned to that upstream patch.
+`v1.45.x`, and `api/v1.62.x` is for `go.temporal.io/api` `v1.62.x`. Use the highest tag of your minor.
 
-Use the `api` tag that matches your `go.temporal.io/api` version. gRPC client interfaces gain methods in most
-api releases, and a mock generated from an older api no longer satisfies the newer interface. If you upgrade
-`go.temporal.io/api`, upgrade the `api` mocks with it. The two modules are separate so that this doesn't force
-you to move the SDK mocks.
+The patch number is ours. It counts regenerations and is unrelated to upstream's patch numbers. Each tag's `go.mod`
+pins the latest upstream patch of its minor that existed when it was generated. Upstream patch releases can add
+methods (the api's gRPC clients do in most of them), and a mock generated from a newer patch still satisfies the
+older ones, but a mock generated from an older patch stops satisfying a newer interface. So whenever an upstream
+patch changes the mocks, a new tag of ours follows, and the mock module pulls your `go.temporal.io/sdk` or
+`go.temporal.io/api` up to the pinned patch. If you upgrade upstream past what the tag pins, upgrade the mocks with it.
+The two modules are separate so that moving the api doesn't force you to move the SDK mocks.
 
-Tags start at `sdk/v1.34.0` and `api/v1.46.0`; earlier versions have no mocks. Tags are never moved or
-deleted. A mistake in a published version is fixed with the next patch, and the bad version is retracted in `go.mod`.
+Tags start at `sdk/v1.34.1` and `api/v1.46.1`; earlier upstream versions have no mocks. The first tags published for
+each of those minors (`sdk/v1.34.0` to `sdk/v1.50.0` and `api/v1.46.0` to `api/v1.64.0`) were broken: their `go.mod`
+required a mockery version that doesn't exist, which breaks `go list -m all`, and they were generated from the
+minor's first patch. They are retracted in `go.mod`. Use the `.1` tags.
+
+Tags are never moved or deleted. A mistake in a published version is fixed with the next patch, and the bad version is
+retracted in `go.mod`.
 
 ### Migrating from `go.temporal.io/sdk/mocks`
 
@@ -127,7 +131,8 @@ Nobody should run mockery by hand.
 3. `.github/workflows/ci.yml` (check name: `ci`) installs the tools with
    [mise-action](https://github.com/marketplace/actions/mise-action), runs `mise run mockery`, and fails if the
    committed mocks differ. Then it builds both modules. If an upstream change breaks the mocks, the PR sits red instead of merging.
-4. `.github/workflows/release.yml` tags `main` `sdk/vX.Y.0` or `api/vX.Y.0` the first time the matching upstream reaches a new minor.
+4. `.github/workflows/release.yml` tags `main` `sdk/vX.Y.0` or `api/vX.Y.0` when the matching upstream reaches a new minor,
+   and the next patch whenever the generated mocks of an existing minor change.
 
 To regenerate locally: `mise run mockery` (or `mise run mockery:sdk` / `mise run mockery:api`).
 

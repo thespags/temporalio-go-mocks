@@ -1,12 +1,15 @@
 name: release
 
 # sdk/ and api/ are separate Go modules, tagged `sdk/vX.Y.Z` and `api/vX.Y.Z` (Go requires the
-# directory prefix for a module that isn't at the repo root). For each one, tag main
-# <module>/vX.Y.0 the first time the vendored upstream (go.temporal.io/sdk or go.temporal.io/api)
-# reaches a new minor (vX.Y), so `go get .../<module>@vX.Y` lines up with upstream. The patch
-# number belongs to us: later patches (fixes to the mocks) are tagged by hand, and upstream patch
-# releases don't get a tag. Skips a module if any <module>/vX.Y.* tag exists on the remote or the
-# upstream version is a prerelease.
+# directory prefix for a module that isn't at the repo root). Each tag's major.minor matches the
+# upstream module (go.temporal.io/sdk or go.temporal.io/api) and the patch is our own counter.
+# For each module, on every push to main:
+#   - first time the vendored upstream reaches a new minor (vX.Y): tag <module>/vX.Y.0
+#   - later, if the module's generated mocks (anything but go.mod/go.sum) changed since the
+#     highest <module>/vX.Y.* tag: tag the next patch. Upstream patch releases can add methods to
+#     the gRPC clients, and a mock that is missing one stops satisfying the real interface, so
+#     the mocks have to move with them.
+# Skips a module if the upstream version is a prerelease.
 #
 # When seeding history, push the tags before (or in the same command as) main, so they are
 # on the remote by the time this runs: `git push origin <branch>:main --tags`.
@@ -28,7 +31,7 @@ jobs:
       - uses: actions/setup-go@v7
         with:
           go-version-file: sdk/go.mod
-      - name: Tag upstream minors
+      - name: Tag upstream releases
         run: |
           status=0
           for entry in sdk:go.temporal.io/sdk api:go.temporal.io/api; do
@@ -41,10 +44,20 @@ jobs:
             minor=${v%.*}
             # Ask the remote, not the checkout: tags pushed alongside (or just after) this
             # commit may not be in the checkout, and tagging would then land on the wrong commit.
-            if [ -n "$(git ls-remote --tags origin "refs/tags/$mod/$minor.*")" ]; then
-              echo "$mod: $minor.x already tagged"; continue
+            highest=$(git ls-remote --tags origin "refs/tags/$mod/$minor.*" \
+              | awk '{print $2}' | grep -v '\^{}$' | sed 's|^refs/tags/||' | sort -V | tail -1)
+            if [ -z "$highest" ]; then
+              tag="$mod/$minor.0"
+            else
+              git rev-parse -q --verify "refs/tags/$highest" >/dev/null \
+                || git fetch -q origin "refs/tags/$highest:refs/tags/$highest"
+              if git diff --quiet "$highest" HEAD -- "$mod" ":(exclude)$mod/go.mod" ":(exclude)$mod/go.sum"; then
+                echo "$mod: mocks unchanged since $highest"; continue
+              fi
+              tag="$mod/$minor.$(( ${highest##*.} + 1 ))"
             fi
-            git tag "$mod/$minor.0"
-            git push origin "$mod/$minor.0" || status=1
+            echo "$mod: tagging $tag"
+            git tag "$tag"
+            git push origin "$tag" || status=1
           done
           exit $status
