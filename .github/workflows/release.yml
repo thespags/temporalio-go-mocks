@@ -1,0 +1,50 @@
+name: release
+
+# sdk/ and api/ are separate Go modules, tagged `sdk/vX.Y.Z` and `api/vX.Y.Z` (Go requires the
+# directory prefix for a module that isn't at the repo root). For each one, tag main
+# <module>/vX.Y.0 the first time the vendored upstream (go.temporal.io/sdk or go.temporal.io/api)
+# reaches a new minor (vX.Y), so `go get .../<module>@vX.Y` lines up with upstream. The patch
+# number belongs to us: later patches (fixes to the mocks) are tagged by hand, and upstream patch
+# releases don't get a tag. Skips a module if any <module>/vX.Y.* tag exists on the remote or the
+# upstream version is a prerelease.
+#
+# When seeding history, push the tags before (or in the same command as) main, so they are
+# on the remote by the time this runs: `git push origin <branch>:main --tags`.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: sdk/go.mod
+      - name: Tag upstream minors
+        run: |
+          status=0
+          for entry in sdk:go.temporal.io/sdk api:go.temporal.io/api; do
+            mod=${entry%%:*}
+            pkg=${entry#*:}
+            v=$(cd "$mod" && go list -m -f '{{.Version}}' "$pkg")
+            case "$v" in
+              *-*) echo "$mod: $v is a prerelease, not tagging"; continue ;;
+            esac
+            minor=${v%.*}
+            # Ask the remote, not the checkout: tags pushed alongside (or just after) this
+            # commit may not be in the checkout, and tagging would then land on the wrong commit.
+            if [ -n "$(git ls-remote --tags origin "refs/tags/$mod/$minor.*")" ]; then
+              echo "$mod: $minor.x already tagged"; continue
+            fi
+            git tag "$mod/$minor.0"
+            git push origin "$mod/$minor.0" || status=1
+          done
+          exit $status
