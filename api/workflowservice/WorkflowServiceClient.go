@@ -48,6 +48,89 @@ func (_m *WorkflowServiceClient) EXPECT() *WorkflowServiceClient_Expecter {
 	return &WorkflowServiceClient_Expecter{mock: &_m.Mock}
 }
 
+// CountActivityExecutions provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) CountActivityExecutions(ctx context.Context, in *workflowservice.CountActivityExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.CountActivityExecutionsResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CountActivityExecutions")
+	}
+
+	var r0 *workflowservice.CountActivityExecutionsResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.CountActivityExecutionsRequest, ...grpc.CallOption) (*workflowservice.CountActivityExecutionsResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.CountActivityExecutionsRequest, ...grpc.CallOption) *workflowservice.CountActivityExecutionsResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.CountActivityExecutionsResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.CountActivityExecutionsRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_CountActivityExecutions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CountActivityExecutions'
+type WorkflowServiceClient_CountActivityExecutions_Call struct {
+	*mock.Call
+}
+
+// CountActivityExecutions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.CountActivityExecutionsRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) CountActivityExecutions(ctx any, in any, opts ...any) *WorkflowServiceClient_CountActivityExecutions_Call {
+	return &WorkflowServiceClient_CountActivityExecutions_Call{Call: _e.mock.On("CountActivityExecutions",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_CountActivityExecutions_Call) Run(run func(ctx context.Context, in *workflowservice.CountActivityExecutionsRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_CountActivityExecutions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.CountActivityExecutionsRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.CountActivityExecutionsRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_CountActivityExecutions_Call) Return(countActivityExecutionsResponse *workflowservice.CountActivityExecutionsResponse, err error) *WorkflowServiceClient_CountActivityExecutions_Call {
+	_c.Call.Return(countActivityExecutionsResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_CountActivityExecutions_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.CountActivityExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.CountActivityExecutionsResponse, error)) *WorkflowServiceClient_CountActivityExecutions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CountWorkflowExecutions provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) CountWorkflowExecutions(ctx context.Context, in *workflowservice.CountWorkflowExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.CountWorkflowExecutionsResponse, error) {
 	var tmpRet mock.Arguments
@@ -293,6 +376,89 @@ func (_c *WorkflowServiceClient_CreateWorkflowRule_Call) Return(createWorkflowRu
 }
 
 func (_c *WorkflowServiceClient_CreateWorkflowRule_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.CreateWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.CreateWorkflowRuleResponse, error)) *WorkflowServiceClient_CreateWorkflowRule_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteActivityExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) DeleteActivityExecution(ctx context.Context, in *workflowservice.DeleteActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.DeleteActivityExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteActivityExecution")
+	}
+
+	var r0 *workflowservice.DeleteActivityExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DeleteActivityExecutionRequest, ...grpc.CallOption) (*workflowservice.DeleteActivityExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DeleteActivityExecutionRequest, ...grpc.CallOption) *workflowservice.DeleteActivityExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.DeleteActivityExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.DeleteActivityExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_DeleteActivityExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteActivityExecution'
+type WorkflowServiceClient_DeleteActivityExecution_Call struct {
+	*mock.Call
+}
+
+// DeleteActivityExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.DeleteActivityExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) DeleteActivityExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_DeleteActivityExecution_Call {
+	return &WorkflowServiceClient_DeleteActivityExecution_Call{Call: _e.mock.On("DeleteActivityExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_DeleteActivityExecution_Call) Run(run func(ctx context.Context, in *workflowservice.DeleteActivityExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_DeleteActivityExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.DeleteActivityExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.DeleteActivityExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DeleteActivityExecution_Call) Return(deleteActivityExecutionResponse *workflowservice.DeleteActivityExecutionResponse, err error) *WorkflowServiceClient_DeleteActivityExecution_Call {
+	_c.Call.Return(deleteActivityExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DeleteActivityExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DeleteActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.DeleteActivityExecutionResponse, error)) *WorkflowServiceClient_DeleteActivityExecution_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -791,6 +957,89 @@ func (_c *WorkflowServiceClient_DeprecateNamespace_Call) Return(deprecateNamespa
 }
 
 func (_c *WorkflowServiceClient_DeprecateNamespace_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DeprecateNamespaceRequest, opts ...grpc.CallOption) (*workflowservice.DeprecateNamespaceResponse, error)) *WorkflowServiceClient_DeprecateNamespace_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DescribeActivityExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) DescribeActivityExecution(ctx context.Context, in *workflowservice.DescribeActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.DescribeActivityExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DescribeActivityExecution")
+	}
+
+	var r0 *workflowservice.DescribeActivityExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DescribeActivityExecutionRequest, ...grpc.CallOption) (*workflowservice.DescribeActivityExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DescribeActivityExecutionRequest, ...grpc.CallOption) *workflowservice.DescribeActivityExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.DescribeActivityExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.DescribeActivityExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_DescribeActivityExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DescribeActivityExecution'
+type WorkflowServiceClient_DescribeActivityExecution_Call struct {
+	*mock.Call
+}
+
+// DescribeActivityExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.DescribeActivityExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) DescribeActivityExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_DescribeActivityExecution_Call {
+	return &WorkflowServiceClient_DescribeActivityExecution_Call{Call: _e.mock.On("DescribeActivityExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_DescribeActivityExecution_Call) Run(run func(ctx context.Context, in *workflowservice.DescribeActivityExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_DescribeActivityExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.DescribeActivityExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.DescribeActivityExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DescribeActivityExecution_Call) Return(describeActivityExecutionResponse *workflowservice.DescribeActivityExecutionResponse, err error) *WorkflowServiceClient_DescribeActivityExecution_Call {
+	_c.Call.Return(describeActivityExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DescribeActivityExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DescribeActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.DescribeActivityExecutionResponse, error)) *WorkflowServiceClient_DescribeActivityExecution_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2621,6 +2870,89 @@ func (_c *WorkflowServiceClient_GetWorkflowExecutionHistoryReverse_Call) RunAndR
 	return _c
 }
 
+// ListActivityExecutions provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) ListActivityExecutions(ctx context.Context, in *workflowservice.ListActivityExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.ListActivityExecutionsResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for ListActivityExecutions")
+	}
+
+	var r0 *workflowservice.ListActivityExecutionsResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.ListActivityExecutionsRequest, ...grpc.CallOption) (*workflowservice.ListActivityExecutionsResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.ListActivityExecutionsRequest, ...grpc.CallOption) *workflowservice.ListActivityExecutionsResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.ListActivityExecutionsResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.ListActivityExecutionsRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_ListActivityExecutions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'ListActivityExecutions'
+type WorkflowServiceClient_ListActivityExecutions_Call struct {
+	*mock.Call
+}
+
+// ListActivityExecutions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.ListActivityExecutionsRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) ListActivityExecutions(ctx any, in any, opts ...any) *WorkflowServiceClient_ListActivityExecutions_Call {
+	return &WorkflowServiceClient_ListActivityExecutions_Call{Call: _e.mock.On("ListActivityExecutions",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_ListActivityExecutions_Call) Run(run func(ctx context.Context, in *workflowservice.ListActivityExecutionsRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_ListActivityExecutions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.ListActivityExecutionsRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.ListActivityExecutionsRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_ListActivityExecutions_Call) Return(listActivityExecutionsResponse *workflowservice.ListActivityExecutionsResponse, err error) *WorkflowServiceClient_ListActivityExecutions_Call {
+	_c.Call.Return(listActivityExecutionsResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_ListActivityExecutions_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.ListActivityExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.ListActivityExecutionsResponse, error)) *WorkflowServiceClient_ListActivityExecutions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // ListArchivedWorkflowExecutions provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) ListArchivedWorkflowExecutions(ctx context.Context, in *workflowservice.ListArchivedWorkflowExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.ListArchivedWorkflowExecutionsResponse, error) {
 	var tmpRet mock.Arguments
@@ -3949,6 +4281,89 @@ func (_c *WorkflowServiceClient_PauseWorkflowExecution_Call) RunAndReturn(run fu
 	return _c
 }
 
+// PollActivityExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) PollActivityExecution(ctx context.Context, in *workflowservice.PollActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.PollActivityExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for PollActivityExecution")
+	}
+
+	var r0 *workflowservice.PollActivityExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.PollActivityExecutionRequest, ...grpc.CallOption) (*workflowservice.PollActivityExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.PollActivityExecutionRequest, ...grpc.CallOption) *workflowservice.PollActivityExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.PollActivityExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.PollActivityExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_PollActivityExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'PollActivityExecution'
+type WorkflowServiceClient_PollActivityExecution_Call struct {
+	*mock.Call
+}
+
+// PollActivityExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.PollActivityExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) PollActivityExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_PollActivityExecution_Call {
+	return &WorkflowServiceClient_PollActivityExecution_Call{Call: _e.mock.On("PollActivityExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_PollActivityExecution_Call) Run(run func(ctx context.Context, in *workflowservice.PollActivityExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_PollActivityExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.PollActivityExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.PollActivityExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_PollActivityExecution_Call) Return(pollActivityExecutionResponse *workflowservice.PollActivityExecutionResponse, err error) *WorkflowServiceClient_PollActivityExecution_Call {
+	_c.Call.Return(pollActivityExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_PollActivityExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.PollActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.PollActivityExecutionResponse, error)) *WorkflowServiceClient_PollActivityExecution_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // PollActivityTaskQueue provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) PollActivityTaskQueue(ctx context.Context, in *workflowservice.PollActivityTaskQueueRequest, opts ...grpc.CallOption) (*workflowservice.PollActivityTaskQueueResponse, error) {
 	var tmpRet mock.Arguments
@@ -4692,6 +5107,89 @@ func (_c *WorkflowServiceClient_RegisterNamespace_Call) Return(registerNamespace
 }
 
 func (_c *WorkflowServiceClient_RegisterNamespace_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.RegisterNamespaceRequest, opts ...grpc.CallOption) (*workflowservice.RegisterNamespaceResponse, error)) *WorkflowServiceClient_RegisterNamespace_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// RequestCancelActivityExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) RequestCancelActivityExecution(ctx context.Context, in *workflowservice.RequestCancelActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.RequestCancelActivityExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for RequestCancelActivityExecution")
+	}
+
+	var r0 *workflowservice.RequestCancelActivityExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.RequestCancelActivityExecutionRequest, ...grpc.CallOption) (*workflowservice.RequestCancelActivityExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.RequestCancelActivityExecutionRequest, ...grpc.CallOption) *workflowservice.RequestCancelActivityExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.RequestCancelActivityExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.RequestCancelActivityExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_RequestCancelActivityExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RequestCancelActivityExecution'
+type WorkflowServiceClient_RequestCancelActivityExecution_Call struct {
+	*mock.Call
+}
+
+// RequestCancelActivityExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.RequestCancelActivityExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) RequestCancelActivityExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_RequestCancelActivityExecution_Call {
+	return &WorkflowServiceClient_RequestCancelActivityExecution_Call{Call: _e.mock.On("RequestCancelActivityExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_RequestCancelActivityExecution_Call) Run(run func(ctx context.Context, in *workflowservice.RequestCancelActivityExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_RequestCancelActivityExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.RequestCancelActivityExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.RequestCancelActivityExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_RequestCancelActivityExecution_Call) Return(requestCancelActivityExecutionResponse *workflowservice.RequestCancelActivityExecutionResponse, err error) *WorkflowServiceClient_RequestCancelActivityExecution_Call {
+	_c.Call.Return(requestCancelActivityExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_RequestCancelActivityExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.RequestCancelActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.RequestCancelActivityExecutionResponse, error)) *WorkflowServiceClient_RequestCancelActivityExecution_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -6605,6 +7103,89 @@ func (_c *WorkflowServiceClient_SignalWorkflowExecution_Call) RunAndReturn(run f
 	return _c
 }
 
+// StartActivityExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) StartActivityExecution(ctx context.Context, in *workflowservice.StartActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.StartActivityExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for StartActivityExecution")
+	}
+
+	var r0 *workflowservice.StartActivityExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.StartActivityExecutionRequest, ...grpc.CallOption) (*workflowservice.StartActivityExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.StartActivityExecutionRequest, ...grpc.CallOption) *workflowservice.StartActivityExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.StartActivityExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.StartActivityExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_StartActivityExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'StartActivityExecution'
+type WorkflowServiceClient_StartActivityExecution_Call struct {
+	*mock.Call
+}
+
+// StartActivityExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.StartActivityExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) StartActivityExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_StartActivityExecution_Call {
+	return &WorkflowServiceClient_StartActivityExecution_Call{Call: _e.mock.On("StartActivityExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_StartActivityExecution_Call) Run(run func(ctx context.Context, in *workflowservice.StartActivityExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_StartActivityExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.StartActivityExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.StartActivityExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_StartActivityExecution_Call) Return(startActivityExecutionResponse *workflowservice.StartActivityExecutionResponse, err error) *WorkflowServiceClient_StartActivityExecution_Call {
+	_c.Call.Return(startActivityExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_StartActivityExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.StartActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.StartActivityExecutionResponse, error)) *WorkflowServiceClient_StartActivityExecution_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // StartBatchOperation provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) StartBatchOperation(ctx context.Context, in *workflowservice.StartBatchOperationRequest, opts ...grpc.CallOption) (*workflowservice.StartBatchOperationResponse, error) {
 	var tmpRet mock.Arguments
@@ -6850,6 +7431,89 @@ func (_c *WorkflowServiceClient_StopBatchOperation_Call) Return(stopBatchOperati
 }
 
 func (_c *WorkflowServiceClient_StopBatchOperation_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.StopBatchOperationRequest, opts ...grpc.CallOption) (*workflowservice.StopBatchOperationResponse, error)) *WorkflowServiceClient_StopBatchOperation_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// TerminateActivityExecution provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) TerminateActivityExecution(ctx context.Context, in *workflowservice.TerminateActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.TerminateActivityExecutionResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for TerminateActivityExecution")
+	}
+
+	var r0 *workflowservice.TerminateActivityExecutionResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.TerminateActivityExecutionRequest, ...grpc.CallOption) (*workflowservice.TerminateActivityExecutionResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.TerminateActivityExecutionRequest, ...grpc.CallOption) *workflowservice.TerminateActivityExecutionResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.TerminateActivityExecutionResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.TerminateActivityExecutionRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_TerminateActivityExecution_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'TerminateActivityExecution'
+type WorkflowServiceClient_TerminateActivityExecution_Call struct {
+	*mock.Call
+}
+
+// TerminateActivityExecution is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.TerminateActivityExecutionRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) TerminateActivityExecution(ctx any, in any, opts ...any) *WorkflowServiceClient_TerminateActivityExecution_Call {
+	return &WorkflowServiceClient_TerminateActivityExecution_Call{Call: _e.mock.On("TerminateActivityExecution",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_TerminateActivityExecution_Call) Run(run func(ctx context.Context, in *workflowservice.TerminateActivityExecutionRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_TerminateActivityExecution_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.TerminateActivityExecutionRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.TerminateActivityExecutionRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_TerminateActivityExecution_Call) Return(terminateActivityExecutionResponse *workflowservice.TerminateActivityExecutionResponse, err error) *WorkflowServiceClient_TerminateActivityExecution_Call {
+	_c.Call.Return(terminateActivityExecutionResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_TerminateActivityExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.TerminateActivityExecutionRequest, opts ...grpc.CallOption) (*workflowservice.TerminateActivityExecutionResponse, error)) *WorkflowServiceClient_TerminateActivityExecution_Call {
 	_c.Call.Return(run)
 	return _c
 }
