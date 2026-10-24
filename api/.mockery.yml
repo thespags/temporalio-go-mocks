@@ -1,0 +1,21 @@
+# What to generate: testify-style mocks.
+template: testify
+# Where to put them: one directory per source package, named after it (pkgname defaults to the same).
+# e.g. go.temporal.io/api/workflowservice/v1 -> ./workflowservice (package workflowservice).
+dir: '{{.SrcPackageName}}'
+filename: '{{.InterfaceName}}.go'
+structname: '{{.InterfaceName}}'
+force-file-write: true # overwrite existing files on regen
+
+# The api's service code is protobuf-generated, which mockery skips unless told otherwise.
+include-auto-generated: true
+
+# Only the gRPC clients the SDK hands out (client.Client.WorkflowService() and OperatorService()).
+# The *Server and Unsafe*Server interfaces are for implementing a Temporal server, not for using one.
+packages:
+  go.temporal.io/api/workflowservice/v1:
+    interfaces:
+      WorkflowServiceClient:
+  go.temporal.io/api/operatorservice/v1:
+    interfaces:
+      OperatorServiceClient:
