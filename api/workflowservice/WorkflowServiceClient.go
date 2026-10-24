@@ -214,6 +214,89 @@ func (_c *WorkflowServiceClient_CreateSchedule_Call) RunAndReturn(run func(ctx c
 	return _c
 }
 
+// CreateWorkflowRule provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) CreateWorkflowRule(ctx context.Context, in *workflowservice.CreateWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.CreateWorkflowRuleResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CreateWorkflowRule")
+	}
+
+	var r0 *workflowservice.CreateWorkflowRuleResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.CreateWorkflowRuleRequest, ...grpc.CallOption) (*workflowservice.CreateWorkflowRuleResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.CreateWorkflowRuleRequest, ...grpc.CallOption) *workflowservice.CreateWorkflowRuleResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.CreateWorkflowRuleResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.CreateWorkflowRuleRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_CreateWorkflowRule_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CreateWorkflowRule'
+type WorkflowServiceClient_CreateWorkflowRule_Call struct {
+	*mock.Call
+}
+
+// CreateWorkflowRule is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.CreateWorkflowRuleRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) CreateWorkflowRule(ctx any, in any, opts ...any) *WorkflowServiceClient_CreateWorkflowRule_Call {
+	return &WorkflowServiceClient_CreateWorkflowRule_Call{Call: _e.mock.On("CreateWorkflowRule",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_CreateWorkflowRule_Call) Run(run func(ctx context.Context, in *workflowservice.CreateWorkflowRuleRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_CreateWorkflowRule_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.CreateWorkflowRuleRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.CreateWorkflowRuleRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_CreateWorkflowRule_Call) Return(createWorkflowRuleResponse *workflowservice.CreateWorkflowRuleResponse, err error) *WorkflowServiceClient_CreateWorkflowRule_Call {
+	_c.Call.Return(createWorkflowRuleResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_CreateWorkflowRule_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.CreateWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.CreateWorkflowRuleResponse, error)) *WorkflowServiceClient_CreateWorkflowRule_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // DeleteSchedule provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) DeleteSchedule(ctx context.Context, in *workflowservice.DeleteScheduleRequest, opts ...grpc.CallOption) (*workflowservice.DeleteScheduleResponse, error) {
 	var tmpRet mock.Arguments
@@ -542,6 +625,89 @@ func (_c *WorkflowServiceClient_DeleteWorkflowExecution_Call) Return(deleteWorkf
 }
 
 func (_c *WorkflowServiceClient_DeleteWorkflowExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DeleteWorkflowExecutionRequest, opts ...grpc.CallOption) (*workflowservice.DeleteWorkflowExecutionResponse, error)) *WorkflowServiceClient_DeleteWorkflowExecution_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DeleteWorkflowRule provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) DeleteWorkflowRule(ctx context.Context, in *workflowservice.DeleteWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.DeleteWorkflowRuleResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DeleteWorkflowRule")
+	}
+
+	var r0 *workflowservice.DeleteWorkflowRuleResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DeleteWorkflowRuleRequest, ...grpc.CallOption) (*workflowservice.DeleteWorkflowRuleResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DeleteWorkflowRuleRequest, ...grpc.CallOption) *workflowservice.DeleteWorkflowRuleResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.DeleteWorkflowRuleResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.DeleteWorkflowRuleRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_DeleteWorkflowRule_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DeleteWorkflowRule'
+type WorkflowServiceClient_DeleteWorkflowRule_Call struct {
+	*mock.Call
+}
+
+// DeleteWorkflowRule is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.DeleteWorkflowRuleRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) DeleteWorkflowRule(ctx any, in any, opts ...any) *WorkflowServiceClient_DeleteWorkflowRule_Call {
+	return &WorkflowServiceClient_DeleteWorkflowRule_Call{Call: _e.mock.On("DeleteWorkflowRule",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_DeleteWorkflowRule_Call) Run(run func(ctx context.Context, in *workflowservice.DeleteWorkflowRuleRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_DeleteWorkflowRule_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.DeleteWorkflowRuleRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.DeleteWorkflowRuleRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DeleteWorkflowRule_Call) Return(deleteWorkflowRuleResponse *workflowservice.DeleteWorkflowRuleResponse, err error) *WorkflowServiceClient_DeleteWorkflowRule_Call {
+	_c.Call.Return(deleteWorkflowRuleResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DeleteWorkflowRule_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DeleteWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.DeleteWorkflowRuleResponse, error)) *WorkflowServiceClient_DeleteWorkflowRule_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -1289,6 +1455,89 @@ func (_c *WorkflowServiceClient_DescribeWorkflowExecution_Call) Return(describeW
 }
 
 func (_c *WorkflowServiceClient_DescribeWorkflowExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DescribeWorkflowExecutionRequest, opts ...grpc.CallOption) (*workflowservice.DescribeWorkflowExecutionResponse, error)) *WorkflowServiceClient_DescribeWorkflowExecution_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// DescribeWorkflowRule provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) DescribeWorkflowRule(ctx context.Context, in *workflowservice.DescribeWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.DescribeWorkflowRuleResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DescribeWorkflowRule")
+	}
+
+	var r0 *workflowservice.DescribeWorkflowRuleResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DescribeWorkflowRuleRequest, ...grpc.CallOption) (*workflowservice.DescribeWorkflowRuleResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DescribeWorkflowRuleRequest, ...grpc.CallOption) *workflowservice.DescribeWorkflowRuleResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.DescribeWorkflowRuleResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.DescribeWorkflowRuleRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_DescribeWorkflowRule_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DescribeWorkflowRule'
+type WorkflowServiceClient_DescribeWorkflowRule_Call struct {
+	*mock.Call
+}
+
+// DescribeWorkflowRule is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.DescribeWorkflowRuleRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) DescribeWorkflowRule(ctx any, in any, opts ...any) *WorkflowServiceClient_DescribeWorkflowRule_Call {
+	return &WorkflowServiceClient_DescribeWorkflowRule_Call{Call: _e.mock.On("DescribeWorkflowRule",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_DescribeWorkflowRule_Call) Run(run func(ctx context.Context, in *workflowservice.DescribeWorkflowRuleRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_DescribeWorkflowRule_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.DescribeWorkflowRuleRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.DescribeWorkflowRuleRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DescribeWorkflowRule_Call) Return(describeWorkflowRuleResponse *workflowservice.DescribeWorkflowRuleResponse, err error) *WorkflowServiceClient_DescribeWorkflowRule_Call {
+	_c.Call.Return(describeWorkflowRuleResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DescribeWorkflowRule_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DescribeWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.DescribeWorkflowRuleResponse, error)) *WorkflowServiceClient_DescribeWorkflowRule_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -3115,6 +3364,89 @@ func (_c *WorkflowServiceClient_ListWorkflowExecutions_Call) Return(listWorkflow
 }
 
 func (_c *WorkflowServiceClient_ListWorkflowExecutions_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.ListWorkflowExecutionsRequest, opts ...grpc.CallOption) (*workflowservice.ListWorkflowExecutionsResponse, error)) *WorkflowServiceClient_ListWorkflowExecutions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// ListWorkflowRules provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) ListWorkflowRules(ctx context.Context, in *workflowservice.ListWorkflowRulesRequest, opts ...grpc.CallOption) (*workflowservice.ListWorkflowRulesResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for ListWorkflowRules")
+	}
+
+	var r0 *workflowservice.ListWorkflowRulesResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.ListWorkflowRulesRequest, ...grpc.CallOption) (*workflowservice.ListWorkflowRulesResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.ListWorkflowRulesRequest, ...grpc.CallOption) *workflowservice.ListWorkflowRulesResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.ListWorkflowRulesResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.ListWorkflowRulesRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_ListWorkflowRules_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'ListWorkflowRules'
+type WorkflowServiceClient_ListWorkflowRules_Call struct {
+	*mock.Call
+}
+
+// ListWorkflowRules is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.ListWorkflowRulesRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) ListWorkflowRules(ctx any, in any, opts ...any) *WorkflowServiceClient_ListWorkflowRules_Call {
+	return &WorkflowServiceClient_ListWorkflowRules_Call{Call: _e.mock.On("ListWorkflowRules",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_ListWorkflowRules_Call) Run(run func(ctx context.Context, in *workflowservice.ListWorkflowRulesRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_ListWorkflowRules_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.ListWorkflowRulesRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.ListWorkflowRulesRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_ListWorkflowRules_Call) Return(listWorkflowRulesResponse *workflowservice.ListWorkflowRulesResponse, err error) *WorkflowServiceClient_ListWorkflowRules_Call {
+	_c.Call.Return(listWorkflowRulesResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_ListWorkflowRules_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.ListWorkflowRulesRequest, opts ...grpc.CallOption) (*workflowservice.ListWorkflowRulesResponse, error)) *WorkflowServiceClient_ListWorkflowRules_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -6103,6 +6435,89 @@ func (_c *WorkflowServiceClient_TerminateWorkflowExecution_Call) Return(terminat
 }
 
 func (_c *WorkflowServiceClient_TerminateWorkflowExecution_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.TerminateWorkflowExecutionRequest, opts ...grpc.CallOption) (*workflowservice.TerminateWorkflowExecutionResponse, error)) *WorkflowServiceClient_TerminateWorkflowExecution_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// TriggerWorkflowRule provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) TriggerWorkflowRule(ctx context.Context, in *workflowservice.TriggerWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.TriggerWorkflowRuleResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for TriggerWorkflowRule")
+	}
+
+	var r0 *workflowservice.TriggerWorkflowRuleResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.TriggerWorkflowRuleRequest, ...grpc.CallOption) (*workflowservice.TriggerWorkflowRuleResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.TriggerWorkflowRuleRequest, ...grpc.CallOption) *workflowservice.TriggerWorkflowRuleResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.TriggerWorkflowRuleResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.TriggerWorkflowRuleRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_TriggerWorkflowRule_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'TriggerWorkflowRule'
+type WorkflowServiceClient_TriggerWorkflowRule_Call struct {
+	*mock.Call
+}
+
+// TriggerWorkflowRule is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.TriggerWorkflowRuleRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) TriggerWorkflowRule(ctx any, in any, opts ...any) *WorkflowServiceClient_TriggerWorkflowRule_Call {
+	return &WorkflowServiceClient_TriggerWorkflowRule_Call{Call: _e.mock.On("TriggerWorkflowRule",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_TriggerWorkflowRule_Call) Run(run func(ctx context.Context, in *workflowservice.TriggerWorkflowRuleRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_TriggerWorkflowRule_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.TriggerWorkflowRuleRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.TriggerWorkflowRuleRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_TriggerWorkflowRule_Call) Return(triggerWorkflowRuleResponse *workflowservice.TriggerWorkflowRuleResponse, err error) *WorkflowServiceClient_TriggerWorkflowRule_Call {
+	_c.Call.Return(triggerWorkflowRuleResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_TriggerWorkflowRule_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.TriggerWorkflowRuleRequest, opts ...grpc.CallOption) (*workflowservice.TriggerWorkflowRuleResponse, error)) *WorkflowServiceClient_TriggerWorkflowRule_Call {
 	_c.Call.Return(run)
 	return _c
 }
