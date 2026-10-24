@@ -6,6 +6,7 @@ package workflow
 
 import (
 	mock "github.com/stretchr/testify/mock"
+	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/workflow"
 )
 
@@ -313,7 +314,7 @@ func (_c *Selector_HasPending_Call) RunAndReturn(run func() bool) *Selector_HasP
 }
 
 // Select provides a mock function for the type Selector
-func (_mock *Selector) Select(ctx workflow.Context) {
+func (_mock *Selector) Select(ctx converter.WorkflowContext) {
 	_mock.Called(ctx)
 	return
 }
@@ -324,16 +325,16 @@ type Selector_Select_Call struct {
 }
 
 // Select is a helper method to define mock.On call
-//   - ctx workflow.Context
+//   - ctx converter.WorkflowContext
 func (_e *Selector_Expecter) Select(ctx any) *Selector_Select_Call {
 	return &Selector_Select_Call{Call: _e.mock.On("Select", ctx)}
 }
 
-func (_c *Selector_Select_Call) Run(run func(ctx workflow.Context)) *Selector_Select_Call {
+func (_c *Selector_Select_Call) Run(run func(ctx converter.WorkflowContext)) *Selector_Select_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 workflow.Context
+		var arg0 converter.WorkflowContext
 		if args[0] != nil {
-			arg0 = args[0].(workflow.Context)
+			arg0 = args[0].(converter.WorkflowContext)
 		}
 		run(
 			arg0,
@@ -347,7 +348,7 @@ func (_c *Selector_Select_Call) Return() *Selector_Select_Call {
 	return _c
 }
 
-func (_c *Selector_Select_Call) RunAndReturn(run func(ctx workflow.Context)) *Selector_Select_Call {
+func (_c *Selector_Select_Call) RunAndReturn(run func(ctx converter.WorkflowContext)) *Selector_Select_Call {
 	_c.Run(run)
 	return _c
 }
