@@ -191,19 +191,19 @@ func (_c *Context_Err_Call) RunAndReturn(run func() error) *Context_Err_Call {
 }
 
 // Value provides a mock function for the type Context
-func (_mock *Context) Value(key any) any {
+func (_mock *Context) Value(key interface{}) interface{} {
 	ret := _mock.Called(key)
 
 	if len(ret) == 0 {
 		panic("no return value specified for Value")
 	}
 
-	var r0 any
-	if returnFunc, ok := ret.Get(0).(func(any) any); ok {
+	var r0 interface{}
+	if returnFunc, ok := ret.Get(0).(func(interface{}) interface{}); ok {
 		r0 = returnFunc(key)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(any)
+			r0 = ret.Get(0).(interface{})
 		}
 	}
 	return r0
@@ -215,16 +215,16 @@ type Context_Value_Call struct {
 }
 
 // Value is a helper method to define mock.On call
-//   - key any
+//   - key interface{}
 func (_e *Context_Expecter) Value(key any) *Context_Value_Call {
 	return &Context_Value_Call{Call: _e.mock.On("Value", key)}
 }
 
-func (_c *Context_Value_Call) Run(run func(key any)) *Context_Value_Call {
+func (_c *Context_Value_Call) Run(run func(key interface{})) *Context_Value_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 any
+		var arg0 interface{}
 		if args[0] != nil {
-			arg0 = args[0].(any)
+			arg0 = args[0].(interface{})
 		}
 		run(
 			arg0,
@@ -233,12 +233,12 @@ func (_c *Context_Value_Call) Run(run func(key any)) *Context_Value_Call {
 	return _c
 }
 
-func (_c *Context_Value_Call) Return(anyMoqParam any) *Context_Value_Call {
-	_c.Call.Return(anyMoqParam)
+func (_c *Context_Value_Call) Return(ifaceVal interface{}) *Context_Value_Call {
+	_c.Call.Return(ifaceVal)
 	return _c
 }
 
-func (_c *Context_Value_Call) RunAndReturn(run func(key any) any) *Context_Value_Call {
+func (_c *Context_Value_Call) RunAndReturn(run func(key interface{}) interface{}) *Context_Value_Call {
 	_c.Call.Return(run)
 	return _c
 }

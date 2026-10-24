@@ -48,7 +48,7 @@ func (_m *WorkflowRun) EXPECT() *WorkflowRun_Expecter {
 }
 
 // Get provides a mock function for the type WorkflowRun
-func (_mock *WorkflowRun) Get(ctx context.Context, valuePtr any) error {
+func (_mock *WorkflowRun) Get(ctx context.Context, valuePtr interface{}) error {
 	ret := _mock.Called(ctx, valuePtr)
 
 	if len(ret) == 0 {
@@ -56,7 +56,7 @@ func (_mock *WorkflowRun) Get(ctx context.Context, valuePtr any) error {
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, interface{}) error); ok {
 		r0 = returnFunc(ctx, valuePtr)
 	} else {
 		r0 = ret.Error(0)
@@ -71,20 +71,20 @@ type WorkflowRun_Get_Call struct {
 
 // Get is a helper method to define mock.On call
 //   - ctx context.Context
-//   - valuePtr any
+//   - valuePtr interface{}
 func (_e *WorkflowRun_Expecter) Get(ctx any, valuePtr any) *WorkflowRun_Get_Call {
 	return &WorkflowRun_Get_Call{Call: _e.mock.On("Get", ctx, valuePtr)}
 }
 
-func (_c *WorkflowRun_Get_Call) Run(run func(ctx context.Context, valuePtr any)) *WorkflowRun_Get_Call {
+func (_c *WorkflowRun_Get_Call) Run(run func(ctx context.Context, valuePtr interface{})) *WorkflowRun_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
 			arg0 = args[0].(context.Context)
 		}
-		var arg1 any
+		var arg1 interface{}
 		if args[1] != nil {
-			arg1 = args[1].(any)
+			arg1 = args[1].(interface{})
 		}
 		run(
 			arg0,
@@ -99,51 +99,7 @@ func (_c *WorkflowRun_Get_Call) Return(err error) *WorkflowRun_Get_Call {
 	return _c
 }
 
-func (_c *WorkflowRun_Get_Call) RunAndReturn(run func(ctx context.Context, valuePtr any) error) *WorkflowRun_Get_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// GetFirstExecutionRunID provides a mock function for the type WorkflowRun
-func (_mock *WorkflowRun) GetFirstExecutionRunID() string {
-	ret := _mock.Called()
-
-	if len(ret) == 0 {
-		panic("no return value specified for GetFirstExecutionRunID")
-	}
-
-	var r0 string
-	if returnFunc, ok := ret.Get(0).(func() string); ok {
-		r0 = returnFunc()
-	} else {
-		r0 = ret.Get(0).(string)
-	}
-	return r0
-}
-
-// WorkflowRun_GetFirstExecutionRunID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetFirstExecutionRunID'
-type WorkflowRun_GetFirstExecutionRunID_Call struct {
-	*mock.Call
-}
-
-// GetFirstExecutionRunID is a helper method to define mock.On call
-func (_e *WorkflowRun_Expecter) GetFirstExecutionRunID() *WorkflowRun_GetFirstExecutionRunID_Call {
-	return &WorkflowRun_GetFirstExecutionRunID_Call{Call: _e.mock.On("GetFirstExecutionRunID")}
-}
-
-func (_c *WorkflowRun_GetFirstExecutionRunID_Call) Run(run func()) *WorkflowRun_GetFirstExecutionRunID_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		run()
-	})
-	return _c
-}
-
-func (_c *WorkflowRun_GetFirstExecutionRunID_Call) Return(s string) *WorkflowRun_GetFirstExecutionRunID_Call {
-	_c.Call.Return(s)
-	return _c
-}
-
-func (_c *WorkflowRun_GetFirstExecutionRunID_Call) RunAndReturn(run func() string) *WorkflowRun_GetFirstExecutionRunID_Call {
+func (_c *WorkflowRun_Get_Call) RunAndReturn(run func(ctx context.Context, valuePtr interface{}) error) *WorkflowRun_Get_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -237,7 +193,7 @@ func (_c *WorkflowRun_GetRunID_Call) RunAndReturn(run func() string) *WorkflowRu
 }
 
 // GetWithOptions provides a mock function for the type WorkflowRun
-func (_mock *WorkflowRun) GetWithOptions(ctx context.Context, valuePtr any, options client.WorkflowRunGetOptions) error {
+func (_mock *WorkflowRun) GetWithOptions(ctx context.Context, valuePtr interface{}, options client.WorkflowRunGetOptions) error {
 	ret := _mock.Called(ctx, valuePtr, options)
 
 	if len(ret) == 0 {
@@ -245,7 +201,7 @@ func (_mock *WorkflowRun) GetWithOptions(ctx context.Context, valuePtr any, opti
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, any, client.WorkflowRunGetOptions) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, interface{}, client.WorkflowRunGetOptions) error); ok {
 		r0 = returnFunc(ctx, valuePtr, options)
 	} else {
 		r0 = ret.Error(0)
@@ -260,21 +216,21 @@ type WorkflowRun_GetWithOptions_Call struct {
 
 // GetWithOptions is a helper method to define mock.On call
 //   - ctx context.Context
-//   - valuePtr any
+//   - valuePtr interface{}
 //   - options client.WorkflowRunGetOptions
 func (_e *WorkflowRun_Expecter) GetWithOptions(ctx any, valuePtr any, options any) *WorkflowRun_GetWithOptions_Call {
 	return &WorkflowRun_GetWithOptions_Call{Call: _e.mock.On("GetWithOptions", ctx, valuePtr, options)}
 }
 
-func (_c *WorkflowRun_GetWithOptions_Call) Run(run func(ctx context.Context, valuePtr any, options client.WorkflowRunGetOptions)) *WorkflowRun_GetWithOptions_Call {
+func (_c *WorkflowRun_GetWithOptions_Call) Run(run func(ctx context.Context, valuePtr interface{}, options client.WorkflowRunGetOptions)) *WorkflowRun_GetWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
 			arg0 = args[0].(context.Context)
 		}
-		var arg1 any
+		var arg1 interface{}
 		if args[1] != nil {
-			arg1 = args[1].(any)
+			arg1 = args[1].(interface{})
 		}
 		var arg2 client.WorkflowRunGetOptions
 		if args[2] != nil {
@@ -294,7 +250,7 @@ func (_c *WorkflowRun_GetWithOptions_Call) Return(err error) *WorkflowRun_GetWit
 	return _c
 }
 
-func (_c *WorkflowRun_GetWithOptions_Call) RunAndReturn(run func(ctx context.Context, valuePtr any, options client.WorkflowRunGetOptions) error) *WorkflowRun_GetWithOptions_Call {
+func (_c *WorkflowRun_GetWithOptions_Call) RunAndReturn(run func(ctx context.Context, valuePtr interface{}, options client.WorkflowRunGetOptions) error) *WorkflowRun_GetWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }

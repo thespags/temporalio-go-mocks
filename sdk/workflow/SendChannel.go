@@ -6,7 +6,7 @@ package workflow
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
+	"go.temporal.io/sdk/workflow"
 )
 
 // NewSendChannel creates a new instance of SendChannel. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -123,7 +123,7 @@ func (_c *SendChannel_Name_Call) RunAndReturn(run func() string) *SendChannel_Na
 }
 
 // Send provides a mock function for the type SendChannel
-func (_mock *SendChannel) Send(ctx converter.WorkflowContext, v any) {
+func (_mock *SendChannel) Send(ctx workflow.Context, v interface{}) {
 	_mock.Called(ctx, v)
 	return
 }
@@ -134,21 +134,21 @@ type SendChannel_Send_Call struct {
 }
 
 // Send is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - v any
+//   - ctx workflow.Context
+//   - v interface{}
 func (_e *SendChannel_Expecter) Send(ctx any, v any) *SendChannel_Send_Call {
 	return &SendChannel_Send_Call{Call: _e.mock.On("Send", ctx, v)}
 }
 
-func (_c *SendChannel_Send_Call) Run(run func(ctx converter.WorkflowContext, v any)) *SendChannel_Send_Call {
+func (_c *SendChannel_Send_Call) Run(run func(ctx workflow.Context, v interface{})) *SendChannel_Send_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 any
+		var arg1 interface{}
 		if args[1] != nil {
-			arg1 = args[1].(any)
+			arg1 = args[1].(interface{})
 		}
 		run(
 			arg0,
@@ -163,13 +163,13 @@ func (_c *SendChannel_Send_Call) Return() *SendChannel_Send_Call {
 	return _c
 }
 
-func (_c *SendChannel_Send_Call) RunAndReturn(run func(ctx converter.WorkflowContext, v any)) *SendChannel_Send_Call {
+func (_c *SendChannel_Send_Call) RunAndReturn(run func(ctx workflow.Context, v interface{})) *SendChannel_Send_Call {
 	_c.Run(run)
 	return _c
 }
 
 // SendAsync provides a mock function for the type SendChannel
-func (_mock *SendChannel) SendAsync(v any) bool {
+func (_mock *SendChannel) SendAsync(v interface{}) bool {
 	ret := _mock.Called(v)
 
 	if len(ret) == 0 {
@@ -177,7 +177,7 @@ func (_mock *SendChannel) SendAsync(v any) bool {
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(any) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(interface{}) bool); ok {
 		r0 = returnFunc(v)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -191,16 +191,16 @@ type SendChannel_SendAsync_Call struct {
 }
 
 // SendAsync is a helper method to define mock.On call
-//   - v any
+//   - v interface{}
 func (_e *SendChannel_Expecter) SendAsync(v any) *SendChannel_SendAsync_Call {
 	return &SendChannel_SendAsync_Call{Call: _e.mock.On("SendAsync", v)}
 }
 
-func (_c *SendChannel_SendAsync_Call) Run(run func(v any)) *SendChannel_SendAsync_Call {
+func (_c *SendChannel_SendAsync_Call) Run(run func(v interface{})) *SendChannel_SendAsync_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 any
+		var arg0 interface{}
 		if args[0] != nil {
-			arg0 = args[0].(any)
+			arg0 = args[0].(interface{})
 		}
 		run(
 			arg0,
@@ -214,7 +214,7 @@ func (_c *SendChannel_SendAsync_Call) Return(ok bool) *SendChannel_SendAsync_Cal
 	return _c
 }
 
-func (_c *SendChannel_SendAsync_Call) RunAndReturn(run func(v any) bool) *SendChannel_SendAsync_Call {
+func (_c *SendChannel_SendAsync_Call) RunAndReturn(run func(v interface{}) bool) *SendChannel_SendAsync_Call {
 	_c.Call.Return(run)
 	return _c
 }

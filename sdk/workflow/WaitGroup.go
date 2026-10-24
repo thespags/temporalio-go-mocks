@@ -6,7 +6,7 @@ package workflow
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
+	"go.temporal.io/sdk/workflow"
 )
 
 // NewWaitGroup creates a new instance of WaitGroup. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -118,54 +118,8 @@ func (_c *WaitGroup_Done_Call) RunAndReturn(run func()) *WaitGroup_Done_Call {
 	return _c
 }
 
-// Go provides a mock function for the type WaitGroup
-func (_mock *WaitGroup) Go(ctx converter.WorkflowContext, f func(converter.WorkflowContext)) {
-	_mock.Called(ctx, f)
-	return
-}
-
-// WaitGroup_Go_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Go'
-type WaitGroup_Go_Call struct {
-	*mock.Call
-}
-
-// Go is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - f func(converter.WorkflowContext)
-func (_e *WaitGroup_Expecter) Go(ctx any, f any) *WaitGroup_Go_Call {
-	return &WaitGroup_Go_Call{Call: _e.mock.On("Go", ctx, f)}
-}
-
-func (_c *WaitGroup_Go_Call) Run(run func(ctx converter.WorkflowContext, f func(converter.WorkflowContext))) *WaitGroup_Go_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
-		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
-		}
-		var arg1 func(converter.WorkflowContext)
-		if args[1] != nil {
-			arg1 = args[1].(func(converter.WorkflowContext))
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *WaitGroup_Go_Call) Return() *WaitGroup_Go_Call {
-	_c.Call.Return()
-	return _c
-}
-
-func (_c *WaitGroup_Go_Call) RunAndReturn(run func(ctx converter.WorkflowContext, f func(converter.WorkflowContext))) *WaitGroup_Go_Call {
-	_c.Run(run)
-	return _c
-}
-
 // Wait provides a mock function for the type WaitGroup
-func (_mock *WaitGroup) Wait(ctx converter.WorkflowContext) {
+func (_mock *WaitGroup) Wait(ctx workflow.Context) {
 	_mock.Called(ctx)
 	return
 }
@@ -176,16 +130,16 @@ type WaitGroup_Wait_Call struct {
 }
 
 // Wait is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WaitGroup_Expecter) Wait(ctx any) *WaitGroup_Wait_Call {
 	return &WaitGroup_Wait_Call{Call: _e.mock.On("Wait", ctx)}
 }
 
-func (_c *WaitGroup_Wait_Call) Run(run func(ctx converter.WorkflowContext)) *WaitGroup_Wait_Call {
+func (_c *WaitGroup_Wait_Call) Run(run func(ctx workflow.Context)) *WaitGroup_Wait_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -199,7 +153,7 @@ func (_c *WaitGroup_Wait_Call) Return() *WaitGroup_Wait_Call {
 	return _c
 }
 
-func (_c *WaitGroup_Wait_Call) RunAndReturn(run func(ctx converter.WorkflowContext)) *WaitGroup_Wait_Call {
+func (_c *WaitGroup_Wait_Call) RunAndReturn(run func(ctx workflow.Context)) *WaitGroup_Wait_Call {
 	_c.Run(run)
 	return _c
 }

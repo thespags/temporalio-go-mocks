@@ -6,8 +6,8 @@ package interceptor
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/interceptor"
+	"go.temporal.io/sdk/workflow"
 )
 
 // NewWorkflowInboundInterceptor creates a new instance of WorkflowInboundInterceptor. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -47,26 +47,26 @@ func (_m *WorkflowInboundInterceptor) EXPECT() *WorkflowInboundInterceptor_Expec
 }
 
 // ExecuteUpdate provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) ExecuteUpdate(ctx converter.WorkflowContext, in *interceptor.UpdateInput) (any, error) {
+func (_mock *WorkflowInboundInterceptor) ExecuteUpdate(ctx workflow.Context, in *interceptor.UpdateInput) (interface{}, error) {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ExecuteUpdate")
 	}
 
-	var r0 any
+	var r0 interface{}
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.UpdateInput) (any, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.UpdateInput) (interface{}, error)); ok {
 		return returnFunc(ctx, in)
 	}
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.UpdateInput) any); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.UpdateInput) interface{}); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(any)
+			r0 = ret.Get(0).(interface{})
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(converter.WorkflowContext, *interceptor.UpdateInput) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(workflow.Context, *interceptor.UpdateInput) error); ok {
 		r1 = returnFunc(ctx, in)
 	} else {
 		r1 = ret.Error(1)
@@ -80,17 +80,17 @@ type WorkflowInboundInterceptor_ExecuteUpdate_Call struct {
 }
 
 // ExecuteUpdate is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - in *interceptor.UpdateInput
 func (_e *WorkflowInboundInterceptor_Expecter) ExecuteUpdate(ctx any, in any) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
 	return &WorkflowInboundInterceptor_ExecuteUpdate_Call{Call: _e.mock.On("ExecuteUpdate", ctx, in)}
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Run(run func(ctx converter.WorkflowContext, in *interceptor.UpdateInput)) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
+func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Run(run func(ctx workflow.Context, in *interceptor.UpdateInput)) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 *interceptor.UpdateInput
 		if args[1] != nil {
@@ -104,37 +104,37 @@ func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Run(run func(ctx conver
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Return(anyMoqParam any, err error) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
-	_c.Call.Return(anyMoqParam, err)
+func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) Return(ifaceVal interface{}, err error) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
+	_c.Call.Return(ifaceVal, err)
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) RunAndReturn(run func(ctx converter.WorkflowContext, in *interceptor.UpdateInput) (any, error)) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
+func (_c *WorkflowInboundInterceptor_ExecuteUpdate_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.UpdateInput) (interface{}, error)) *WorkflowInboundInterceptor_ExecuteUpdate_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ExecuteWorkflow provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) ExecuteWorkflow(ctx converter.WorkflowContext, in *interceptor.ExecuteWorkflowInput) (any, error) {
+func (_mock *WorkflowInboundInterceptor) ExecuteWorkflow(ctx workflow.Context, in *interceptor.ExecuteWorkflowInput) (interface{}, error) {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ExecuteWorkflow")
 	}
 
-	var r0 any
+	var r0 interface{}
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.ExecuteWorkflowInput) (any, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) (interface{}, error)); ok {
 		return returnFunc(ctx, in)
 	}
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.ExecuteWorkflowInput) any); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) interface{}); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(any)
+			r0 = ret.Get(0).(interface{})
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(converter.WorkflowContext, *interceptor.ExecuteWorkflowInput) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(workflow.Context, *interceptor.ExecuteWorkflowInput) error); ok {
 		r1 = returnFunc(ctx, in)
 	} else {
 		r1 = ret.Error(1)
@@ -148,17 +148,17 @@ type WorkflowInboundInterceptor_ExecuteWorkflow_Call struct {
 }
 
 // ExecuteWorkflow is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - in *interceptor.ExecuteWorkflowInput
 func (_e *WorkflowInboundInterceptor_Expecter) ExecuteWorkflow(ctx any, in any) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
 	return &WorkflowInboundInterceptor_ExecuteWorkflow_Call{Call: _e.mock.On("ExecuteWorkflow", ctx, in)}
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Run(run func(ctx converter.WorkflowContext, in *interceptor.ExecuteWorkflowInput)) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
+func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Run(run func(ctx workflow.Context, in *interceptor.ExecuteWorkflowInput)) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 *interceptor.ExecuteWorkflowInput
 		if args[1] != nil {
@@ -172,37 +172,37 @@ func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Run(run func(ctx conv
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Return(anyMoqParam any, err error) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
-	_c.Call.Return(anyMoqParam, err)
+func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) Return(ifaceVal interface{}, err error) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
+	_c.Call.Return(ifaceVal, err)
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) RunAndReturn(run func(ctx converter.WorkflowContext, in *interceptor.ExecuteWorkflowInput) (any, error)) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
+func (_c *WorkflowInboundInterceptor_ExecuteWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.ExecuteWorkflowInput) (interface{}, error)) *WorkflowInboundInterceptor_ExecuteWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // HandleQuery provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) HandleQuery(ctx converter.WorkflowContext, in *interceptor.HandleQueryInput) (any, error) {
+func (_mock *WorkflowInboundInterceptor) HandleQuery(ctx workflow.Context, in *interceptor.HandleQueryInput) (interface{}, error) {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
 		panic("no return value specified for HandleQuery")
 	}
 
-	var r0 any
+	var r0 interface{}
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.HandleQueryInput) (any, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.HandleQueryInput) (interface{}, error)); ok {
 		return returnFunc(ctx, in)
 	}
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.HandleQueryInput) any); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.HandleQueryInput) interface{}); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(any)
+			r0 = ret.Get(0).(interface{})
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(converter.WorkflowContext, *interceptor.HandleQueryInput) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(workflow.Context, *interceptor.HandleQueryInput) error); ok {
 		r1 = returnFunc(ctx, in)
 	} else {
 		r1 = ret.Error(1)
@@ -216,17 +216,17 @@ type WorkflowInboundInterceptor_HandleQuery_Call struct {
 }
 
 // HandleQuery is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - in *interceptor.HandleQueryInput
 func (_e *WorkflowInboundInterceptor_Expecter) HandleQuery(ctx any, in any) *WorkflowInboundInterceptor_HandleQuery_Call {
 	return &WorkflowInboundInterceptor_HandleQuery_Call{Call: _e.mock.On("HandleQuery", ctx, in)}
 }
 
-func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Run(run func(ctx converter.WorkflowContext, in *interceptor.HandleQueryInput)) *WorkflowInboundInterceptor_HandleQuery_Call {
+func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Run(run func(ctx workflow.Context, in *interceptor.HandleQueryInput)) *WorkflowInboundInterceptor_HandleQuery_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 *interceptor.HandleQueryInput
 		if args[1] != nil {
@@ -240,18 +240,18 @@ func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Run(run func(ctx converte
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Return(anyMoqParam any, err error) *WorkflowInboundInterceptor_HandleQuery_Call {
-	_c.Call.Return(anyMoqParam, err)
+func (_c *WorkflowInboundInterceptor_HandleQuery_Call) Return(ifaceVal interface{}, err error) *WorkflowInboundInterceptor_HandleQuery_Call {
+	_c.Call.Return(ifaceVal, err)
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_HandleQuery_Call) RunAndReturn(run func(ctx converter.WorkflowContext, in *interceptor.HandleQueryInput) (any, error)) *WorkflowInboundInterceptor_HandleQuery_Call {
+func (_c *WorkflowInboundInterceptor_HandleQuery_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.HandleQueryInput) (interface{}, error)) *WorkflowInboundInterceptor_HandleQuery_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // HandleSignal provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) HandleSignal(ctx converter.WorkflowContext, in *interceptor.HandleSignalInput) error {
+func (_mock *WorkflowInboundInterceptor) HandleSignal(ctx workflow.Context, in *interceptor.HandleSignalInput) error {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
@@ -259,7 +259,7 @@ func (_mock *WorkflowInboundInterceptor) HandleSignal(ctx converter.WorkflowCont
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.HandleSignalInput) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.HandleSignalInput) error); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		r0 = ret.Error(0)
@@ -273,17 +273,17 @@ type WorkflowInboundInterceptor_HandleSignal_Call struct {
 }
 
 // HandleSignal is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - in *interceptor.HandleSignalInput
 func (_e *WorkflowInboundInterceptor_Expecter) HandleSignal(ctx any, in any) *WorkflowInboundInterceptor_HandleSignal_Call {
 	return &WorkflowInboundInterceptor_HandleSignal_Call{Call: _e.mock.On("HandleSignal", ctx, in)}
 }
 
-func (_c *WorkflowInboundInterceptor_HandleSignal_Call) Run(run func(ctx converter.WorkflowContext, in *interceptor.HandleSignalInput)) *WorkflowInboundInterceptor_HandleSignal_Call {
+func (_c *WorkflowInboundInterceptor_HandleSignal_Call) Run(run func(ctx workflow.Context, in *interceptor.HandleSignalInput)) *WorkflowInboundInterceptor_HandleSignal_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 *interceptor.HandleSignalInput
 		if args[1] != nil {
@@ -302,7 +302,7 @@ func (_c *WorkflowInboundInterceptor_HandleSignal_Call) Return(err error) *Workf
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_HandleSignal_Call) RunAndReturn(run func(ctx converter.WorkflowContext, in *interceptor.HandleSignalInput) error) *WorkflowInboundInterceptor_HandleSignal_Call {
+func (_c *WorkflowInboundInterceptor_HandleSignal_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.HandleSignalInput) error) *WorkflowInboundInterceptor_HandleSignal_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -359,7 +359,7 @@ func (_c *WorkflowInboundInterceptor_Init_Call) RunAndReturn(run func(outbound i
 }
 
 // ValidateUpdate provides a mock function for the type WorkflowInboundInterceptor
-func (_mock *WorkflowInboundInterceptor) ValidateUpdate(ctx converter.WorkflowContext, in *interceptor.UpdateInput) error {
+func (_mock *WorkflowInboundInterceptor) ValidateUpdate(ctx workflow.Context, in *interceptor.UpdateInput) error {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
@@ -367,7 +367,7 @@ func (_mock *WorkflowInboundInterceptor) ValidateUpdate(ctx converter.WorkflowCo
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, *interceptor.UpdateInput) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, *interceptor.UpdateInput) error); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		r0 = ret.Error(0)
@@ -381,17 +381,17 @@ type WorkflowInboundInterceptor_ValidateUpdate_Call struct {
 }
 
 // ValidateUpdate is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - in *interceptor.UpdateInput
 func (_e *WorkflowInboundInterceptor_Expecter) ValidateUpdate(ctx any, in any) *WorkflowInboundInterceptor_ValidateUpdate_Call {
 	return &WorkflowInboundInterceptor_ValidateUpdate_Call{Call: _e.mock.On("ValidateUpdate", ctx, in)}
 }
 
-func (_c *WorkflowInboundInterceptor_ValidateUpdate_Call) Run(run func(ctx converter.WorkflowContext, in *interceptor.UpdateInput)) *WorkflowInboundInterceptor_ValidateUpdate_Call {
+func (_c *WorkflowInboundInterceptor_ValidateUpdate_Call) Run(run func(ctx workflow.Context, in *interceptor.UpdateInput)) *WorkflowInboundInterceptor_ValidateUpdate_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 *interceptor.UpdateInput
 		if args[1] != nil {
@@ -410,7 +410,7 @@ func (_c *WorkflowInboundInterceptor_ValidateUpdate_Call) Return(err error) *Wor
 	return _c
 }
 
-func (_c *WorkflowInboundInterceptor_ValidateUpdate_Call) RunAndReturn(run func(ctx converter.WorkflowContext, in *interceptor.UpdateInput) error) *WorkflowInboundInterceptor_ValidateUpdate_Call {
+func (_c *WorkflowInboundInterceptor_ValidateUpdate_Call) RunAndReturn(run func(ctx workflow.Context, in *interceptor.UpdateInput) error) *WorkflowInboundInterceptor_ValidateUpdate_Call {
 	_c.Call.Return(run)
 	return _c
 }

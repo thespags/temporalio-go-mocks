@@ -45,7 +45,7 @@ func (_m *EncodedValues) EXPECT() *EncodedValues_Expecter {
 }
 
 // Get provides a mock function for the type EncodedValues
-func (_mock *EncodedValues) Get(valuePtr ...any) error {
+func (_mock *EncodedValues) Get(valuePtr ...interface{}) error {
 	var tmpRet mock.Arguments
 	if len(valuePtr) > 0 {
 		tmpRet = _mock.Called(valuePtr)
@@ -59,7 +59,7 @@ func (_mock *EncodedValues) Get(valuePtr ...any) error {
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(...any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(...interface{}) error); ok {
 		r0 = returnFunc(valuePtr...)
 	} else {
 		r0 = ret.Error(0)
@@ -73,18 +73,18 @@ type EncodedValues_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - valuePtr ...any
+//   - valuePtr ...interface{}
 func (_e *EncodedValues_Expecter) Get(valuePtr ...any) *EncodedValues_Get_Call {
 	return &EncodedValues_Get_Call{Call: _e.mock.On("Get",
 		append([]any{}, valuePtr...)...)}
 }
 
-func (_c *EncodedValues_Get_Call) Run(run func(valuePtr ...any)) *EncodedValues_Get_Call {
+func (_c *EncodedValues_Get_Call) Run(run func(valuePtr ...interface{})) *EncodedValues_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 []any
-		var variadicArgs []any
+		var arg0 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 0 {
-			variadicArgs = args[0].([]any)
+			variadicArgs = args[0].([]interface{})
 		}
 		arg0 = variadicArgs
 		run(
@@ -99,7 +99,7 @@ func (_c *EncodedValues_Get_Call) Return(err error) *EncodedValues_Get_Call {
 	return _c
 }
 
-func (_c *EncodedValues_Get_Call) RunAndReturn(run func(valuePtr ...any) error) *EncodedValues_Get_Call {
+func (_c *EncodedValues_Get_Call) RunAndReturn(run func(valuePtr ...interface{}) error) *EncodedValues_Get_Call {
 	_c.Call.Return(run)
 	return _c
 }

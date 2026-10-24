@@ -46,7 +46,7 @@ func (_m *ActivityRegistry) EXPECT() *ActivityRegistry_Expecter {
 }
 
 // RegisterActivity provides a mock function for the type ActivityRegistry
-func (_mock *ActivityRegistry) RegisterActivity(a any) {
+func (_mock *ActivityRegistry) RegisterActivity(a interface{}) {
 	_mock.Called(a)
 	return
 }
@@ -57,16 +57,16 @@ type ActivityRegistry_RegisterActivity_Call struct {
 }
 
 // RegisterActivity is a helper method to define mock.On call
-//   - a any
+//   - a interface{}
 func (_e *ActivityRegistry_Expecter) RegisterActivity(a any) *ActivityRegistry_RegisterActivity_Call {
 	return &ActivityRegistry_RegisterActivity_Call{Call: _e.mock.On("RegisterActivity", a)}
 }
 
-func (_c *ActivityRegistry_RegisterActivity_Call) Run(run func(a any)) *ActivityRegistry_RegisterActivity_Call {
+func (_c *ActivityRegistry_RegisterActivity_Call) Run(run func(a interface{})) *ActivityRegistry_RegisterActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 any
+		var arg0 interface{}
 		if args[0] != nil {
-			arg0 = args[0].(any)
+			arg0 = args[0].(interface{})
 		}
 		run(
 			arg0,
@@ -80,13 +80,13 @@ func (_c *ActivityRegistry_RegisterActivity_Call) Return() *ActivityRegistry_Reg
 	return _c
 }
 
-func (_c *ActivityRegistry_RegisterActivity_Call) RunAndReturn(run func(a any)) *ActivityRegistry_RegisterActivity_Call {
+func (_c *ActivityRegistry_RegisterActivity_Call) RunAndReturn(run func(a interface{})) *ActivityRegistry_RegisterActivity_Call {
 	_c.Run(run)
 	return _c
 }
 
 // RegisterActivityWithOptions provides a mock function for the type ActivityRegistry
-func (_mock *ActivityRegistry) RegisterActivityWithOptions(a any, options activity.RegisterOptions) {
+func (_mock *ActivityRegistry) RegisterActivityWithOptions(a interface{}, options activity.RegisterOptions) {
 	_mock.Called(a, options)
 	return
 }
@@ -97,17 +97,17 @@ type ActivityRegistry_RegisterActivityWithOptions_Call struct {
 }
 
 // RegisterActivityWithOptions is a helper method to define mock.On call
-//   - a any
+//   - a interface{}
 //   - options activity.RegisterOptions
 func (_e *ActivityRegistry_Expecter) RegisterActivityWithOptions(a any, options any) *ActivityRegistry_RegisterActivityWithOptions_Call {
 	return &ActivityRegistry_RegisterActivityWithOptions_Call{Call: _e.mock.On("RegisterActivityWithOptions", a, options)}
 }
 
-func (_c *ActivityRegistry_RegisterActivityWithOptions_Call) Run(run func(a any, options activity.RegisterOptions)) *ActivityRegistry_RegisterActivityWithOptions_Call {
+func (_c *ActivityRegistry_RegisterActivityWithOptions_Call) Run(run func(a interface{}, options activity.RegisterOptions)) *ActivityRegistry_RegisterActivityWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 any
+		var arg0 interface{}
 		if args[0] != nil {
-			arg0 = args[0].(any)
+			arg0 = args[0].(interface{})
 		}
 		var arg1 activity.RegisterOptions
 		if args[1] != nil {
@@ -126,53 +126,7 @@ func (_c *ActivityRegistry_RegisterActivityWithOptions_Call) Return() *ActivityR
 	return _c
 }
 
-func (_c *ActivityRegistry_RegisterActivityWithOptions_Call) RunAndReturn(run func(a any, options activity.RegisterOptions)) *ActivityRegistry_RegisterActivityWithOptions_Call {
-	_c.Run(run)
-	return _c
-}
-
-// RegisterDynamicActivity provides a mock function for the type ActivityRegistry
-func (_mock *ActivityRegistry) RegisterDynamicActivity(a any, options activity.DynamicRegisterOptions) {
-	_mock.Called(a, options)
-	return
-}
-
-// ActivityRegistry_RegisterDynamicActivity_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RegisterDynamicActivity'
-type ActivityRegistry_RegisterDynamicActivity_Call struct {
-	*mock.Call
-}
-
-// RegisterDynamicActivity is a helper method to define mock.On call
-//   - a any
-//   - options activity.DynamicRegisterOptions
-func (_e *ActivityRegistry_Expecter) RegisterDynamicActivity(a any, options any) *ActivityRegistry_RegisterDynamicActivity_Call {
-	return &ActivityRegistry_RegisterDynamicActivity_Call{Call: _e.mock.On("RegisterDynamicActivity", a, options)}
-}
-
-func (_c *ActivityRegistry_RegisterDynamicActivity_Call) Run(run func(a any, options activity.DynamicRegisterOptions)) *ActivityRegistry_RegisterDynamicActivity_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 any
-		if args[0] != nil {
-			arg0 = args[0].(any)
-		}
-		var arg1 activity.DynamicRegisterOptions
-		if args[1] != nil {
-			arg1 = args[1].(activity.DynamicRegisterOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *ActivityRegistry_RegisterDynamicActivity_Call) Return() *ActivityRegistry_RegisterDynamicActivity_Call {
-	_c.Call.Return()
-	return _c
-}
-
-func (_c *ActivityRegistry_RegisterDynamicActivity_Call) RunAndReturn(run func(a any, options activity.DynamicRegisterOptions)) *ActivityRegistry_RegisterDynamicActivity_Call {
+func (_c *ActivityRegistry_RegisterActivityWithOptions_Call) RunAndReturn(run func(a interface{}, options activity.RegisterOptions)) *ActivityRegistry_RegisterActivityWithOptions_Call {
 	_c.Run(run)
 	return _c
 }

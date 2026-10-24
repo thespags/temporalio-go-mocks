@@ -6,7 +6,6 @@ package workflow
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/workflow"
 )
 
@@ -205,7 +204,7 @@ func (_c *Selector_AddReceive_Call) RunAndReturn(run func(c workflow.ReceiveChan
 }
 
 // AddSend provides a mock function for the type Selector
-func (_mock *Selector) AddSend(c workflow.SendChannel, v any, f func()) workflow.Selector {
+func (_mock *Selector) AddSend(c workflow.SendChannel, v interface{}, f func()) workflow.Selector {
 	ret := _mock.Called(c, v, f)
 
 	if len(ret) == 0 {
@@ -213,7 +212,7 @@ func (_mock *Selector) AddSend(c workflow.SendChannel, v any, f func()) workflow
 	}
 
 	var r0 workflow.Selector
-	if returnFunc, ok := ret.Get(0).(func(workflow.SendChannel, any, func()) workflow.Selector); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.SendChannel, interface{}, func()) workflow.Selector); ok {
 		r0 = returnFunc(c, v, f)
 	} else {
 		if ret.Get(0) != nil {
@@ -230,21 +229,21 @@ type Selector_AddSend_Call struct {
 
 // AddSend is a helper method to define mock.On call
 //   - c workflow.SendChannel
-//   - v any
+//   - v interface{}
 //   - f func()
 func (_e *Selector_Expecter) AddSend(c any, v any, f any) *Selector_AddSend_Call {
 	return &Selector_AddSend_Call{Call: _e.mock.On("AddSend", c, v, f)}
 }
 
-func (_c *Selector_AddSend_Call) Run(run func(c workflow.SendChannel, v any, f func())) *Selector_AddSend_Call {
+func (_c *Selector_AddSend_Call) Run(run func(c workflow.SendChannel, v interface{}, f func())) *Selector_AddSend_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 workflow.SendChannel
 		if args[0] != nil {
 			arg0 = args[0].(workflow.SendChannel)
 		}
-		var arg1 any
+		var arg1 interface{}
 		if args[1] != nil {
-			arg1 = args[1].(any)
+			arg1 = args[1].(interface{})
 		}
 		var arg2 func()
 		if args[2] != nil {
@@ -264,7 +263,7 @@ func (_c *Selector_AddSend_Call) Return(selector workflow.Selector) *Selector_Ad
 	return _c
 }
 
-func (_c *Selector_AddSend_Call) RunAndReturn(run func(c workflow.SendChannel, v any, f func()) workflow.Selector) *Selector_AddSend_Call {
+func (_c *Selector_AddSend_Call) RunAndReturn(run func(c workflow.SendChannel, v interface{}, f func()) workflow.Selector) *Selector_AddSend_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -314,7 +313,7 @@ func (_c *Selector_HasPending_Call) RunAndReturn(run func() bool) *Selector_HasP
 }
 
 // Select provides a mock function for the type Selector
-func (_mock *Selector) Select(ctx converter.WorkflowContext) {
+func (_mock *Selector) Select(ctx workflow.Context) {
 	_mock.Called(ctx)
 	return
 }
@@ -325,16 +324,16 @@ type Selector_Select_Call struct {
 }
 
 // Select is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *Selector_Expecter) Select(ctx any) *Selector_Select_Call {
 	return &Selector_Select_Call{Call: _e.mock.On("Select", ctx)}
 }
 
-func (_c *Selector_Select_Call) Run(run func(ctx converter.WorkflowContext)) *Selector_Select_Call {
+func (_c *Selector_Select_Call) Run(run func(ctx workflow.Context)) *Selector_Select_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -348,7 +347,7 @@ func (_c *Selector_Select_Call) Return() *Selector_Select_Call {
 	return _c
 }
 
-func (_c *Selector_Select_Call) RunAndReturn(run func(ctx converter.WorkflowContext)) *Selector_Select_Call {
+func (_c *Selector_Select_Call) RunAndReturn(run func(ctx workflow.Context)) *Selector_Select_Call {
 	_c.Run(run)
 	return _c
 }

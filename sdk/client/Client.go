@@ -114,63 +114,6 @@ func (_c *Client_CancelWorkflow_Call) RunAndReturn(run func(ctx context.Context,
 	return _c
 }
 
-// CancelWorkflowWithOptions provides a mock function for the type Client
-func (_mock *Client) CancelWorkflowWithOptions(ctx context.Context, options client.CancelWorkflowOptions) error {
-	ret := _mock.Called(ctx, options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CancelWorkflowWithOptions")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CancelWorkflowOptions) error); ok {
-		r0 = returnFunc(ctx, options)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_CancelWorkflowWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CancelWorkflowWithOptions'
-type Client_CancelWorkflowWithOptions_Call struct {
-	*mock.Call
-}
-
-// CancelWorkflowWithOptions is a helper method to define mock.On call
-//   - ctx context.Context
-//   - options client.CancelWorkflowOptions
-func (_e *Client_Expecter) CancelWorkflowWithOptions(ctx any, options any) *Client_CancelWorkflowWithOptions_Call {
-	return &Client_CancelWorkflowWithOptions_Call{Call: _e.mock.On("CancelWorkflowWithOptions", ctx, options)}
-}
-
-func (_c *Client_CancelWorkflowWithOptions_Call) Run(run func(ctx context.Context, options client.CancelWorkflowOptions)) *Client_CancelWorkflowWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.CancelWorkflowOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.CancelWorkflowOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_CancelWorkflowWithOptions_Call) Return(err error) *Client_CancelWorkflowWithOptions_Call {
-	_c.Call.Return(err)
-	return _c
-}
-
-func (_c *Client_CancelWorkflowWithOptions_Call) RunAndReturn(run func(ctx context.Context, options client.CancelWorkflowOptions) error) *Client_CancelWorkflowWithOptions_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
 // CheckHealth provides a mock function for the type Client
 func (_mock *Client) CheckHealth(ctx context.Context, request *client.CheckHealthRequest) (*client.CheckHealthResponse, error) {
 	ret := _mock.Called(ctx, request)
@@ -273,7 +216,7 @@ func (_c *Client_Close_Call) RunAndReturn(run func()) *Client_Close_Call {
 }
 
 // CompleteActivity provides a mock function for the type Client
-func (_mock *Client) CompleteActivity(ctx context.Context, taskToken []byte, result any, err error) error {
+func (_mock *Client) CompleteActivity(ctx context.Context, taskToken []byte, result interface{}, err error) error {
 	ret := _mock.Called(ctx, taskToken, result, err)
 
 	if len(ret) == 0 {
@@ -281,7 +224,7 @@ func (_mock *Client) CompleteActivity(ctx context.Context, taskToken []byte, res
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, any, error) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, interface{}, error) error); ok {
 		r0 = returnFunc(ctx, taskToken, result, err)
 	} else {
 		r0 = ret.Error(0)
@@ -297,13 +240,13 @@ type Client_CompleteActivity_Call struct {
 // CompleteActivity is a helper method to define mock.On call
 //   - ctx context.Context
 //   - taskToken []byte
-//   - result any
+//   - result interface{}
 //   - err error
 func (_e *Client_Expecter) CompleteActivity(ctx any, taskToken any, result any, err any) *Client_CompleteActivity_Call {
 	return &Client_CompleteActivity_Call{Call: _e.mock.On("CompleteActivity", ctx, taskToken, result, err)}
 }
 
-func (_c *Client_CompleteActivity_Call) Run(run func(ctx context.Context, taskToken []byte, result any, err error)) *Client_CompleteActivity_Call {
+func (_c *Client_CompleteActivity_Call) Run(run func(ctx context.Context, taskToken []byte, result interface{}, err error)) *Client_CompleteActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -313,9 +256,9 @@ func (_c *Client_CompleteActivity_Call) Run(run func(ctx context.Context, taskTo
 		if args[1] != nil {
 			arg1 = args[1].([]byte)
 		}
-		var arg2 any
+		var arg2 interface{}
 		if args[2] != nil {
-			arg2 = args[2].(any)
+			arg2 = args[2].(interface{})
 		}
 		var arg3 error
 		if args[3] != nil {
@@ -336,151 +279,13 @@ func (_c *Client_CompleteActivity_Call) Return(err1 error) *Client_CompleteActiv
 	return _c
 }
 
-func (_c *Client_CompleteActivity_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, result any, err error) error) *Client_CompleteActivity_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// CompleteActivityByActivityID provides a mock function for the type Client
-func (_mock *Client) CompleteActivityByActivityID(ctx context.Context, namespace string, activityID string, activityRunID string, result any, err error) error {
-	ret := _mock.Called(ctx, namespace, activityID, activityRunID, result, err)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CompleteActivityByActivityID")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, any, error) error); ok {
-		r0 = returnFunc(ctx, namespace, activityID, activityRunID, result, err)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_CompleteActivityByActivityID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CompleteActivityByActivityID'
-type Client_CompleteActivityByActivityID_Call struct {
-	*mock.Call
-}
-
-// CompleteActivityByActivityID is a helper method to define mock.On call
-//   - ctx context.Context
-//   - namespace string
-//   - activityID string
-//   - activityRunID string
-//   - result any
-//   - err error
-func (_e *Client_Expecter) CompleteActivityByActivityID(ctx any, namespace any, activityID any, activityRunID any, result any, err any) *Client_CompleteActivityByActivityID_Call {
-	return &Client_CompleteActivityByActivityID_Call{Call: _e.mock.On("CompleteActivityByActivityID", ctx, namespace, activityID, activityRunID, result, err)}
-}
-
-func (_c *Client_CompleteActivityByActivityID_Call) Run(run func(ctx context.Context, namespace string, activityID string, activityRunID string, result any, err error)) *Client_CompleteActivityByActivityID_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 string
-		if args[1] != nil {
-			arg1 = args[1].(string)
-		}
-		var arg2 string
-		if args[2] != nil {
-			arg2 = args[2].(string)
-		}
-		var arg3 string
-		if args[3] != nil {
-			arg3 = args[3].(string)
-		}
-		var arg4 any
-		if args[4] != nil {
-			arg4 = args[4].(any)
-		}
-		var arg5 error
-		if args[5] != nil {
-			arg5 = args[5].(error)
-		}
-		run(
-			arg0,
-			arg1,
-			arg2,
-			arg3,
-			arg4,
-			arg5,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_CompleteActivityByActivityID_Call) Return(err1 error) *Client_CompleteActivityByActivityID_Call {
-	_c.Call.Return(err1)
-	return _c
-}
-
-func (_c *Client_CompleteActivityByActivityID_Call) RunAndReturn(run func(ctx context.Context, namespace string, activityID string, activityRunID string, result any, err error) error) *Client_CompleteActivityByActivityID_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// CompleteActivityByActivityIDWithOptions provides a mock function for the type Client
-func (_mock *Client) CompleteActivityByActivityIDWithOptions(ctx context.Context, opts client.CompleteActivityByActivityIDOptions) error {
-	ret := _mock.Called(ctx, opts)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CompleteActivityByActivityIDWithOptions")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CompleteActivityByActivityIDOptions) error); ok {
-		r0 = returnFunc(ctx, opts)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_CompleteActivityByActivityIDWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CompleteActivityByActivityIDWithOptions'
-type Client_CompleteActivityByActivityIDWithOptions_Call struct {
-	*mock.Call
-}
-
-// CompleteActivityByActivityIDWithOptions is a helper method to define mock.On call
-//   - ctx context.Context
-//   - opts client.CompleteActivityByActivityIDOptions
-func (_e *Client_Expecter) CompleteActivityByActivityIDWithOptions(ctx any, opts any) *Client_CompleteActivityByActivityIDWithOptions_Call {
-	return &Client_CompleteActivityByActivityIDWithOptions_Call{Call: _e.mock.On("CompleteActivityByActivityIDWithOptions", ctx, opts)}
-}
-
-func (_c *Client_CompleteActivityByActivityIDWithOptions_Call) Run(run func(ctx context.Context, opts client.CompleteActivityByActivityIDOptions)) *Client_CompleteActivityByActivityIDWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.CompleteActivityByActivityIDOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.CompleteActivityByActivityIDOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_CompleteActivityByActivityIDWithOptions_Call) Return(err error) *Client_CompleteActivityByActivityIDWithOptions_Call {
-	_c.Call.Return(err)
-	return _c
-}
-
-func (_c *Client_CompleteActivityByActivityIDWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.CompleteActivityByActivityIDOptions) error) *Client_CompleteActivityByActivityIDWithOptions_Call {
+func (_c *Client_CompleteActivity_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, result interface{}, err error) error) *Client_CompleteActivity_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // CompleteActivityByID provides a mock function for the type Client
-func (_mock *Client) CompleteActivityByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result any, err error) error {
+func (_mock *Client) CompleteActivityByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error) error {
 	ret := _mock.Called(ctx, namespace, workflowID, runID, activityID, result, err)
 
 	if len(ret) == 0 {
@@ -488,7 +293,7 @@ func (_mock *Client) CompleteActivityByID(ctx context.Context, namespace string,
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, any, error) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, interface{}, error) error); ok {
 		r0 = returnFunc(ctx, namespace, workflowID, runID, activityID, result, err)
 	} else {
 		r0 = ret.Error(0)
@@ -507,13 +312,13 @@ type Client_CompleteActivityByID_Call struct {
 //   - workflowID string
 //   - runID string
 //   - activityID string
-//   - result any
+//   - result interface{}
 //   - err error
 func (_e *Client_Expecter) CompleteActivityByID(ctx any, namespace any, workflowID any, runID any, activityID any, result any, err any) *Client_CompleteActivityByID_Call {
 	return &Client_CompleteActivityByID_Call{Call: _e.mock.On("CompleteActivityByID", ctx, namespace, workflowID, runID, activityID, result, err)}
 }
 
-func (_c *Client_CompleteActivityByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result any, err error)) *Client_CompleteActivityByID_Call {
+func (_c *Client_CompleteActivityByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error)) *Client_CompleteActivityByID_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -535,9 +340,9 @@ func (_c *Client_CompleteActivityByID_Call) Run(run func(ctx context.Context, na
 		if args[4] != nil {
 			arg4 = args[4].(string)
 		}
-		var arg5 any
+		var arg5 interface{}
 		if args[5] != nil {
-			arg5 = args[5].(any)
+			arg5 = args[5].(interface{})
 		}
 		var arg6 error
 		if args[6] != nil {
@@ -561,257 +366,7 @@ func (_c *Client_CompleteActivityByID_Call) Return(err1 error) *Client_CompleteA
 	return _c
 }
 
-func (_c *Client_CompleteActivityByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result any, err error) error) *Client_CompleteActivityByID_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// CompleteActivityByIDWithOptions provides a mock function for the type Client
-func (_mock *Client) CompleteActivityByIDWithOptions(ctx context.Context, opts client.CompleteActivityByIDOptions) error {
-	ret := _mock.Called(ctx, opts)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CompleteActivityByIDWithOptions")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CompleteActivityByIDOptions) error); ok {
-		r0 = returnFunc(ctx, opts)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_CompleteActivityByIDWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CompleteActivityByIDWithOptions'
-type Client_CompleteActivityByIDWithOptions_Call struct {
-	*mock.Call
-}
-
-// CompleteActivityByIDWithOptions is a helper method to define mock.On call
-//   - ctx context.Context
-//   - opts client.CompleteActivityByIDOptions
-func (_e *Client_Expecter) CompleteActivityByIDWithOptions(ctx any, opts any) *Client_CompleteActivityByIDWithOptions_Call {
-	return &Client_CompleteActivityByIDWithOptions_Call{Call: _e.mock.On("CompleteActivityByIDWithOptions", ctx, opts)}
-}
-
-func (_c *Client_CompleteActivityByIDWithOptions_Call) Run(run func(ctx context.Context, opts client.CompleteActivityByIDOptions)) *Client_CompleteActivityByIDWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.CompleteActivityByIDOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.CompleteActivityByIDOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_CompleteActivityByIDWithOptions_Call) Return(err error) *Client_CompleteActivityByIDWithOptions_Call {
-	_c.Call.Return(err)
-	return _c
-}
-
-func (_c *Client_CompleteActivityByIDWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.CompleteActivityByIDOptions) error) *Client_CompleteActivityByIDWithOptions_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// CompleteActivityWithOptions provides a mock function for the type Client
-func (_mock *Client) CompleteActivityWithOptions(ctx context.Context, opts client.CompleteActivityOptions) error {
-	ret := _mock.Called(ctx, opts)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CompleteActivityWithOptions")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CompleteActivityOptions) error); ok {
-		r0 = returnFunc(ctx, opts)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_CompleteActivityWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CompleteActivityWithOptions'
-type Client_CompleteActivityWithOptions_Call struct {
-	*mock.Call
-}
-
-// CompleteActivityWithOptions is a helper method to define mock.On call
-//   - ctx context.Context
-//   - opts client.CompleteActivityOptions
-func (_e *Client_Expecter) CompleteActivityWithOptions(ctx any, opts any) *Client_CompleteActivityWithOptions_Call {
-	return &Client_CompleteActivityWithOptions_Call{Call: _e.mock.On("CompleteActivityWithOptions", ctx, opts)}
-}
-
-func (_c *Client_CompleteActivityWithOptions_Call) Run(run func(ctx context.Context, opts client.CompleteActivityOptions)) *Client_CompleteActivityWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.CompleteActivityOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.CompleteActivityOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_CompleteActivityWithOptions_Call) Return(err error) *Client_CompleteActivityWithOptions_Call {
-	_c.Call.Return(err)
-	return _c
-}
-
-func (_c *Client_CompleteActivityWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.CompleteActivityOptions) error) *Client_CompleteActivityWithOptions_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// CountActivities provides a mock function for the type Client
-func (_mock *Client) CountActivities(ctx context.Context, options client.CountActivitiesOptions) (*client.CountActivitiesResult, error) {
-	ret := _mock.Called(ctx, options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CountActivities")
-	}
-
-	var r0 *client.CountActivitiesResult
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CountActivitiesOptions) (*client.CountActivitiesResult, error)); ok {
-		return returnFunc(ctx, options)
-	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CountActivitiesOptions) *client.CountActivitiesResult); ok {
-		r0 = returnFunc(ctx, options)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*client.CountActivitiesResult)
-		}
-	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, client.CountActivitiesOptions) error); ok {
-		r1 = returnFunc(ctx, options)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// Client_CountActivities_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CountActivities'
-type Client_CountActivities_Call struct {
-	*mock.Call
-}
-
-// CountActivities is a helper method to define mock.On call
-//   - ctx context.Context
-//   - options client.CountActivitiesOptions
-func (_e *Client_Expecter) CountActivities(ctx any, options any) *Client_CountActivities_Call {
-	return &Client_CountActivities_Call{Call: _e.mock.On("CountActivities", ctx, options)}
-}
-
-func (_c *Client_CountActivities_Call) Run(run func(ctx context.Context, options client.CountActivitiesOptions)) *Client_CountActivities_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.CountActivitiesOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.CountActivitiesOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_CountActivities_Call) Return(countActivitiesResult *client.CountActivitiesResult, err error) *Client_CountActivities_Call {
-	_c.Call.Return(countActivitiesResult, err)
-	return _c
-}
-
-func (_c *Client_CountActivities_Call) RunAndReturn(run func(ctx context.Context, options client.CountActivitiesOptions) (*client.CountActivitiesResult, error)) *Client_CountActivities_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// CountNexusOperations provides a mock function for the type Client
-func (_mock *Client) CountNexusOperations(ctx context.Context, options client.CountNexusOperationsOptions) (*client.CountNexusOperationsResult, error) {
-	ret := _mock.Called(ctx, options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CountNexusOperations")
-	}
-
-	var r0 *client.CountNexusOperationsResult
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CountNexusOperationsOptions) (*client.CountNexusOperationsResult, error)); ok {
-		return returnFunc(ctx, options)
-	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CountNexusOperationsOptions) *client.CountNexusOperationsResult); ok {
-		r0 = returnFunc(ctx, options)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*client.CountNexusOperationsResult)
-		}
-	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, client.CountNexusOperationsOptions) error); ok {
-		r1 = returnFunc(ctx, options)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// Client_CountNexusOperations_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CountNexusOperations'
-type Client_CountNexusOperations_Call struct {
-	*mock.Call
-}
-
-// CountNexusOperations is a helper method to define mock.On call
-//   - ctx context.Context
-//   - options client.CountNexusOperationsOptions
-func (_e *Client_Expecter) CountNexusOperations(ctx any, options any) *Client_CountNexusOperations_Call {
-	return &Client_CountNexusOperations_Call{Call: _e.mock.On("CountNexusOperations", ctx, options)}
-}
-
-func (_c *Client_CountNexusOperations_Call) Run(run func(ctx context.Context, options client.CountNexusOperationsOptions)) *Client_CountNexusOperations_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.CountNexusOperationsOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.CountNexusOperationsOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_CountNexusOperations_Call) Return(countNexusOperationsResult *client.CountNexusOperationsResult, err error) *Client_CountNexusOperations_Call {
-	_c.Call.Return(countNexusOperationsResult, err)
-	return _c
-}
-
-func (_c *Client_CountNexusOperations_Call) RunAndReturn(run func(ctx context.Context, options client.CountNexusOperationsOptions) (*client.CountNexusOperationsResult, error)) *Client_CountNexusOperations_Call {
+func (_c *Client_CompleteActivityByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, result interface{}, err error) error) *Client_CompleteActivityByID_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -1070,80 +625,6 @@ func (_c *Client_DescribeTaskQueueEnhanced_Call) RunAndReturn(run func(ctx conte
 	return _c
 }
 
-// DescribeWorkflow provides a mock function for the type Client
-func (_mock *Client) DescribeWorkflow(ctx context.Context, workflowID string, runID string) (*client.WorkflowExecutionDescription, error) {
-	ret := _mock.Called(ctx, workflowID, runID)
-
-	if len(ret) == 0 {
-		panic("no return value specified for DescribeWorkflow")
-	}
-
-	var r0 *client.WorkflowExecutionDescription
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string) (*client.WorkflowExecutionDescription, error)); ok {
-		return returnFunc(ctx, workflowID, runID)
-	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string) *client.WorkflowExecutionDescription); ok {
-		r0 = returnFunc(ctx, workflowID, runID)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*client.WorkflowExecutionDescription)
-		}
-	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string) error); ok {
-		r1 = returnFunc(ctx, workflowID, runID)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// Client_DescribeWorkflow_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DescribeWorkflow'
-type Client_DescribeWorkflow_Call struct {
-	*mock.Call
-}
-
-// DescribeWorkflow is a helper method to define mock.On call
-//   - ctx context.Context
-//   - workflowID string
-//   - runID string
-func (_e *Client_Expecter) DescribeWorkflow(ctx any, workflowID any, runID any) *Client_DescribeWorkflow_Call {
-	return &Client_DescribeWorkflow_Call{Call: _e.mock.On("DescribeWorkflow", ctx, workflowID, runID)}
-}
-
-func (_c *Client_DescribeWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string)) *Client_DescribeWorkflow_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 string
-		if args[1] != nil {
-			arg1 = args[1].(string)
-		}
-		var arg2 string
-		if args[2] != nil {
-			arg2 = args[2].(string)
-		}
-		run(
-			arg0,
-			arg1,
-			arg2,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_DescribeWorkflow_Call) Return(workflowExecutionDescription *client.WorkflowExecutionDescription, err error) *Client_DescribeWorkflow_Call {
-	_c.Call.Return(workflowExecutionDescription, err)
-	return _c
-}
-
-func (_c *Client_DescribeWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string) (*client.WorkflowExecutionDescription, error)) *Client_DescribeWorkflow_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
 // DescribeWorkflowExecution provides a mock function for the type Client
 func (_mock *Client) DescribeWorkflowExecution(ctx context.Context, workflowID string, runID string) (*workflowservice.DescribeWorkflowExecutionResponse, error) {
 	ret := _mock.Called(ctx, workflowID, runID)
@@ -1218,97 +699,8 @@ func (_c *Client_DescribeWorkflowExecution_Call) RunAndReturn(run func(ctx conte
 	return _c
 }
 
-// ExecuteActivity provides a mock function for the type Client
-func (_mock *Client) ExecuteActivity(ctx context.Context, options client.StartActivityOptions, activity any, args ...any) (client.ActivityHandle, error) {
-	var tmpRet mock.Arguments
-	if len(args) > 0 {
-		tmpRet = _mock.Called(ctx, options, activity, args)
-	} else {
-		tmpRet = _mock.Called(ctx, options, activity)
-	}
-	ret := tmpRet
-
-	if len(ret) == 0 {
-		panic("no return value specified for ExecuteActivity")
-	}
-
-	var r0 client.ActivityHandle
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartActivityOptions, any, ...any) (client.ActivityHandle, error)); ok {
-		return returnFunc(ctx, options, activity, args...)
-	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartActivityOptions, any, ...any) client.ActivityHandle); ok {
-		r0 = returnFunc(ctx, options, activity, args...)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(client.ActivityHandle)
-		}
-	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, client.StartActivityOptions, any, ...any) error); ok {
-		r1 = returnFunc(ctx, options, activity, args...)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// Client_ExecuteActivity_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'ExecuteActivity'
-type Client_ExecuteActivity_Call struct {
-	*mock.Call
-}
-
-// ExecuteActivity is a helper method to define mock.On call
-//   - ctx context.Context
-//   - options client.StartActivityOptions
-//   - activity any
-//   - args ...any
-func (_e *Client_Expecter) ExecuteActivity(ctx any, options any, activity any, args ...any) *Client_ExecuteActivity_Call {
-	return &Client_ExecuteActivity_Call{Call: _e.mock.On("ExecuteActivity",
-		append([]any{ctx, options, activity}, args...)...)}
-}
-
-func (_c *Client_ExecuteActivity_Call) Run(run func(ctx context.Context, options client.StartActivityOptions, activity any, args ...any)) *Client_ExecuteActivity_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.StartActivityOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.StartActivityOptions)
-		}
-		var arg2 any
-		if args[2] != nil {
-			arg2 = args[2].(any)
-		}
-		var arg3 []any
-		var variadicArgs []any
-		if len(args) > 3 {
-			variadicArgs = args[3].([]any)
-		}
-		arg3 = variadicArgs
-		run(
-			arg0,
-			arg1,
-			arg2,
-			arg3...,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_ExecuteActivity_Call) Return(activityHandle client.ActivityHandle, err error) *Client_ExecuteActivity_Call {
-	_c.Call.Return(activityHandle, err)
-	return _c
-}
-
-func (_c *Client_ExecuteActivity_Call) RunAndReturn(run func(ctx context.Context, options client.StartActivityOptions, activity any, args ...any) (client.ActivityHandle, error)) *Client_ExecuteActivity_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
 // ExecuteWorkflow provides a mock function for the type Client
-func (_mock *Client) ExecuteWorkflow(ctx context.Context, options client.StartWorkflowOptions, workflow any, args ...any) (client.WorkflowRun, error) {
+func (_mock *Client) ExecuteWorkflow(ctx context.Context, options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) (client.WorkflowRun, error) {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, options, workflow, args)
@@ -1323,17 +715,17 @@ func (_mock *Client) ExecuteWorkflow(ctx context.Context, options client.StartWo
 
 	var r0 client.WorkflowRun
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, any, ...any) (client.WorkflowRun, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, interface{}, ...interface{}) (client.WorkflowRun, error)); ok {
 		return returnFunc(ctx, options, workflow, args...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, any, ...any) client.WorkflowRun); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.StartWorkflowOptions, interface{}, ...interface{}) client.WorkflowRun); ok {
 		r0 = returnFunc(ctx, options, workflow, args...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(client.WorkflowRun)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, client.StartWorkflowOptions, any, ...any) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(context.Context, client.StartWorkflowOptions, interface{}, ...interface{}) error); ok {
 		r1 = returnFunc(ctx, options, workflow, args...)
 	} else {
 		r1 = ret.Error(1)
@@ -1349,14 +741,14 @@ type Client_ExecuteWorkflow_Call struct {
 // ExecuteWorkflow is a helper method to define mock.On call
 //   - ctx context.Context
 //   - options client.StartWorkflowOptions
-//   - workflow any
-//   - args ...any
+//   - workflow interface{}
+//   - args ...interface{}
 func (_e *Client_Expecter) ExecuteWorkflow(ctx any, options any, workflow any, args ...any) *Client_ExecuteWorkflow_Call {
 	return &Client_ExecuteWorkflow_Call{Call: _e.mock.On("ExecuteWorkflow",
 		append([]any{ctx, options, workflow}, args...)...)}
 }
 
-func (_c *Client_ExecuteWorkflow_Call) Run(run func(ctx context.Context, options client.StartWorkflowOptions, workflow any, args ...any)) *Client_ExecuteWorkflow_Call {
+func (_c *Client_ExecuteWorkflow_Call) Run(run func(ctx context.Context, options client.StartWorkflowOptions, workflow interface{}, args ...interface{})) *Client_ExecuteWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -1366,14 +758,14 @@ func (_c *Client_ExecuteWorkflow_Call) Run(run func(ctx context.Context, options
 		if args[1] != nil {
 			arg1 = args[1].(client.StartWorkflowOptions)
 		}
-		var arg2 any
+		var arg2 interface{}
 		if args[2] != nil {
-			arg2 = args[2].(any)
+			arg2 = args[2].(interface{})
 		}
-		var arg3 []any
-		var variadicArgs []any
+		var arg3 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 3 {
-			variadicArgs = args[3].([]any)
+			variadicArgs = args[3].([]interface{})
 		}
 		arg3 = variadicArgs
 		run(
@@ -1391,113 +783,7 @@ func (_c *Client_ExecuteWorkflow_Call) Return(workflowRun client.WorkflowRun, er
 	return _c
 }
 
-func (_c *Client_ExecuteWorkflow_Call) RunAndReturn(run func(ctx context.Context, options client.StartWorkflowOptions, workflow any, args ...any) (client.WorkflowRun, error)) *Client_ExecuteWorkflow_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// GetActivityHandle provides a mock function for the type Client
-func (_mock *Client) GetActivityHandle(options client.GetActivityHandleOptions) client.ActivityHandle {
-	ret := _mock.Called(options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for GetActivityHandle")
-	}
-
-	var r0 client.ActivityHandle
-	if returnFunc, ok := ret.Get(0).(func(client.GetActivityHandleOptions) client.ActivityHandle); ok {
-		r0 = returnFunc(options)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(client.ActivityHandle)
-		}
-	}
-	return r0
-}
-
-// Client_GetActivityHandle_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetActivityHandle'
-type Client_GetActivityHandle_Call struct {
-	*mock.Call
-}
-
-// GetActivityHandle is a helper method to define mock.On call
-//   - options client.GetActivityHandleOptions
-func (_e *Client_Expecter) GetActivityHandle(options any) *Client_GetActivityHandle_Call {
-	return &Client_GetActivityHandle_Call{Call: _e.mock.On("GetActivityHandle", options)}
-}
-
-func (_c *Client_GetActivityHandle_Call) Run(run func(options client.GetActivityHandleOptions)) *Client_GetActivityHandle_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 client.GetActivityHandleOptions
-		if args[0] != nil {
-			arg0 = args[0].(client.GetActivityHandleOptions)
-		}
-		run(
-			arg0,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_GetActivityHandle_Call) Return(activityHandle client.ActivityHandle) *Client_GetActivityHandle_Call {
-	_c.Call.Return(activityHandle)
-	return _c
-}
-
-func (_c *Client_GetActivityHandle_Call) RunAndReturn(run func(options client.GetActivityHandleOptions) client.ActivityHandle) *Client_GetActivityHandle_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// GetNexusOperationHandle provides a mock function for the type Client
-func (_mock *Client) GetNexusOperationHandle(options client.GetNexusOperationHandleOptions) client.NexusOperationHandle {
-	ret := _mock.Called(options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for GetNexusOperationHandle")
-	}
-
-	var r0 client.NexusOperationHandle
-	if returnFunc, ok := ret.Get(0).(func(client.GetNexusOperationHandleOptions) client.NexusOperationHandle); ok {
-		r0 = returnFunc(options)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(client.NexusOperationHandle)
-		}
-	}
-	return r0
-}
-
-// Client_GetNexusOperationHandle_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetNexusOperationHandle'
-type Client_GetNexusOperationHandle_Call struct {
-	*mock.Call
-}
-
-// GetNexusOperationHandle is a helper method to define mock.On call
-//   - options client.GetNexusOperationHandleOptions
-func (_e *Client_Expecter) GetNexusOperationHandle(options any) *Client_GetNexusOperationHandle_Call {
-	return &Client_GetNexusOperationHandle_Call{Call: _e.mock.On("GetNexusOperationHandle", options)}
-}
-
-func (_c *Client_GetNexusOperationHandle_Call) Run(run func(options client.GetNexusOperationHandleOptions)) *Client_GetNexusOperationHandle_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 client.GetNexusOperationHandleOptions
-		if args[0] != nil {
-			arg0 = args[0].(client.GetNexusOperationHandleOptions)
-		}
-		run(
-			arg0,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_GetNexusOperationHandle_Call) Return(nexusOperationHandle client.NexusOperationHandle) *Client_GetNexusOperationHandle_Call {
-	_c.Call.Return(nexusOperationHandle)
-	return _c
-}
-
-func (_c *Client_GetNexusOperationHandle_Call) RunAndReturn(run func(options client.GetNexusOperationHandleOptions) client.NexusOperationHandle) *Client_GetNexusOperationHandle_Call {
+func (_c *Client_ExecuteWorkflow_Call) RunAndReturn(run func(ctx context.Context, options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) (client.WorkflowRun, error)) *Client_ExecuteWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -1963,72 +1249,6 @@ func (_c *Client_GetWorkflowUpdateHandle_Call) RunAndReturn(run func(ref client.
 	return _c
 }
 
-// ListActivities provides a mock function for the type Client
-func (_mock *Client) ListActivities(ctx context.Context, options client.ListActivitiesOptions) (client.ListActivitiesResult, error) {
-	ret := _mock.Called(ctx, options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for ListActivities")
-	}
-
-	var r0 client.ListActivitiesResult
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ListActivitiesOptions) (client.ListActivitiesResult, error)); ok {
-		return returnFunc(ctx, options)
-	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ListActivitiesOptions) client.ListActivitiesResult); ok {
-		r0 = returnFunc(ctx, options)
-	} else {
-		r0 = ret.Get(0).(client.ListActivitiesResult)
-	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, client.ListActivitiesOptions) error); ok {
-		r1 = returnFunc(ctx, options)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// Client_ListActivities_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'ListActivities'
-type Client_ListActivities_Call struct {
-	*mock.Call
-}
-
-// ListActivities is a helper method to define mock.On call
-//   - ctx context.Context
-//   - options client.ListActivitiesOptions
-func (_e *Client_Expecter) ListActivities(ctx any, options any) *Client_ListActivities_Call {
-	return &Client_ListActivities_Call{Call: _e.mock.On("ListActivities", ctx, options)}
-}
-
-func (_c *Client_ListActivities_Call) Run(run func(ctx context.Context, options client.ListActivitiesOptions)) *Client_ListActivities_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.ListActivitiesOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.ListActivitiesOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_ListActivities_Call) Return(listActivitiesResult client.ListActivitiesResult, err error) *Client_ListActivities_Call {
-	_c.Call.Return(listActivitiesResult, err)
-	return _c
-}
-
-func (_c *Client_ListActivities_Call) RunAndReturn(run func(ctx context.Context, options client.ListActivitiesOptions) (client.ListActivitiesResult, error)) *Client_ListActivities_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
 // ListArchivedWorkflow provides a mock function for the type Client
 func (_mock *Client) ListArchivedWorkflow(ctx context.Context, request *workflowservice.ListArchivedWorkflowExecutionsRequest) (*workflowservice.ListArchivedWorkflowExecutionsResponse, error) {
 	ret := _mock.Called(ctx, request)
@@ -2161,72 +1381,6 @@ func (_c *Client_ListClosedWorkflow_Call) Return(listClosedWorkflowExecutionsRes
 }
 
 func (_c *Client_ListClosedWorkflow_Call) RunAndReturn(run func(ctx context.Context, request *workflowservice.ListClosedWorkflowExecutionsRequest) (*workflowservice.ListClosedWorkflowExecutionsResponse, error)) *Client_ListClosedWorkflow_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// ListNexusOperations provides a mock function for the type Client
-func (_mock *Client) ListNexusOperations(ctx context.Context, options client.ListNexusOperationsOptions) (client.ListNexusOperationsResult, error) {
-	ret := _mock.Called(ctx, options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for ListNexusOperations")
-	}
-
-	var r0 client.ListNexusOperationsResult
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ListNexusOperationsOptions) (client.ListNexusOperationsResult, error)); ok {
-		return returnFunc(ctx, options)
-	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ListNexusOperationsOptions) client.ListNexusOperationsResult); ok {
-		r0 = returnFunc(ctx, options)
-	} else {
-		r0 = ret.Get(0).(client.ListNexusOperationsResult)
-	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, client.ListNexusOperationsOptions) error); ok {
-		r1 = returnFunc(ctx, options)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// Client_ListNexusOperations_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'ListNexusOperations'
-type Client_ListNexusOperations_Call struct {
-	*mock.Call
-}
-
-// ListNexusOperations is a helper method to define mock.On call
-//   - ctx context.Context
-//   - options client.ListNexusOperationsOptions
-func (_e *Client_Expecter) ListNexusOperations(ctx any, options any) *Client_ListNexusOperations_Call {
-	return &Client_ListNexusOperations_Call{Call: _e.mock.On("ListNexusOperations", ctx, options)}
-}
-
-func (_c *Client_ListNexusOperations_Call) Run(run func(ctx context.Context, options client.ListNexusOperationsOptions)) *Client_ListNexusOperations_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.ListNexusOperationsOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.ListNexusOperationsOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_ListNexusOperations_Call) Return(listNexusOperationsResult client.ListNexusOperationsResult, err error) *Client_ListNexusOperations_Call {
-	_c.Call.Return(listNexusOperationsResult, err)
-	return _c
-}
-
-func (_c *Client_ListNexusOperations_Call) RunAndReturn(run func(ctx context.Context, options client.ListNexusOperationsOptions) (client.ListNexusOperationsResult, error)) *Client_ListNexusOperations_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2367,70 +1521,8 @@ func (_c *Client_ListWorkflow_Call) RunAndReturn(run func(ctx context.Context, r
 	return _c
 }
 
-// NewNexusClient provides a mock function for the type Client
-func (_mock *Client) NewNexusClient(options client.NexusClientOptions) (client.NexusClient, error) {
-	ret := _mock.Called(options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for NewNexusClient")
-	}
-
-	var r0 client.NexusClient
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(client.NexusClientOptions) (client.NexusClient, error)); ok {
-		return returnFunc(options)
-	}
-	if returnFunc, ok := ret.Get(0).(func(client.NexusClientOptions) client.NexusClient); ok {
-		r0 = returnFunc(options)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(client.NexusClient)
-		}
-	}
-	if returnFunc, ok := ret.Get(1).(func(client.NexusClientOptions) error); ok {
-		r1 = returnFunc(options)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// Client_NewNexusClient_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'NewNexusClient'
-type Client_NewNexusClient_Call struct {
-	*mock.Call
-}
-
-// NewNexusClient is a helper method to define mock.On call
-//   - options client.NexusClientOptions
-func (_e *Client_Expecter) NewNexusClient(options any) *Client_NewNexusClient_Call {
-	return &Client_NewNexusClient_Call{Call: _e.mock.On("NewNexusClient", options)}
-}
-
-func (_c *Client_NewNexusClient_Call) Run(run func(options client.NexusClientOptions)) *Client_NewNexusClient_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 client.NexusClientOptions
-		if args[0] != nil {
-			arg0 = args[0].(client.NexusClientOptions)
-		}
-		run(
-			arg0,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_NewNexusClient_Call) Return(nexusClient client.NexusClient, err error) *Client_NewNexusClient_Call {
-	_c.Call.Return(nexusClient, err)
-	return _c
-}
-
-func (_c *Client_NewNexusClient_Call) RunAndReturn(run func(options client.NexusClientOptions) (client.NexusClient, error)) *Client_NewNexusClient_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
 // NewWithStartWorkflowOperation provides a mock function for the type Client
-func (_mock *Client) NewWithStartWorkflowOperation(options client.StartWorkflowOptions, workflow any, args ...any) client.WithStartWorkflowOperation {
+func (_mock *Client) NewWithStartWorkflowOperation(options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) client.WithStartWorkflowOperation {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(options, workflow, args)
@@ -2444,7 +1536,7 @@ func (_mock *Client) NewWithStartWorkflowOperation(options client.StartWorkflowO
 	}
 
 	var r0 client.WithStartWorkflowOperation
-	if returnFunc, ok := ret.Get(0).(func(client.StartWorkflowOptions, any, ...any) client.WithStartWorkflowOperation); ok {
+	if returnFunc, ok := ret.Get(0).(func(client.StartWorkflowOptions, interface{}, ...interface{}) client.WithStartWorkflowOperation); ok {
 		r0 = returnFunc(options, workflow, args...)
 	} else {
 		if ret.Get(0) != nil {
@@ -2461,27 +1553,27 @@ type Client_NewWithStartWorkflowOperation_Call struct {
 
 // NewWithStartWorkflowOperation is a helper method to define mock.On call
 //   - options client.StartWorkflowOptions
-//   - workflow any
-//   - args ...any
+//   - workflow interface{}
+//   - args ...interface{}
 func (_e *Client_Expecter) NewWithStartWorkflowOperation(options any, workflow any, args ...any) *Client_NewWithStartWorkflowOperation_Call {
 	return &Client_NewWithStartWorkflowOperation_Call{Call: _e.mock.On("NewWithStartWorkflowOperation",
 		append([]any{options, workflow}, args...)...)}
 }
 
-func (_c *Client_NewWithStartWorkflowOperation_Call) Run(run func(options client.StartWorkflowOptions, workflow any, args ...any)) *Client_NewWithStartWorkflowOperation_Call {
+func (_c *Client_NewWithStartWorkflowOperation_Call) Run(run func(options client.StartWorkflowOptions, workflow interface{}, args ...interface{})) *Client_NewWithStartWorkflowOperation_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 client.StartWorkflowOptions
 		if args[0] != nil {
 			arg0 = args[0].(client.StartWorkflowOptions)
 		}
-		var arg1 any
+		var arg1 interface{}
 		if args[1] != nil {
-			arg1 = args[1].(any)
+			arg1 = args[1].(interface{})
 		}
-		var arg2 []any
-		var variadicArgs []any
+		var arg2 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 2 {
-			variadicArgs = args[2].([]any)
+			variadicArgs = args[2].([]interface{})
 		}
 		arg2 = variadicArgs
 		run(
@@ -2498,7 +1590,7 @@ func (_c *Client_NewWithStartWorkflowOperation_Call) Return(withStartWorkflowOpe
 	return _c
 }
 
-func (_c *Client_NewWithStartWorkflowOperation_Call) RunAndReturn(run func(options client.StartWorkflowOptions, workflow any, args ...any) client.WithStartWorkflowOperation) *Client_NewWithStartWorkflowOperation_Call {
+func (_c *Client_NewWithStartWorkflowOperation_Call) RunAndReturn(run func(options client.StartWorkflowOptions, workflow interface{}, args ...interface{}) client.WithStartWorkflowOperation) *Client_NewWithStartWorkflowOperation_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2550,7 +1642,7 @@ func (_c *Client_OperatorService_Call) RunAndReturn(run func() operatorservice.O
 }
 
 // QueryWorkflow provides a mock function for the type Client
-func (_mock *Client) QueryWorkflow(ctx context.Context, workflowID string, runID string, queryType string, args ...any) (converter.EncodedValue, error) {
+func (_mock *Client) QueryWorkflow(ctx context.Context, workflowID string, runID string, queryType string, args ...interface{}) (converter.EncodedValue, error) {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, workflowID, runID, queryType, args)
@@ -2565,17 +1657,17 @@ func (_mock *Client) QueryWorkflow(ctx context.Context, workflowID string, runID
 
 	var r0 converter.EncodedValue
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...any) (converter.EncodedValue, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...interface{}) (converter.EncodedValue, error)); ok {
 		return returnFunc(ctx, workflowID, runID, queryType, args...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...any) converter.EncodedValue); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...interface{}) converter.EncodedValue); ok {
 		r0 = returnFunc(ctx, workflowID, runID, queryType, args...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(converter.EncodedValue)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, string, ...any) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, string, ...interface{}) error); ok {
 		r1 = returnFunc(ctx, workflowID, runID, queryType, args...)
 	} else {
 		r1 = ret.Error(1)
@@ -2593,13 +1685,13 @@ type Client_QueryWorkflow_Call struct {
 //   - workflowID string
 //   - runID string
 //   - queryType string
-//   - args ...any
+//   - args ...interface{}
 func (_e *Client_Expecter) QueryWorkflow(ctx any, workflowID any, runID any, queryType any, args ...any) *Client_QueryWorkflow_Call {
 	return &Client_QueryWorkflow_Call{Call: _e.mock.On("QueryWorkflow",
 		append([]any{ctx, workflowID, runID, queryType}, args...)...)}
 }
 
-func (_c *Client_QueryWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...any)) *Client_QueryWorkflow_Call {
+func (_c *Client_QueryWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...interface{})) *Client_QueryWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -2617,10 +1709,10 @@ func (_c *Client_QueryWorkflow_Call) Run(run func(ctx context.Context, workflowI
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 []any
-		var variadicArgs []any
+		var arg4 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 4 {
-			variadicArgs = args[4].([]any)
+			variadicArgs = args[4].([]interface{})
 		}
 		arg4 = variadicArgs
 		run(
@@ -2639,7 +1731,7 @@ func (_c *Client_QueryWorkflow_Call) Return(encodedValue converter.EncodedValue,
 	return _c
 }
 
-func (_c *Client_QueryWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...any) (converter.EncodedValue, error)) *Client_QueryWorkflow_Call {
+func (_c *Client_QueryWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, queryType string, args ...interface{}) (converter.EncodedValue, error)) *Client_QueryWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -2713,7 +1805,7 @@ func (_c *Client_QueryWorkflowWithOptions_Call) RunAndReturn(run func(ctx contex
 }
 
 // RecordActivityHeartbeat provides a mock function for the type Client
-func (_mock *Client) RecordActivityHeartbeat(ctx context.Context, taskToken []byte, details ...any) error {
+func (_mock *Client) RecordActivityHeartbeat(ctx context.Context, taskToken []byte, details ...interface{}) error {
 	var tmpRet mock.Arguments
 	if len(details) > 0 {
 		tmpRet = _mock.Called(ctx, taskToken, details)
@@ -2727,7 +1819,7 @@ func (_mock *Client) RecordActivityHeartbeat(ctx context.Context, taskToken []by
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, ...any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, []byte, ...interface{}) error); ok {
 		r0 = returnFunc(ctx, taskToken, details...)
 	} else {
 		r0 = ret.Error(0)
@@ -2743,13 +1835,13 @@ type Client_RecordActivityHeartbeat_Call struct {
 // RecordActivityHeartbeat is a helper method to define mock.On call
 //   - ctx context.Context
 //   - taskToken []byte
-//   - details ...any
+//   - details ...interface{}
 func (_e *Client_Expecter) RecordActivityHeartbeat(ctx any, taskToken any, details ...any) *Client_RecordActivityHeartbeat_Call {
 	return &Client_RecordActivityHeartbeat_Call{Call: _e.mock.On("RecordActivityHeartbeat",
 		append([]any{ctx, taskToken}, details...)...)}
 }
 
-func (_c *Client_RecordActivityHeartbeat_Call) Run(run func(ctx context.Context, taskToken []byte, details ...any)) *Client_RecordActivityHeartbeat_Call {
+func (_c *Client_RecordActivityHeartbeat_Call) Run(run func(ctx context.Context, taskToken []byte, details ...interface{})) *Client_RecordActivityHeartbeat_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -2759,10 +1851,10 @@ func (_c *Client_RecordActivityHeartbeat_Call) Run(run func(ctx context.Context,
 		if args[1] != nil {
 			arg1 = args[1].([]byte)
 		}
-		var arg2 []any
-		var variadicArgs []any
+		var arg2 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 2 {
-			variadicArgs = args[2].([]any)
+			variadicArgs = args[2].([]interface{})
 		}
 		arg2 = variadicArgs
 		run(
@@ -2779,13 +1871,13 @@ func (_c *Client_RecordActivityHeartbeat_Call) Return(err error) *Client_RecordA
 	return _c
 }
 
-func (_c *Client_RecordActivityHeartbeat_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, details ...any) error) *Client_RecordActivityHeartbeat_Call {
+func (_c *Client_RecordActivityHeartbeat_Call) RunAndReturn(run func(ctx context.Context, taskToken []byte, details ...interface{}) error) *Client_RecordActivityHeartbeat_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // RecordActivityHeartbeatByID provides a mock function for the type Client
-func (_mock *Client) RecordActivityHeartbeatByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...any) error {
+func (_mock *Client) RecordActivityHeartbeatByID(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...interface{}) error {
 	var tmpRet mock.Arguments
 	if len(details) > 0 {
 		tmpRet = _mock.Called(ctx, namespace, workflowID, runID, activityID, details)
@@ -2799,7 +1891,7 @@ func (_mock *Client) RecordActivityHeartbeatByID(ctx context.Context, namespace 
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, ...any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, string, ...interface{}) error); ok {
 		r0 = returnFunc(ctx, namespace, workflowID, runID, activityID, details...)
 	} else {
 		r0 = ret.Error(0)
@@ -2818,13 +1910,13 @@ type Client_RecordActivityHeartbeatByID_Call struct {
 //   - workflowID string
 //   - runID string
 //   - activityID string
-//   - details ...any
+//   - details ...interface{}
 func (_e *Client_Expecter) RecordActivityHeartbeatByID(ctx any, namespace any, workflowID any, runID any, activityID any, details ...any) *Client_RecordActivityHeartbeatByID_Call {
 	return &Client_RecordActivityHeartbeatByID_Call{Call: _e.mock.On("RecordActivityHeartbeatByID",
 		append([]any{ctx, namespace, workflowID, runID, activityID}, details...)...)}
 }
 
-func (_c *Client_RecordActivityHeartbeatByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...any)) *Client_RecordActivityHeartbeatByID_Call {
+func (_c *Client_RecordActivityHeartbeatByID_Call) Run(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...interface{})) *Client_RecordActivityHeartbeatByID_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -2846,10 +1938,10 @@ func (_c *Client_RecordActivityHeartbeatByID_Call) Run(run func(ctx context.Cont
 		if args[4] != nil {
 			arg4 = args[4].(string)
 		}
-		var arg5 []any
-		var variadicArgs []any
+		var arg5 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 5 {
-			variadicArgs = args[5].([]any)
+			variadicArgs = args[5].([]interface{})
 		}
 		arg5 = variadicArgs
 		run(
@@ -2869,121 +1961,7 @@ func (_c *Client_RecordActivityHeartbeatByID_Call) Return(err error) *Client_Rec
 	return _c
 }
 
-func (_c *Client_RecordActivityHeartbeatByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...any) error) *Client_RecordActivityHeartbeatByID_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// RecordActivityHeartbeatByIDWithOptions provides a mock function for the type Client
-func (_mock *Client) RecordActivityHeartbeatByIDWithOptions(ctx context.Context, opts client.RecordActivityHeartbeatByIDOptions) error {
-	ret := _mock.Called(ctx, opts)
-
-	if len(ret) == 0 {
-		panic("no return value specified for RecordActivityHeartbeatByIDWithOptions")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.RecordActivityHeartbeatByIDOptions) error); ok {
-		r0 = returnFunc(ctx, opts)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_RecordActivityHeartbeatByIDWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RecordActivityHeartbeatByIDWithOptions'
-type Client_RecordActivityHeartbeatByIDWithOptions_Call struct {
-	*mock.Call
-}
-
-// RecordActivityHeartbeatByIDWithOptions is a helper method to define mock.On call
-//   - ctx context.Context
-//   - opts client.RecordActivityHeartbeatByIDOptions
-func (_e *Client_Expecter) RecordActivityHeartbeatByIDWithOptions(ctx any, opts any) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
-	return &Client_RecordActivityHeartbeatByIDWithOptions_Call{Call: _e.mock.On("RecordActivityHeartbeatByIDWithOptions", ctx, opts)}
-}
-
-func (_c *Client_RecordActivityHeartbeatByIDWithOptions_Call) Run(run func(ctx context.Context, opts client.RecordActivityHeartbeatByIDOptions)) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.RecordActivityHeartbeatByIDOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.RecordActivityHeartbeatByIDOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_RecordActivityHeartbeatByIDWithOptions_Call) Return(err error) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
-	_c.Call.Return(err)
-	return _c
-}
-
-func (_c *Client_RecordActivityHeartbeatByIDWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.RecordActivityHeartbeatByIDOptions) error) *Client_RecordActivityHeartbeatByIDWithOptions_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// RecordActivityHeartbeatWithOptions provides a mock function for the type Client
-func (_mock *Client) RecordActivityHeartbeatWithOptions(ctx context.Context, opts client.RecordActivityHeartbeatOptions) error {
-	ret := _mock.Called(ctx, opts)
-
-	if len(ret) == 0 {
-		panic("no return value specified for RecordActivityHeartbeatWithOptions")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.RecordActivityHeartbeatOptions) error); ok {
-		r0 = returnFunc(ctx, opts)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_RecordActivityHeartbeatWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RecordActivityHeartbeatWithOptions'
-type Client_RecordActivityHeartbeatWithOptions_Call struct {
-	*mock.Call
-}
-
-// RecordActivityHeartbeatWithOptions is a helper method to define mock.On call
-//   - ctx context.Context
-//   - opts client.RecordActivityHeartbeatOptions
-func (_e *Client_Expecter) RecordActivityHeartbeatWithOptions(ctx any, opts any) *Client_RecordActivityHeartbeatWithOptions_Call {
-	return &Client_RecordActivityHeartbeatWithOptions_Call{Call: _e.mock.On("RecordActivityHeartbeatWithOptions", ctx, opts)}
-}
-
-func (_c *Client_RecordActivityHeartbeatWithOptions_Call) Run(run func(ctx context.Context, opts client.RecordActivityHeartbeatOptions)) *Client_RecordActivityHeartbeatWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.RecordActivityHeartbeatOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.RecordActivityHeartbeatOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_RecordActivityHeartbeatWithOptions_Call) Return(err error) *Client_RecordActivityHeartbeatWithOptions_Call {
-	_c.Call.Return(err)
-	return _c
-}
-
-func (_c *Client_RecordActivityHeartbeatWithOptions_Call) RunAndReturn(run func(ctx context.Context, opts client.RecordActivityHeartbeatOptions) error) *Client_RecordActivityHeartbeatWithOptions_Call {
+func (_c *Client_RecordActivityHeartbeatByID_Call) RunAndReturn(run func(ctx context.Context, namespace string, workflowID string, runID string, activityID string, details ...interface{}) error) *Client_RecordActivityHeartbeatByID_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -3171,7 +2149,7 @@ func (_c *Client_ScheduleClient_Call) RunAndReturn(run func() client.ScheduleCli
 }
 
 // SignalWithStartWorkflow provides a mock function for the type Client
-func (_mock *Client) SignalWithStartWorkflow(ctx context.Context, workflowID string, signalName string, signalArg any, options client.StartWorkflowOptions, workflow any, workflowArgs ...any) (client.WorkflowRun, error) {
+func (_mock *Client) SignalWithStartWorkflow(ctx context.Context, workflowID string, signalName string, signalArg interface{}, options client.StartWorkflowOptions, workflow interface{}, workflowArgs ...interface{}) (client.WorkflowRun, error) {
 	var tmpRet mock.Arguments
 	if len(workflowArgs) > 0 {
 		tmpRet = _mock.Called(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs)
@@ -3186,17 +2164,17 @@ func (_mock *Client) SignalWithStartWorkflow(ctx context.Context, workflowID str
 
 	var r0 client.WorkflowRun
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, any, client.StartWorkflowOptions, any, ...any) (client.WorkflowRun, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, interface{}, client.StartWorkflowOptions, interface{}, ...interface{}) (client.WorkflowRun, error)); ok {
 		return returnFunc(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs...)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, any, client.StartWorkflowOptions, any, ...any) client.WorkflowRun); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, interface{}, client.StartWorkflowOptions, interface{}, ...interface{}) client.WorkflowRun); ok {
 		r0 = returnFunc(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs...)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(client.WorkflowRun)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, any, client.StartWorkflowOptions, any, ...any) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string, interface{}, client.StartWorkflowOptions, interface{}, ...interface{}) error); ok {
 		r1 = returnFunc(ctx, workflowID, signalName, signalArg, options, workflow, workflowArgs...)
 	} else {
 		r1 = ret.Error(1)
@@ -3213,16 +2191,16 @@ type Client_SignalWithStartWorkflow_Call struct {
 //   - ctx context.Context
 //   - workflowID string
 //   - signalName string
-//   - signalArg any
+//   - signalArg interface{}
 //   - options client.StartWorkflowOptions
-//   - workflow any
-//   - workflowArgs ...any
+//   - workflow interface{}
+//   - workflowArgs ...interface{}
 func (_e *Client_Expecter) SignalWithStartWorkflow(ctx any, workflowID any, signalName any, signalArg any, options any, workflow any, workflowArgs ...any) *Client_SignalWithStartWorkflow_Call {
 	return &Client_SignalWithStartWorkflow_Call{Call: _e.mock.On("SignalWithStartWorkflow",
 		append([]any{ctx, workflowID, signalName, signalArg, options, workflow}, workflowArgs...)...)}
 }
 
-func (_c *Client_SignalWithStartWorkflow_Call) Run(run func(ctx context.Context, workflowID string, signalName string, signalArg any, options client.StartWorkflowOptions, workflow any, workflowArgs ...any)) *Client_SignalWithStartWorkflow_Call {
+func (_c *Client_SignalWithStartWorkflow_Call) Run(run func(ctx context.Context, workflowID string, signalName string, signalArg interface{}, options client.StartWorkflowOptions, workflow interface{}, workflowArgs ...interface{})) *Client_SignalWithStartWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -3236,22 +2214,22 @@ func (_c *Client_SignalWithStartWorkflow_Call) Run(run func(ctx context.Context,
 		if args[2] != nil {
 			arg2 = args[2].(string)
 		}
-		var arg3 any
+		var arg3 interface{}
 		if args[3] != nil {
-			arg3 = args[3].(any)
+			arg3 = args[3].(interface{})
 		}
 		var arg4 client.StartWorkflowOptions
 		if args[4] != nil {
 			arg4 = args[4].(client.StartWorkflowOptions)
 		}
-		var arg5 any
+		var arg5 interface{}
 		if args[5] != nil {
-			arg5 = args[5].(any)
+			arg5 = args[5].(interface{})
 		}
-		var arg6 []any
-		var variadicArgs []any
+		var arg6 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 6 {
-			variadicArgs = args[6].([]any)
+			variadicArgs = args[6].([]interface{})
 		}
 		arg6 = variadicArgs
 		run(
@@ -3272,13 +2250,13 @@ func (_c *Client_SignalWithStartWorkflow_Call) Return(workflowRun client.Workflo
 	return _c
 }
 
-func (_c *Client_SignalWithStartWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, signalName string, signalArg any, options client.StartWorkflowOptions, workflow any, workflowArgs ...any) (client.WorkflowRun, error)) *Client_SignalWithStartWorkflow_Call {
+func (_c *Client_SignalWithStartWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, signalName string, signalArg interface{}, options client.StartWorkflowOptions, workflow interface{}, workflowArgs ...interface{}) (client.WorkflowRun, error)) *Client_SignalWithStartWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // SignalWorkflow provides a mock function for the type Client
-func (_mock *Client) SignalWorkflow(ctx context.Context, workflowID string, runID string, signalName string, arg any) error {
+func (_mock *Client) SignalWorkflow(ctx context.Context, workflowID string, runID string, signalName string, arg interface{}) error {
 	ret := _mock.Called(ctx, workflowID, runID, signalName, arg)
 
 	if len(ret) == 0 {
@@ -3286,7 +2264,7 @@ func (_mock *Client) SignalWorkflow(ctx context.Context, workflowID string, runI
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, interface{}) error); ok {
 		r0 = returnFunc(ctx, workflowID, runID, signalName, arg)
 	} else {
 		r0 = ret.Error(0)
@@ -3304,12 +2282,12 @@ type Client_SignalWorkflow_Call struct {
 //   - workflowID string
 //   - runID string
 //   - signalName string
-//   - arg any
+//   - arg interface{}
 func (_e *Client_Expecter) SignalWorkflow(ctx any, workflowID any, runID any, signalName any, arg any) *Client_SignalWorkflow_Call {
 	return &Client_SignalWorkflow_Call{Call: _e.mock.On("SignalWorkflow", ctx, workflowID, runID, signalName, arg)}
 }
 
-func (_c *Client_SignalWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, signalName string, arg any)) *Client_SignalWorkflow_Call {
+func (_c *Client_SignalWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, signalName string, arg interface{})) *Client_SignalWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -3327,9 +2305,9 @@ func (_c *Client_SignalWorkflow_Call) Run(run func(ctx context.Context, workflow
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 any
+		var arg4 interface{}
 		if args[4] != nil {
-			arg4 = args[4].(any)
+			arg4 = args[4].(interface{})
 		}
 		run(
 			arg0,
@@ -3347,13 +2325,13 @@ func (_c *Client_SignalWorkflow_Call) Return(err error) *Client_SignalWorkflow_C
 	return _c
 }
 
-func (_c *Client_SignalWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, signalName string, arg any) error) *Client_SignalWorkflow_Call {
+func (_c *Client_SignalWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, signalName string, arg interface{}) error) *Client_SignalWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // TerminateWorkflow provides a mock function for the type Client
-func (_mock *Client) TerminateWorkflow(ctx context.Context, workflowID string, runID string, reason string, details ...any) error {
+func (_mock *Client) TerminateWorkflow(ctx context.Context, workflowID string, runID string, reason string, details ...interface{}) error {
 	var tmpRet mock.Arguments
 	if len(details) > 0 {
 		tmpRet = _mock.Called(ctx, workflowID, runID, reason, details)
@@ -3367,7 +2345,7 @@ func (_mock *Client) TerminateWorkflow(ctx context.Context, workflowID string, r
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string, string, ...interface{}) error); ok {
 		r0 = returnFunc(ctx, workflowID, runID, reason, details...)
 	} else {
 		r0 = ret.Error(0)
@@ -3385,13 +2363,13 @@ type Client_TerminateWorkflow_Call struct {
 //   - workflowID string
 //   - runID string
 //   - reason string
-//   - details ...any
+//   - details ...interface{}
 func (_e *Client_Expecter) TerminateWorkflow(ctx any, workflowID any, runID any, reason any, details ...any) *Client_TerminateWorkflow_Call {
 	return &Client_TerminateWorkflow_Call{Call: _e.mock.On("TerminateWorkflow",
 		append([]any{ctx, workflowID, runID, reason}, details...)...)}
 }
 
-func (_c *Client_TerminateWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, reason string, details ...any)) *Client_TerminateWorkflow_Call {
+func (_c *Client_TerminateWorkflow_Call) Run(run func(ctx context.Context, workflowID string, runID string, reason string, details ...interface{})) *Client_TerminateWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 context.Context
 		if args[0] != nil {
@@ -3409,10 +2387,10 @@ func (_c *Client_TerminateWorkflow_Call) Run(run func(ctx context.Context, workf
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 []any
-		var variadicArgs []any
+		var arg4 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 4 {
-			variadicArgs = args[4].([]any)
+			variadicArgs = args[4].([]interface{})
 		}
 		arg4 = variadicArgs
 		run(
@@ -3431,64 +2409,7 @@ func (_c *Client_TerminateWorkflow_Call) Return(err error) *Client_TerminateWork
 	return _c
 }
 
-func (_c *Client_TerminateWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, reason string, details ...any) error) *Client_TerminateWorkflow_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// TerminateWorkflowWithOptions provides a mock function for the type Client
-func (_mock *Client) TerminateWorkflowWithOptions(ctx context.Context, options client.TerminateWorkflowOptions) error {
-	ret := _mock.Called(ctx, options)
-
-	if len(ret) == 0 {
-		panic("no return value specified for TerminateWorkflowWithOptions")
-	}
-
-	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, client.TerminateWorkflowOptions) error); ok {
-		r0 = returnFunc(ctx, options)
-	} else {
-		r0 = ret.Error(0)
-	}
-	return r0
-}
-
-// Client_TerminateWorkflowWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'TerminateWorkflowWithOptions'
-type Client_TerminateWorkflowWithOptions_Call struct {
-	*mock.Call
-}
-
-// TerminateWorkflowWithOptions is a helper method to define mock.On call
-//   - ctx context.Context
-//   - options client.TerminateWorkflowOptions
-func (_e *Client_Expecter) TerminateWorkflowWithOptions(ctx any, options any) *Client_TerminateWorkflowWithOptions_Call {
-	return &Client_TerminateWorkflowWithOptions_Call{Call: _e.mock.On("TerminateWorkflowWithOptions", ctx, options)}
-}
-
-func (_c *Client_TerminateWorkflowWithOptions_Call) Run(run func(ctx context.Context, options client.TerminateWorkflowOptions)) *Client_TerminateWorkflowWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 context.Context
-		if args[0] != nil {
-			arg0 = args[0].(context.Context)
-		}
-		var arg1 client.TerminateWorkflowOptions
-		if args[1] != nil {
-			arg1 = args[1].(client.TerminateWorkflowOptions)
-		}
-		run(
-			arg0,
-			arg1,
-		)
-	})
-	return _c
-}
-
-func (_c *Client_TerminateWorkflowWithOptions_Call) Return(err error) *Client_TerminateWorkflowWithOptions_Call {
-	_c.Call.Return(err)
-	return _c
-}
-
-func (_c *Client_TerminateWorkflowWithOptions_Call) RunAndReturn(run func(ctx context.Context, options client.TerminateWorkflowOptions) error) *Client_TerminateWorkflowWithOptions_Call {
+func (_c *Client_TerminateWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, reason string, details ...interface{}) error) *Client_TerminateWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }

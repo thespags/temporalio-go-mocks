@@ -8,7 +8,6 @@ import (
 	"context"
 
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/workflow"
 )
 
@@ -117,27 +116,27 @@ func (_c *ContextPropagator_Extract_Call) RunAndReturn(run func(context1 context
 }
 
 // ExtractToWorkflow provides a mock function for the type ContextPropagator
-func (_mock *ContextPropagator) ExtractToWorkflow(workflowContext converter.WorkflowContext, headerReader workflow.HeaderReader) (converter.WorkflowContext, error) {
-	ret := _mock.Called(workflowContext, headerReader)
+func (_mock *ContextPropagator) ExtractToWorkflow(context1 workflow.Context, headerReader workflow.HeaderReader) (workflow.Context, error) {
+	ret := _mock.Called(context1, headerReader)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ExtractToWorkflow")
 	}
 
-	var r0 converter.WorkflowContext
+	var r0 workflow.Context
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, workflow.HeaderReader) (converter.WorkflowContext, error)); ok {
-		return returnFunc(workflowContext, headerReader)
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, workflow.HeaderReader) (workflow.Context, error)); ok {
+		return returnFunc(context1, headerReader)
 	}
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, workflow.HeaderReader) converter.WorkflowContext); ok {
-		r0 = returnFunc(workflowContext, headerReader)
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, workflow.HeaderReader) workflow.Context); ok {
+		r0 = returnFunc(context1, headerReader)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(converter.WorkflowContext)
+			r0 = ret.Get(0).(workflow.Context)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(converter.WorkflowContext, workflow.HeaderReader) error); ok {
-		r1 = returnFunc(workflowContext, headerReader)
+	if returnFunc, ok := ret.Get(1).(func(workflow.Context, workflow.HeaderReader) error); ok {
+		r1 = returnFunc(context1, headerReader)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -150,17 +149,17 @@ type ContextPropagator_ExtractToWorkflow_Call struct {
 }
 
 // ExtractToWorkflow is a helper method to define mock.On call
-//   - workflowContext converter.WorkflowContext
+//   - context1 workflow.Context
 //   - headerReader workflow.HeaderReader
-func (_e *ContextPropagator_Expecter) ExtractToWorkflow(workflowContext any, headerReader any) *ContextPropagator_ExtractToWorkflow_Call {
-	return &ContextPropagator_ExtractToWorkflow_Call{Call: _e.mock.On("ExtractToWorkflow", workflowContext, headerReader)}
+func (_e *ContextPropagator_Expecter) ExtractToWorkflow(context1 any, headerReader any) *ContextPropagator_ExtractToWorkflow_Call {
+	return &ContextPropagator_ExtractToWorkflow_Call{Call: _e.mock.On("ExtractToWorkflow", context1, headerReader)}
 }
 
-func (_c *ContextPropagator_ExtractToWorkflow_Call) Run(run func(workflowContext converter.WorkflowContext, headerReader workflow.HeaderReader)) *ContextPropagator_ExtractToWorkflow_Call {
+func (_c *ContextPropagator_ExtractToWorkflow_Call) Run(run func(context1 workflow.Context, headerReader workflow.HeaderReader)) *ContextPropagator_ExtractToWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 workflow.HeaderReader
 		if args[1] != nil {
@@ -174,12 +173,12 @@ func (_c *ContextPropagator_ExtractToWorkflow_Call) Run(run func(workflowContext
 	return _c
 }
 
-func (_c *ContextPropagator_ExtractToWorkflow_Call) Return(workflowContext1 converter.WorkflowContext, err error) *ContextPropagator_ExtractToWorkflow_Call {
-	_c.Call.Return(workflowContext1, err)
+func (_c *ContextPropagator_ExtractToWorkflow_Call) Return(context11 workflow.Context, err error) *ContextPropagator_ExtractToWorkflow_Call {
+	_c.Call.Return(context11, err)
 	return _c
 }
 
-func (_c *ContextPropagator_ExtractToWorkflow_Call) RunAndReturn(run func(workflowContext converter.WorkflowContext, headerReader workflow.HeaderReader) (converter.WorkflowContext, error)) *ContextPropagator_ExtractToWorkflow_Call {
+func (_c *ContextPropagator_ExtractToWorkflow_Call) RunAndReturn(run func(context1 workflow.Context, headerReader workflow.HeaderReader) (workflow.Context, error)) *ContextPropagator_ExtractToWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -242,16 +241,16 @@ func (_c *ContextPropagator_Inject_Call) RunAndReturn(run func(context1 context.
 }
 
 // InjectFromWorkflow provides a mock function for the type ContextPropagator
-func (_mock *ContextPropagator) InjectFromWorkflow(workflowContext converter.WorkflowContext, headerWriter workflow.HeaderWriter) error {
-	ret := _mock.Called(workflowContext, headerWriter)
+func (_mock *ContextPropagator) InjectFromWorkflow(context1 workflow.Context, headerWriter workflow.HeaderWriter) error {
+	ret := _mock.Called(context1, headerWriter)
 
 	if len(ret) == 0 {
 		panic("no return value specified for InjectFromWorkflow")
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, workflow.HeaderWriter) error); ok {
-		r0 = returnFunc(workflowContext, headerWriter)
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, workflow.HeaderWriter) error); ok {
+		r0 = returnFunc(context1, headerWriter)
 	} else {
 		r0 = ret.Error(0)
 	}
@@ -264,17 +263,17 @@ type ContextPropagator_InjectFromWorkflow_Call struct {
 }
 
 // InjectFromWorkflow is a helper method to define mock.On call
-//   - workflowContext converter.WorkflowContext
+//   - context1 workflow.Context
 //   - headerWriter workflow.HeaderWriter
-func (_e *ContextPropagator_Expecter) InjectFromWorkflow(workflowContext any, headerWriter any) *ContextPropagator_InjectFromWorkflow_Call {
-	return &ContextPropagator_InjectFromWorkflow_Call{Call: _e.mock.On("InjectFromWorkflow", workflowContext, headerWriter)}
+func (_e *ContextPropagator_Expecter) InjectFromWorkflow(context1 any, headerWriter any) *ContextPropagator_InjectFromWorkflow_Call {
+	return &ContextPropagator_InjectFromWorkflow_Call{Call: _e.mock.On("InjectFromWorkflow", context1, headerWriter)}
 }
 
-func (_c *ContextPropagator_InjectFromWorkflow_Call) Run(run func(workflowContext converter.WorkflowContext, headerWriter workflow.HeaderWriter)) *ContextPropagator_InjectFromWorkflow_Call {
+func (_c *ContextPropagator_InjectFromWorkflow_Call) Run(run func(context1 workflow.Context, headerWriter workflow.HeaderWriter)) *ContextPropagator_InjectFromWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 workflow.HeaderWriter
 		if args[1] != nil {
@@ -293,7 +292,7 @@ func (_c *ContextPropagator_InjectFromWorkflow_Call) Return(err error) *ContextP
 	return _c
 }
 
-func (_c *ContextPropagator_InjectFromWorkflow_Call) RunAndReturn(run func(workflowContext converter.WorkflowContext, headerWriter workflow.HeaderWriter) error) *ContextPropagator_InjectFromWorkflow_Call {
+func (_c *ContextPropagator_InjectFromWorkflow_Call) RunAndReturn(run func(context1 workflow.Context, headerWriter workflow.HeaderWriter) error) *ContextPropagator_InjectFromWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }

@@ -44,7 +44,3 @@ packages:
   go.temporal.io/sdk/temporalnexus:
     config:
       all: true
-    interfaces:
-      operationTokenI:
-        config:
-          generate: false

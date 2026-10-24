@@ -9,6 +9,7 @@ import (
 
 	mock "github.com/stretchr/testify/mock"
 	"go.temporal.io/sdk/converter"
+	"go.temporal.io/sdk/workflow"
 )
 
 // NewContextAware creates a new instance of ContextAware. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -101,7 +102,7 @@ func (_c *ContextAware_WithContext_Call) RunAndReturn(run func(ctx context.Conte
 }
 
 // WithWorkflowContext provides a mock function for the type ContextAware
-func (_mock *ContextAware) WithWorkflowContext(ctx converter.WorkflowContext) converter.DataConverter {
+func (_mock *ContextAware) WithWorkflowContext(ctx workflow.Context) converter.DataConverter {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -109,7 +110,7 @@ func (_mock *ContextAware) WithWorkflowContext(ctx converter.WorkflowContext) co
 	}
 
 	var r0 converter.DataConverter
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) converter.DataConverter); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) converter.DataConverter); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		if ret.Get(0) != nil {
@@ -125,16 +126,16 @@ type ContextAware_WithWorkflowContext_Call struct {
 }
 
 // WithWorkflowContext is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *ContextAware_Expecter) WithWorkflowContext(ctx any) *ContextAware_WithWorkflowContext_Call {
 	return &ContextAware_WithWorkflowContext_Call{Call: _e.mock.On("WithWorkflowContext", ctx)}
 }
 
-func (_c *ContextAware_WithWorkflowContext_Call) Run(run func(ctx converter.WorkflowContext)) *ContextAware_WithWorkflowContext_Call {
+func (_c *ContextAware_WithWorkflowContext_Call) Run(run func(ctx workflow.Context)) *ContextAware_WithWorkflowContext_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -148,7 +149,7 @@ func (_c *ContextAware_WithWorkflowContext_Call) Return(dataConverter converter.
 	return _c
 }
 
-func (_c *ContextAware_WithWorkflowContext_Call) RunAndReturn(run func(ctx converter.WorkflowContext) converter.DataConverter) *ContextAware_WithWorkflowContext_Call {
+func (_c *ContextAware_WithWorkflowContext_Call) RunAndReturn(run func(ctx workflow.Context) converter.DataConverter) *ContextAware_WithWorkflowContext_Call {
 	_c.Call.Return(run)
 	return _c
 }

@@ -6,7 +6,7 @@ package workflow
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
+	"go.temporal.io/sdk/workflow"
 )
 
 // NewSemaphore creates a new instance of Semaphore. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -46,7 +46,7 @@ func (_m *Semaphore) EXPECT() *Semaphore_Expecter {
 }
 
 // Acquire provides a mock function for the type Semaphore
-func (_mock *Semaphore) Acquire(ctx converter.WorkflowContext, n int64) error {
+func (_mock *Semaphore) Acquire(ctx workflow.Context, n int64) error {
 	ret := _mock.Called(ctx, n)
 
 	if len(ret) == 0 {
@@ -54,7 +54,7 @@ func (_mock *Semaphore) Acquire(ctx converter.WorkflowContext, n int64) error {
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, int64) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, int64) error); ok {
 		r0 = returnFunc(ctx, n)
 	} else {
 		r0 = ret.Error(0)
@@ -68,17 +68,17 @@ type Semaphore_Acquire_Call struct {
 }
 
 // Acquire is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - n int64
 func (_e *Semaphore_Expecter) Acquire(ctx any, n any) *Semaphore_Acquire_Call {
 	return &Semaphore_Acquire_Call{Call: _e.mock.On("Acquire", ctx, n)}
 }
 
-func (_c *Semaphore_Acquire_Call) Run(run func(ctx converter.WorkflowContext, n int64)) *Semaphore_Acquire_Call {
+func (_c *Semaphore_Acquire_Call) Run(run func(ctx workflow.Context, n int64)) *Semaphore_Acquire_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 int64
 		if args[1] != nil {
@@ -97,7 +97,7 @@ func (_c *Semaphore_Acquire_Call) Return(err error) *Semaphore_Acquire_Call {
 	return _c
 }
 
-func (_c *Semaphore_Acquire_Call) RunAndReturn(run func(ctx converter.WorkflowContext, n int64) error) *Semaphore_Acquire_Call {
+func (_c *Semaphore_Acquire_Call) RunAndReturn(run func(ctx workflow.Context, n int64) error) *Semaphore_Acquire_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -143,7 +143,7 @@ func (_c *Semaphore_Release_Call) RunAndReturn(run func(n int64)) *Semaphore_Rel
 }
 
 // TryAcquire provides a mock function for the type Semaphore
-func (_mock *Semaphore) TryAcquire(ctx converter.WorkflowContext, n int64) bool {
+func (_mock *Semaphore) TryAcquire(ctx workflow.Context, n int64) bool {
 	ret := _mock.Called(ctx, n)
 
 	if len(ret) == 0 {
@@ -151,7 +151,7 @@ func (_mock *Semaphore) TryAcquire(ctx converter.WorkflowContext, n int64) bool 
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, int64) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, int64) bool); ok {
 		r0 = returnFunc(ctx, n)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -165,17 +165,17 @@ type Semaphore_TryAcquire_Call struct {
 }
 
 // TryAcquire is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - n int64
 func (_e *Semaphore_Expecter) TryAcquire(ctx any, n any) *Semaphore_TryAcquire_Call {
 	return &Semaphore_TryAcquire_Call{Call: _e.mock.On("TryAcquire", ctx, n)}
 }
 
-func (_c *Semaphore_TryAcquire_Call) Run(run func(ctx converter.WorkflowContext, n int64)) *Semaphore_TryAcquire_Call {
+func (_c *Semaphore_TryAcquire_Call) Run(run func(ctx workflow.Context, n int64)) *Semaphore_TryAcquire_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 int64
 		if args[1] != nil {
@@ -194,7 +194,7 @@ func (_c *Semaphore_TryAcquire_Call) Return(b bool) *Semaphore_TryAcquire_Call {
 	return _c
 }
 
-func (_c *Semaphore_TryAcquire_Call) RunAndReturn(run func(ctx converter.WorkflowContext, n int64) bool) *Semaphore_TryAcquire_Call {
+func (_c *Semaphore_TryAcquire_Call) RunAndReturn(run func(ctx workflow.Context, n int64) bool) *Semaphore_TryAcquire_Call {
 	_c.Call.Return(run)
 	return _c
 }

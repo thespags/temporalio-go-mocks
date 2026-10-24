@@ -6,7 +6,6 @@ package workflow
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/workflow"
 )
 
@@ -47,7 +46,7 @@ func (_m *ChildWorkflowFuture) EXPECT() *ChildWorkflowFuture_Expecter {
 }
 
 // Get provides a mock function for the type ChildWorkflowFuture
-func (_mock *ChildWorkflowFuture) Get(ctx converter.WorkflowContext, valuePtr any) error {
+func (_mock *ChildWorkflowFuture) Get(ctx workflow.Context, valuePtr interface{}) error {
 	ret := _mock.Called(ctx, valuePtr)
 
 	if len(ret) == 0 {
@@ -55,7 +54,7 @@ func (_mock *ChildWorkflowFuture) Get(ctx converter.WorkflowContext, valuePtr an
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, interface{}) error); ok {
 		r0 = returnFunc(ctx, valuePtr)
 	} else {
 		r0 = ret.Error(0)
@@ -69,21 +68,21 @@ type ChildWorkflowFuture_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - valuePtr any
+//   - ctx workflow.Context
+//   - valuePtr interface{}
 func (_e *ChildWorkflowFuture_Expecter) Get(ctx any, valuePtr any) *ChildWorkflowFuture_Get_Call {
 	return &ChildWorkflowFuture_Get_Call{Call: _e.mock.On("Get", ctx, valuePtr)}
 }
 
-func (_c *ChildWorkflowFuture_Get_Call) Run(run func(ctx converter.WorkflowContext, valuePtr any)) *ChildWorkflowFuture_Get_Call {
+func (_c *ChildWorkflowFuture_Get_Call) Run(run func(ctx workflow.Context, valuePtr interface{})) *ChildWorkflowFuture_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 any
+		var arg1 interface{}
 		if args[1] != nil {
-			arg1 = args[1].(any)
+			arg1 = args[1].(interface{})
 		}
 		run(
 			arg0,
@@ -98,7 +97,7 @@ func (_c *ChildWorkflowFuture_Get_Call) Return(err error) *ChildWorkflowFuture_G
 	return _c
 }
 
-func (_c *ChildWorkflowFuture_Get_Call) RunAndReturn(run func(ctx converter.WorkflowContext, valuePtr any) error) *ChildWorkflowFuture_Get_Call {
+func (_c *ChildWorkflowFuture_Get_Call) RunAndReturn(run func(ctx workflow.Context, valuePtr interface{}) error) *ChildWorkflowFuture_Get_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -194,7 +193,7 @@ func (_c *ChildWorkflowFuture_IsReady_Call) RunAndReturn(run func() bool) *Child
 }
 
 // SignalChildWorkflow provides a mock function for the type ChildWorkflowFuture
-func (_mock *ChildWorkflowFuture) SignalChildWorkflow(ctx converter.WorkflowContext, signalName string, data any) workflow.Future {
+func (_mock *ChildWorkflowFuture) SignalChildWorkflow(ctx workflow.Context, signalName string, data interface{}) workflow.Future {
 	ret := _mock.Called(ctx, signalName, data)
 
 	if len(ret) == 0 {
@@ -202,7 +201,7 @@ func (_mock *ChildWorkflowFuture) SignalChildWorkflow(ctx converter.WorkflowCont
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, any) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, interface{}) workflow.Future); ok {
 		r0 = returnFunc(ctx, signalName, data)
 	} else {
 		if ret.Get(0) != nil {
@@ -218,26 +217,26 @@ type ChildWorkflowFuture_SignalChildWorkflow_Call struct {
 }
 
 // SignalChildWorkflow is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - signalName string
-//   - data any
+//   - data interface{}
 func (_e *ChildWorkflowFuture_Expecter) SignalChildWorkflow(ctx any, signalName any, data any) *ChildWorkflowFuture_SignalChildWorkflow_Call {
 	return &ChildWorkflowFuture_SignalChildWorkflow_Call{Call: _e.mock.On("SignalChildWorkflow", ctx, signalName, data)}
 }
 
-func (_c *ChildWorkflowFuture_SignalChildWorkflow_Call) Run(run func(ctx converter.WorkflowContext, signalName string, data any)) *ChildWorkflowFuture_SignalChildWorkflow_Call {
+func (_c *ChildWorkflowFuture_SignalChildWorkflow_Call) Run(run func(ctx workflow.Context, signalName string, data interface{})) *ChildWorkflowFuture_SignalChildWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 any
+		var arg2 interface{}
 		if args[2] != nil {
-			arg2 = args[2].(any)
+			arg2 = args[2].(interface{})
 		}
 		run(
 			arg0,
@@ -253,7 +252,7 @@ func (_c *ChildWorkflowFuture_SignalChildWorkflow_Call) Return(future workflow.F
 	return _c
 }
 
-func (_c *ChildWorkflowFuture_SignalChildWorkflow_Call) RunAndReturn(run func(ctx converter.WorkflowContext, signalName string, data any) workflow.Future) *ChildWorkflowFuture_SignalChildWorkflow_Call {
+func (_c *ChildWorkflowFuture_SignalChildWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, signalName string, data interface{}) workflow.Future) *ChildWorkflowFuture_SignalChildWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }

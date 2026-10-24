@@ -6,7 +6,6 @@ package worker
 
 import (
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/api/enums/v1"
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/log"
 )
@@ -223,50 +222,6 @@ func (_c *SlotReservationInfo_TaskQueue_Call) Return(s string) *SlotReservationI
 }
 
 func (_c *SlotReservationInfo_TaskQueue_Call) RunAndReturn(run func() string) *SlotReservationInfo_TaskQueue_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// TaskQueueKind provides a mock function for the type SlotReservationInfo
-func (_mock *SlotReservationInfo) TaskQueueKind() enums.TaskQueueKind {
-	ret := _mock.Called()
-
-	if len(ret) == 0 {
-		panic("no return value specified for TaskQueueKind")
-	}
-
-	var r0 enums.TaskQueueKind
-	if returnFunc, ok := ret.Get(0).(func() enums.TaskQueueKind); ok {
-		r0 = returnFunc()
-	} else {
-		r0 = ret.Get(0).(enums.TaskQueueKind)
-	}
-	return r0
-}
-
-// SlotReservationInfo_TaskQueueKind_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'TaskQueueKind'
-type SlotReservationInfo_TaskQueueKind_Call struct {
-	*mock.Call
-}
-
-// TaskQueueKind is a helper method to define mock.On call
-func (_e *SlotReservationInfo_Expecter) TaskQueueKind() *SlotReservationInfo_TaskQueueKind_Call {
-	return &SlotReservationInfo_TaskQueueKind_Call{Call: _e.mock.On("TaskQueueKind")}
-}
-
-func (_c *SlotReservationInfo_TaskQueueKind_Call) Run(run func()) *SlotReservationInfo_TaskQueueKind_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		run()
-	})
-	return _c
-}
-
-func (_c *SlotReservationInfo_TaskQueueKind_Call) Return(taskQueueKind enums.TaskQueueKind) *SlotReservationInfo_TaskQueueKind_Call {
-	_c.Call.Return(taskQueueKind)
-	return _c
-}
-
-func (_c *SlotReservationInfo_TaskQueueKind_Call) RunAndReturn(run func() enums.TaskQueueKind) *SlotReservationInfo_TaskQueueKind_Call {
 	_c.Call.Return(run)
 	return _c
 }

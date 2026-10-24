@@ -48,23 +48,23 @@ func (_m *ActivityInboundInterceptor) EXPECT() *ActivityInboundInterceptor_Expec
 }
 
 // ExecuteActivity provides a mock function for the type ActivityInboundInterceptor
-func (_mock *ActivityInboundInterceptor) ExecuteActivity(ctx context.Context, in *interceptor.ExecuteActivityInput) (any, error) {
+func (_mock *ActivityInboundInterceptor) ExecuteActivity(ctx context.Context, in *interceptor.ExecuteActivityInput) (interface{}, error) {
 	ret := _mock.Called(ctx, in)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ExecuteActivity")
 	}
 
-	var r0 any
+	var r0 interface{}
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(context.Context, *interceptor.ExecuteActivityInput) (any, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *interceptor.ExecuteActivityInput) (interface{}, error)); ok {
 		return returnFunc(ctx, in)
 	}
-	if returnFunc, ok := ret.Get(0).(func(context.Context, *interceptor.ExecuteActivityInput) any); ok {
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *interceptor.ExecuteActivityInput) interface{}); ok {
 		r0 = returnFunc(ctx, in)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(any)
+			r0 = ret.Get(0).(interface{})
 		}
 	}
 	if returnFunc, ok := ret.Get(1).(func(context.Context, *interceptor.ExecuteActivityInput) error); ok {
@@ -105,12 +105,12 @@ func (_c *ActivityInboundInterceptor_ExecuteActivity_Call) Run(run func(ctx cont
 	return _c
 }
 
-func (_c *ActivityInboundInterceptor_ExecuteActivity_Call) Return(anyMoqParam any, err error) *ActivityInboundInterceptor_ExecuteActivity_Call {
-	_c.Call.Return(anyMoqParam, err)
+func (_c *ActivityInboundInterceptor_ExecuteActivity_Call) Return(ifaceVal interface{}, err error) *ActivityInboundInterceptor_ExecuteActivity_Call {
+	_c.Call.Return(ifaceVal, err)
 	return _c
 }
 
-func (_c *ActivityInboundInterceptor_ExecuteActivity_Call) RunAndReturn(run func(ctx context.Context, in *interceptor.ExecuteActivityInput) (any, error)) *ActivityInboundInterceptor_ExecuteActivity_Call {
+func (_c *ActivityInboundInterceptor_ExecuteActivity_Call) RunAndReturn(run func(ctx context.Context, in *interceptor.ExecuteActivityInput) (interface{}, error)) *ActivityInboundInterceptor_ExecuteActivity_Call {
 	_c.Call.Return(run)
 	return _c
 }

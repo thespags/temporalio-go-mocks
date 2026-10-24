@@ -53,7 +53,7 @@ func (_m *WorkflowOutboundInterceptor) EXPECT() *WorkflowOutboundInterceptor_Exp
 }
 
 // Await provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) Await(ctx converter.WorkflowContext, condition func() bool) error {
+func (_mock *WorkflowOutboundInterceptor) Await(ctx workflow.Context, condition func() bool) error {
 	ret := _mock.Called(ctx, condition)
 
 	if len(ret) == 0 {
@@ -61,7 +61,7 @@ func (_mock *WorkflowOutboundInterceptor) Await(ctx converter.WorkflowContext, c
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, func() bool) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, func() bool) error); ok {
 		r0 = returnFunc(ctx, condition)
 	} else {
 		r0 = ret.Error(0)
@@ -75,17 +75,17 @@ type WorkflowOutboundInterceptor_Await_Call struct {
 }
 
 // Await is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - condition func() bool
 func (_e *WorkflowOutboundInterceptor_Expecter) Await(ctx any, condition any) *WorkflowOutboundInterceptor_Await_Call {
 	return &WorkflowOutboundInterceptor_Await_Call{Call: _e.mock.On("Await", ctx, condition)}
 }
 
-func (_c *WorkflowOutboundInterceptor_Await_Call) Run(run func(ctx converter.WorkflowContext, condition func() bool)) *WorkflowOutboundInterceptor_Await_Call {
+func (_c *WorkflowOutboundInterceptor_Await_Call) Run(run func(ctx workflow.Context, condition func() bool)) *WorkflowOutboundInterceptor_Await_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 func() bool
 		if args[1] != nil {
@@ -104,13 +104,13 @@ func (_c *WorkflowOutboundInterceptor_Await_Call) Return(err error) *WorkflowOut
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_Await_Call) RunAndReturn(run func(ctx converter.WorkflowContext, condition func() bool) error) *WorkflowOutboundInterceptor_Await_Call {
+func (_c *WorkflowOutboundInterceptor_Await_Call) RunAndReturn(run func(ctx workflow.Context, condition func() bool) error) *WorkflowOutboundInterceptor_Await_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // AwaitWithOptions provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) AwaitWithOptions(ctx converter.WorkflowContext, options workflow.AwaitOptions, condition func() bool) (bool, error) {
+func (_mock *WorkflowOutboundInterceptor) AwaitWithOptions(ctx workflow.Context, options workflow.AwaitOptions, condition func() bool) (bool, error) {
 	ret := _mock.Called(ctx, options, condition)
 
 	if len(ret) == 0 {
@@ -119,15 +119,15 @@ func (_mock *WorkflowOutboundInterceptor) AwaitWithOptions(ctx converter.Workflo
 
 	var r0 bool
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, workflow.AwaitOptions, func() bool) (bool, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, workflow.AwaitOptions, func() bool) (bool, error)); ok {
 		return returnFunc(ctx, options, condition)
 	}
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, workflow.AwaitOptions, func() bool) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, workflow.AwaitOptions, func() bool) bool); ok {
 		r0 = returnFunc(ctx, options, condition)
 	} else {
 		r0 = ret.Get(0).(bool)
 	}
-	if returnFunc, ok := ret.Get(1).(func(converter.WorkflowContext, workflow.AwaitOptions, func() bool) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(workflow.Context, workflow.AwaitOptions, func() bool) error); ok {
 		r1 = returnFunc(ctx, options, condition)
 	} else {
 		r1 = ret.Error(1)
@@ -141,18 +141,18 @@ type WorkflowOutboundInterceptor_AwaitWithOptions_Call struct {
 }
 
 // AwaitWithOptions is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - options workflow.AwaitOptions
 //   - condition func() bool
 func (_e *WorkflowOutboundInterceptor_Expecter) AwaitWithOptions(ctx any, options any, condition any) *WorkflowOutboundInterceptor_AwaitWithOptions_Call {
 	return &WorkflowOutboundInterceptor_AwaitWithOptions_Call{Call: _e.mock.On("AwaitWithOptions", ctx, options, condition)}
 }
 
-func (_c *WorkflowOutboundInterceptor_AwaitWithOptions_Call) Run(run func(ctx converter.WorkflowContext, options workflow.AwaitOptions, condition func() bool)) *WorkflowOutboundInterceptor_AwaitWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_AwaitWithOptions_Call) Run(run func(ctx workflow.Context, options workflow.AwaitOptions, condition func() bool)) *WorkflowOutboundInterceptor_AwaitWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 workflow.AwaitOptions
 		if args[1] != nil {
@@ -176,13 +176,13 @@ func (_c *WorkflowOutboundInterceptor_AwaitWithOptions_Call) Return(b bool, err 
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_AwaitWithOptions_Call) RunAndReturn(run func(ctx converter.WorkflowContext, options workflow.AwaitOptions, condition func() bool) (bool, error)) *WorkflowOutboundInterceptor_AwaitWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_AwaitWithOptions_Call) RunAndReturn(run func(ctx workflow.Context, options workflow.AwaitOptions, condition func() bool) (bool, error)) *WorkflowOutboundInterceptor_AwaitWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // AwaitWithTimeout provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) AwaitWithTimeout(ctx converter.WorkflowContext, timeout time.Duration, condition func() bool) (bool, error) {
+func (_mock *WorkflowOutboundInterceptor) AwaitWithTimeout(ctx workflow.Context, timeout time.Duration, condition func() bool) (bool, error) {
 	ret := _mock.Called(ctx, timeout, condition)
 
 	if len(ret) == 0 {
@@ -191,15 +191,15 @@ func (_mock *WorkflowOutboundInterceptor) AwaitWithTimeout(ctx converter.Workflo
 
 	var r0 bool
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, time.Duration, func() bool) (bool, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, func() bool) (bool, error)); ok {
 		return returnFunc(ctx, timeout, condition)
 	}
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, time.Duration, func() bool) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, func() bool) bool); ok {
 		r0 = returnFunc(ctx, timeout, condition)
 	} else {
 		r0 = ret.Get(0).(bool)
 	}
-	if returnFunc, ok := ret.Get(1).(func(converter.WorkflowContext, time.Duration, func() bool) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(workflow.Context, time.Duration, func() bool) error); ok {
 		r1 = returnFunc(ctx, timeout, condition)
 	} else {
 		r1 = ret.Error(1)
@@ -213,18 +213,18 @@ type WorkflowOutboundInterceptor_AwaitWithTimeout_Call struct {
 }
 
 // AwaitWithTimeout is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - timeout time.Duration
 //   - condition func() bool
 func (_e *WorkflowOutboundInterceptor_Expecter) AwaitWithTimeout(ctx any, timeout any, condition any) *WorkflowOutboundInterceptor_AwaitWithTimeout_Call {
 	return &WorkflowOutboundInterceptor_AwaitWithTimeout_Call{Call: _e.mock.On("AwaitWithTimeout", ctx, timeout, condition)}
 }
 
-func (_c *WorkflowOutboundInterceptor_AwaitWithTimeout_Call) Run(run func(ctx converter.WorkflowContext, timeout time.Duration, condition func() bool)) *WorkflowOutboundInterceptor_AwaitWithTimeout_Call {
+func (_c *WorkflowOutboundInterceptor_AwaitWithTimeout_Call) Run(run func(ctx workflow.Context, timeout time.Duration, condition func() bool)) *WorkflowOutboundInterceptor_AwaitWithTimeout_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 time.Duration
 		if args[1] != nil {
@@ -248,13 +248,13 @@ func (_c *WorkflowOutboundInterceptor_AwaitWithTimeout_Call) Return(b bool, err 
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_AwaitWithTimeout_Call) RunAndReturn(run func(ctx converter.WorkflowContext, timeout time.Duration, condition func() bool) (bool, error)) *WorkflowOutboundInterceptor_AwaitWithTimeout_Call {
+func (_c *WorkflowOutboundInterceptor_AwaitWithTimeout_Call) RunAndReturn(run func(ctx workflow.Context, timeout time.Duration, condition func() bool) (bool, error)) *WorkflowOutboundInterceptor_AwaitWithTimeout_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ExecuteActivity provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) ExecuteActivity(ctx converter.WorkflowContext, activityType string, args ...any) workflow.Future {
+func (_mock *WorkflowOutboundInterceptor) ExecuteActivity(ctx workflow.Context, activityType string, args ...interface{}) workflow.Future {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, activityType, args)
@@ -268,7 +268,7 @@ func (_mock *WorkflowOutboundInterceptor) ExecuteActivity(ctx converter.Workflow
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, ...any) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, ...interface{}) workflow.Future); ok {
 		r0 = returnFunc(ctx, activityType, args...)
 	} else {
 		if ret.Get(0) != nil {
@@ -284,28 +284,28 @@ type WorkflowOutboundInterceptor_ExecuteActivity_Call struct {
 }
 
 // ExecuteActivity is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - activityType string
-//   - args ...any
+//   - args ...interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) ExecuteActivity(ctx any, activityType any, args ...any) *WorkflowOutboundInterceptor_ExecuteActivity_Call {
 	return &WorkflowOutboundInterceptor_ExecuteActivity_Call{Call: _e.mock.On("ExecuteActivity",
 		append([]any{ctx, activityType}, args...)...)}
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteActivity_Call) Run(run func(ctx converter.WorkflowContext, activityType string, args ...any)) *WorkflowOutboundInterceptor_ExecuteActivity_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteActivity_Call) Run(run func(ctx workflow.Context, activityType string, args ...interface{})) *WorkflowOutboundInterceptor_ExecuteActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 []any
-		var variadicArgs []any
+		var arg2 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 2 {
-			variadicArgs = args[2].([]any)
+			variadicArgs = args[2].([]interface{})
 		}
 		arg2 = variadicArgs
 		run(
@@ -322,13 +322,13 @@ func (_c *WorkflowOutboundInterceptor_ExecuteActivity_Call) Return(future workfl
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteActivity_Call) RunAndReturn(run func(ctx converter.WorkflowContext, activityType string, args ...any) workflow.Future) *WorkflowOutboundInterceptor_ExecuteActivity_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteActivity_Call) RunAndReturn(run func(ctx workflow.Context, activityType string, args ...interface{}) workflow.Future) *WorkflowOutboundInterceptor_ExecuteActivity_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ExecuteChildWorkflow provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) ExecuteChildWorkflow(ctx converter.WorkflowContext, childWorkflowType string, args ...any) workflow.ChildWorkflowFuture {
+func (_mock *WorkflowOutboundInterceptor) ExecuteChildWorkflow(ctx workflow.Context, childWorkflowType string, args ...interface{}) workflow.ChildWorkflowFuture {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, childWorkflowType, args)
@@ -342,7 +342,7 @@ func (_mock *WorkflowOutboundInterceptor) ExecuteChildWorkflow(ctx converter.Wor
 	}
 
 	var r0 workflow.ChildWorkflowFuture
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, ...any) workflow.ChildWorkflowFuture); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, ...interface{}) workflow.ChildWorkflowFuture); ok {
 		r0 = returnFunc(ctx, childWorkflowType, args...)
 	} else {
 		if ret.Get(0) != nil {
@@ -358,28 +358,28 @@ type WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call struct {
 }
 
 // ExecuteChildWorkflow is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - childWorkflowType string
-//   - args ...any
+//   - args ...interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) ExecuteChildWorkflow(ctx any, childWorkflowType any, args ...any) *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call {
 	return &WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call{Call: _e.mock.On("ExecuteChildWorkflow",
 		append([]any{ctx, childWorkflowType}, args...)...)}
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call) Run(run func(ctx converter.WorkflowContext, childWorkflowType string, args ...any)) *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call) Run(run func(ctx workflow.Context, childWorkflowType string, args ...interface{})) *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 []any
-		var variadicArgs []any
+		var arg2 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 2 {
-			variadicArgs = args[2].([]any)
+			variadicArgs = args[2].([]interface{})
 		}
 		arg2 = variadicArgs
 		run(
@@ -396,13 +396,13 @@ func (_c *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call) Return(childWor
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call) RunAndReturn(run func(ctx converter.WorkflowContext, childWorkflowType string, args ...any) workflow.ChildWorkflowFuture) *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, childWorkflowType string, args ...interface{}) workflow.ChildWorkflowFuture) *WorkflowOutboundInterceptor_ExecuteChildWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ExecuteLocalActivity provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) ExecuteLocalActivity(ctx converter.WorkflowContext, activityType string, args ...any) workflow.Future {
+func (_mock *WorkflowOutboundInterceptor) ExecuteLocalActivity(ctx workflow.Context, activityType string, args ...interface{}) workflow.Future {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, activityType, args)
@@ -416,7 +416,7 @@ func (_mock *WorkflowOutboundInterceptor) ExecuteLocalActivity(ctx converter.Wor
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, ...any) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, ...interface{}) workflow.Future); ok {
 		r0 = returnFunc(ctx, activityType, args...)
 	} else {
 		if ret.Get(0) != nil {
@@ -432,28 +432,28 @@ type WorkflowOutboundInterceptor_ExecuteLocalActivity_Call struct {
 }
 
 // ExecuteLocalActivity is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - activityType string
-//   - args ...any
+//   - args ...interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) ExecuteLocalActivity(ctx any, activityType any, args ...any) *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call {
 	return &WorkflowOutboundInterceptor_ExecuteLocalActivity_Call{Call: _e.mock.On("ExecuteLocalActivity",
 		append([]any{ctx, activityType}, args...)...)}
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call) Run(run func(ctx converter.WorkflowContext, activityType string, args ...any)) *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call) Run(run func(ctx workflow.Context, activityType string, args ...interface{})) *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 []any
-		var variadicArgs []any
+		var arg2 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 2 {
-			variadicArgs = args[2].([]any)
+			variadicArgs = args[2].([]interface{})
 		}
 		arg2 = variadicArgs
 		run(
@@ -470,13 +470,13 @@ func (_c *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call) Return(future w
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call) RunAndReturn(run func(ctx converter.WorkflowContext, activityType string, args ...any) workflow.Future) *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call) RunAndReturn(run func(ctx workflow.Context, activityType string, args ...interface{}) workflow.Future) *WorkflowOutboundInterceptor_ExecuteLocalActivity_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ExecuteNexusOperation provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) ExecuteNexusOperation(ctx converter.WorkflowContext, input interceptor.ExecuteNexusOperationInput) workflow.NexusOperationFuture {
+func (_mock *WorkflowOutboundInterceptor) ExecuteNexusOperation(ctx workflow.Context, input interceptor.ExecuteNexusOperationInput) workflow.NexusOperationFuture {
 	ret := _mock.Called(ctx, input)
 
 	if len(ret) == 0 {
@@ -484,7 +484,7 @@ func (_mock *WorkflowOutboundInterceptor) ExecuteNexusOperation(ctx converter.Wo
 	}
 
 	var r0 workflow.NexusOperationFuture
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, interceptor.ExecuteNexusOperationInput) workflow.NexusOperationFuture); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, interceptor.ExecuteNexusOperationInput) workflow.NexusOperationFuture); ok {
 		r0 = returnFunc(ctx, input)
 	} else {
 		if ret.Get(0) != nil {
@@ -500,17 +500,17 @@ type WorkflowOutboundInterceptor_ExecuteNexusOperation_Call struct {
 }
 
 // ExecuteNexusOperation is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - input interceptor.ExecuteNexusOperationInput
 func (_e *WorkflowOutboundInterceptor_Expecter) ExecuteNexusOperation(ctx any, input any) *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call {
 	return &WorkflowOutboundInterceptor_ExecuteNexusOperation_Call{Call: _e.mock.On("ExecuteNexusOperation", ctx, input)}
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call) Run(run func(ctx converter.WorkflowContext, input interceptor.ExecuteNexusOperationInput)) *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call) Run(run func(ctx workflow.Context, input interceptor.ExecuteNexusOperationInput)) *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 interceptor.ExecuteNexusOperationInput
 		if args[1] != nil {
@@ -529,13 +529,13 @@ func (_c *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call) Return(nexusOp
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call) RunAndReturn(run func(ctx converter.WorkflowContext, input interceptor.ExecuteNexusOperationInput) workflow.NexusOperationFuture) *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call {
+func (_c *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call) RunAndReturn(run func(ctx workflow.Context, input interceptor.ExecuteNexusOperationInput) workflow.NexusOperationFuture) *WorkflowOutboundInterceptor_ExecuteNexusOperation_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetCurrentUpdateInfo provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetCurrentUpdateInfo(ctx converter.WorkflowContext) *workflow.UpdateInfo {
+func (_mock *WorkflowOutboundInterceptor) GetCurrentUpdateInfo(ctx workflow.Context) *workflow.UpdateInfo {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -543,7 +543,7 @@ func (_mock *WorkflowOutboundInterceptor) GetCurrentUpdateInfo(ctx converter.Wor
 	}
 
 	var r0 *workflow.UpdateInfo
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) *workflow.UpdateInfo); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) *workflow.UpdateInfo); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		if ret.Get(0) != nil {
@@ -559,16 +559,16 @@ type WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call struct {
 }
 
 // GetCurrentUpdateInfo is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) GetCurrentUpdateInfo(ctx any) *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call {
 	return &WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call{Call: _e.mock.On("GetCurrentUpdateInfo", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call {
+func (_c *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -582,13 +582,13 @@ func (_c *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call) Return(updateIn
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call) RunAndReturn(run func(ctx converter.WorkflowContext) *workflow.UpdateInfo) *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call {
+func (_c *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call) RunAndReturn(run func(ctx workflow.Context) *workflow.UpdateInfo) *WorkflowOutboundInterceptor_GetCurrentUpdateInfo_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetInfo provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetInfo(ctx converter.WorkflowContext) *workflow.Info {
+func (_mock *WorkflowOutboundInterceptor) GetInfo(ctx workflow.Context) *workflow.Info {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -596,7 +596,7 @@ func (_mock *WorkflowOutboundInterceptor) GetInfo(ctx converter.WorkflowContext)
 	}
 
 	var r0 *workflow.Info
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) *workflow.Info); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) *workflow.Info); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		if ret.Get(0) != nil {
@@ -612,16 +612,16 @@ type WorkflowOutboundInterceptor_GetInfo_Call struct {
 }
 
 // GetInfo is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) GetInfo(ctx any) *WorkflowOutboundInterceptor_GetInfo_Call {
 	return &WorkflowOutboundInterceptor_GetInfo_Call{Call: _e.mock.On("GetInfo", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetInfo_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_GetInfo_Call {
+func (_c *WorkflowOutboundInterceptor_GetInfo_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_GetInfo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -635,13 +635,13 @@ func (_c *WorkflowOutboundInterceptor_GetInfo_Call) Return(info *workflow.Info) 
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetInfo_Call) RunAndReturn(run func(ctx converter.WorkflowContext) *workflow.Info) *WorkflowOutboundInterceptor_GetInfo_Call {
+func (_c *WorkflowOutboundInterceptor_GetInfo_Call) RunAndReturn(run func(ctx workflow.Context) *workflow.Info) *WorkflowOutboundInterceptor_GetInfo_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetLastCompletionResult provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetLastCompletionResult(ctx converter.WorkflowContext, d ...any) error {
+func (_mock *WorkflowOutboundInterceptor) GetLastCompletionResult(ctx workflow.Context, d ...interface{}) error {
 	var tmpRet mock.Arguments
 	if len(d) > 0 {
 		tmpRet = _mock.Called(ctx, d)
@@ -655,7 +655,7 @@ func (_mock *WorkflowOutboundInterceptor) GetLastCompletionResult(ctx converter.
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, ...any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, ...interface{}) error); ok {
 		r0 = returnFunc(ctx, d...)
 	} else {
 		r0 = ret.Error(0)
@@ -669,23 +669,23 @@ type WorkflowOutboundInterceptor_GetLastCompletionResult_Call struct {
 }
 
 // GetLastCompletionResult is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - d ...any
+//   - ctx workflow.Context
+//   - d ...interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) GetLastCompletionResult(ctx any, d ...any) *WorkflowOutboundInterceptor_GetLastCompletionResult_Call {
 	return &WorkflowOutboundInterceptor_GetLastCompletionResult_Call{Call: _e.mock.On("GetLastCompletionResult",
 		append([]any{ctx}, d...)...)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetLastCompletionResult_Call) Run(run func(ctx converter.WorkflowContext, d ...any)) *WorkflowOutboundInterceptor_GetLastCompletionResult_Call {
+func (_c *WorkflowOutboundInterceptor_GetLastCompletionResult_Call) Run(run func(ctx workflow.Context, d ...interface{})) *WorkflowOutboundInterceptor_GetLastCompletionResult_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 []any
-		var variadicArgs []any
+		var arg1 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 1 {
-			variadicArgs = args[1].([]any)
+			variadicArgs = args[1].([]interface{})
 		}
 		arg1 = variadicArgs
 		run(
@@ -701,13 +701,13 @@ func (_c *WorkflowOutboundInterceptor_GetLastCompletionResult_Call) Return(err e
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetLastCompletionResult_Call) RunAndReturn(run func(ctx converter.WorkflowContext, d ...any) error) *WorkflowOutboundInterceptor_GetLastCompletionResult_Call {
+func (_c *WorkflowOutboundInterceptor_GetLastCompletionResult_Call) RunAndReturn(run func(ctx workflow.Context, d ...interface{}) error) *WorkflowOutboundInterceptor_GetLastCompletionResult_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetLastError provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetLastError(ctx converter.WorkflowContext) error {
+func (_mock *WorkflowOutboundInterceptor) GetLastError(ctx workflow.Context) error {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -715,7 +715,7 @@ func (_mock *WorkflowOutboundInterceptor) GetLastError(ctx converter.WorkflowCon
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) error); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		r0 = ret.Error(0)
@@ -729,16 +729,16 @@ type WorkflowOutboundInterceptor_GetLastError_Call struct {
 }
 
 // GetLastError is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) GetLastError(ctx any) *WorkflowOutboundInterceptor_GetLastError_Call {
 	return &WorkflowOutboundInterceptor_GetLastError_Call{Call: _e.mock.On("GetLastError", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetLastError_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_GetLastError_Call {
+func (_c *WorkflowOutboundInterceptor_GetLastError_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_GetLastError_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -752,13 +752,13 @@ func (_c *WorkflowOutboundInterceptor_GetLastError_Call) Return(err error) *Work
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetLastError_Call) RunAndReturn(run func(ctx converter.WorkflowContext) error) *WorkflowOutboundInterceptor_GetLastError_Call {
+func (_c *WorkflowOutboundInterceptor_GetLastError_Call) RunAndReturn(run func(ctx workflow.Context) error) *WorkflowOutboundInterceptor_GetLastError_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetLogger provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetLogger(ctx converter.WorkflowContext) log.Logger {
+func (_mock *WorkflowOutboundInterceptor) GetLogger(ctx workflow.Context) log.Logger {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -766,7 +766,7 @@ func (_mock *WorkflowOutboundInterceptor) GetLogger(ctx converter.WorkflowContex
 	}
 
 	var r0 log.Logger
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) log.Logger); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) log.Logger); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		if ret.Get(0) != nil {
@@ -782,16 +782,16 @@ type WorkflowOutboundInterceptor_GetLogger_Call struct {
 }
 
 // GetLogger is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) GetLogger(ctx any) *WorkflowOutboundInterceptor_GetLogger_Call {
 	return &WorkflowOutboundInterceptor_GetLogger_Call{Call: _e.mock.On("GetLogger", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetLogger_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_GetLogger_Call {
+func (_c *WorkflowOutboundInterceptor_GetLogger_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_GetLogger_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -805,13 +805,13 @@ func (_c *WorkflowOutboundInterceptor_GetLogger_Call) Return(logger log.Logger) 
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetLogger_Call) RunAndReturn(run func(ctx converter.WorkflowContext) log.Logger) *WorkflowOutboundInterceptor_GetLogger_Call {
+func (_c *WorkflowOutboundInterceptor_GetLogger_Call) RunAndReturn(run func(ctx workflow.Context) log.Logger) *WorkflowOutboundInterceptor_GetLogger_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetMetricsHandler provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetMetricsHandler(ctx converter.WorkflowContext) client.MetricsHandler {
+func (_mock *WorkflowOutboundInterceptor) GetMetricsHandler(ctx workflow.Context) client.MetricsHandler {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -819,7 +819,7 @@ func (_mock *WorkflowOutboundInterceptor) GetMetricsHandler(ctx converter.Workfl
 	}
 
 	var r0 client.MetricsHandler
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) client.MetricsHandler); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) client.MetricsHandler); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		if ret.Get(0) != nil {
@@ -835,16 +835,16 @@ type WorkflowOutboundInterceptor_GetMetricsHandler_Call struct {
 }
 
 // GetMetricsHandler is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) GetMetricsHandler(ctx any) *WorkflowOutboundInterceptor_GetMetricsHandler_Call {
 	return &WorkflowOutboundInterceptor_GetMetricsHandler_Call{Call: _e.mock.On("GetMetricsHandler", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetMetricsHandler_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_GetMetricsHandler_Call {
+func (_c *WorkflowOutboundInterceptor_GetMetricsHandler_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_GetMetricsHandler_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -858,13 +858,13 @@ func (_c *WorkflowOutboundInterceptor_GetMetricsHandler_Call) Return(metricsHand
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetMetricsHandler_Call) RunAndReturn(run func(ctx converter.WorkflowContext) client.MetricsHandler) *WorkflowOutboundInterceptor_GetMetricsHandler_Call {
+func (_c *WorkflowOutboundInterceptor_GetMetricsHandler_Call) RunAndReturn(run func(ctx workflow.Context) client.MetricsHandler) *WorkflowOutboundInterceptor_GetMetricsHandler_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetSignalChannel provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetSignalChannel(ctx converter.WorkflowContext, signalName string) workflow.ReceiveChannel {
+func (_mock *WorkflowOutboundInterceptor) GetSignalChannel(ctx workflow.Context, signalName string) workflow.ReceiveChannel {
 	ret := _mock.Called(ctx, signalName)
 
 	if len(ret) == 0 {
@@ -872,7 +872,7 @@ func (_mock *WorkflowOutboundInterceptor) GetSignalChannel(ctx converter.Workflo
 	}
 
 	var r0 workflow.ReceiveChannel
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string) workflow.ReceiveChannel); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string) workflow.ReceiveChannel); ok {
 		r0 = returnFunc(ctx, signalName)
 	} else {
 		if ret.Get(0) != nil {
@@ -888,17 +888,17 @@ type WorkflowOutboundInterceptor_GetSignalChannel_Call struct {
 }
 
 // GetSignalChannel is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - signalName string
 func (_e *WorkflowOutboundInterceptor_Expecter) GetSignalChannel(ctx any, signalName any) *WorkflowOutboundInterceptor_GetSignalChannel_Call {
 	return &WorkflowOutboundInterceptor_GetSignalChannel_Call{Call: _e.mock.On("GetSignalChannel", ctx, signalName)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetSignalChannel_Call) Run(run func(ctx converter.WorkflowContext, signalName string)) *WorkflowOutboundInterceptor_GetSignalChannel_Call {
+func (_c *WorkflowOutboundInterceptor_GetSignalChannel_Call) Run(run func(ctx workflow.Context, signalName string)) *WorkflowOutboundInterceptor_GetSignalChannel_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
@@ -917,13 +917,13 @@ func (_c *WorkflowOutboundInterceptor_GetSignalChannel_Call) Return(receiveChann
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetSignalChannel_Call) RunAndReturn(run func(ctx converter.WorkflowContext, signalName string) workflow.ReceiveChannel) *WorkflowOutboundInterceptor_GetSignalChannel_Call {
+func (_c *WorkflowOutboundInterceptor_GetSignalChannel_Call) RunAndReturn(run func(ctx workflow.Context, signalName string) workflow.ReceiveChannel) *WorkflowOutboundInterceptor_GetSignalChannel_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetSignalChannelWithOptions provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetSignalChannelWithOptions(ctx converter.WorkflowContext, signalName string, options workflow.SignalChannelOptions) workflow.ReceiveChannel {
+func (_mock *WorkflowOutboundInterceptor) GetSignalChannelWithOptions(ctx workflow.Context, signalName string, options workflow.SignalChannelOptions) workflow.ReceiveChannel {
 	ret := _mock.Called(ctx, signalName, options)
 
 	if len(ret) == 0 {
@@ -931,7 +931,7 @@ func (_mock *WorkflowOutboundInterceptor) GetSignalChannelWithOptions(ctx conver
 	}
 
 	var r0 workflow.ReceiveChannel
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, workflow.SignalChannelOptions) workflow.ReceiveChannel); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, workflow.SignalChannelOptions) workflow.ReceiveChannel); ok {
 		r0 = returnFunc(ctx, signalName, options)
 	} else {
 		if ret.Get(0) != nil {
@@ -947,18 +947,18 @@ type WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call struct {
 }
 
 // GetSignalChannelWithOptions is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - signalName string
 //   - options workflow.SignalChannelOptions
 func (_e *WorkflowOutboundInterceptor_Expecter) GetSignalChannelWithOptions(ctx any, signalName any, options any) *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call {
 	return &WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call{Call: _e.mock.On("GetSignalChannelWithOptions", ctx, signalName, options)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call) Run(run func(ctx converter.WorkflowContext, signalName string, options workflow.SignalChannelOptions)) *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call) Run(run func(ctx workflow.Context, signalName string, options workflow.SignalChannelOptions)) *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
@@ -982,13 +982,13 @@ func (_c *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call) Return(r
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call) RunAndReturn(run func(ctx converter.WorkflowContext, signalName string, options workflow.SignalChannelOptions) workflow.ReceiveChannel) *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call) RunAndReturn(run func(ctx workflow.Context, signalName string, options workflow.SignalChannelOptions) workflow.ReceiveChannel) *WorkflowOutboundInterceptor_GetSignalChannelWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetTypedSearchAttributes provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetTypedSearchAttributes(ctx converter.WorkflowContext) temporal.SearchAttributes {
+func (_mock *WorkflowOutboundInterceptor) GetTypedSearchAttributes(ctx workflow.Context) temporal.SearchAttributes {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -996,7 +996,7 @@ func (_mock *WorkflowOutboundInterceptor) GetTypedSearchAttributes(ctx converter
 	}
 
 	var r0 temporal.SearchAttributes
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) temporal.SearchAttributes); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) temporal.SearchAttributes); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		r0 = ret.Get(0).(temporal.SearchAttributes)
@@ -1010,16 +1010,16 @@ type WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call struct {
 }
 
 // GetTypedSearchAttributes is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) GetTypedSearchAttributes(ctx any) *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call {
 	return &WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call{Call: _e.mock.On("GetTypedSearchAttributes", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call {
+func (_c *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -1033,13 +1033,13 @@ func (_c *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call) Return(sear
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call) RunAndReturn(run func(ctx converter.WorkflowContext) temporal.SearchAttributes) *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call {
+func (_c *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call) RunAndReturn(run func(ctx workflow.Context) temporal.SearchAttributes) *WorkflowOutboundInterceptor_GetTypedSearchAttributes_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // GetVersion provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) GetVersion(ctx converter.WorkflowContext, changeID string, minSupported workflow.Version, maxSupported workflow.Version) workflow.Version {
+func (_mock *WorkflowOutboundInterceptor) GetVersion(ctx workflow.Context, changeID string, minSupported workflow.Version, maxSupported workflow.Version) workflow.Version {
 	ret := _mock.Called(ctx, changeID, minSupported, maxSupported)
 
 	if len(ret) == 0 {
@@ -1047,7 +1047,7 @@ func (_mock *WorkflowOutboundInterceptor) GetVersion(ctx converter.WorkflowConte
 	}
 
 	var r0 workflow.Version
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, workflow.Version, workflow.Version) workflow.Version); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, workflow.Version, workflow.Version) workflow.Version); ok {
 		r0 = returnFunc(ctx, changeID, minSupported, maxSupported)
 	} else {
 		r0 = ret.Get(0).(workflow.Version)
@@ -1061,7 +1061,7 @@ type WorkflowOutboundInterceptor_GetVersion_Call struct {
 }
 
 // GetVersion is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - changeID string
 //   - minSupported workflow.Version
 //   - maxSupported workflow.Version
@@ -1069,11 +1069,11 @@ func (_e *WorkflowOutboundInterceptor_Expecter) GetVersion(ctx any, changeID any
 	return &WorkflowOutboundInterceptor_GetVersion_Call{Call: _e.mock.On("GetVersion", ctx, changeID, minSupported, maxSupported)}
 }
 
-func (_c *WorkflowOutboundInterceptor_GetVersion_Call) Run(run func(ctx converter.WorkflowContext, changeID string, minSupported workflow.Version, maxSupported workflow.Version)) *WorkflowOutboundInterceptor_GetVersion_Call {
+func (_c *WorkflowOutboundInterceptor_GetVersion_Call) Run(run func(ctx workflow.Context, changeID string, minSupported workflow.Version, maxSupported workflow.Version)) *WorkflowOutboundInterceptor_GetVersion_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
@@ -1102,25 +1102,25 @@ func (_c *WorkflowOutboundInterceptor_GetVersion_Call) Return(version workflow.V
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_GetVersion_Call) RunAndReturn(run func(ctx converter.WorkflowContext, changeID string, minSupported workflow.Version, maxSupported workflow.Version) workflow.Version) *WorkflowOutboundInterceptor_GetVersion_Call {
+func (_c *WorkflowOutboundInterceptor_GetVersion_Call) RunAndReturn(run func(ctx workflow.Context, changeID string, minSupported workflow.Version, maxSupported workflow.Version) workflow.Version) *WorkflowOutboundInterceptor_GetVersion_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // Go provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) Go(ctx converter.WorkflowContext, name string, f func(ctx converter.WorkflowContext)) converter.WorkflowContext {
+func (_mock *WorkflowOutboundInterceptor) Go(ctx workflow.Context, name string, f func(ctx workflow.Context)) workflow.Context {
 	ret := _mock.Called(ctx, name, f)
 
 	if len(ret) == 0 {
 		panic("no return value specified for Go")
 	}
 
-	var r0 converter.WorkflowContext
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, func(ctx converter.WorkflowContext)) converter.WorkflowContext); ok {
+	var r0 workflow.Context
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, func(ctx workflow.Context)) workflow.Context); ok {
 		r0 = returnFunc(ctx, name, f)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(converter.WorkflowContext)
+			r0 = ret.Get(0).(workflow.Context)
 		}
 	}
 	return r0
@@ -1132,26 +1132,26 @@ type WorkflowOutboundInterceptor_Go_Call struct {
 }
 
 // Go is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - name string
-//   - f func(ctx converter.WorkflowContext)
+//   - f func(ctx workflow.Context)
 func (_e *WorkflowOutboundInterceptor_Expecter) Go(ctx any, name any, f any) *WorkflowOutboundInterceptor_Go_Call {
 	return &WorkflowOutboundInterceptor_Go_Call{Call: _e.mock.On("Go", ctx, name, f)}
 }
 
-func (_c *WorkflowOutboundInterceptor_Go_Call) Run(run func(ctx converter.WorkflowContext, name string, f func(ctx converter.WorkflowContext))) *WorkflowOutboundInterceptor_Go_Call {
+func (_c *WorkflowOutboundInterceptor_Go_Call) Run(run func(ctx workflow.Context, name string, f func(ctx workflow.Context))) *WorkflowOutboundInterceptor_Go_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 func(ctx converter.WorkflowContext)
+		var arg2 func(ctx workflow.Context)
 		if args[2] != nil {
-			arg2 = args[2].(func(ctx converter.WorkflowContext))
+			arg2 = args[2].(func(ctx workflow.Context))
 		}
 		run(
 			arg0,
@@ -1162,18 +1162,18 @@ func (_c *WorkflowOutboundInterceptor_Go_Call) Run(run func(ctx converter.Workfl
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_Go_Call) Return(workflowContext converter.WorkflowContext) *WorkflowOutboundInterceptor_Go_Call {
-	_c.Call.Return(workflowContext)
+func (_c *WorkflowOutboundInterceptor_Go_Call) Return(context workflow.Context) *WorkflowOutboundInterceptor_Go_Call {
+	_c.Call.Return(context)
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_Go_Call) RunAndReturn(run func(ctx converter.WorkflowContext, name string, f func(ctx converter.WorkflowContext)) converter.WorkflowContext) *WorkflowOutboundInterceptor_Go_Call {
+func (_c *WorkflowOutboundInterceptor_Go_Call) RunAndReturn(run func(ctx workflow.Context, name string, f func(ctx workflow.Context)) workflow.Context) *WorkflowOutboundInterceptor_Go_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // HasLastCompletionResult provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) HasLastCompletionResult(ctx converter.WorkflowContext) bool {
+func (_mock *WorkflowOutboundInterceptor) HasLastCompletionResult(ctx workflow.Context) bool {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -1181,7 +1181,7 @@ func (_mock *WorkflowOutboundInterceptor) HasLastCompletionResult(ctx converter.
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) bool); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -1195,16 +1195,16 @@ type WorkflowOutboundInterceptor_HasLastCompletionResult_Call struct {
 }
 
 // HasLastCompletionResult is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) HasLastCompletionResult(ctx any) *WorkflowOutboundInterceptor_HasLastCompletionResult_Call {
 	return &WorkflowOutboundInterceptor_HasLastCompletionResult_Call{Call: _e.mock.On("HasLastCompletionResult", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_HasLastCompletionResult_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_HasLastCompletionResult_Call {
+func (_c *WorkflowOutboundInterceptor_HasLastCompletionResult_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_HasLastCompletionResult_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -1218,13 +1218,13 @@ func (_c *WorkflowOutboundInterceptor_HasLastCompletionResult_Call) Return(b boo
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_HasLastCompletionResult_Call) RunAndReturn(run func(ctx converter.WorkflowContext) bool) *WorkflowOutboundInterceptor_HasLastCompletionResult_Call {
+func (_c *WorkflowOutboundInterceptor_HasLastCompletionResult_Call) RunAndReturn(run func(ctx workflow.Context) bool) *WorkflowOutboundInterceptor_HasLastCompletionResult_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // IsReplaying provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) IsReplaying(ctx converter.WorkflowContext) bool {
+func (_mock *WorkflowOutboundInterceptor) IsReplaying(ctx workflow.Context) bool {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -1232,7 +1232,7 @@ func (_mock *WorkflowOutboundInterceptor) IsReplaying(ctx converter.WorkflowCont
 	}
 
 	var r0 bool
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) bool); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) bool); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		r0 = ret.Get(0).(bool)
@@ -1246,16 +1246,16 @@ type WorkflowOutboundInterceptor_IsReplaying_Call struct {
 }
 
 // IsReplaying is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) IsReplaying(ctx any) *WorkflowOutboundInterceptor_IsReplaying_Call {
 	return &WorkflowOutboundInterceptor_IsReplaying_Call{Call: _e.mock.On("IsReplaying", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_IsReplaying_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_IsReplaying_Call {
+func (_c *WorkflowOutboundInterceptor_IsReplaying_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_IsReplaying_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -1269,13 +1269,13 @@ func (_c *WorkflowOutboundInterceptor_IsReplaying_Call) Return(b bool) *Workflow
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_IsReplaying_Call) RunAndReturn(run func(ctx converter.WorkflowContext) bool) *WorkflowOutboundInterceptor_IsReplaying_Call {
+func (_c *WorkflowOutboundInterceptor_IsReplaying_Call) RunAndReturn(run func(ctx workflow.Context) bool) *WorkflowOutboundInterceptor_IsReplaying_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // MutableSideEffect provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) MutableSideEffect(ctx converter.WorkflowContext, id string, f func(ctx converter.WorkflowContext) any, equals func(a any, b any) bool) converter.EncodedValue {
+func (_mock *WorkflowOutboundInterceptor) MutableSideEffect(ctx workflow.Context, id string, f func(ctx workflow.Context) interface{}, equals func(a interface{}, b interface{}) bool) converter.EncodedValue {
 	ret := _mock.Called(ctx, id, f, equals)
 
 	if len(ret) == 0 {
@@ -1283,7 +1283,7 @@ func (_mock *WorkflowOutboundInterceptor) MutableSideEffect(ctx converter.Workfl
 	}
 
 	var r0 converter.EncodedValue
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, func(ctx converter.WorkflowContext) any, func(a any, b any) bool) converter.EncodedValue); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, func(ctx workflow.Context) interface{}, func(a interface{}, b interface{}) bool) converter.EncodedValue); ok {
 		r0 = returnFunc(ctx, id, f, equals)
 	} else {
 		if ret.Get(0) != nil {
@@ -1299,31 +1299,31 @@ type WorkflowOutboundInterceptor_MutableSideEffect_Call struct {
 }
 
 // MutableSideEffect is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - id string
-//   - f func(ctx converter.WorkflowContext) any
-//   - equals func(a any, b any) bool
+//   - f func(ctx workflow.Context) interface{}
+//   - equals func(a interface{}, b interface{}) bool
 func (_e *WorkflowOutboundInterceptor_Expecter) MutableSideEffect(ctx any, id any, f any, equals any) *WorkflowOutboundInterceptor_MutableSideEffect_Call {
 	return &WorkflowOutboundInterceptor_MutableSideEffect_Call{Call: _e.mock.On("MutableSideEffect", ctx, id, f, equals)}
 }
 
-func (_c *WorkflowOutboundInterceptor_MutableSideEffect_Call) Run(run func(ctx converter.WorkflowContext, id string, f func(ctx converter.WorkflowContext) any, equals func(a any, b any) bool)) *WorkflowOutboundInterceptor_MutableSideEffect_Call {
+func (_c *WorkflowOutboundInterceptor_MutableSideEffect_Call) Run(run func(ctx workflow.Context, id string, f func(ctx workflow.Context) interface{}, equals func(a interface{}, b interface{}) bool)) *WorkflowOutboundInterceptor_MutableSideEffect_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 func(ctx converter.WorkflowContext) any
+		var arg2 func(ctx workflow.Context) interface{}
 		if args[2] != nil {
-			arg2 = args[2].(func(ctx converter.WorkflowContext) any)
+			arg2 = args[2].(func(ctx workflow.Context) interface{})
 		}
-		var arg3 func(a any, b any) bool
+		var arg3 func(a interface{}, b interface{}) bool
 		if args[3] != nil {
-			arg3 = args[3].(func(a any, b any) bool)
+			arg3 = args[3].(func(a interface{}, b interface{}) bool)
 		}
 		run(
 			arg0,
@@ -1340,90 +1340,13 @@ func (_c *WorkflowOutboundInterceptor_MutableSideEffect_Call) Return(encodedValu
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_MutableSideEffect_Call) RunAndReturn(run func(ctx converter.WorkflowContext, id string, f func(ctx converter.WorkflowContext) any, equals func(a any, b any) bool) converter.EncodedValue) *WorkflowOutboundInterceptor_MutableSideEffect_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// MutableSideEffectWithOptions provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) MutableSideEffectWithOptions(ctx converter.WorkflowContext, id string, options workflow.MutableSideEffectOptions, f func(ctx converter.WorkflowContext) any, equals func(a any, b any) bool) converter.EncodedValue {
-	ret := _mock.Called(ctx, id, options, f, equals)
-
-	if len(ret) == 0 {
-		panic("no return value specified for MutableSideEffectWithOptions")
-	}
-
-	var r0 converter.EncodedValue
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, workflow.MutableSideEffectOptions, func(ctx converter.WorkflowContext) any, func(a any, b any) bool) converter.EncodedValue); ok {
-		r0 = returnFunc(ctx, id, options, f, equals)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(converter.EncodedValue)
-		}
-	}
-	return r0
-}
-
-// WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'MutableSideEffectWithOptions'
-type WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call struct {
-	*mock.Call
-}
-
-// MutableSideEffectWithOptions is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - id string
-//   - options workflow.MutableSideEffectOptions
-//   - f func(ctx converter.WorkflowContext) any
-//   - equals func(a any, b any) bool
-func (_e *WorkflowOutboundInterceptor_Expecter) MutableSideEffectWithOptions(ctx any, id any, options any, f any, equals any) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
-	return &WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call{Call: _e.mock.On("MutableSideEffectWithOptions", ctx, id, options, f, equals)}
-}
-
-func (_c *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call) Run(run func(ctx converter.WorkflowContext, id string, options workflow.MutableSideEffectOptions, f func(ctx converter.WorkflowContext) any, equals func(a any, b any) bool)) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
-		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
-		}
-		var arg1 string
-		if args[1] != nil {
-			arg1 = args[1].(string)
-		}
-		var arg2 workflow.MutableSideEffectOptions
-		if args[2] != nil {
-			arg2 = args[2].(workflow.MutableSideEffectOptions)
-		}
-		var arg3 func(ctx converter.WorkflowContext) any
-		if args[3] != nil {
-			arg3 = args[3].(func(ctx converter.WorkflowContext) any)
-		}
-		var arg4 func(a any, b any) bool
-		if args[4] != nil {
-			arg4 = args[4].(func(a any, b any) bool)
-		}
-		run(
-			arg0,
-			arg1,
-			arg2,
-			arg3,
-			arg4,
-		)
-	})
-	return _c
-}
-
-func (_c *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call) Return(encodedValue converter.EncodedValue) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
-	_c.Call.Return(encodedValue)
-	return _c
-}
-
-func (_c *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call) RunAndReturn(run func(ctx converter.WorkflowContext, id string, options workflow.MutableSideEffectOptions, f func(ctx converter.WorkflowContext) any, equals func(a any, b any) bool) converter.EncodedValue) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_MutableSideEffect_Call) RunAndReturn(run func(ctx workflow.Context, id string, f func(ctx workflow.Context) interface{}, equals func(a interface{}, b interface{}) bool) converter.EncodedValue) *WorkflowOutboundInterceptor_MutableSideEffect_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // NewContinueAsNewError provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) NewContinueAsNewError(ctx converter.WorkflowContext, wfn any, args ...any) error {
+func (_mock *WorkflowOutboundInterceptor) NewContinueAsNewError(ctx workflow.Context, wfn interface{}, args ...interface{}) error {
 	var tmpRet mock.Arguments
 	if len(args) > 0 {
 		tmpRet = _mock.Called(ctx, wfn, args)
@@ -1437,7 +1360,7 @@ func (_mock *WorkflowOutboundInterceptor) NewContinueAsNewError(ctx converter.Wo
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, any, ...any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, interface{}, ...interface{}) error); ok {
 		r0 = returnFunc(ctx, wfn, args...)
 	} else {
 		r0 = ret.Error(0)
@@ -1451,28 +1374,28 @@ type WorkflowOutboundInterceptor_NewContinueAsNewError_Call struct {
 }
 
 // NewContinueAsNewError is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - wfn any
-//   - args ...any
+//   - ctx workflow.Context
+//   - wfn interface{}
+//   - args ...interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) NewContinueAsNewError(ctx any, wfn any, args ...any) *WorkflowOutboundInterceptor_NewContinueAsNewError_Call {
 	return &WorkflowOutboundInterceptor_NewContinueAsNewError_Call{Call: _e.mock.On("NewContinueAsNewError",
 		append([]any{ctx, wfn}, args...)...)}
 }
 
-func (_c *WorkflowOutboundInterceptor_NewContinueAsNewError_Call) Run(run func(ctx converter.WorkflowContext, wfn any, args ...any)) *WorkflowOutboundInterceptor_NewContinueAsNewError_Call {
+func (_c *WorkflowOutboundInterceptor_NewContinueAsNewError_Call) Run(run func(ctx workflow.Context, wfn interface{}, args ...interface{})) *WorkflowOutboundInterceptor_NewContinueAsNewError_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 any
+		var arg1 interface{}
 		if args[1] != nil {
-			arg1 = args[1].(any)
+			arg1 = args[1].(interface{})
 		}
-		var arg2 []any
-		var variadicArgs []any
+		var arg2 []interface{}
+		var variadicArgs []interface{}
 		if len(args) > 2 {
-			variadicArgs = args[2].([]any)
+			variadicArgs = args[2].([]interface{})
 		}
 		arg2 = variadicArgs
 		run(
@@ -1489,13 +1412,13 @@ func (_c *WorkflowOutboundInterceptor_NewContinueAsNewError_Call) Return(err err
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_NewContinueAsNewError_Call) RunAndReturn(run func(ctx converter.WorkflowContext, wfn any, args ...any) error) *WorkflowOutboundInterceptor_NewContinueAsNewError_Call {
+func (_c *WorkflowOutboundInterceptor_NewContinueAsNewError_Call) RunAndReturn(run func(ctx workflow.Context, wfn interface{}, args ...interface{}) error) *WorkflowOutboundInterceptor_NewContinueAsNewError_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // NewTimer provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) NewTimer(ctx converter.WorkflowContext, d time.Duration) workflow.Future {
+func (_mock *WorkflowOutboundInterceptor) NewTimer(ctx workflow.Context, d time.Duration) workflow.Future {
 	ret := _mock.Called(ctx, d)
 
 	if len(ret) == 0 {
@@ -1503,7 +1426,7 @@ func (_mock *WorkflowOutboundInterceptor) NewTimer(ctx converter.WorkflowContext
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, time.Duration) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration) workflow.Future); ok {
 		r0 = returnFunc(ctx, d)
 	} else {
 		if ret.Get(0) != nil {
@@ -1519,17 +1442,17 @@ type WorkflowOutboundInterceptor_NewTimer_Call struct {
 }
 
 // NewTimer is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - d time.Duration
 func (_e *WorkflowOutboundInterceptor_Expecter) NewTimer(ctx any, d any) *WorkflowOutboundInterceptor_NewTimer_Call {
 	return &WorkflowOutboundInterceptor_NewTimer_Call{Call: _e.mock.On("NewTimer", ctx, d)}
 }
 
-func (_c *WorkflowOutboundInterceptor_NewTimer_Call) Run(run func(ctx converter.WorkflowContext, d time.Duration)) *WorkflowOutboundInterceptor_NewTimer_Call {
+func (_c *WorkflowOutboundInterceptor_NewTimer_Call) Run(run func(ctx workflow.Context, d time.Duration)) *WorkflowOutboundInterceptor_NewTimer_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 time.Duration
 		if args[1] != nil {
@@ -1548,13 +1471,13 @@ func (_c *WorkflowOutboundInterceptor_NewTimer_Call) Return(future workflow.Futu
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_NewTimer_Call) RunAndReturn(run func(ctx converter.WorkflowContext, d time.Duration) workflow.Future) *WorkflowOutboundInterceptor_NewTimer_Call {
+func (_c *WorkflowOutboundInterceptor_NewTimer_Call) RunAndReturn(run func(ctx workflow.Context, d time.Duration) workflow.Future) *WorkflowOutboundInterceptor_NewTimer_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // NewTimerWithOptions provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) NewTimerWithOptions(ctx converter.WorkflowContext, d time.Duration, options workflow.TimerOptions) workflow.Future {
+func (_mock *WorkflowOutboundInterceptor) NewTimerWithOptions(ctx workflow.Context, d time.Duration, options workflow.TimerOptions) workflow.Future {
 	ret := _mock.Called(ctx, d, options)
 
 	if len(ret) == 0 {
@@ -1562,7 +1485,7 @@ func (_mock *WorkflowOutboundInterceptor) NewTimerWithOptions(ctx converter.Work
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, time.Duration, workflow.TimerOptions) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration, workflow.TimerOptions) workflow.Future); ok {
 		r0 = returnFunc(ctx, d, options)
 	} else {
 		if ret.Get(0) != nil {
@@ -1578,18 +1501,18 @@ type WorkflowOutboundInterceptor_NewTimerWithOptions_Call struct {
 }
 
 // NewTimerWithOptions is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - d time.Duration
 //   - options workflow.TimerOptions
 func (_e *WorkflowOutboundInterceptor_Expecter) NewTimerWithOptions(ctx any, d any, options any) *WorkflowOutboundInterceptor_NewTimerWithOptions_Call {
 	return &WorkflowOutboundInterceptor_NewTimerWithOptions_Call{Call: _e.mock.On("NewTimerWithOptions", ctx, d, options)}
 }
 
-func (_c *WorkflowOutboundInterceptor_NewTimerWithOptions_Call) Run(run func(ctx converter.WorkflowContext, d time.Duration, options workflow.TimerOptions)) *WorkflowOutboundInterceptor_NewTimerWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_NewTimerWithOptions_Call) Run(run func(ctx workflow.Context, d time.Duration, options workflow.TimerOptions)) *WorkflowOutboundInterceptor_NewTimerWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 time.Duration
 		if args[1] != nil {
@@ -1613,13 +1536,13 @@ func (_c *WorkflowOutboundInterceptor_NewTimerWithOptions_Call) Return(future wo
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_NewTimerWithOptions_Call) RunAndReturn(run func(ctx converter.WorkflowContext, d time.Duration, options workflow.TimerOptions) workflow.Future) *WorkflowOutboundInterceptor_NewTimerWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_NewTimerWithOptions_Call) RunAndReturn(run func(ctx workflow.Context, d time.Duration, options workflow.TimerOptions) workflow.Future) *WorkflowOutboundInterceptor_NewTimerWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // Now provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) Now(ctx converter.WorkflowContext) time.Time {
+func (_mock *WorkflowOutboundInterceptor) Now(ctx workflow.Context) time.Time {
 	ret := _mock.Called(ctx)
 
 	if len(ret) == 0 {
@@ -1627,7 +1550,7 @@ func (_mock *WorkflowOutboundInterceptor) Now(ctx converter.WorkflowContext) tim
 	}
 
 	var r0 time.Time
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext) time.Time); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context) time.Time); ok {
 		r0 = returnFunc(ctx)
 	} else {
 		r0 = ret.Get(0).(time.Time)
@@ -1641,16 +1564,16 @@ type WorkflowOutboundInterceptor_Now_Call struct {
 }
 
 // Now is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 func (_e *WorkflowOutboundInterceptor_Expecter) Now(ctx any) *WorkflowOutboundInterceptor_Now_Call {
 	return &WorkflowOutboundInterceptor_Now_Call{Call: _e.mock.On("Now", ctx)}
 }
 
-func (_c *WorkflowOutboundInterceptor_Now_Call) Run(run func(ctx converter.WorkflowContext)) *WorkflowOutboundInterceptor_Now_Call {
+func (_c *WorkflowOutboundInterceptor_Now_Call) Run(run func(ctx workflow.Context)) *WorkflowOutboundInterceptor_Now_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		run(
 			arg0,
@@ -1664,13 +1587,13 @@ func (_c *WorkflowOutboundInterceptor_Now_Call) Return(time1 time.Time) *Workflo
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_Now_Call) RunAndReturn(run func(ctx converter.WorkflowContext) time.Time) *WorkflowOutboundInterceptor_Now_Call {
+func (_c *WorkflowOutboundInterceptor_Now_Call) RunAndReturn(run func(ctx workflow.Context) time.Time) *WorkflowOutboundInterceptor_Now_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // RequestCancelExternalWorkflow provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) RequestCancelExternalWorkflow(ctx converter.WorkflowContext, workflowID string, runID string) workflow.Future {
+func (_mock *WorkflowOutboundInterceptor) RequestCancelExternalWorkflow(ctx workflow.Context, workflowID string, runID string) workflow.Future {
 	ret := _mock.Called(ctx, workflowID, runID)
 
 	if len(ret) == 0 {
@@ -1678,7 +1601,7 @@ func (_mock *WorkflowOutboundInterceptor) RequestCancelExternalWorkflow(ctx conv
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, string) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, string) workflow.Future); ok {
 		r0 = returnFunc(ctx, workflowID, runID)
 	} else {
 		if ret.Get(0) != nil {
@@ -1694,18 +1617,18 @@ type WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call struct {
 }
 
 // RequestCancelExternalWorkflow is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - workflowID string
 //   - runID string
 func (_e *WorkflowOutboundInterceptor_Expecter) RequestCancelExternalWorkflow(ctx any, workflowID any, runID any) *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call {
 	return &WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call{Call: _e.mock.On("RequestCancelExternalWorkflow", ctx, workflowID, runID)}
 }
 
-func (_c *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call) Run(run func(ctx converter.WorkflowContext, workflowID string, runID string)) *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call) Run(run func(ctx workflow.Context, workflowID string, runID string)) *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
@@ -1729,13 +1652,13 @@ func (_c *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call) Return
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call) RunAndReturn(run func(ctx converter.WorkflowContext, workflowID string, runID string) workflow.Future) *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, workflowID string, runID string) workflow.Future) *WorkflowOutboundInterceptor_RequestCancelExternalWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // RequestCancelNexusOperation provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) RequestCancelNexusOperation(ctx converter.WorkflowContext, input interceptor.RequestCancelNexusOperationInput) {
+func (_mock *WorkflowOutboundInterceptor) RequestCancelNexusOperation(ctx workflow.Context, input interceptor.RequestCancelNexusOperationInput) {
 	_mock.Called(ctx, input)
 	return
 }
@@ -1746,17 +1669,17 @@ type WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call struct {
 }
 
 // RequestCancelNexusOperation is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - input interceptor.RequestCancelNexusOperationInput
 func (_e *WorkflowOutboundInterceptor_Expecter) RequestCancelNexusOperation(ctx any, input any) *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call {
 	return &WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call{Call: _e.mock.On("RequestCancelNexusOperation", ctx, input)}
 }
 
-func (_c *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call) Run(run func(ctx converter.WorkflowContext, input interceptor.RequestCancelNexusOperationInput)) *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call {
+func (_c *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call) Run(run func(ctx workflow.Context, input interceptor.RequestCancelNexusOperationInput)) *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 interceptor.RequestCancelNexusOperationInput
 		if args[1] != nil {
@@ -1775,13 +1698,13 @@ func (_c *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call) Return()
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call) RunAndReturn(run func(ctx converter.WorkflowContext, input interceptor.RequestCancelNexusOperationInput)) *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call {
+func (_c *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call) RunAndReturn(run func(ctx workflow.Context, input interceptor.RequestCancelNexusOperationInput)) *WorkflowOutboundInterceptor_RequestCancelNexusOperation_Call {
 	_c.Run(run)
 	return _c
 }
 
 // SetQueryHandler provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) SetQueryHandler(ctx converter.WorkflowContext, queryType string, handler any) error {
+func (_mock *WorkflowOutboundInterceptor) SetQueryHandler(ctx workflow.Context, queryType string, handler interface{}) error {
 	ret := _mock.Called(ctx, queryType, handler)
 
 	if len(ret) == 0 {
@@ -1789,7 +1712,7 @@ func (_mock *WorkflowOutboundInterceptor) SetQueryHandler(ctx converter.Workflow
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, interface{}) error); ok {
 		r0 = returnFunc(ctx, queryType, handler)
 	} else {
 		r0 = ret.Error(0)
@@ -1803,26 +1726,26 @@ type WorkflowOutboundInterceptor_SetQueryHandler_Call struct {
 }
 
 // SetQueryHandler is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - queryType string
-//   - handler any
+//   - handler interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) SetQueryHandler(ctx any, queryType any, handler any) *WorkflowOutboundInterceptor_SetQueryHandler_Call {
 	return &WorkflowOutboundInterceptor_SetQueryHandler_Call{Call: _e.mock.On("SetQueryHandler", ctx, queryType, handler)}
 }
 
-func (_c *WorkflowOutboundInterceptor_SetQueryHandler_Call) Run(run func(ctx converter.WorkflowContext, queryType string, handler any)) *WorkflowOutboundInterceptor_SetQueryHandler_Call {
+func (_c *WorkflowOutboundInterceptor_SetQueryHandler_Call) Run(run func(ctx workflow.Context, queryType string, handler interface{})) *WorkflowOutboundInterceptor_SetQueryHandler_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 any
+		var arg2 interface{}
 		if args[2] != nil {
-			arg2 = args[2].(any)
+			arg2 = args[2].(interface{})
 		}
 		run(
 			arg0,
@@ -1838,13 +1761,13 @@ func (_c *WorkflowOutboundInterceptor_SetQueryHandler_Call) Return(err error) *W
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_SetQueryHandler_Call) RunAndReturn(run func(ctx converter.WorkflowContext, queryType string, handler any) error) *WorkflowOutboundInterceptor_SetQueryHandler_Call {
+func (_c *WorkflowOutboundInterceptor_SetQueryHandler_Call) RunAndReturn(run func(ctx workflow.Context, queryType string, handler interface{}) error) *WorkflowOutboundInterceptor_SetQueryHandler_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // SetQueryHandlerWithOptions provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) SetQueryHandlerWithOptions(ctx converter.WorkflowContext, queryType string, handler any, options workflow.QueryHandlerOptions) error {
+func (_mock *WorkflowOutboundInterceptor) SetQueryHandlerWithOptions(ctx workflow.Context, queryType string, handler interface{}, options workflow.QueryHandlerOptions) error {
 	ret := _mock.Called(ctx, queryType, handler, options)
 
 	if len(ret) == 0 {
@@ -1852,7 +1775,7 @@ func (_mock *WorkflowOutboundInterceptor) SetQueryHandlerWithOptions(ctx convert
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, any, workflow.QueryHandlerOptions) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, interface{}, workflow.QueryHandlerOptions) error); ok {
 		r0 = returnFunc(ctx, queryType, handler, options)
 	} else {
 		r0 = ret.Error(0)
@@ -1866,27 +1789,27 @@ type WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call struct {
 }
 
 // SetQueryHandlerWithOptions is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - queryType string
-//   - handler any
+//   - handler interface{}
 //   - options workflow.QueryHandlerOptions
 func (_e *WorkflowOutboundInterceptor_Expecter) SetQueryHandlerWithOptions(ctx any, queryType any, handler any, options any) *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call {
 	return &WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call{Call: _e.mock.On("SetQueryHandlerWithOptions", ctx, queryType, handler, options)}
 }
 
-func (_c *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call) Run(run func(ctx converter.WorkflowContext, queryType string, handler any, options workflow.QueryHandlerOptions)) *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call) Run(run func(ctx workflow.Context, queryType string, handler interface{}, options workflow.QueryHandlerOptions)) *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 any
+		var arg2 interface{}
 		if args[2] != nil {
-			arg2 = args[2].(any)
+			arg2 = args[2].(interface{})
 		}
 		var arg3 workflow.QueryHandlerOptions
 		if args[3] != nil {
@@ -1907,13 +1830,13 @@ func (_c *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call) Return(er
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call) RunAndReturn(run func(ctx converter.WorkflowContext, queryType string, handler any, options workflow.QueryHandlerOptions) error) *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call) RunAndReturn(run func(ctx workflow.Context, queryType string, handler interface{}, options workflow.QueryHandlerOptions) error) *WorkflowOutboundInterceptor_SetQueryHandlerWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // SetUpdateHandler provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) SetUpdateHandler(ctx converter.WorkflowContext, updateName string, handler any, opts workflow.UpdateHandlerOptions) error {
+func (_mock *WorkflowOutboundInterceptor) SetUpdateHandler(ctx workflow.Context, updateName string, handler interface{}, opts workflow.UpdateHandlerOptions) error {
 	ret := _mock.Called(ctx, updateName, handler, opts)
 
 	if len(ret) == 0 {
@@ -1921,7 +1844,7 @@ func (_mock *WorkflowOutboundInterceptor) SetUpdateHandler(ctx converter.Workflo
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, any, workflow.UpdateHandlerOptions) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, interface{}, workflow.UpdateHandlerOptions) error); ok {
 		r0 = returnFunc(ctx, updateName, handler, opts)
 	} else {
 		r0 = ret.Error(0)
@@ -1935,27 +1858,27 @@ type WorkflowOutboundInterceptor_SetUpdateHandler_Call struct {
 }
 
 // SetUpdateHandler is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - updateName string
-//   - handler any
+//   - handler interface{}
 //   - opts workflow.UpdateHandlerOptions
 func (_e *WorkflowOutboundInterceptor_Expecter) SetUpdateHandler(ctx any, updateName any, handler any, opts any) *WorkflowOutboundInterceptor_SetUpdateHandler_Call {
 	return &WorkflowOutboundInterceptor_SetUpdateHandler_Call{Call: _e.mock.On("SetUpdateHandler", ctx, updateName, handler, opts)}
 }
 
-func (_c *WorkflowOutboundInterceptor_SetUpdateHandler_Call) Run(run func(ctx converter.WorkflowContext, updateName string, handler any, opts workflow.UpdateHandlerOptions)) *WorkflowOutboundInterceptor_SetUpdateHandler_Call {
+func (_c *WorkflowOutboundInterceptor_SetUpdateHandler_Call) Run(run func(ctx workflow.Context, updateName string, handler interface{}, opts workflow.UpdateHandlerOptions)) *WorkflowOutboundInterceptor_SetUpdateHandler_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
 			arg1 = args[1].(string)
 		}
-		var arg2 any
+		var arg2 interface{}
 		if args[2] != nil {
-			arg2 = args[2].(any)
+			arg2 = args[2].(interface{})
 		}
 		var arg3 workflow.UpdateHandlerOptions
 		if args[3] != nil {
@@ -1976,13 +1899,13 @@ func (_c *WorkflowOutboundInterceptor_SetUpdateHandler_Call) Return(err error) *
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_SetUpdateHandler_Call) RunAndReturn(run func(ctx converter.WorkflowContext, updateName string, handler any, opts workflow.UpdateHandlerOptions) error) *WorkflowOutboundInterceptor_SetUpdateHandler_Call {
+func (_c *WorkflowOutboundInterceptor_SetUpdateHandler_Call) RunAndReturn(run func(ctx workflow.Context, updateName string, handler interface{}, opts workflow.UpdateHandlerOptions) error) *WorkflowOutboundInterceptor_SetUpdateHandler_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // SideEffect provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) SideEffect(ctx converter.WorkflowContext, f func(ctx converter.WorkflowContext) any) converter.EncodedValue {
+func (_mock *WorkflowOutboundInterceptor) SideEffect(ctx workflow.Context, f func(ctx workflow.Context) interface{}) converter.EncodedValue {
 	ret := _mock.Called(ctx, f)
 
 	if len(ret) == 0 {
@@ -1990,7 +1913,7 @@ func (_mock *WorkflowOutboundInterceptor) SideEffect(ctx converter.WorkflowConte
 	}
 
 	var r0 converter.EncodedValue
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, func(ctx converter.WorkflowContext) any) converter.EncodedValue); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, func(ctx workflow.Context) interface{}) converter.EncodedValue); ok {
 		r0 = returnFunc(ctx, f)
 	} else {
 		if ret.Get(0) != nil {
@@ -2006,21 +1929,21 @@ type WorkflowOutboundInterceptor_SideEffect_Call struct {
 }
 
 // SideEffect is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - f func(ctx converter.WorkflowContext) any
+//   - ctx workflow.Context
+//   - f func(ctx workflow.Context) interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) SideEffect(ctx any, f any) *WorkflowOutboundInterceptor_SideEffect_Call {
 	return &WorkflowOutboundInterceptor_SideEffect_Call{Call: _e.mock.On("SideEffect", ctx, f)}
 }
 
-func (_c *WorkflowOutboundInterceptor_SideEffect_Call) Run(run func(ctx converter.WorkflowContext, f func(ctx converter.WorkflowContext) any)) *WorkflowOutboundInterceptor_SideEffect_Call {
+func (_c *WorkflowOutboundInterceptor_SideEffect_Call) Run(run func(ctx workflow.Context, f func(ctx workflow.Context) interface{})) *WorkflowOutboundInterceptor_SideEffect_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 func(ctx converter.WorkflowContext) any
+		var arg1 func(ctx workflow.Context) interface{}
 		if args[1] != nil {
-			arg1 = args[1].(func(ctx converter.WorkflowContext) any)
+			arg1 = args[1].(func(ctx workflow.Context) interface{})
 		}
 		run(
 			arg0,
@@ -2035,78 +1958,13 @@ func (_c *WorkflowOutboundInterceptor_SideEffect_Call) Return(encodedValue conve
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_SideEffect_Call) RunAndReturn(run func(ctx converter.WorkflowContext, f func(ctx converter.WorkflowContext) any) converter.EncodedValue) *WorkflowOutboundInterceptor_SideEffect_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
-// SideEffectWithOptions provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) SideEffectWithOptions(ctx converter.WorkflowContext, options workflow.SideEffectOptions, f func(ctx converter.WorkflowContext) any) converter.EncodedValue {
-	ret := _mock.Called(ctx, options, f)
-
-	if len(ret) == 0 {
-		panic("no return value specified for SideEffectWithOptions")
-	}
-
-	var r0 converter.EncodedValue
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, workflow.SideEffectOptions, func(ctx converter.WorkflowContext) any) converter.EncodedValue); ok {
-		r0 = returnFunc(ctx, options, f)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(converter.EncodedValue)
-		}
-	}
-	return r0
-}
-
-// WorkflowOutboundInterceptor_SideEffectWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'SideEffectWithOptions'
-type WorkflowOutboundInterceptor_SideEffectWithOptions_Call struct {
-	*mock.Call
-}
-
-// SideEffectWithOptions is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - options workflow.SideEffectOptions
-//   - f func(ctx converter.WorkflowContext) any
-func (_e *WorkflowOutboundInterceptor_Expecter) SideEffectWithOptions(ctx any, options any, f any) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
-	return &WorkflowOutboundInterceptor_SideEffectWithOptions_Call{Call: _e.mock.On("SideEffectWithOptions", ctx, options, f)}
-}
-
-func (_c *WorkflowOutboundInterceptor_SideEffectWithOptions_Call) Run(run func(ctx converter.WorkflowContext, options workflow.SideEffectOptions, f func(ctx converter.WorkflowContext) any)) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
-		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
-		}
-		var arg1 workflow.SideEffectOptions
-		if args[1] != nil {
-			arg1 = args[1].(workflow.SideEffectOptions)
-		}
-		var arg2 func(ctx converter.WorkflowContext) any
-		if args[2] != nil {
-			arg2 = args[2].(func(ctx converter.WorkflowContext) any)
-		}
-		run(
-			arg0,
-			arg1,
-			arg2,
-		)
-	})
-	return _c
-}
-
-func (_c *WorkflowOutboundInterceptor_SideEffectWithOptions_Call) Return(encodedValue converter.EncodedValue) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
-	_c.Call.Return(encodedValue)
-	return _c
-}
-
-func (_c *WorkflowOutboundInterceptor_SideEffectWithOptions_Call) RunAndReturn(run func(ctx converter.WorkflowContext, options workflow.SideEffectOptions, f func(ctx converter.WorkflowContext) any) converter.EncodedValue) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
+func (_c *WorkflowOutboundInterceptor_SideEffect_Call) RunAndReturn(run func(ctx workflow.Context, f func(ctx workflow.Context) interface{}) converter.EncodedValue) *WorkflowOutboundInterceptor_SideEffect_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // SignalChildWorkflow provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) SignalChildWorkflow(ctx converter.WorkflowContext, workflowID string, signalName string, arg any) workflow.Future {
+func (_mock *WorkflowOutboundInterceptor) SignalChildWorkflow(ctx workflow.Context, workflowID string, signalName string, arg interface{}) workflow.Future {
 	ret := _mock.Called(ctx, workflowID, signalName, arg)
 
 	if len(ret) == 0 {
@@ -2114,7 +1972,7 @@ func (_mock *WorkflowOutboundInterceptor) SignalChildWorkflow(ctx converter.Work
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, string, any) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, string, interface{}) workflow.Future); ok {
 		r0 = returnFunc(ctx, workflowID, signalName, arg)
 	} else {
 		if ret.Get(0) != nil {
@@ -2130,19 +1988,19 @@ type WorkflowOutboundInterceptor_SignalChildWorkflow_Call struct {
 }
 
 // SignalChildWorkflow is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - workflowID string
 //   - signalName string
-//   - arg any
+//   - arg interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) SignalChildWorkflow(ctx any, workflowID any, signalName any, arg any) *WorkflowOutboundInterceptor_SignalChildWorkflow_Call {
 	return &WorkflowOutboundInterceptor_SignalChildWorkflow_Call{Call: _e.mock.On("SignalChildWorkflow", ctx, workflowID, signalName, arg)}
 }
 
-func (_c *WorkflowOutboundInterceptor_SignalChildWorkflow_Call) Run(run func(ctx converter.WorkflowContext, workflowID string, signalName string, arg any)) *WorkflowOutboundInterceptor_SignalChildWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_SignalChildWorkflow_Call) Run(run func(ctx workflow.Context, workflowID string, signalName string, arg interface{})) *WorkflowOutboundInterceptor_SignalChildWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
@@ -2152,9 +2010,9 @@ func (_c *WorkflowOutboundInterceptor_SignalChildWorkflow_Call) Run(run func(ctx
 		if args[2] != nil {
 			arg2 = args[2].(string)
 		}
-		var arg3 any
+		var arg3 interface{}
 		if args[3] != nil {
-			arg3 = args[3].(any)
+			arg3 = args[3].(interface{})
 		}
 		run(
 			arg0,
@@ -2171,13 +2029,13 @@ func (_c *WorkflowOutboundInterceptor_SignalChildWorkflow_Call) Return(future wo
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_SignalChildWorkflow_Call) RunAndReturn(run func(ctx converter.WorkflowContext, workflowID string, signalName string, arg any) workflow.Future) *WorkflowOutboundInterceptor_SignalChildWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_SignalChildWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, workflowID string, signalName string, arg interface{}) workflow.Future) *WorkflowOutboundInterceptor_SignalChildWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // SignalExternalWorkflow provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) SignalExternalWorkflow(ctx converter.WorkflowContext, workflowID string, runID string, signalName string, arg any) workflow.Future {
+func (_mock *WorkflowOutboundInterceptor) SignalExternalWorkflow(ctx workflow.Context, workflowID string, runID string, signalName string, arg interface{}) workflow.Future {
 	ret := _mock.Called(ctx, workflowID, runID, signalName, arg)
 
 	if len(ret) == 0 {
@@ -2185,7 +2043,7 @@ func (_mock *WorkflowOutboundInterceptor) SignalExternalWorkflow(ctx converter.W
 	}
 
 	var r0 workflow.Future
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, string, string, string, any) workflow.Future); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, string, string, interface{}) workflow.Future); ok {
 		r0 = returnFunc(ctx, workflowID, runID, signalName, arg)
 	} else {
 		if ret.Get(0) != nil {
@@ -2201,20 +2059,20 @@ type WorkflowOutboundInterceptor_SignalExternalWorkflow_Call struct {
 }
 
 // SignalExternalWorkflow is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - workflowID string
 //   - runID string
 //   - signalName string
-//   - arg any
+//   - arg interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) SignalExternalWorkflow(ctx any, workflowID any, runID any, signalName any, arg any) *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call {
 	return &WorkflowOutboundInterceptor_SignalExternalWorkflow_Call{Call: _e.mock.On("SignalExternalWorkflow", ctx, workflowID, runID, signalName, arg)}
 }
 
-func (_c *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call) Run(run func(ctx converter.WorkflowContext, workflowID string, runID string, signalName string, arg any)) *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call) Run(run func(ctx workflow.Context, workflowID string, runID string, signalName string, arg interface{})) *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 string
 		if args[1] != nil {
@@ -2228,9 +2086,9 @@ func (_c *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call) Run(run func(
 		if args[3] != nil {
 			arg3 = args[3].(string)
 		}
-		var arg4 any
+		var arg4 interface{}
 		if args[4] != nil {
-			arg4 = args[4].(any)
+			arg4 = args[4].(interface{})
 		}
 		run(
 			arg0,
@@ -2248,13 +2106,13 @@ func (_c *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call) Return(future
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call) RunAndReturn(run func(ctx converter.WorkflowContext, workflowID string, runID string, signalName string, arg any) workflow.Future) *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call {
+func (_c *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, workflowID string, runID string, signalName string, arg interface{}) workflow.Future) *WorkflowOutboundInterceptor_SignalExternalWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // Sleep provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) Sleep(ctx converter.WorkflowContext, d time.Duration) error {
+func (_mock *WorkflowOutboundInterceptor) Sleep(ctx workflow.Context, d time.Duration) error {
 	ret := _mock.Called(ctx, d)
 
 	if len(ret) == 0 {
@@ -2262,7 +2120,7 @@ func (_mock *WorkflowOutboundInterceptor) Sleep(ctx converter.WorkflowContext, d
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, time.Duration) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, time.Duration) error); ok {
 		r0 = returnFunc(ctx, d)
 	} else {
 		r0 = ret.Error(0)
@@ -2276,17 +2134,17 @@ type WorkflowOutboundInterceptor_Sleep_Call struct {
 }
 
 // Sleep is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - d time.Duration
 func (_e *WorkflowOutboundInterceptor_Expecter) Sleep(ctx any, d any) *WorkflowOutboundInterceptor_Sleep_Call {
 	return &WorkflowOutboundInterceptor_Sleep_Call{Call: _e.mock.On("Sleep", ctx, d)}
 }
 
-func (_c *WorkflowOutboundInterceptor_Sleep_Call) Run(run func(ctx converter.WorkflowContext, d time.Duration)) *WorkflowOutboundInterceptor_Sleep_Call {
+func (_c *WorkflowOutboundInterceptor_Sleep_Call) Run(run func(ctx workflow.Context, d time.Duration)) *WorkflowOutboundInterceptor_Sleep_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 time.Duration
 		if args[1] != nil {
@@ -2305,13 +2163,13 @@ func (_c *WorkflowOutboundInterceptor_Sleep_Call) Return(err error) *WorkflowOut
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_Sleep_Call) RunAndReturn(run func(ctx converter.WorkflowContext, d time.Duration) error) *WorkflowOutboundInterceptor_Sleep_Call {
+func (_c *WorkflowOutboundInterceptor_Sleep_Call) RunAndReturn(run func(ctx workflow.Context, d time.Duration) error) *WorkflowOutboundInterceptor_Sleep_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // UpsertMemo provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) UpsertMemo(ctx converter.WorkflowContext, memo map[string]any) error {
+func (_mock *WorkflowOutboundInterceptor) UpsertMemo(ctx workflow.Context, memo map[string]interface{}) error {
 	ret := _mock.Called(ctx, memo)
 
 	if len(ret) == 0 {
@@ -2319,7 +2177,7 @@ func (_mock *WorkflowOutboundInterceptor) UpsertMemo(ctx converter.WorkflowConte
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, map[string]any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, map[string]interface{}) error); ok {
 		r0 = returnFunc(ctx, memo)
 	} else {
 		r0 = ret.Error(0)
@@ -2333,21 +2191,21 @@ type WorkflowOutboundInterceptor_UpsertMemo_Call struct {
 }
 
 // UpsertMemo is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - memo map[string]any
+//   - ctx workflow.Context
+//   - memo map[string]interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) UpsertMemo(ctx any, memo any) *WorkflowOutboundInterceptor_UpsertMemo_Call {
 	return &WorkflowOutboundInterceptor_UpsertMemo_Call{Call: _e.mock.On("UpsertMemo", ctx, memo)}
 }
 
-func (_c *WorkflowOutboundInterceptor_UpsertMemo_Call) Run(run func(ctx converter.WorkflowContext, memo map[string]any)) *WorkflowOutboundInterceptor_UpsertMemo_Call {
+func (_c *WorkflowOutboundInterceptor_UpsertMemo_Call) Run(run func(ctx workflow.Context, memo map[string]interface{})) *WorkflowOutboundInterceptor_UpsertMemo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 map[string]any
+		var arg1 map[string]interface{}
 		if args[1] != nil {
-			arg1 = args[1].(map[string]any)
+			arg1 = args[1].(map[string]interface{})
 		}
 		run(
 			arg0,
@@ -2362,13 +2220,13 @@ func (_c *WorkflowOutboundInterceptor_UpsertMemo_Call) Return(err error) *Workfl
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_UpsertMemo_Call) RunAndReturn(run func(ctx converter.WorkflowContext, memo map[string]any) error) *WorkflowOutboundInterceptor_UpsertMemo_Call {
+func (_c *WorkflowOutboundInterceptor_UpsertMemo_Call) RunAndReturn(run func(ctx workflow.Context, memo map[string]interface{}) error) *WorkflowOutboundInterceptor_UpsertMemo_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // UpsertSearchAttributes provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) UpsertSearchAttributes(ctx converter.WorkflowContext, attributes map[string]any) error {
+func (_mock *WorkflowOutboundInterceptor) UpsertSearchAttributes(ctx workflow.Context, attributes map[string]interface{}) error {
 	ret := _mock.Called(ctx, attributes)
 
 	if len(ret) == 0 {
@@ -2376,7 +2234,7 @@ func (_mock *WorkflowOutboundInterceptor) UpsertSearchAttributes(ctx converter.W
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, map[string]any) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, map[string]interface{}) error); ok {
 		r0 = returnFunc(ctx, attributes)
 	} else {
 		r0 = ret.Error(0)
@@ -2390,21 +2248,21 @@ type WorkflowOutboundInterceptor_UpsertSearchAttributes_Call struct {
 }
 
 // UpsertSearchAttributes is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
-//   - attributes map[string]any
+//   - ctx workflow.Context
+//   - attributes map[string]interface{}
 func (_e *WorkflowOutboundInterceptor_Expecter) UpsertSearchAttributes(ctx any, attributes any) *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call {
 	return &WorkflowOutboundInterceptor_UpsertSearchAttributes_Call{Call: _e.mock.On("UpsertSearchAttributes", ctx, attributes)}
 }
 
-func (_c *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call) Run(run func(ctx converter.WorkflowContext, attributes map[string]any)) *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call {
+func (_c *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call) Run(run func(ctx workflow.Context, attributes map[string]interface{})) *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
-		var arg1 map[string]any
+		var arg1 map[string]interface{}
 		if args[1] != nil {
-			arg1 = args[1].(map[string]any)
+			arg1 = args[1].(map[string]interface{})
 		}
 		run(
 			arg0,
@@ -2419,13 +2277,13 @@ func (_c *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call) Return(err er
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call) RunAndReturn(run func(ctx converter.WorkflowContext, attributes map[string]any) error) *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call {
+func (_c *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call) RunAndReturn(run func(ctx workflow.Context, attributes map[string]interface{}) error) *WorkflowOutboundInterceptor_UpsertSearchAttributes_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // UpsertTypedSearchAttributes provides a mock function for the type WorkflowOutboundInterceptor
-func (_mock *WorkflowOutboundInterceptor) UpsertTypedSearchAttributes(ctx converter.WorkflowContext, attributes ...temporal.SearchAttributeUpdate) error {
+func (_mock *WorkflowOutboundInterceptor) UpsertTypedSearchAttributes(ctx workflow.Context, attributes ...temporal.SearchAttributeUpdate) error {
 	var tmpRet mock.Arguments
 	if len(attributes) > 0 {
 		tmpRet = _mock.Called(ctx, attributes)
@@ -2439,7 +2297,7 @@ func (_mock *WorkflowOutboundInterceptor) UpsertTypedSearchAttributes(ctx conver
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, ...temporal.SearchAttributeUpdate) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, ...temporal.SearchAttributeUpdate) error); ok {
 		r0 = returnFunc(ctx, attributes...)
 	} else {
 		r0 = ret.Error(0)
@@ -2453,18 +2311,18 @@ type WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call struct {
 }
 
 // UpsertTypedSearchAttributes is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - attributes ...temporal.SearchAttributeUpdate
 func (_e *WorkflowOutboundInterceptor_Expecter) UpsertTypedSearchAttributes(ctx any, attributes ...any) *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call {
 	return &WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call{Call: _e.mock.On("UpsertTypedSearchAttributes",
 		append([]any{ctx}, attributes...)...)}
 }
 
-func (_c *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call) Run(run func(ctx converter.WorkflowContext, attributes ...temporal.SearchAttributeUpdate)) *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call {
+func (_c *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call) Run(run func(ctx workflow.Context, attributes ...temporal.SearchAttributeUpdate)) *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 []temporal.SearchAttributeUpdate
 		var variadicArgs []temporal.SearchAttributeUpdate
@@ -2485,7 +2343,7 @@ func (_c *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call) Return(e
 	return _c
 }
 
-func (_c *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call) RunAndReturn(run func(ctx converter.WorkflowContext, attributes ...temporal.SearchAttributeUpdate) error) *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call {
+func (_c *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call) RunAndReturn(run func(ctx workflow.Context, attributes ...temporal.SearchAttributeUpdate) error) *WorkflowOutboundInterceptor_UpsertTypedSearchAttributes_Call {
 	_c.Call.Return(run)
 	return _c
 }
