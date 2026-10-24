@@ -311,6 +311,72 @@ func (_c *WorkerDeploymentHandle_SetCurrentVersion_Call) RunAndReturn(run func(c
 	return _c
 }
 
+// SetManagerIdentity provides a mock function for the type WorkerDeploymentHandle
+func (_mock *WorkerDeploymentHandle) SetManagerIdentity(ctx context.Context, options client.WorkerDeploymentSetManagerIdentityOptions) (client.WorkerDeploymentSetManagerIdentityResponse, error) {
+	ret := _mock.Called(ctx, options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for SetManagerIdentity")
+	}
+
+	var r0 client.WorkerDeploymentSetManagerIdentityResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.WorkerDeploymentSetManagerIdentityOptions) (client.WorkerDeploymentSetManagerIdentityResponse, error)); ok {
+		return returnFunc(ctx, options)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.WorkerDeploymentSetManagerIdentityOptions) client.WorkerDeploymentSetManagerIdentityResponse); ok {
+		r0 = returnFunc(ctx, options)
+	} else {
+		r0 = ret.Get(0).(client.WorkerDeploymentSetManagerIdentityResponse)
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, client.WorkerDeploymentSetManagerIdentityOptions) error); ok {
+		r1 = returnFunc(ctx, options)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkerDeploymentHandle_SetManagerIdentity_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'SetManagerIdentity'
+type WorkerDeploymentHandle_SetManagerIdentity_Call struct {
+	*mock.Call
+}
+
+// SetManagerIdentity is a helper method to define mock.On call
+//   - ctx context.Context
+//   - options client.WorkerDeploymentSetManagerIdentityOptions
+func (_e *WorkerDeploymentHandle_Expecter) SetManagerIdentity(ctx any, options any) *WorkerDeploymentHandle_SetManagerIdentity_Call {
+	return &WorkerDeploymentHandle_SetManagerIdentity_Call{Call: _e.mock.On("SetManagerIdentity", ctx, options)}
+}
+
+func (_c *WorkerDeploymentHandle_SetManagerIdentity_Call) Run(run func(ctx context.Context, options client.WorkerDeploymentSetManagerIdentityOptions)) *WorkerDeploymentHandle_SetManagerIdentity_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.WorkerDeploymentSetManagerIdentityOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.WorkerDeploymentSetManagerIdentityOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkerDeploymentHandle_SetManagerIdentity_Call) Return(workerDeploymentSetManagerIdentityResponse client.WorkerDeploymentSetManagerIdentityResponse, err error) *WorkerDeploymentHandle_SetManagerIdentity_Call {
+	_c.Call.Return(workerDeploymentSetManagerIdentityResponse, err)
+	return _c
+}
+
+func (_c *WorkerDeploymentHandle_SetManagerIdentity_Call) RunAndReturn(run func(ctx context.Context, options client.WorkerDeploymentSetManagerIdentityOptions) (client.WorkerDeploymentSetManagerIdentityResponse, error)) *WorkerDeploymentHandle_SetManagerIdentity_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // SetRampingVersion provides a mock function for the type WorkerDeploymentHandle
 func (_mock *WorkerDeploymentHandle) SetRampingVersion(ctx context.Context, options client.WorkerDeploymentSetRampingVersionOptions) (client.WorkerDeploymentSetRampingVersionResponse, error) {
 	ret := _mock.Called(ctx, options)
