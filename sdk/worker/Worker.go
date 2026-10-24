@@ -133,6 +133,98 @@ func (_c *Worker_RegisterActivityWithOptions_Call) RunAndReturn(run func(a inter
 	return _c
 }
 
+// RegisterDynamicActivity provides a mock function for the type Worker
+func (_mock *Worker) RegisterDynamicActivity(a interface{}, options activity.DynamicRegisterOptions) {
+	_mock.Called(a, options)
+	return
+}
+
+// Worker_RegisterDynamicActivity_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RegisterDynamicActivity'
+type Worker_RegisterDynamicActivity_Call struct {
+	*mock.Call
+}
+
+// RegisterDynamicActivity is a helper method to define mock.On call
+//   - a interface{}
+//   - options activity.DynamicRegisterOptions
+func (_e *Worker_Expecter) RegisterDynamicActivity(a any, options any) *Worker_RegisterDynamicActivity_Call {
+	return &Worker_RegisterDynamicActivity_Call{Call: _e.mock.On("RegisterDynamicActivity", a, options)}
+}
+
+func (_c *Worker_RegisterDynamicActivity_Call) Run(run func(a interface{}, options activity.DynamicRegisterOptions)) *Worker_RegisterDynamicActivity_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 interface{}
+		if args[0] != nil {
+			arg0 = args[0].(interface{})
+		}
+		var arg1 activity.DynamicRegisterOptions
+		if args[1] != nil {
+			arg1 = args[1].(activity.DynamicRegisterOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Worker_RegisterDynamicActivity_Call) Return() *Worker_RegisterDynamicActivity_Call {
+	_c.Call.Return()
+	return _c
+}
+
+func (_c *Worker_RegisterDynamicActivity_Call) RunAndReturn(run func(a interface{}, options activity.DynamicRegisterOptions)) *Worker_RegisterDynamicActivity_Call {
+	_c.Run(run)
+	return _c
+}
+
+// RegisterDynamicWorkflow provides a mock function for the type Worker
+func (_mock *Worker) RegisterDynamicWorkflow(w interface{}, options workflow.DynamicRegisterOptions) {
+	_mock.Called(w, options)
+	return
+}
+
+// Worker_RegisterDynamicWorkflow_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RegisterDynamicWorkflow'
+type Worker_RegisterDynamicWorkflow_Call struct {
+	*mock.Call
+}
+
+// RegisterDynamicWorkflow is a helper method to define mock.On call
+//   - w interface{}
+//   - options workflow.DynamicRegisterOptions
+func (_e *Worker_Expecter) RegisterDynamicWorkflow(w any, options any) *Worker_RegisterDynamicWorkflow_Call {
+	return &Worker_RegisterDynamicWorkflow_Call{Call: _e.mock.On("RegisterDynamicWorkflow", w, options)}
+}
+
+func (_c *Worker_RegisterDynamicWorkflow_Call) Run(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Worker_RegisterDynamicWorkflow_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 interface{}
+		if args[0] != nil {
+			arg0 = args[0].(interface{})
+		}
+		var arg1 workflow.DynamicRegisterOptions
+		if args[1] != nil {
+			arg1 = args[1].(workflow.DynamicRegisterOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Worker_RegisterDynamicWorkflow_Call) Return() *Worker_RegisterDynamicWorkflow_Call {
+	_c.Call.Return()
+	return _c
+}
+
+func (_c *Worker_RegisterDynamicWorkflow_Call) RunAndReturn(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Worker_RegisterDynamicWorkflow_Call {
+	_c.Run(run)
+	return _c
+}
+
 // RegisterNexusService provides a mock function for the type Worker
 func (_mock *Worker) RegisterNexusService(service *nexus.Service) {
 	_mock.Called(service)

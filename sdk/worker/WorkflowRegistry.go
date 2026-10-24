@@ -45,6 +45,52 @@ func (_m *WorkflowRegistry) EXPECT() *WorkflowRegistry_Expecter {
 	return &WorkflowRegistry_Expecter{mock: &_m.Mock}
 }
 
+// RegisterDynamicWorkflow provides a mock function for the type WorkflowRegistry
+func (_mock *WorkflowRegistry) RegisterDynamicWorkflow(w interface{}, options workflow.DynamicRegisterOptions) {
+	_mock.Called(w, options)
+	return
+}
+
+// WorkflowRegistry_RegisterDynamicWorkflow_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RegisterDynamicWorkflow'
+type WorkflowRegistry_RegisterDynamicWorkflow_Call struct {
+	*mock.Call
+}
+
+// RegisterDynamicWorkflow is a helper method to define mock.On call
+//   - w interface{}
+//   - options workflow.DynamicRegisterOptions
+func (_e *WorkflowRegistry_Expecter) RegisterDynamicWorkflow(w any, options any) *WorkflowRegistry_RegisterDynamicWorkflow_Call {
+	return &WorkflowRegistry_RegisterDynamicWorkflow_Call{Call: _e.mock.On("RegisterDynamicWorkflow", w, options)}
+}
+
+func (_c *WorkflowRegistry_RegisterDynamicWorkflow_Call) Run(run func(w interface{}, options workflow.DynamicRegisterOptions)) *WorkflowRegistry_RegisterDynamicWorkflow_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 interface{}
+		if args[0] != nil {
+			arg0 = args[0].(interface{})
+		}
+		var arg1 workflow.DynamicRegisterOptions
+		if args[1] != nil {
+			arg1 = args[1].(workflow.DynamicRegisterOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowRegistry_RegisterDynamicWorkflow_Call) Return() *WorkflowRegistry_RegisterDynamicWorkflow_Call {
+	_c.Call.Return()
+	return _c
+}
+
+func (_c *WorkflowRegistry_RegisterDynamicWorkflow_Call) RunAndReturn(run func(w interface{}, options workflow.DynamicRegisterOptions)) *WorkflowRegistry_RegisterDynamicWorkflow_Call {
+	_c.Run(run)
+	return _c
+}
+
 // RegisterWorkflow provides a mock function for the type WorkflowRegistry
 func (_mock *WorkflowRegistry) RegisterWorkflow(w interface{}) {
 	_mock.Called(w)
