@@ -114,6 +114,63 @@ func (_c *Client_CancelWorkflow_Call) RunAndReturn(run func(ctx context.Context,
 	return _c
 }
 
+// CancelWorkflowWithOptions provides a mock function for the type Client
+func (_mock *Client) CancelWorkflowWithOptions(ctx context.Context, options client.CancelWorkflowOptions) error {
+	ret := _mock.Called(ctx, options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for CancelWorkflowWithOptions")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.CancelWorkflowOptions) error); ok {
+		r0 = returnFunc(ctx, options)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// Client_CancelWorkflowWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CancelWorkflowWithOptions'
+type Client_CancelWorkflowWithOptions_Call struct {
+	*mock.Call
+}
+
+// CancelWorkflowWithOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - options client.CancelWorkflowOptions
+func (_e *Client_Expecter) CancelWorkflowWithOptions(ctx any, options any) *Client_CancelWorkflowWithOptions_Call {
+	return &Client_CancelWorkflowWithOptions_Call{Call: _e.mock.On("CancelWorkflowWithOptions", ctx, options)}
+}
+
+func (_c *Client_CancelWorkflowWithOptions_Call) Run(run func(ctx context.Context, options client.CancelWorkflowOptions)) *Client_CancelWorkflowWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.CancelWorkflowOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.CancelWorkflowOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_CancelWorkflowWithOptions_Call) Return(err error) *Client_CancelWorkflowWithOptions_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *Client_CancelWorkflowWithOptions_Call) RunAndReturn(run func(ctx context.Context, options client.CancelWorkflowOptions) error) *Client_CancelWorkflowWithOptions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // CheckHealth provides a mock function for the type Client
 func (_mock *Client) CheckHealth(ctx context.Context, request *client.CheckHealthRequest) (*client.CheckHealthResponse, error) {
 	ret := _mock.Called(ctx, request)
@@ -3375,6 +3432,63 @@ func (_c *Client_TerminateWorkflow_Call) Return(err error) *Client_TerminateWork
 }
 
 func (_c *Client_TerminateWorkflow_Call) RunAndReturn(run func(ctx context.Context, workflowID string, runID string, reason string, details ...interface{}) error) *Client_TerminateWorkflow_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// TerminateWorkflowWithOptions provides a mock function for the type Client
+func (_mock *Client) TerminateWorkflowWithOptions(ctx context.Context, options client.TerminateWorkflowOptions) error {
+	ret := _mock.Called(ctx, options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for TerminateWorkflowWithOptions")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.TerminateWorkflowOptions) error); ok {
+		r0 = returnFunc(ctx, options)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// Client_TerminateWorkflowWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'TerminateWorkflowWithOptions'
+type Client_TerminateWorkflowWithOptions_Call struct {
+	*mock.Call
+}
+
+// TerminateWorkflowWithOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - options client.TerminateWorkflowOptions
+func (_e *Client_Expecter) TerminateWorkflowWithOptions(ctx any, options any) *Client_TerminateWorkflowWithOptions_Call {
+	return &Client_TerminateWorkflowWithOptions_Call{Call: _e.mock.On("TerminateWorkflowWithOptions", ctx, options)}
+}
+
+func (_c *Client_TerminateWorkflowWithOptions_Call) Run(run func(ctx context.Context, options client.TerminateWorkflowOptions)) *Client_TerminateWorkflowWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.TerminateWorkflowOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.TerminateWorkflowOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Client_TerminateWorkflowWithOptions_Call) Return(err error) *Client_TerminateWorkflowWithOptions_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *Client_TerminateWorkflowWithOptions_Call) RunAndReturn(run func(ctx context.Context, options client.TerminateWorkflowOptions) error) *Client_TerminateWorkflowWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
