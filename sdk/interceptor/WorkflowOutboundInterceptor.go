@@ -1345,6 +1345,83 @@ func (_c *WorkflowOutboundInterceptor_MutableSideEffect_Call) RunAndReturn(run f
 	return _c
 }
 
+// MutableSideEffectWithOptions provides a mock function for the type WorkflowOutboundInterceptor
+func (_mock *WorkflowOutboundInterceptor) MutableSideEffectWithOptions(ctx workflow.Context, id string, options workflow.MutableSideEffectOptions, f func(ctx workflow.Context) interface{}, equals func(a interface{}, b interface{}) bool) converter.EncodedValue {
+	ret := _mock.Called(ctx, id, options, f, equals)
+
+	if len(ret) == 0 {
+		panic("no return value specified for MutableSideEffectWithOptions")
+	}
+
+	var r0 converter.EncodedValue
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, string, workflow.MutableSideEffectOptions, func(ctx workflow.Context) interface{}, func(a interface{}, b interface{}) bool) converter.EncodedValue); ok {
+		r0 = returnFunc(ctx, id, options, f, equals)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(converter.EncodedValue)
+		}
+	}
+	return r0
+}
+
+// WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'MutableSideEffectWithOptions'
+type WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call struct {
+	*mock.Call
+}
+
+// MutableSideEffectWithOptions is a helper method to define mock.On call
+//   - ctx workflow.Context
+//   - id string
+//   - options workflow.MutableSideEffectOptions
+//   - f func(ctx workflow.Context) interface{}
+//   - equals func(a interface{}, b interface{}) bool
+func (_e *WorkflowOutboundInterceptor_Expecter) MutableSideEffectWithOptions(ctx any, id any, options any, f any, equals any) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
+	return &WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call{Call: _e.mock.On("MutableSideEffectWithOptions", ctx, id, options, f, equals)}
+}
+
+func (_c *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call) Run(run func(ctx workflow.Context, id string, options workflow.MutableSideEffectOptions, f func(ctx workflow.Context) interface{}, equals func(a interface{}, b interface{}) bool)) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 workflow.Context
+		if args[0] != nil {
+			arg0 = args[0].(workflow.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 workflow.MutableSideEffectOptions
+		if args[2] != nil {
+			arg2 = args[2].(workflow.MutableSideEffectOptions)
+		}
+		var arg3 func(ctx workflow.Context) interface{}
+		if args[3] != nil {
+			arg3 = args[3].(func(ctx workflow.Context) interface{})
+		}
+		var arg4 func(a interface{}, b interface{}) bool
+		if args[4] != nil {
+			arg4 = args[4].(func(a interface{}, b interface{}) bool)
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+			arg3,
+			arg4,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call) Return(encodedValue converter.EncodedValue) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
+	_c.Call.Return(encodedValue)
+	return _c
+}
+
+func (_c *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call) RunAndReturn(run func(ctx workflow.Context, id string, options workflow.MutableSideEffectOptions, f func(ctx workflow.Context) interface{}, equals func(a interface{}, b interface{}) bool) converter.EncodedValue) *WorkflowOutboundInterceptor_MutableSideEffectWithOptions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // NewContinueAsNewError provides a mock function for the type WorkflowOutboundInterceptor
 func (_mock *WorkflowOutboundInterceptor) NewContinueAsNewError(ctx workflow.Context, wfn interface{}, args ...interface{}) error {
 	var tmpRet mock.Arguments
@@ -1959,6 +2036,71 @@ func (_c *WorkflowOutboundInterceptor_SideEffect_Call) Return(encodedValue conve
 }
 
 func (_c *WorkflowOutboundInterceptor_SideEffect_Call) RunAndReturn(run func(ctx workflow.Context, f func(ctx workflow.Context) interface{}) converter.EncodedValue) *WorkflowOutboundInterceptor_SideEffect_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// SideEffectWithOptions provides a mock function for the type WorkflowOutboundInterceptor
+func (_mock *WorkflowOutboundInterceptor) SideEffectWithOptions(ctx workflow.Context, options workflow.SideEffectOptions, f func(ctx workflow.Context) interface{}) converter.EncodedValue {
+	ret := _mock.Called(ctx, options, f)
+
+	if len(ret) == 0 {
+		panic("no return value specified for SideEffectWithOptions")
+	}
+
+	var r0 converter.EncodedValue
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, workflow.SideEffectOptions, func(ctx workflow.Context) interface{}) converter.EncodedValue); ok {
+		r0 = returnFunc(ctx, options, f)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(converter.EncodedValue)
+		}
+	}
+	return r0
+}
+
+// WorkflowOutboundInterceptor_SideEffectWithOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'SideEffectWithOptions'
+type WorkflowOutboundInterceptor_SideEffectWithOptions_Call struct {
+	*mock.Call
+}
+
+// SideEffectWithOptions is a helper method to define mock.On call
+//   - ctx workflow.Context
+//   - options workflow.SideEffectOptions
+//   - f func(ctx workflow.Context) interface{}
+func (_e *WorkflowOutboundInterceptor_Expecter) SideEffectWithOptions(ctx any, options any, f any) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
+	return &WorkflowOutboundInterceptor_SideEffectWithOptions_Call{Call: _e.mock.On("SideEffectWithOptions", ctx, options, f)}
+}
+
+func (_c *WorkflowOutboundInterceptor_SideEffectWithOptions_Call) Run(run func(ctx workflow.Context, options workflow.SideEffectOptions, f func(ctx workflow.Context) interface{})) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 workflow.Context
+		if args[0] != nil {
+			arg0 = args[0].(workflow.Context)
+		}
+		var arg1 workflow.SideEffectOptions
+		if args[1] != nil {
+			arg1 = args[1].(workflow.SideEffectOptions)
+		}
+		var arg2 func(ctx workflow.Context) interface{}
+		if args[2] != nil {
+			arg2 = args[2].(func(ctx workflow.Context) interface{})
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowOutboundInterceptor_SideEffectWithOptions_Call) Return(encodedValue converter.EncodedValue) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
+	_c.Call.Return(encodedValue)
+	return _c
+}
+
+func (_c *WorkflowOutboundInterceptor_SideEffectWithOptions_Call) RunAndReturn(run func(ctx workflow.Context, options workflow.SideEffectOptions, f func(ctx workflow.Context) interface{}) converter.EncodedValue) *WorkflowOutboundInterceptor_SideEffectWithOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }
