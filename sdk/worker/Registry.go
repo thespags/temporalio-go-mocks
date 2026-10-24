@@ -133,6 +133,98 @@ func (_c *Registry_RegisterActivityWithOptions_Call) RunAndReturn(run func(a int
 	return _c
 }
 
+// RegisterDynamicActivity provides a mock function for the type Registry
+func (_mock *Registry) RegisterDynamicActivity(a interface{}, options activity.DynamicRegisterOptions) {
+	_mock.Called(a, options)
+	return
+}
+
+// Registry_RegisterDynamicActivity_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RegisterDynamicActivity'
+type Registry_RegisterDynamicActivity_Call struct {
+	*mock.Call
+}
+
+// RegisterDynamicActivity is a helper method to define mock.On call
+//   - a interface{}
+//   - options activity.DynamicRegisterOptions
+func (_e *Registry_Expecter) RegisterDynamicActivity(a any, options any) *Registry_RegisterDynamicActivity_Call {
+	return &Registry_RegisterDynamicActivity_Call{Call: _e.mock.On("RegisterDynamicActivity", a, options)}
+}
+
+func (_c *Registry_RegisterDynamicActivity_Call) Run(run func(a interface{}, options activity.DynamicRegisterOptions)) *Registry_RegisterDynamicActivity_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 interface{}
+		if args[0] != nil {
+			arg0 = args[0].(interface{})
+		}
+		var arg1 activity.DynamicRegisterOptions
+		if args[1] != nil {
+			arg1 = args[1].(activity.DynamicRegisterOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Registry_RegisterDynamicActivity_Call) Return() *Registry_RegisterDynamicActivity_Call {
+	_c.Call.Return()
+	return _c
+}
+
+func (_c *Registry_RegisterDynamicActivity_Call) RunAndReturn(run func(a interface{}, options activity.DynamicRegisterOptions)) *Registry_RegisterDynamicActivity_Call {
+	_c.Run(run)
+	return _c
+}
+
+// RegisterDynamicWorkflow provides a mock function for the type Registry
+func (_mock *Registry) RegisterDynamicWorkflow(w interface{}, options workflow.DynamicRegisterOptions) {
+	_mock.Called(w, options)
+	return
+}
+
+// Registry_RegisterDynamicWorkflow_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RegisterDynamicWorkflow'
+type Registry_RegisterDynamicWorkflow_Call struct {
+	*mock.Call
+}
+
+// RegisterDynamicWorkflow is a helper method to define mock.On call
+//   - w interface{}
+//   - options workflow.DynamicRegisterOptions
+func (_e *Registry_Expecter) RegisterDynamicWorkflow(w any, options any) *Registry_RegisterDynamicWorkflow_Call {
+	return &Registry_RegisterDynamicWorkflow_Call{Call: _e.mock.On("RegisterDynamicWorkflow", w, options)}
+}
+
+func (_c *Registry_RegisterDynamicWorkflow_Call) Run(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Registry_RegisterDynamicWorkflow_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 interface{}
+		if args[0] != nil {
+			arg0 = args[0].(interface{})
+		}
+		var arg1 workflow.DynamicRegisterOptions
+		if args[1] != nil {
+			arg1 = args[1].(workflow.DynamicRegisterOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *Registry_RegisterDynamicWorkflow_Call) Return() *Registry_RegisterDynamicWorkflow_Call {
+	_c.Call.Return()
+	return _c
+}
+
+func (_c *Registry_RegisterDynamicWorkflow_Call) RunAndReturn(run func(w interface{}, options workflow.DynamicRegisterOptions)) *Registry_RegisterDynamicWorkflow_Call {
+	_c.Run(run)
+	return _c
+}
+
 // RegisterNexusService provides a mock function for the type Registry
 func (_mock *Registry) RegisterNexusService(service *nexus.Service) {
 	_mock.Called(service)
