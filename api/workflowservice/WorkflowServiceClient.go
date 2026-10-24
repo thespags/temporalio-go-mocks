@@ -1625,6 +1625,89 @@ func (_c *WorkflowServiceClient_ExecuteMultiOperation_Call) RunAndReturn(run fun
 	return _c
 }
 
+// FetchWorkerConfig provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) FetchWorkerConfig(ctx context.Context, in *workflowservice.FetchWorkerConfigRequest, opts ...grpc.CallOption) (*workflowservice.FetchWorkerConfigResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for FetchWorkerConfig")
+	}
+
+	var r0 *workflowservice.FetchWorkerConfigResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.FetchWorkerConfigRequest, ...grpc.CallOption) (*workflowservice.FetchWorkerConfigResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.FetchWorkerConfigRequest, ...grpc.CallOption) *workflowservice.FetchWorkerConfigResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.FetchWorkerConfigResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.FetchWorkerConfigRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_FetchWorkerConfig_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'FetchWorkerConfig'
+type WorkflowServiceClient_FetchWorkerConfig_Call struct {
+	*mock.Call
+}
+
+// FetchWorkerConfig is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.FetchWorkerConfigRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) FetchWorkerConfig(ctx any, in any, opts ...any) *WorkflowServiceClient_FetchWorkerConfig_Call {
+	return &WorkflowServiceClient_FetchWorkerConfig_Call{Call: _e.mock.On("FetchWorkerConfig",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_FetchWorkerConfig_Call) Run(run func(ctx context.Context, in *workflowservice.FetchWorkerConfigRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_FetchWorkerConfig_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.FetchWorkerConfigRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.FetchWorkerConfigRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_FetchWorkerConfig_Call) Return(fetchWorkerConfigResponse *workflowservice.FetchWorkerConfigResponse, err error) *WorkflowServiceClient_FetchWorkerConfig_Call {
+	_c.Call.Return(fetchWorkerConfigResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_FetchWorkerConfig_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.FetchWorkerConfigRequest, opts ...grpc.CallOption) (*workflowservice.FetchWorkerConfigResponse, error)) *WorkflowServiceClient_FetchWorkerConfig_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetClusterInfo provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) GetClusterInfo(ctx context.Context, in *workflowservice.GetClusterInfoRequest, opts ...grpc.CallOption) (*workflowservice.GetClusterInfoResponse, error) {
 	var tmpRet mock.Arguments
@@ -7020,6 +7103,89 @@ func (_c *WorkflowServiceClient_UpdateSchedule_Call) RunAndReturn(run func(ctx c
 	return _c
 }
 
+// UpdateTaskQueueConfig provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) UpdateTaskQueueConfig(ctx context.Context, in *workflowservice.UpdateTaskQueueConfigRequest, opts ...grpc.CallOption) (*workflowservice.UpdateTaskQueueConfigResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateTaskQueueConfig")
+	}
+
+	var r0 *workflowservice.UpdateTaskQueueConfigResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.UpdateTaskQueueConfigRequest, ...grpc.CallOption) (*workflowservice.UpdateTaskQueueConfigResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.UpdateTaskQueueConfigRequest, ...grpc.CallOption) *workflowservice.UpdateTaskQueueConfigResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.UpdateTaskQueueConfigResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.UpdateTaskQueueConfigRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_UpdateTaskQueueConfig_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateTaskQueueConfig'
+type WorkflowServiceClient_UpdateTaskQueueConfig_Call struct {
+	*mock.Call
+}
+
+// UpdateTaskQueueConfig is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.UpdateTaskQueueConfigRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) UpdateTaskQueueConfig(ctx any, in any, opts ...any) *WorkflowServiceClient_UpdateTaskQueueConfig_Call {
+	return &WorkflowServiceClient_UpdateTaskQueueConfig_Call{Call: _e.mock.On("UpdateTaskQueueConfig",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_UpdateTaskQueueConfig_Call) Run(run func(ctx context.Context, in *workflowservice.UpdateTaskQueueConfigRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_UpdateTaskQueueConfig_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.UpdateTaskQueueConfigRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.UpdateTaskQueueConfigRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_UpdateTaskQueueConfig_Call) Return(updateTaskQueueConfigResponse *workflowservice.UpdateTaskQueueConfigResponse, err error) *WorkflowServiceClient_UpdateTaskQueueConfig_Call {
+	_c.Call.Return(updateTaskQueueConfigResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_UpdateTaskQueueConfig_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.UpdateTaskQueueConfigRequest, opts ...grpc.CallOption) (*workflowservice.UpdateTaskQueueConfigResponse, error)) *WorkflowServiceClient_UpdateTaskQueueConfig_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // UpdateWorkerBuildIdCompatibility provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) UpdateWorkerBuildIdCompatibility(ctx context.Context, in *workflowservice.UpdateWorkerBuildIdCompatibilityRequest, opts ...grpc.CallOption) (*workflowservice.UpdateWorkerBuildIdCompatibilityResponse, error) {
 	var tmpRet mock.Arguments
@@ -7099,6 +7265,89 @@ func (_c *WorkflowServiceClient_UpdateWorkerBuildIdCompatibility_Call) Return(up
 }
 
 func (_c *WorkflowServiceClient_UpdateWorkerBuildIdCompatibility_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.UpdateWorkerBuildIdCompatibilityRequest, opts ...grpc.CallOption) (*workflowservice.UpdateWorkerBuildIdCompatibilityResponse, error)) *WorkflowServiceClient_UpdateWorkerBuildIdCompatibility_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateWorkerConfig provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) UpdateWorkerConfig(ctx context.Context, in *workflowservice.UpdateWorkerConfigRequest, opts ...grpc.CallOption) (*workflowservice.UpdateWorkerConfigResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateWorkerConfig")
+	}
+
+	var r0 *workflowservice.UpdateWorkerConfigResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.UpdateWorkerConfigRequest, ...grpc.CallOption) (*workflowservice.UpdateWorkerConfigResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.UpdateWorkerConfigRequest, ...grpc.CallOption) *workflowservice.UpdateWorkerConfigResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.UpdateWorkerConfigResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.UpdateWorkerConfigRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_UpdateWorkerConfig_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateWorkerConfig'
+type WorkflowServiceClient_UpdateWorkerConfig_Call struct {
+	*mock.Call
+}
+
+// UpdateWorkerConfig is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.UpdateWorkerConfigRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) UpdateWorkerConfig(ctx any, in any, opts ...any) *WorkflowServiceClient_UpdateWorkerConfig_Call {
+	return &WorkflowServiceClient_UpdateWorkerConfig_Call{Call: _e.mock.On("UpdateWorkerConfig",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_UpdateWorkerConfig_Call) Run(run func(ctx context.Context, in *workflowservice.UpdateWorkerConfigRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_UpdateWorkerConfig_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.UpdateWorkerConfigRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.UpdateWorkerConfigRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_UpdateWorkerConfig_Call) Return(updateWorkerConfigResponse *workflowservice.UpdateWorkerConfigResponse, err error) *WorkflowServiceClient_UpdateWorkerConfig_Call {
+	_c.Call.Return(updateWorkerConfigResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_UpdateWorkerConfig_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.UpdateWorkerConfigRequest, opts ...grpc.CallOption) (*workflowservice.UpdateWorkerConfigResponse, error)) *WorkflowServiceClient_UpdateWorkerConfig_Call {
 	_c.Call.Return(run)
 	return _c
 }
