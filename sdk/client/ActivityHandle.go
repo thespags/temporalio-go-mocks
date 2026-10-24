@@ -317,6 +317,125 @@ func (_c *ActivityHandle_GetRunID_Call) RunAndReturn(run func() string) *Activit
 	return _c
 }
 
+// Pause provides a mock function for the type ActivityHandle
+func (_mock *ActivityHandle) Pause(ctx context.Context, options client.PauseActivityOptions) error {
+	ret := _mock.Called(ctx, options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for Pause")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.PauseActivityOptions) error); ok {
+		r0 = returnFunc(ctx, options)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// ActivityHandle_Pause_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Pause'
+type ActivityHandle_Pause_Call struct {
+	*mock.Call
+}
+
+// Pause is a helper method to define mock.On call
+//   - ctx context.Context
+//   - options client.PauseActivityOptions
+func (_e *ActivityHandle_Expecter) Pause(ctx any, options any) *ActivityHandle_Pause_Call {
+	return &ActivityHandle_Pause_Call{Call: _e.mock.On("Pause", ctx, options)}
+}
+
+func (_c *ActivityHandle_Pause_Call) Run(run func(ctx context.Context, options client.PauseActivityOptions)) *ActivityHandle_Pause_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.PauseActivityOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.PauseActivityOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *ActivityHandle_Pause_Call) Return(err error) *ActivityHandle_Pause_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *ActivityHandle_Pause_Call) RunAndReturn(run func(ctx context.Context, options client.PauseActivityOptions) error) *ActivityHandle_Pause_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// RestoreOriginalOptions provides a mock function for the type ActivityHandle
+func (_mock *ActivityHandle) RestoreOriginalOptions(ctx context.Context) (*client.ActivityExecutionOptions, error) {
+	ret := _mock.Called(ctx)
+
+	if len(ret) == 0 {
+		panic("no return value specified for RestoreOriginalOptions")
+	}
+
+	var r0 *client.ActivityExecutionOptions
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context) (*client.ActivityExecutionOptions, error)); ok {
+		return returnFunc(ctx)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context) *client.ActivityExecutionOptions); ok {
+		r0 = returnFunc(ctx)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*client.ActivityExecutionOptions)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context) error); ok {
+		r1 = returnFunc(ctx)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// ActivityHandle_RestoreOriginalOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RestoreOriginalOptions'
+type ActivityHandle_RestoreOriginalOptions_Call struct {
+	*mock.Call
+}
+
+// RestoreOriginalOptions is a helper method to define mock.On call
+//   - ctx context.Context
+func (_e *ActivityHandle_Expecter) RestoreOriginalOptions(ctx any) *ActivityHandle_RestoreOriginalOptions_Call {
+	return &ActivityHandle_RestoreOriginalOptions_Call{Call: _e.mock.On("RestoreOriginalOptions", ctx)}
+}
+
+func (_c *ActivityHandle_RestoreOriginalOptions_Call) Run(run func(ctx context.Context)) *ActivityHandle_RestoreOriginalOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		run(
+			arg0,
+		)
+	})
+	return _c
+}
+
+func (_c *ActivityHandle_RestoreOriginalOptions_Call) Return(activityExecutionOptions *client.ActivityExecutionOptions, err error) *ActivityHandle_RestoreOriginalOptions_Call {
+	_c.Call.Return(activityExecutionOptions, err)
+	return _c
+}
+
+func (_c *ActivityHandle_RestoreOriginalOptions_Call) RunAndReturn(run func(ctx context.Context) (*client.ActivityExecutionOptions, error)) *ActivityHandle_RestoreOriginalOptions_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // Terminate provides a mock function for the type ActivityHandle
 func (_mock *ActivityHandle) Terminate(ctx context.Context, options client.TerminateActivityOptions) error {
 	ret := _mock.Called(ctx, options)
@@ -370,6 +489,131 @@ func (_c *ActivityHandle_Terminate_Call) Return(err error) *ActivityHandle_Termi
 }
 
 func (_c *ActivityHandle_Terminate_Call) RunAndReturn(run func(ctx context.Context, options client.TerminateActivityOptions) error) *ActivityHandle_Terminate_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// Unpause provides a mock function for the type ActivityHandle
+func (_mock *ActivityHandle) Unpause(ctx context.Context, options client.UnpauseActivityOptions) error {
+	ret := _mock.Called(ctx, options)
+
+	if len(ret) == 0 {
+		panic("no return value specified for Unpause")
+	}
+
+	var r0 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.UnpauseActivityOptions) error); ok {
+		r0 = returnFunc(ctx, options)
+	} else {
+		r0 = ret.Error(0)
+	}
+	return r0
+}
+
+// ActivityHandle_Unpause_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Unpause'
+type ActivityHandle_Unpause_Call struct {
+	*mock.Call
+}
+
+// Unpause is a helper method to define mock.On call
+//   - ctx context.Context
+//   - options client.UnpauseActivityOptions
+func (_e *ActivityHandle_Expecter) Unpause(ctx any, options any) *ActivityHandle_Unpause_Call {
+	return &ActivityHandle_Unpause_Call{Call: _e.mock.On("Unpause", ctx, options)}
+}
+
+func (_c *ActivityHandle_Unpause_Call) Run(run func(ctx context.Context, options client.UnpauseActivityOptions)) *ActivityHandle_Unpause_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.UnpauseActivityOptions
+		if args[1] != nil {
+			arg1 = args[1].(client.UnpauseActivityOptions)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *ActivityHandle_Unpause_Call) Return(err error) *ActivityHandle_Unpause_Call {
+	_c.Call.Return(err)
+	return _c
+}
+
+func (_c *ActivityHandle_Unpause_Call) RunAndReturn(run func(ctx context.Context, options client.UnpauseActivityOptions) error) *ActivityHandle_Unpause_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// UpdateOptions provides a mock function for the type ActivityHandle
+func (_mock *ActivityHandle) UpdateOptions(ctx context.Context, update client.ActivityOptionsUpdate) (*client.ActivityExecutionOptions, error) {
+	ret := _mock.Called(ctx, update)
+
+	if len(ret) == 0 {
+		panic("no return value specified for UpdateOptions")
+	}
+
+	var r0 *client.ActivityExecutionOptions
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ActivityOptionsUpdate) (*client.ActivityExecutionOptions, error)); ok {
+		return returnFunc(ctx, update)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, client.ActivityOptionsUpdate) *client.ActivityExecutionOptions); ok {
+		r0 = returnFunc(ctx, update)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*client.ActivityExecutionOptions)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, client.ActivityOptionsUpdate) error); ok {
+		r1 = returnFunc(ctx, update)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// ActivityHandle_UpdateOptions_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'UpdateOptions'
+type ActivityHandle_UpdateOptions_Call struct {
+	*mock.Call
+}
+
+// UpdateOptions is a helper method to define mock.On call
+//   - ctx context.Context
+//   - update client.ActivityOptionsUpdate
+func (_e *ActivityHandle_Expecter) UpdateOptions(ctx any, update any) *ActivityHandle_UpdateOptions_Call {
+	return &ActivityHandle_UpdateOptions_Call{Call: _e.mock.On("UpdateOptions", ctx, update)}
+}
+
+func (_c *ActivityHandle_UpdateOptions_Call) Run(run func(ctx context.Context, update client.ActivityOptionsUpdate)) *ActivityHandle_UpdateOptions_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 client.ActivityOptionsUpdate
+		if args[1] != nil {
+			arg1 = args[1].(client.ActivityOptionsUpdate)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *ActivityHandle_UpdateOptions_Call) Return(activityExecutionOptions *client.ActivityExecutionOptions, err error) *ActivityHandle_UpdateOptions_Call {
+	_c.Call.Return(activityExecutionOptions, err)
+	return _c
+}
+
+func (_c *ActivityHandle_UpdateOptions_Call) RunAndReturn(run func(ctx context.Context, update client.ActivityOptionsUpdate) (*client.ActivityExecutionOptions, error)) *ActivityHandle_UpdateOptions_Call {
 	_c.Call.Return(run)
 	return _c
 }

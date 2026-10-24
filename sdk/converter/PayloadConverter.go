@@ -90,7 +90,7 @@ func (_c *PayloadConverter_Encoding_Call) RunAndReturn(run func() string) *Paylo
 }
 
 // FromPayload provides a mock function for the type PayloadConverter
-func (_mock *PayloadConverter) FromPayload(payload *common.Payload, valuePtr interface{}) error {
+func (_mock *PayloadConverter) FromPayload(payload *common.Payload, valuePtr any) error {
 	ret := _mock.Called(payload, valuePtr)
 
 	if len(ret) == 0 {
@@ -98,7 +98,7 @@ func (_mock *PayloadConverter) FromPayload(payload *common.Payload, valuePtr int
 	}
 
 	var r0 error
-	if returnFunc, ok := ret.Get(0).(func(*common.Payload, interface{}) error); ok {
+	if returnFunc, ok := ret.Get(0).(func(*common.Payload, any) error); ok {
 		r0 = returnFunc(payload, valuePtr)
 	} else {
 		r0 = ret.Error(0)
@@ -113,20 +113,20 @@ type PayloadConverter_FromPayload_Call struct {
 
 // FromPayload is a helper method to define mock.On call
 //   - payload *common.Payload
-//   - valuePtr interface{}
+//   - valuePtr any
 func (_e *PayloadConverter_Expecter) FromPayload(payload any, valuePtr any) *PayloadConverter_FromPayload_Call {
 	return &PayloadConverter_FromPayload_Call{Call: _e.mock.On("FromPayload", payload, valuePtr)}
 }
 
-func (_c *PayloadConverter_FromPayload_Call) Run(run func(payload *common.Payload, valuePtr interface{})) *PayloadConverter_FromPayload_Call {
+func (_c *PayloadConverter_FromPayload_Call) Run(run func(payload *common.Payload, valuePtr any)) *PayloadConverter_FromPayload_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 *common.Payload
 		if args[0] != nil {
 			arg0 = args[0].(*common.Payload)
 		}
-		var arg1 interface{}
+		var arg1 any
 		if args[1] != nil {
-			arg1 = args[1].(interface{})
+			arg1 = args[1].(any)
 		}
 		run(
 			arg0,
@@ -141,13 +141,13 @@ func (_c *PayloadConverter_FromPayload_Call) Return(err error) *PayloadConverter
 	return _c
 }
 
-func (_c *PayloadConverter_FromPayload_Call) RunAndReturn(run func(payload *common.Payload, valuePtr interface{}) error) *PayloadConverter_FromPayload_Call {
+func (_c *PayloadConverter_FromPayload_Call) RunAndReturn(run func(payload *common.Payload, valuePtr any) error) *PayloadConverter_FromPayload_Call {
 	_c.Call.Return(run)
 	return _c
 }
 
 // ToPayload provides a mock function for the type PayloadConverter
-func (_mock *PayloadConverter) ToPayload(value interface{}) (*common.Payload, error) {
+func (_mock *PayloadConverter) ToPayload(value any) (*common.Payload, error) {
 	ret := _mock.Called(value)
 
 	if len(ret) == 0 {
@@ -156,17 +156,17 @@ func (_mock *PayloadConverter) ToPayload(value interface{}) (*common.Payload, er
 
 	var r0 *common.Payload
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(interface{}) (*common.Payload, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) (*common.Payload, error)); ok {
 		return returnFunc(value)
 	}
-	if returnFunc, ok := ret.Get(0).(func(interface{}) *common.Payload); ok {
+	if returnFunc, ok := ret.Get(0).(func(any) *common.Payload); ok {
 		r0 = returnFunc(value)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*common.Payload)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(interface{}) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(any) error); ok {
 		r1 = returnFunc(value)
 	} else {
 		r1 = ret.Error(1)
@@ -180,16 +180,16 @@ type PayloadConverter_ToPayload_Call struct {
 }
 
 // ToPayload is a helper method to define mock.On call
-//   - value interface{}
+//   - value any
 func (_e *PayloadConverter_Expecter) ToPayload(value any) *PayloadConverter_ToPayload_Call {
 	return &PayloadConverter_ToPayload_Call{Call: _e.mock.On("ToPayload", value)}
 }
 
-func (_c *PayloadConverter_ToPayload_Call) Run(run func(value interface{})) *PayloadConverter_ToPayload_Call {
+func (_c *PayloadConverter_ToPayload_Call) Run(run func(value any)) *PayloadConverter_ToPayload_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 interface{}
+		var arg0 any
 		if args[0] != nil {
-			arg0 = args[0].(interface{})
+			arg0 = args[0].(any)
 		}
 		run(
 			arg0,
@@ -203,7 +203,7 @@ func (_c *PayloadConverter_ToPayload_Call) Return(payload *common.Payload, err e
 	return _c
 }
 
-func (_c *PayloadConverter_ToPayload_Call) RunAndReturn(run func(value interface{}) (*common.Payload, error)) *PayloadConverter_ToPayload_Call {
+func (_c *PayloadConverter_ToPayload_Call) RunAndReturn(run func(value any) (*common.Payload, error)) *PayloadConverter_ToPayload_Call {
 	_c.Call.Return(run)
 	return _c
 }

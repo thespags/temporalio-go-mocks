@@ -47,7 +47,7 @@ func (_m *StorageDriverSelector) EXPECT() *StorageDriverSelector_Expecter {
 }
 
 // SelectDriver provides a mock function for the type StorageDriverSelector
-func (_mock *StorageDriverSelector) SelectDriver(ctx converter.StorageDriverStoreContext, payload *common.Payload) (converter.StorageDriver, error) {
+func (_mock *StorageDriverSelector) SelectDriver(ctx converter.StorageDriverSelectContext, payload *common.Payload) (converter.StorageDriver, error) {
 	ret := _mock.Called(ctx, payload)
 
 	if len(ret) == 0 {
@@ -56,17 +56,17 @@ func (_mock *StorageDriverSelector) SelectDriver(ctx converter.StorageDriverStor
 
 	var r0 converter.StorageDriver
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(converter.StorageDriverStoreContext, *common.Payload) (converter.StorageDriver, error)); ok {
+	if returnFunc, ok := ret.Get(0).(func(converter.StorageDriverSelectContext, *common.Payload) (converter.StorageDriver, error)); ok {
 		return returnFunc(ctx, payload)
 	}
-	if returnFunc, ok := ret.Get(0).(func(converter.StorageDriverStoreContext, *common.Payload) converter.StorageDriver); ok {
+	if returnFunc, ok := ret.Get(0).(func(converter.StorageDriverSelectContext, *common.Payload) converter.StorageDriver); ok {
 		r0 = returnFunc(ctx, payload)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(converter.StorageDriver)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(converter.StorageDriverStoreContext, *common.Payload) error); ok {
+	if returnFunc, ok := ret.Get(1).(func(converter.StorageDriverSelectContext, *common.Payload) error); ok {
 		r1 = returnFunc(ctx, payload)
 	} else {
 		r1 = ret.Error(1)
@@ -80,17 +80,17 @@ type StorageDriverSelector_SelectDriver_Call struct {
 }
 
 // SelectDriver is a helper method to define mock.On call
-//   - ctx converter.StorageDriverStoreContext
+//   - ctx converter.StorageDriverSelectContext
 //   - payload *common.Payload
 func (_e *StorageDriverSelector_Expecter) SelectDriver(ctx any, payload any) *StorageDriverSelector_SelectDriver_Call {
 	return &StorageDriverSelector_SelectDriver_Call{Call: _e.mock.On("SelectDriver", ctx, payload)}
 }
 
-func (_c *StorageDriverSelector_SelectDriver_Call) Run(run func(ctx converter.StorageDriverStoreContext, payload *common.Payload)) *StorageDriverSelector_SelectDriver_Call {
+func (_c *StorageDriverSelector_SelectDriver_Call) Run(run func(ctx converter.StorageDriverSelectContext, payload *common.Payload)) *StorageDriverSelector_SelectDriver_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.StorageDriverStoreContext
+		var arg0 converter.StorageDriverSelectContext
 		if args[0] != nil {
-			arg0 = args[0].(converter.StorageDriverStoreContext)
+			arg0 = args[0].(converter.StorageDriverSelectContext)
 		}
 		var arg1 *common.Payload
 		if args[1] != nil {
@@ -109,7 +109,7 @@ func (_c *StorageDriverSelector_SelectDriver_Call) Return(storageDriver converte
 	return _c
 }
 
-func (_c *StorageDriverSelector_SelectDriver_Call) RunAndReturn(run func(ctx converter.StorageDriverStoreContext, payload *common.Payload) (converter.StorageDriver, error)) *StorageDriverSelector_SelectDriver_Call {
+func (_c *StorageDriverSelector_SelectDriver_Call) RunAndReturn(run func(ctx converter.StorageDriverSelectContext, payload *common.Payload) (converter.StorageDriver, error)) *StorageDriverSelector_SelectDriver_Call {
 	_c.Call.Return(run)
 	return _c
 }
