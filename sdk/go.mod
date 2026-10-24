@@ -36,7 +36,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.19 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
-	github.com/nexus-rpc/sdk-go v0.5.1
+	github.com/nexus-rpc/sdk-go v0.6.0
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/robfig/cron v1.2.0 // indirect
 	github.com/rs/zerolog v1.34.0 // indirect
@@ -47,8 +47,8 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
-	go.temporal.io/api v1.62.1
-	go.temporal.io/sdk v1.40.0
+	go.temporal.io/api v1.62.2
+	go.temporal.io/sdk v1.41.0
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/exp v0.0.0-20260212183809-81e46e3db34a // indirect
 	golang.org/x/mod v0.41.0 // indirect
