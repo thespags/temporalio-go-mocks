@@ -1210,6 +1210,89 @@ func (_c *WorkflowServiceClient_DescribeTaskQueue_Call) RunAndReturn(run func(ct
 	return _c
 }
 
+// DescribeWorker provides a mock function for the type WorkflowServiceClient
+func (_mock *WorkflowServiceClient) DescribeWorker(ctx context.Context, in *workflowservice.DescribeWorkerRequest, opts ...grpc.CallOption) (*workflowservice.DescribeWorkerResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DescribeWorker")
+	}
+
+	var r0 *workflowservice.DescribeWorkerResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DescribeWorkerRequest, ...grpc.CallOption) (*workflowservice.DescribeWorkerResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *workflowservice.DescribeWorkerRequest, ...grpc.CallOption) *workflowservice.DescribeWorkerResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*workflowservice.DescribeWorkerResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *workflowservice.DescribeWorkerRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// WorkflowServiceClient_DescribeWorker_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DescribeWorker'
+type WorkflowServiceClient_DescribeWorker_Call struct {
+	*mock.Call
+}
+
+// DescribeWorker is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *workflowservice.DescribeWorkerRequest
+//   - opts ...grpc.CallOption
+func (_e *WorkflowServiceClient_Expecter) DescribeWorker(ctx any, in any, opts ...any) *WorkflowServiceClient_DescribeWorker_Call {
+	return &WorkflowServiceClient_DescribeWorker_Call{Call: _e.mock.On("DescribeWorker",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *WorkflowServiceClient_DescribeWorker_Call) Run(run func(ctx context.Context, in *workflowservice.DescribeWorkerRequest, opts ...grpc.CallOption)) *WorkflowServiceClient_DescribeWorker_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *workflowservice.DescribeWorkerRequest
+		if args[1] != nil {
+			arg1 = args[1].(*workflowservice.DescribeWorkerRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DescribeWorker_Call) Return(describeWorkerResponse *workflowservice.DescribeWorkerResponse, err error) *WorkflowServiceClient_DescribeWorker_Call {
+	_c.Call.Return(describeWorkerResponse, err)
+	return _c
+}
+
+func (_c *WorkflowServiceClient_DescribeWorker_Call) RunAndReturn(run func(ctx context.Context, in *workflowservice.DescribeWorkerRequest, opts ...grpc.CallOption) (*workflowservice.DescribeWorkerResponse, error)) *WorkflowServiceClient_DescribeWorker_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // DescribeWorkerDeployment provides a mock function for the type WorkflowServiceClient
 func (_mock *WorkflowServiceClient) DescribeWorkerDeployment(ctx context.Context, in *workflowservice.DescribeWorkerDeploymentRequest, opts ...grpc.CallOption) (*workflowservice.DescribeWorkerDeploymentResponse, error) {
 	var tmpRet mock.Arguments
