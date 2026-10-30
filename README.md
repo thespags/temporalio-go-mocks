@@ -148,10 +148,4 @@ internal types, which nobody outside the SDK can import. Two things in `sdk/.moc
 
 The api's gRPC service code is protobuf-generated, so `api/.mockery.yml` sets `include-auto-generated: true`.
 
-### Mockery fork
-
-Neither `resolve-internal-aliases` nor `generate: false` working together with `all: true` is in a released
-mockery yet. Each module's `go.mod` has a `replace` pointing mockery at a fork
-([vektra/mockery#1189](https://github.com/vektra/mockery/pull/1189)). `go tool mockery` runs it, so CI
-and local runs agree. Once that merges and releases, delete the `replace` lines and bump the `tool` versions.
-The fork is pinned to a commit, so bump it by hand: Dependabot can't.
+Mockery is pinned as a `tool` in each module's `go.mod`, and `go tool mockery` runs it, so CI and local runs agree.

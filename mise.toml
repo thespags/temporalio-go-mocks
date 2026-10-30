@@ -1,10 +1,7 @@
 [tools]
 go = "1.26.6"
-# mockery is not installed by mise: it's the `tool` in each module's go.mod, replaced with our
-# upstream MR (vektra/mockery#1189: resolve-internal-aliases, and generate: false working
-# with all: true) from thespags' fork.
-# `go install github.com/thespags/...` can't work because the fork's go.mod still
-# declares the vektra module path, but a go.mod replace can. Run it with `go tool mockery`.
+# mockery is not installed by mise: it's the `tool` in each module's go.mod, so Dependabot keeps it current.
+# Run it with `go tool mockery`.
 
 # sdk/ and api/ are separate Go modules with their own go.mod, .mockery.yml and mockery pin.
 # Each task runs inside its module, deleting the previous output first so mocks of
