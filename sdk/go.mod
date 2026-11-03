@@ -7,7 +7,7 @@ tool github.com/vektra/mockery/v3
 require (
 	github.com/nexus-rpc/sdk-go v0.7.0
 	github.com/stretchr/testify v1.12.1
-	go.temporal.io/api v1.64.0
+	go.temporal.io/api v1.64.1
 	go.temporal.io/sdk v1.50.0
 	google.golang.org/grpc v1.85.0
 )
