@@ -8,8 +8,8 @@ import (
 	"context"
 
 	mock "github.com/stretchr/testify/mock"
-	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/interceptor"
+	"go.temporal.io/sdk/workflow"
 )
 
 // NewWorkerInterceptor creates a new instance of WorkerInterceptor. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -167,7 +167,7 @@ func (_c *WorkerInterceptor_InterceptNexusOperation_Call) RunAndReturn(run func(
 }
 
 // InterceptWorkflow provides a mock function for the type WorkerInterceptor
-func (_mock *WorkerInterceptor) InterceptWorkflow(ctx converter.WorkflowContext, next interceptor.WorkflowInboundInterceptor) interceptor.WorkflowInboundInterceptor {
+func (_mock *WorkerInterceptor) InterceptWorkflow(ctx workflow.Context, next interceptor.WorkflowInboundInterceptor) interceptor.WorkflowInboundInterceptor {
 	ret := _mock.Called(ctx, next)
 
 	if len(ret) == 0 {
@@ -175,7 +175,7 @@ func (_mock *WorkerInterceptor) InterceptWorkflow(ctx converter.WorkflowContext,
 	}
 
 	var r0 interceptor.WorkflowInboundInterceptor
-	if returnFunc, ok := ret.Get(0).(func(converter.WorkflowContext, interceptor.WorkflowInboundInterceptor) interceptor.WorkflowInboundInterceptor); ok {
+	if returnFunc, ok := ret.Get(0).(func(workflow.Context, interceptor.WorkflowInboundInterceptor) interceptor.WorkflowInboundInterceptor); ok {
 		r0 = returnFunc(ctx, next)
 	} else {
 		if ret.Get(0) != nil {
@@ -191,17 +191,17 @@ type WorkerInterceptor_InterceptWorkflow_Call struct {
 }
 
 // InterceptWorkflow is a helper method to define mock.On call
-//   - ctx converter.WorkflowContext
+//   - ctx workflow.Context
 //   - next interceptor.WorkflowInboundInterceptor
 func (_e *WorkerInterceptor_Expecter) InterceptWorkflow(ctx any, next any) *WorkerInterceptor_InterceptWorkflow_Call {
 	return &WorkerInterceptor_InterceptWorkflow_Call{Call: _e.mock.On("InterceptWorkflow", ctx, next)}
 }
 
-func (_c *WorkerInterceptor_InterceptWorkflow_Call) Run(run func(ctx converter.WorkflowContext, next interceptor.WorkflowInboundInterceptor)) *WorkerInterceptor_InterceptWorkflow_Call {
+func (_c *WorkerInterceptor_InterceptWorkflow_Call) Run(run func(ctx workflow.Context, next interceptor.WorkflowInboundInterceptor)) *WorkerInterceptor_InterceptWorkflow_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		var arg0 converter.WorkflowContext
+		var arg0 workflow.Context
 		if args[0] != nil {
-			arg0 = args[0].(converter.WorkflowContext)
+			arg0 = args[0].(workflow.Context)
 		}
 		var arg1 interceptor.WorkflowInboundInterceptor
 		if args[1] != nil {
@@ -220,7 +220,7 @@ func (_c *WorkerInterceptor_InterceptWorkflow_Call) Return(workflowInboundInterc
 	return _c
 }
 
-func (_c *WorkerInterceptor_InterceptWorkflow_Call) RunAndReturn(run func(ctx converter.WorkflowContext, next interceptor.WorkflowInboundInterceptor) interceptor.WorkflowInboundInterceptor) *WorkerInterceptor_InterceptWorkflow_Call {
+func (_c *WorkerInterceptor_InterceptWorkflow_Call) RunAndReturn(run func(ctx workflow.Context, next interceptor.WorkflowInboundInterceptor) interceptor.WorkflowInboundInterceptor) *WorkerInterceptor_InterceptWorkflow_Call {
 	_c.Call.Return(run)
 	return _c
 }
