@@ -463,6 +463,89 @@ func (_c *OperatorServiceClient_DeleteNexusEndpoint_Call) RunAndReturn(run func(
 	return _c
 }
 
+// DescribeNamespaceRestore provides a mock function for the type OperatorServiceClient
+func (_mock *OperatorServiceClient) DescribeNamespaceRestore(ctx context.Context, in *operatorservice.DescribeNamespaceRestoreRequest, opts ...grpc.CallOption) (*operatorservice.DescribeNamespaceRestoreResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for DescribeNamespaceRestore")
+	}
+
+	var r0 *operatorservice.DescribeNamespaceRestoreResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *operatorservice.DescribeNamespaceRestoreRequest, ...grpc.CallOption) (*operatorservice.DescribeNamespaceRestoreResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *operatorservice.DescribeNamespaceRestoreRequest, ...grpc.CallOption) *operatorservice.DescribeNamespaceRestoreResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*operatorservice.DescribeNamespaceRestoreResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *operatorservice.DescribeNamespaceRestoreRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// OperatorServiceClient_DescribeNamespaceRestore_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'DescribeNamespaceRestore'
+type OperatorServiceClient_DescribeNamespaceRestore_Call struct {
+	*mock.Call
+}
+
+// DescribeNamespaceRestore is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *operatorservice.DescribeNamespaceRestoreRequest
+//   - opts ...grpc.CallOption
+func (_e *OperatorServiceClient_Expecter) DescribeNamespaceRestore(ctx any, in any, opts ...any) *OperatorServiceClient_DescribeNamespaceRestore_Call {
+	return &OperatorServiceClient_DescribeNamespaceRestore_Call{Call: _e.mock.On("DescribeNamespaceRestore",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *OperatorServiceClient_DescribeNamespaceRestore_Call) Run(run func(ctx context.Context, in *operatorservice.DescribeNamespaceRestoreRequest, opts ...grpc.CallOption)) *OperatorServiceClient_DescribeNamespaceRestore_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *operatorservice.DescribeNamespaceRestoreRequest
+		if args[1] != nil {
+			arg1 = args[1].(*operatorservice.DescribeNamespaceRestoreRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *OperatorServiceClient_DescribeNamespaceRestore_Call) Return(describeNamespaceRestoreResponse *operatorservice.DescribeNamespaceRestoreResponse, err error) *OperatorServiceClient_DescribeNamespaceRestore_Call {
+	_c.Call.Return(describeNamespaceRestoreResponse, err)
+	return _c
+}
+
+func (_c *OperatorServiceClient_DescribeNamespaceRestore_Call) RunAndReturn(run func(ctx context.Context, in *operatorservice.DescribeNamespaceRestoreRequest, opts ...grpc.CallOption) (*operatorservice.DescribeNamespaceRestoreResponse, error)) *OperatorServiceClient_DescribeNamespaceRestore_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetNexusEndpoint provides a mock function for the type OperatorServiceClient
 func (_mock *OperatorServiceClient) GetNexusEndpoint(ctx context.Context, in *operatorservice.GetNexusEndpointRequest, opts ...grpc.CallOption) (*operatorservice.GetNexusEndpointResponse, error) {
 	var tmpRet mock.Arguments
@@ -957,6 +1040,172 @@ func (_c *OperatorServiceClient_RemoveSearchAttributes_Call) Return(removeSearch
 }
 
 func (_c *OperatorServiceClient_RemoveSearchAttributes_Call) RunAndReturn(run func(ctx context.Context, in *operatorservice.RemoveSearchAttributesRequest, opts ...grpc.CallOption) (*operatorservice.RemoveSearchAttributesResponse, error)) *OperatorServiceClient_RemoveSearchAttributes_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// RestoreNamespace provides a mock function for the type OperatorServiceClient
+func (_mock *OperatorServiceClient) RestoreNamespace(ctx context.Context, in *operatorservice.RestoreNamespaceRequest, opts ...grpc.CallOption) (*operatorservice.RestoreNamespaceResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for RestoreNamespace")
+	}
+
+	var r0 *operatorservice.RestoreNamespaceResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *operatorservice.RestoreNamespaceRequest, ...grpc.CallOption) (*operatorservice.RestoreNamespaceResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *operatorservice.RestoreNamespaceRequest, ...grpc.CallOption) *operatorservice.RestoreNamespaceResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*operatorservice.RestoreNamespaceResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *operatorservice.RestoreNamespaceRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// OperatorServiceClient_RestoreNamespace_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'RestoreNamespace'
+type OperatorServiceClient_RestoreNamespace_Call struct {
+	*mock.Call
+}
+
+// RestoreNamespace is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *operatorservice.RestoreNamespaceRequest
+//   - opts ...grpc.CallOption
+func (_e *OperatorServiceClient_Expecter) RestoreNamespace(ctx any, in any, opts ...any) *OperatorServiceClient_RestoreNamespace_Call {
+	return &OperatorServiceClient_RestoreNamespace_Call{Call: _e.mock.On("RestoreNamespace",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *OperatorServiceClient_RestoreNamespace_Call) Run(run func(ctx context.Context, in *operatorservice.RestoreNamespaceRequest, opts ...grpc.CallOption)) *OperatorServiceClient_RestoreNamespace_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *operatorservice.RestoreNamespaceRequest
+		if args[1] != nil {
+			arg1 = args[1].(*operatorservice.RestoreNamespaceRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *OperatorServiceClient_RestoreNamespace_Call) Return(restoreNamespaceResponse *operatorservice.RestoreNamespaceResponse, err error) *OperatorServiceClient_RestoreNamespace_Call {
+	_c.Call.Return(restoreNamespaceResponse, err)
+	return _c
+}
+
+func (_c *OperatorServiceClient_RestoreNamespace_Call) RunAndReturn(run func(ctx context.Context, in *operatorservice.RestoreNamespaceRequest, opts ...grpc.CallOption) (*operatorservice.RestoreNamespaceResponse, error)) *OperatorServiceClient_RestoreNamespace_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
+// SoftDeleteNamespace provides a mock function for the type OperatorServiceClient
+func (_mock *OperatorServiceClient) SoftDeleteNamespace(ctx context.Context, in *operatorservice.SoftDeleteNamespaceRequest, opts ...grpc.CallOption) (*operatorservice.SoftDeleteNamespaceResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for SoftDeleteNamespace")
+	}
+
+	var r0 *operatorservice.SoftDeleteNamespaceResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *operatorservice.SoftDeleteNamespaceRequest, ...grpc.CallOption) (*operatorservice.SoftDeleteNamespaceResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *operatorservice.SoftDeleteNamespaceRequest, ...grpc.CallOption) *operatorservice.SoftDeleteNamespaceResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*operatorservice.SoftDeleteNamespaceResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *operatorservice.SoftDeleteNamespaceRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// OperatorServiceClient_SoftDeleteNamespace_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'SoftDeleteNamespace'
+type OperatorServiceClient_SoftDeleteNamespace_Call struct {
+	*mock.Call
+}
+
+// SoftDeleteNamespace is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *operatorservice.SoftDeleteNamespaceRequest
+//   - opts ...grpc.CallOption
+func (_e *OperatorServiceClient_Expecter) SoftDeleteNamespace(ctx any, in any, opts ...any) *OperatorServiceClient_SoftDeleteNamespace_Call {
+	return &OperatorServiceClient_SoftDeleteNamespace_Call{Call: _e.mock.On("SoftDeleteNamespace",
+		append([]any{ctx, in}, opts...)...)}
+}
+
+func (_c *OperatorServiceClient_SoftDeleteNamespace_Call) Run(run func(ctx context.Context, in *operatorservice.SoftDeleteNamespaceRequest, opts ...grpc.CallOption)) *OperatorServiceClient_SoftDeleteNamespace_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *operatorservice.SoftDeleteNamespaceRequest
+		if args[1] != nil {
+			arg1 = args[1].(*operatorservice.SoftDeleteNamespaceRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *OperatorServiceClient_SoftDeleteNamespace_Call) Return(softDeleteNamespaceResponse *operatorservice.SoftDeleteNamespaceResponse, err error) *OperatorServiceClient_SoftDeleteNamespace_Call {
+	_c.Call.Return(softDeleteNamespaceResponse, err)
+	return _c
+}
+
+func (_c *OperatorServiceClient_SoftDeleteNamespace_Call) RunAndReturn(run func(ctx context.Context, in *operatorservice.SoftDeleteNamespaceRequest, opts ...grpc.CallOption) (*operatorservice.SoftDeleteNamespaceResponse, error)) *OperatorServiceClient_SoftDeleteNamespace_Call {
 	_c.Call.Return(run)
 	return _c
 }
